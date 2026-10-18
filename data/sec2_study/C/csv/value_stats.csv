@@ -1,0 +1,11 @@
+column,kind,n,distinct,distinct_ratio,min,max,value_range,bit_width_of_range,top20_values_frac,frac_eq_prev_row,mean_run_length,bitflip_prob_min,bitflip_prob_max,n_bits_never_flip,n_bits_always_flip_near_half,active_bits_entropy_mean,notes
+publicbi_drug_cost,near_miss_float_cents,524288,374569,0.714434,853,675377546,675376693,30,0.0004,0.0,1.0,0.0,0.5009,34,16,0.6955,dollars*100 (cents); Medicare Part D total drug cost per claim group
+publicbi_drug_cost_ge65,near_miss_float_cents,524288,332777,0.634722,0,411704361,411704361,29,0.0257,0.0135,1.014,0.0,0.495,35,15,0.7008,"cents, same measure restricted to age>=65 beneficiaries"
+publicbi_bene_count,near_miss_measure,524288,791,0.001509,11,21252,21241,15,0.403,0.0293,1.03,0.0,0.501,49,4,0.4944,"beneficiary count per claim group, small positive integer, heavily right-skewed"
+publicbi_num_employees,near_miss_measure,524288,1705,0.003252,0,140060,140060,18,0.9444,0.6654,2.989,0.0,0.1805,46,0,0.1951,"employee count per company record, small positive integer, heavily right-skewed"
+publicbi_day_supply_bin,near_miss_measure,524288,57,0.000109,0,73,73,7,0.7893,0.1719,1.208,0.0,0.4683,57,0,0.6736,"pre-binned average day-supply, a handful of discrete bin codes"
+instagram,structured,524288,506063,0.965239,162878000043071158,2296504869382588624,2133626869339517466,61,0.0002,0.0,1.0,0.0,0.5049,3,45,0.8224,composite id: sequence + shard + timestamp fields (documented layout)
+hashed_splitmix64,control,524288,524288,1.0,-9223369655247677542,9223335633534536988,18446705288782214530,64,0.0,0.0,1.0,0.4986,0.5018,0,64,1.0,"splitmix64 hash stream, no documented structure (synthetic control)"
+random_uint64,control,524288,524288,1.0,-9223284979195847281,9223361647338948268,18446646626534795549,64,0.0,0.0,1.0,0.4986,0.5023,0,64,1.0,"numpy uniform random uint64, no documented structure (synthetic control)"
+uuidv7_lo,control,524288,524288,1.0,-9223370937900124453,-4611687960600957116,4611682977299167337,62,0.0,0.0,1.0,0.0,0.5015,2,62,1.0,"UUIDv7 low 64 bits (random part by spec), no documented bit-field layout"
+publicbi_npi,control,524288,96437,0.183939,1003000522,1992999122,989998600,30,0.004,0.0034,1.003,0.0,0.5004,33,30,0.9866,"US National Provider Identifier, government-assigned, no documented bit-field layout"

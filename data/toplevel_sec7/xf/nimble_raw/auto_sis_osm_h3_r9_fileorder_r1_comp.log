@@ -1,0 +1,68 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: osm_h3_r9_fileorder ==
+  --- Auto/view encoding tree ---
+SubIntSplitEncoding sections=5
+  [0..17] storageBytes=4
+    Constant<Uint32> rowCount=524288 value=262143
+  [18..20] storageBytes=1
+    FixedBitWidth<Uint8> rowCount=524288 bit_width=3
+  [21..28] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [29..42] storageBytes=2
+    RLE<Uint16> rowCount=524288
+  [43..63] storageBytes=4
+    RLE<Uint32> rowCount=524288
+
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	522079	
+1	/Section0	0	Constant	Uint32	10	
+1	/Section1	1	FixedBitWidth	Uint8	196624	Uncompressed
+1	/Section2	2	RLE	Uint8	239036	
+2	/Section2/Lengths	0	PFOR	Uint32	111587	
+3	/Section2/Lengths/ExceptionPositions	0	FixedBitWidth	Uint32	36	Uncompressed
+3	/Section2/Lengths/ExceptionValues	1	FixedBitWidth	Uint32	27	Uncompressed
+2	/Section2/Values	1	Trivial	Uint8	127439	Uncompressed
+1	/Section3	3	RLE	Uint16	85283	
+2	/Section3/Lengths	0	PFOR	Uint32	32958	
+3	/Section3/Lengths/ExceptionPositions	0	FixedBitWidth	Uint32	959	Uncompressed
+3	/Section3/Lengths/ExceptionValues	1	FixedBitWidth	Uint32	548	Uncompressed
+2	/Section3/Values	1	Dictionary	Uint16	52315	
+3	/Section3/Values/Alphabet	0	FixedBitWidth	Uint16	2901	Uncompressed
+3	/Section3/Values/Indices	1	FixedBitWidth	Uint32	49404	Uncompressed
+1	/Section4	4	RLE	Uint32	1088	
+2	/Section4/Lengths	0	Dictionary	Uint32	959	
+3	/Section4/Lengths/Alphabet	0	FixedBitWidth	Uint32	335	Uncompressed
+3	/Section4/Lengths/Indices	1	FixedBitWidth	Uint32	614	Uncompressed
+2	/Section4/Values	1	Dictionary	Uint32	119	
+3	/Section4/Values/Alphabet	0	Trivial	Uint32	15	Uncompressed
+3	/Section4/Values/Indices	1	FixedBitWidth	Uint32	94	Uncompressed
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	524288	522079	715854	0.7293093284384805	column	0
+1	/Section0	payload	Constant	Uint32	524288	10	10	1	section	1
+1	/Section1	payload	FixedBitWidth	Uint8	524288	196624	196624	1	section	1
+1	/Section2	payload	RLE	Uint8	524288	239036	204937	1.1663877191527152	section	1
+2	/Section2/Lengths	metadata	PFOR	Uint32	127432	111587	111588	0.9999910384629171	section	1
+3	/Section2/Lengths/ExceptionPositions	metadata	FixedBitWidth	Uint32	8	36	36	1	section	1
+3	/Section2/Lengths/ExceptionValues	payload	FixedBitWidth	Uint32	8	27	27	1	section	1
+2	/Section2/Values	payload	Trivial	Uint8	127432	127439	127439	1	section	1
+1	/Section3	payload	RLE	Uint16	524288	85283	80365	1.0611957941890127	section	1
+2	/Section3/Lengths	metadata	PFOR	Uint32	35916	32958	33017	0.9982130417663628	section	1
+3	/Section3/Lengths/ExceptionPositions	metadata	FixedBitWidth	Uint32	470	959	959	1	section	1
+3	/Section3/Lengths/ExceptionValues	payload	FixedBitWidth	Uint32	470	548	548	1	section	1
+2	/Section3/Values	payload	Dictionary	Uint16	35916	52315	52315	1	section	1
+3	/Section3/Values/Alphabet	payload	FixedBitWidth	Uint16	1648	2901	2901	1	section	1
+3	/Section3/Values/Indices	metadata	FixedBitWidth	Uint32	35916	49404	49404	1	section	1
+1	/Section4	payload	RLE	Uint32	524288	1088	1222	0.8903436988543372	section	1
+2	/Section4/Lengths	metadata	Dictionary	Uint32	595	959	959	1	section	1
+3	/Section4/Lengths/Alphabet	payload	FixedBitWidth	Uint32	158	335	335	1	section	1
+3	/Section4/Lengths/Indices	metadata	FixedBitWidth	Uint32	595	614	614	1	section	1
+2	/Section4/Values	payload	Dictionary	Uint32	595	119	119	1	section	1
+3	/Section4/Values/Alphabet	payload	Trivial	Uint32	2	15	15	1	section	1
+3	/Section4/Values/Indices	metadata	FixedBitWidth	Uint32	595	94	94	1	section	1
+  Auto/view: 522079 B, 7.97 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_sis_osm_h3_r9_fileorder_r1_comp.csv.tmp

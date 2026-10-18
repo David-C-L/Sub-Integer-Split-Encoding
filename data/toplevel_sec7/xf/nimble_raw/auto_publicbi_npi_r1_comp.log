@@ -1,0 +1,23 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: publicbi_npi ==
+  --- Auto/view encoding tree ---
+Dictionary<Uint64> rowCount=524288
+indices child:
+  PFOR<Uint32> rowCount=524288 baseBitWidth=17 numExceptions=0
+alphabet:
+  entries=96437
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	Dictionary	Uint64	1475807	
+1	/Alphabet	0	PFOR	Uint64	361664	
+1	/Indices	1	PFOR	Uint32	1114133	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	Dictionary	Uint64	524288	1475807	1958650	0.7534817348684043	column	0
+1	/Alphabet	payload	PFOR	Uint64	96437	361664	361678	0.9999612915355648	column	0
+1	/Indices	metadata	PFOR	Uint32	524288	1114133	1114147	0.9999874343331715	column	0
+  Auto/view: 1475807 B, 22.52 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_publicbi_npi_r1_comp.csv.tmp

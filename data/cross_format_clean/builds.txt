@@ -1,0 +1,6 @@
+btrblocks rev-btr-sis feat(subintsplit): Allow 64-bit-wide sections and a shared codec set stamp=rev-btr-sis
+fastlanes rev-fls-sis Keep a SubIntSplit Split Only When It Beats the Measured Single Section stamp=rev-fls-sis+18afd3b8
+harness: $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh (= $RESULTS/cross_format_shared.sh with FLS_COMMIT=rev-fls-sis)
+fastlanes local diff:  1 file changed, 2 insertions(+), 2 deletions(-)  (gcc 11 FLS_PATCH only)
+nimble evaluation rev-kdefault: b0c8923e354a1f2432ff19e5eb3b156828c32c4eb129c098c3dd79e41fbf03e8  nimble_ml_id_compression_benchmark b9b48ba338b67752817efaf15682aa06d4b64b746916314929983dd086d9f482  nimble_ml_id_decode_point_benchmark 5647256d7497ea05946598d2448dd292953f4ea30c3fb783a20769bbc016d105  nimble_ml_id_decode_range_benchmark 
+rows=524288 columns=9 reps=3 load_max=4

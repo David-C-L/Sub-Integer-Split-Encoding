@@ -1,0 +1,12 @@
+idx,column,data_type,size,rowgroups_count,vectors_count,decompression_speed(cycles_per_value),compression_speed(cycles_per_value),
+0,F1_stocks_usa,double,6.69,6,512,3.13,9.60
+1,F2_food_prices,double,22.36,6,512,3.16,9.38
+2,F3_gov10,double,30.51,6,512,3.15,9.53
+3,F4_medicare_total_drug_cost,double,24.26,6,512,4.24,11.28
+4,F5_city_temp,double,10.85,6,512,3.13,9.35
+5,F6_air_pressure,double,16.90,6,512,3.19,9.21
+6,F7_dew_point_temp,double,13.72,6,512,3.82,9.15
+7,F8_poi_lat,double,55.48,5,414,2.42,11.22
+8,F9_nyc29,double,39.66,6,512,3.42,9.26
+9,F10_medicare_calc,double,55.50,6,512,2.33,10.16
+10,C0_uniform_control,double,56.51,6,512,3.01,13.00

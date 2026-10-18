@@ -1,0 +1,15 @@
+# Bit-flip profiles cached from the 524,288-row prefix of each column (scripts/plot/admission/profiles.py).
+# Per column: one profile per pair budget in PAIRS = [0 (all pairs), 65536, 16384, 4096, 1024].
+# Needs the raw column files (datasets/README.md; SIS_DATASETS = the derived text files, SIS_EXTRA_COLUMNS =
+# unpacked datasets/columns_524k with bing_quadkey, uuidv7_hi, uuidv7_lo under the names in PATH_OVERRIDES).
+
+# profiles_42col.npz: the 42 admission columns (names = data/toplevel_sec7/admission/*.csv); Fig. 4 reads the
+# TwitterSnowflake_tweet_id profile at 1,024 pairs.
+SIS_ADM_DIR=data/toplevel_sec7/admission SIS_PROFILES_NPZ=data/bitflip_profiles/profiles_42col.npz \
+  python3 scripts/plot/admission/profiles.py
+
+# profiles.npz: the same command on an earlier 39-column admission sweep (the 42 above without bing_quadkey,
+# uuidv7_hi, uuidv7_lo); its 39 profiles are identical to those in profiles_42col.npz. Read by
+# scripts/plot/make_tables_toplevel.py (tab:eval_admission) through scripts/plot/admission/gates.py.
+mkdir -p /tmp/adm39 && for f in data/toplevel_sec7/admission/*.csv; do case $(basename $f) in bing_quadkey.csv|uuidv7_hi.csv|uuidv7_lo.csv) ;; *) cp $f /tmp/adm39/;; esac; done
+SIS_ADM_DIR=/tmp/adm39 SIS_PROFILES_NPZ=data/bitflip_profiles/profiles.npz python3 scripts/plot/admission/profiles.py

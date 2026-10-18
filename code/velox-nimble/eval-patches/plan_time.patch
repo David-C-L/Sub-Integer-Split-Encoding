@@ -1,0 +1,295 @@
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCompressionBenchmark.cpp b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCompressionBenchmark.cpp
+index e577857a9..c0787c94b 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCompressionBenchmark.cpp
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCompressionBenchmark.cpp
+@@ -21,8 +21,10 @@
+ #include <cstdint>
+ #include <iomanip>
+ #include <iostream>
++#include <memory>
+ #include <span>
+ #include <string>
++#include <string_view>
+ #include <type_traits>
+ #include <vector>
+ 
+@@ -31,14 +33,90 @@
+ #include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h"
+ #include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/DriverSweep.h"
+ #include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/ElemType.h"
++#include "velox/dwio/nimble/encodings/subintsplit/SplitBoundaries.h"
+ 
+ DEFINE_bool(dry_run, false, "Print sweep plan and exit");
+ 
+ constexpr std::string_view kDriver = "bench_compression";
+ 
++DEFINE_int32(
++    mlidc_sis_plan_time_reps,
++    0,
++    "Evaluation only. When > 0, each SubIntSplit arm is first encoded this "
++    "many times (after two warm-up encodes) through the arm's own factory, "
++    "with a plan observer installed. Prints one [plan-time] line per encode "
++    "with plan_ms (encode entry to the moment the top-level split is chosen: "
++    "row-frame fit, sampling, pricing, DP and any re-pricing) and encode_ms "
++    "(encode entry to the finished target). The observer only reads the plan, "
++    "so the encoded bytes are unchanged; bytes are printed to check that.");
++
+ namespace facebook::nimble::mlidc {
+ namespace {
+ 
++// Times an arm's planning inside its real encode: the factory is wrapped so
++// the clock starts immediately before the arm's encode and the plan observer
++// stamps the first plan the top-level SubIntSplit encode chooses.
++template <typename Elem>
++void timeArmPlanning(
++    const EncoderEntry<Elem>& encoder,
++    const Vector<Elem>& data,
++    CsvResultWriter& csv,
++    std::string_view driver,
++    const std::string& dataset) {
++  using Clock = std::chrono::steady_clock;
++  struct Probe {
++    Clock::time_point start;
++    Clock::time_point planned;
++    int calls{0};
++    std::string plan;
++  };
++  auto probe = std::make_shared<Probe>();
++  EncoderEntry<Elem> timed = encoder;
++  timed.factory = [probe, inner = encoder.factory](
++                      const Vector<Elem>& values,
++                      const Encoding::Options& options,
++                      const subintsplit::TuningConfig& tuning) {
++    subintsplit::TuningConfig observed = tuning;
++    auto previous = observed.selector.planObserver;
++    observed.selector.planObserver =
++        [probe, previous](
++            std::span<const subintsplit::SectionPlan> plan, bool framed) {
++          if (probe->calls++ == 0) {
++            probe->planned = Clock::now();
++            probe->plan = subintsplit::serializeSplitBoundaries(plan) +
++                (framed ? " frame" : "");
++          }
++          if (previous) {
++            previous(plan, framed);
++          }
++        };
++    probe->start = Clock::now();
++    return inner(values, options, observed);
++  };
++  constexpr int kWarmups = 2;
++  for (int rep = 0; rep < FLAGS_mlidc_sis_plan_time_reps + kWarmups; ++rep) {
++    *probe = Probe{};
++    auto target = makeTargetOrSkip<Elem>(timed, data, csv, driver, dataset);
++    const auto end = Clock::now();
++    if (target == nullptr) {
++      return;
++    }
++    const double encodeMs =
++        std::chrono::duration<double, std::milli>(end - probe->start).count();
++    const double planMs = probe->calls > 0
++        ? std::chrono::duration<double, std::milli>(
++              probe->planned - probe->start)
++              .count()
++        : -1.0;
++    std::cout << "  [plan-time] dataset=" << dataset << " arm=" << encoder.name
++              << " rep=" << (rep - kWarmups) << " plan_ms=" << planMs
++              << " encode_ms=" << encodeMs
++              << " observer_calls=" << probe->calls
++              << " bytes=" << target->payloadSize() << " plan=" << probe->plan
++              << "\n";
++  }
++}
++
+ template <typename Elem>
+ void timePlanner(const Vector<Elem>& data, const std::string& name) {
+   using Encoding = SubIntSplitEncoding<Elem>;
+@@ -226,6 +304,9 @@ int runBenchmark() {
+     }
+ 
+     for (const auto& enc : context.encoders) {
++      if (FLAGS_mlidc_sis_plan_time_reps > 0 && enc.family == "SubIntSplit") {
++        timeArmPlanning<Elem>(enc, data, csv, kDriver, ds.name);
++      }
+       sectionPricerStats().reset();
+       const auto encodeStart = std::chrono::steady_clock::now();
+       auto target = makeTargetOrSkip<Elem>(enc, data, csv, kDriver, ds.name);
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
+index 685763086..f22c545ea 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
+@@ -141,6 +141,7 @@
+ #include <span>
+ #include <sstream>
+ #include <string>
++#include <tuple>
+ #include <type_traits>
+ #include <vector>
+ 
+@@ -242,6 +243,19 @@ DEFINE_string(
+     "realistic objectives, and each plan is encoded through the pinned-plan "
+     "path as plan types oracle_dp_k<k> and oracle_dp_selection_k<k>. A k no "
+     "plan reaches is reported as a skipped row. Empty disables.");
++DEFINE_int32(
++    plan_time_reps,
++    0,
++    "Evaluation only. When > 0, times the oracle_dp_selection planner alone "
++    "this many times (after one warm-up) at each --sample_sizes entry: "
++    "sampling, then for each of the bit ranges the selection argmin from "
++    "estimates times read factor and one encode of that pick (the next pick "
++    "only if it fails), then the selection-realistic DP. Prints one "
++    "[plan-time] line per run and the plan's full-column bytes (untimed).");
++DEFINE_bool(
++    plan_time_only,
++    false,
++    "With --plan_time_reps, skip the full oracle analysis after timing.");
+ DEFINE_bool(
+     nested_selection,
+     true,
+@@ -1217,6 +1231,146 @@ int runBenchmark() {
+                 << " bits/elem)\n";
+     }
+ 
++    // Planning time of oracle_dp_selection on its own. Only the work that plan
++    // needs is done: the per-range model metrics, the encodes of candidates
++    // selection would not pick, and every report are left out, so this is the
++    // cost of a planner that prices ranges by encoding selection's pick.
++    if (FLAGS_plan_time_reps > 0) {
++      using Clock = std::chrono::steady_clock;
++      const double splitPenaltyBytes = selectorCfg.splitPenalty / 8.0;
++      for (const size_t sampleTarget : sampleSizes) {
++        std::vector<SectionPlan> plan;
++        constexpr int kWarmups = 1;
++        for (int rep = 0; rep < FLAGS_plan_time_reps + kWarmups; ++rep) {
++          const auto start = Clock::now();
++          SamplerConfig timedSampler = samplerCfg;
++          timedSampler.maxSamples = (sampleTarget == 0) ? n : sampleTarget;
++          std::vector<uint64_t> samples;
++          sampleIntoU64(physical, samples, timedSampler);
++          const size_t sampleSize = samples.size();
++          std::vector<std::vector<OracleCell>> grid(
++              kBits, std::vector<OracleCell>(kBits));
++          BitRangeExtractor extractor(samples);
++          auto& pool = benchmarks::benchmarkPool();
++          size_t numEncodes = 0;
++          for (int l = 0; l < kBits; ++l) {
++            extractor.reset(l);
++            for (int r = l; r < kBits; ++r) {
++              extractor.extend(r);
++              const std::vector<uint64_t>& sectionU64 = extractor.values();
++              const int width = r - l + 1;
++              const int storageBytes = storageWidthBits(width) / 8;
++              OracleCell& cell = grid[l][r];
++              withNarrowedSection(
++                  width, sectionU64, *pool, [&](const auto& sectionData) {
++                    using Storage =
++                        std::decay_t<decltype(sectionData.data()[0])>;
++                    const auto values = std::span<const Storage>(
++                        sectionData.data(), sectionData.size());
++                    const auto statistics = Statistics<Storage>::create(values);
++                    const auto fixedBitWidthEstimate =
++                        encodingAvailableAtWidth(
++                            EncodingType::FixedBitWidth, storageBytes)
++                        ? facebook::nimble::detail::EncodingSizeEstimation<
++                              Storage>::
++                              estimateSize(
++                                  EncodingType::FixedBitWidth,
++                                  values,
++                                  statistics,
++                                  sectionOptions)
++                        : std::optional<uint64_t>{};
++                    // (selection cost, candidate index, estimate), in
++                    // candidate order so a stable sort keeps select()'s
++                    // first-wins tie rule.
++                    std::vector<std::tuple<double, size_t, uint64_t>> ranked;
++                    for (size_t ci = 0; ci < candidates.size(); ++ci) {
++                      if (!encodingAvailableAtWidth(
++                              candidates[ci].type, storageBytes)) {
++                        continue;
++                      }
++                      if (addressable &&
++                          allowed.count(candidates[ci].type) == 0) {
++                        continue;
++                      }
++                      const auto readFactor =
++                          sectionReadFactor(candidates[ci].type);
++                      if (!readFactor.has_value()) {
++                        continue;
++                      }
++                      const auto estimate = facebook::nimble::detail::
++                          EncodingSizeEstimation<Storage>::estimateSize(
++                              candidates[ci].type,
++                              values,
++                              statistics,
++                              sectionOptions);
++                      if (!estimate.has_value()) {
++                        continue;
++                      }
++                      ranked.emplace_back(
++                          static_cast<double>(estimate.value()) *
++                              static_cast<double>(effectiveReadFactor(
++                                  candidates[ci].type,
++                                  readFactor.value(),
++                                  estimate.value(),
++                                  fixedBitWidthEstimate)),
++                          ci,
++                          estimate.value());
++                    }
++                    std::stable_sort(
++                        ranked.begin(),
++                        ranked.end(),
++                        [](const auto& a, const auto& b) {
++                          return std::get<0>(a) < std::get<0>(b);
++                        });
++                    for (const auto& [cost, ci, estimate] : ranked) {
++                      const size_t bytes = oracleEncodeBytes(
++                          candidates[ci].type, sectionData, sectionOptions);
++                      ++numEncodes;
++                      if (bytes != std::numeric_limits<size_t>::max()) {
++                        cell.selectionBytes = bytes;
++                        cell.selectionEncoding = candidates[ci].type;
++                        cell.selectionEstimateBytes = estimate;
++                        break;
++                      }
++                    }
++                  });
++            }
++          }
++          const OracleDpResult chosen = oracleDp(
++              grid,
++              kBits,
++              static_cast<double>(n) / static_cast<double>(sampleSize),
++              splitPenaltyBytes,
++              OracleObjective::kSelectionRealistic);
++          const double millis =
++              std::chrono::duration<double, std::milli>(Clock::now() - start)
++                  .count();
++          plan = toSegmentPlans(chosen.sections);
++          std::cout << "  [plan-time] dataset=" << ds.name
++                    << " arm=SIS/oracle_dp_selection sample_size=" << sampleSize
++                    << " rep=" << (rep - kWarmups) << " plan_ms=" << millis
++                    << " encodes=" << numEncodes
++                    << " plan=" << serializeSplitBoundaries(plan) << "\n";
++        }
++        const auto planBytes =
++            encodeColumn<Elem>(data, plan, columnOptions, columnTuning);
++        std::cout << "  [plan-time-bytes] dataset=" << ds.name
++                  << " arm=SIS/oracle_dp_selection sample_size="
++                  << (sampleTarget == 0 ? n : sampleTarget) << " bytes="
++                  << (planBytes.has_value() ? static_cast<int64_t>(*planBytes)
++                                            : int64_t{-1})
++                  << " bits_per_value="
++                  << (planBytes.has_value()
++                          ? static_cast<double>(*planBytes) * 8.0 /
++                              static_cast<double>(data.size())
++                          : -1.0)
++                  << " plan=" << serializeSplitBoundaries(plan) << "\n";
++      }
++      if (FLAGS_plan_time_only) {
++        continue;
++      }
++    }
++
+     // Every sample size asked for, so a run produces a convergence series
+     // rather than a point. What the series answers: whether the model's plan
+     // stops changing as the sample grows, whether the oracle's does, and

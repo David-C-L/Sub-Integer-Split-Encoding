@@ -1,0 +1,25 @@
+column,documented_label,documented_subtype,lo,hi,width,distinct,order0_mm,order1_cond,reduction_frac,uniform_expectation_bits,deficit_bits,cond2_range_lo,cond2_range_hi,cond2_range_width,cond2_range_distinct,cond2_relative_deficit,cond1_pass,cond2_pass,combined_member,reduction_frac_shuffled,shuffle_vanishes,note
+h3_r15,structured,T2,15.0,18.0,3.0,7.0,2.8073,2.5746,0.0829,2.8074,0.0001,21.0,24.0,3.0,7.0,0.0001,True,False,False,0.0,True,
+h3_r9,structured,T2,18.0,21.0,3.0,7.0,2.8073,2.0233,0.2793,2.8074,0.0001,18.0,21.0,3.0,7.0,0.0,True,False,False,0.0,True,
+hashed_splitmix64,control,control,30.0,31.0,1.0,2.0,1.0,1.0,0.0,1.0,0.0,61.0,64.0,3.0,8.0,0.0,False,False,False,-0.0,True,
+inat_species_id,control,control,23.0,64.0,41.0,2.0,0.2417,0.1838,0.2396,1.0,0.7583,,,,,,True,False,False,-0.0,True,
+instagram,structured,T1,18.0,23.0,5.0,20.0,2.4909,0.4483,0.82,4.3219,1.831,18.0,23.0,5.0,20.0,0.4237,True,True,True,0.0,True,
+ipv4_id,control,control,,,,,,,,,,,,,,,False,False,False,,,no non-constant reliable data-chosen range found
+morton_2x16,structured,T2,0.0,2.0,2.0,4.0,2.0,1.5011,0.2494,2.0,0.0,0.0,2.0,2.0,4.0,0.0,True,False,False,0.0,True,
+morton_2x32,structured,T2,28.0,30.0,2.0,4.0,2.0,1.9482,0.0259,2.0,0.0,28.0,30.0,2.0,4.0,0.0,True,False,False,-0.0,True,
+publicbi_bene_count,near_miss,T4,5.0,6.0,1.0,2.0,0.9787,0.9633,0.0157,1.0,0.0213,8.0,64.0,56.0,17.0,0.9825,True,True,True,0.0,True,
+publicbi_day_supply_bin,near_miss,T4,4.0,5.0,1.0,2.0,0.9959,0.7409,0.256,1.0,0.0041,0.0,4.0,4.0,16.0,0.0275,True,False,False,0.0,True,
+publicbi_drug_cost,near_miss,T3,18.0,19.0,1.0,2.0,0.855,0.8304,0.0288,1.0,0.145,21.0,64.0,43.0,87.0,0.9216,True,True,True,0.0,True,
+publicbi_drug_cost_ge65,near_miss,T3,17.0,18.0,1.0,2.0,0.9088,0.8925,0.0179,1.0,0.0912,20.0,64.0,44.0,107.0,0.8994,True,True,True,-0.0,True,
+publicbi_id1,control,control,18.0,19.0,1.0,2.0,0.9977,0.9501,0.0477,1.0,0.0023,,,,,,True,False,False,-0.0,True,
+publicbi_npi,control,control,30.0,31.0,1.0,2.0,0.3905,0.3905,0.0,1.0,0.6095,,,,,,False,False,False,0.0,True,
+publicbi_num_employees,near_miss,T4,2.0,3.0,1.0,2.0,0.4356,0.4226,0.0298,1.0,0.5644,6.0,64.0,58.0,207.0,0.9715,True,True,True,-0.0,True,
+quadkey,structured,T1,20.0,21.0,1.0,2.0,0.9998,0.8659,0.1339,1.0,0.0002,21.0,64.0,43.0,57.0,0.1977,True,False,False,-0.0,True,
+random_uint64,control,control,3.0,4.0,1.0,2.0,1.0,1.0,0.0,1.0,0.0,0.0,3.0,3.0,8.0,0.0,False,False,False,-0.0,True,
+s2_l16,structured,T2,,,,,,,,,,,,,,,False,False,False,,,no non-constant reliable data-chosen range found
+s2_l30,structured,T2,,,,,,,,,,,,,,,False,False,False,,,no non-constant reliable data-chosen range found
+snowflake,structured,T1,,,,,,,,,,,,,,,False,False,False,,,no non-constant reliable data-chosen range found
+tpch_orderkey,control,control,0.0,1.0,1.0,2.0,1.0,0.8108,0.1892,1.0,0.0,,,,,,True,False,False,-0.0,True,
+uuidv7_hi,structured,T1,0.0,1.0,1.0,2.0,1.0,0.7524,0.2476,1.0,0.0,1.0,11.0,10.0,1024.0,0.0001,True,False,False,0.0,True,
+uuidv7_lo,control,control,,,,,,,,,,,,,,,False,False,False,,,no non-constant reliable data-chosen range found
+xmark,structured,T1,28.0,29.0,1.0,2.0,1.0,0.0,1.0,1.0,0.0,57.0,64.0,7.0,7.0,0.3417,True,True,True,0.0,True,

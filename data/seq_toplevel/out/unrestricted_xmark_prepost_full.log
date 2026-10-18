@@ -1,0 +1,26 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:07:53.920755  2545 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: xmark_prepost_full ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=1 rowFrame=(slope=0x10000001 base=0xfffffffffffffff4)
+  [0..63] storageBytes=8
+    Huffman<Uint64> rowCount=10000000
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	6559483	
+1	/Section0	0	Huffman	Uint64	6559452	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	6559483	15117297	0.4339058100135229	column	0
+1	/Section0	payload	Huffman	Uint64	10000000	6559452	6324690	1.0371183409779767	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=268435457 frameBase=18446744073709551604 frameKind=line keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	Huffman	6559452	FrequencyPartition	7354394	Dictionary	12506105	Dictionary	27133789	FrequencyPartition	29154663	FrequencyPartition=7354394/6251235;Dictionary=12506105/12506105;RLE=12541895/12541895;MainlyConstant=35458603/35458604;Delta=73173565/62197536;BlockBitPacking=74891234/67402104;FixedBitWidth=75000023/67500016;SimdForBitpack=75000016/67500016;PFOR=75000039/67500032;FOR=80879001/68747152;Trivial=80000007/80000008;Varint=90000005/90000008
+whole	0	63	0			FrequencyPartition	7354394	Dictionary	12506105	Dictionary	27133789	FrequencyPartition	29154663	FrequencyPartition=7354394/6251235;Dictionary=12506105/12506105;RLE=12541895/12541895;MainlyConstant=35458603/35458604;Delta=73173565/62197536;BlockBitPacking=74891234/67402104;FixedBitWidth=75000023/67500016;SimdForBitpack=75000016/67500016;PFOR=75000039/67500032;FOR=80879001/68747152;Trivial=80000007/80000008;Varint=90000005/90000008
+  SIS/realNested: 6559483 B, 5.25 bpe
+
+Results written to: $RESULTS/seq_toplevel_20261017_2057/out/unrestricted_xmark_prepost_full.csv

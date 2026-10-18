@@ -1,0 +1,27 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:32.575337 25074 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: uuidv7_lo ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=1
+  [0..63] storageBytes=8
+    FixedBitWidth<Uint64> rowCount=10000000 bit_width=62
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	77500037	
+1	/Section0	0	FixedBitWidth	Uint64	77500023	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	77500037	75800804	1.0224170841248597	column	0
+1	/Section0	payload	FixedBitWidth	Uint64	10000000	77500023	77500023	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	FixedBitWidth	77500023	Delta	78750068	FOR	80908298	FOR	74008789	FixedBitWidth	77578125	Delta=78750068/66937556;FOR=80908298/68772056;FixedBitWidth=77500023/69750016;SimdForBitpack=77500016/69750016;PFOR=77500039/69750032;BlockBitPacking=77695362/69925824;RLE=77500086/77500088;Trivial=80000007/80000008;Varint=89842241/89842240;FrequencyPartition=111184526/94506848;Dictionary=107500052/107500048;MainlyConstant=107500064/107500064
+whole	0	63	0			Delta	78750068	FOR	80908298	FOR	74008789	FixedBitWidth	77578125	Delta=78750068/66937556;FOR=80908298/68772056;FixedBitWidth=77500023/69750016;SimdForBitpack=77500016/69750016;PFOR=77500039/69750032;BlockBitPacking=77695362/69925824;RLE=77500086/77500088;Trivial=80000007/80000008;Varint=89842241/89842240;FrequencyPartition=111184526/94506848;Dictionary=107500052/107500048;MainlyConstant=107500064/107500064
+  SIS/realNested: 77500037 B, 62.00 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm3_uuidv7_lo.csv.tmp

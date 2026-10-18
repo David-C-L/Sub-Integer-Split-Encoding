@@ -1,0 +1,52 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:49.321192 26190 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: osm_h3_r9_fileorder ==
+  --- SIS/pinned encoding tree ---
+SubIntSplitEncoding sections=6
+  [0..17] storageBytes=4
+    Trivial<Uint32> rowCount=10000000
+  [18..23] storageBytes=1
+    Trivial<Uint8> rowCount=10000000
+  [24..39] storageBytes=2
+    Trivial<Uint16> rowCount=10000000
+  [40..44] storageBytes=1
+    Trivial<Uint8> rowCount=10000000
+  [45..48] storageBytes=1
+    Trivial<Uint8> rowCount=10000000
+  [49..63] storageBytes=2
+    Trivial<Uint16> rowCount=10000000
+
+  --- SIS/pinned encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	7477456	
+1	/Section0	0	Trivial	Uint32	481	OpenZL
+1	/Section1	1	Trivial	Uint8	4068416	OpenZL
+1	/Section2	2	Trivial	Uint16	2959194	OpenZL
+1	/Section3	3	Trivial	Uint8	446668	OpenZL
+1	/Section4	4	Trivial	Uint8	2212	OpenZL
+1	/Section5	5	Trivial	Uint16	441	OpenZL
+  --- SIS/pinned node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	7477456	14843828	0.5037417571801559	column	0
+1	/Section0	payload	Trivial	Uint32	10000000	481	40000007	1.2024997895625368e-05	section	1
+1	/Section1	payload	Trivial	Uint8	10000000	4068416	10000007	0.40684131521107936	section	1
+1	/Section2	payload	Trivial	Uint16	10000000	2959194	20000007	0.14795964821412314	section	1
+1	/Section3	payload	Trivial	Uint8	10000000	446668	10000007	0.044666768733261884	section	1
+1	/Section4	payload	Trivial	Uint8	10000000	2212	10000007	0.0002211998451601084	section	1
+1	/Section5	payload	Trivial	Uint16	10000000	441	20000007	2.2049992282502702e-05	section	1
+  --- SIS/pinned section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	17	0	Trivial	481	Constant	10	SimdForBitpack	12	Constant	48828	FixedBitWidth	58593	Constant=10/10;SimdForBitpack=12/10;RLE=41/41;MainlyConstant=53/53;BlockBitPacking=156298/140668;Delta=1250076/1062564;FixedBitWidth=1250019/1125017;PFOR=1250035/1125031;Dictionary=1250040/1250040;FOR=1503997/1278397;FrequencyPartition=2500119/2125101;Varint=10000010/10000010;Trivial=40000007/40000008
+1	18	23	0	Trivial	4068416	RLE	4923837	SimdForBitpack	7500009	FixedBitWidth	7543945	SimdForBitpack	7543945	RLE=4923837/4923837;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;BlockBitPacking=7626743/6864068;FrequencyPartition=8509379/7232972;Delta=8750054/7437546;Dictionary=7500082/7500082;FOR=10324274/8775633;Trivial=10000007/10000007;MainlyConstant=36721875/36721876
+2	24	39	0	Trivial	2959194	RLE	3918066	Trivial	20000007	RLE	6103515	Dictionary	11381835	RLE=3918066/3918066;Trivial=20000007/14000005;FOR=19235613/16350271;BlockBitPacking=19958560/17962704;SimdForBitpack=20000010/18000008;FixedBitWidth=20000017/18000014;PFOR=20000033/18000028;Delta=21250035/18062532;Dictionary=18812678/18812678;FrequencyPartition=22659829/19260854;MainlyConstant=48744871/48744872
+3	40	44	0	Trivial	446668	RLE	544247	FOR	2637522	RLE	844726	FrequencyPartition	4414672	RLE=544247/544247;FOR=2637522/2241893;BlockBitPacking=3490727/3141654;FrequencyPartition=3947828/3355654;MainlyConstant=3671050/3671050;Dictionary=5000049/5000049;SimdForBitpack=6250009/5625008;FixedBitWidth=6250016/5625014;PFOR=6250032/5625028;Delta=6886307/5853361;Trivial=10000007/10000007
+4	45	48	0	Trivial	2212	RLE	2046	MainlyConstant	49542	RLE	200195	MainlyConstant	2080078	RLE=2046/2046;MainlyConstant=49542/49542;BlockBitPacking=182807/164526;Dictionary=1250038/1250038;FOR=1554289/1321145;FrequencyPartition=2500117/2125099;Delta=5003013/4252561;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Trivial=10000007/10000007
+5	49	63	0	Trivial	441	RLE	51	MainlyConstant	128	Constant	39062	FixedBitWidth	48828	RLE=51/51;MainlyConstant=128/128;BlockBitPacking=136894/123204;Delta=1250077/1062565;SimdForBitpack=1250010/1125009;FixedBitWidth=1250017/1125015;PFOR=1250033/1125029;Dictionary=1250040/1250040;FOR=1503995/1278395;FrequencyPartition=2500119/2125101;Trivial=20000007/20000008
+whole	0	63	0			RLE	19024044	FrequencyPartition	34454865	Dictionary	34716796	RLE	36943359	RLE=19024044/19024044;FrequencyPartition=34454865/29286636;Dictionary=33242702/33242702;BlockBitPacking=53450338/48105300;Delta=63750068/54187560;PFOR=61250263/55125236;SimdForBitpack=62500016/56250012;FixedBitWidth=62500023/56250020;MainlyConstant=63236566/63236568;FOR=77060679/65501580;Varint=69984196/69984192;Trivial=80000007/80000008
+  SIS/pinned: 7477456 B, 5.98 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/armA_osm_h3_r9_fileorder.csv.tmp

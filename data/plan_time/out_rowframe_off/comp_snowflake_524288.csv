@@ -1,0 +1,3 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,snowflake,SIS/realNested,SubIntSplit,real_nested,full,,shipped,0,524288,42,2578739,4194304,0.614819,39.3484,0,1
+bench_compression,Uint64,snowflake,SIS/hybrid,SubIntSplit,hybrid,full,,shipped,0,524288,42,2394950,4194304,0.571001,36.544,0,1

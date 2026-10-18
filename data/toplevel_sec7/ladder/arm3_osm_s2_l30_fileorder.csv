@@ -1,0 +1,2 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,osm_s2_l30_fileorder,SIS/realNested,SubIntSplit,real_nested,full,,shipped,0,10000000,42,47624233,80000000,0.595303,38.0994,0,1

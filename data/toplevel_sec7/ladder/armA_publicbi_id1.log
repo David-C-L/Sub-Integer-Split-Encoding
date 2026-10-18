@@ -1,0 +1,32 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:20.994063 24305 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=739754
+
+== Dataset: publicbi_id1 ==
+  --- SIS/pinned encoding tree ---
+SubIntSplitEncoding sections=2
+  [0..19] storageBytes=4
+    Trivial<Uint32> rowCount=739754
+  [20..63] storageBytes=8
+    Trivial<Uint64> rowCount=739754
+
+  --- SIS/pinned encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	1768068	
+1	/Section0	0	Trivial	Uint32	1767959	OpenZL
+1	/Section1	1	Trivial	Uint64	89	OpenZL
+  --- SIS/pinned node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	739754	1768068	1866759	0.9471324364848381	column	0
+1	/Section0	payload	Trivial	Uint32	739754	1767959	2959023	0.5974806549323881	section	1
+1	/Section1	payload	Trivial	Uint64	739754	89	5918039	1.5038765374814192e-05	section	1
+  --- SIS/pinned section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	19	0	Trivial	1767959	BlockBitPacking	1785217	Delta	1941915	FixedBitWidth	1853719	SimdForBitpack	1853719	BlockBitPacking=1785217/1606695;Delta=1941915/1650627;FixedBitWidth=1849404/1664463;PFOR=1849420/1664478;SimdForBitpack=1849452/1664506;RLE=1849467/1849467;FrequencyPartition=2257965/1919270;Varint=2216313/2216313;FOR=2994208/2545076;Trivial=2959023/2959023;Dictionary=3698818/3698818;MainlyConstant=3698831/3698831
+1	20	63	0	Trivial	89	Constant	14	SimdForBitpack	16	Constant	5056	FixedBitWidth	5779	Constant=14/14;SimdForBitpack=16/14;RLE=45/45;MainlyConstant=57/57;BlockBitPacking=14500/13050;Delta=92553/78670;FixedBitWidth=92493/83243;PFOR=92509/83258;FOR=108460/92191;Dictionary=92514/92514;FrequencyPartition=185063/157303;Varint=739768/739768;Trivial=5918039/5918039
+whole	0	63	0			BlockBitPacking	1788109	Delta	1941923	FixedBitWidth	1855164	SimdForBitpack	1855164	BlockBitPacking=1788109/1609298;Delta=1941923/1650634;FixedBitWidth=1849408/1664467;PFOR=1849424/1664481;SimdForBitpack=1849456/1664510;RLE=1849471/1849471;Varint=2216317/2216317;FOR=2994212/2545080;FrequencyPartition=3943520/3351992;Dictionary=3698822/3698822;MainlyConstant=3698839/3698839;Trivial=5918039/5918039
+  SIS/pinned: 1768068 B, 19.12 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/armA_publicbi_id1.csv.tmp

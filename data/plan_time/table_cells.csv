@@ -1,0 +1,7 @@
+column,config,median_ms,min_ms,max_ms,q1_ms,q3_ms,ratio_vs_default,share_of_encode,bits_match
+snowflake,default,15.060,14.797,15.427,14.945,15.143,1.00,0.269,True
+snowflake,re-priced,49.060,48.630,53.540,48.830,49.280,3.26,0.538,True
+snowflake,encoded,41156.800,39777.500,42331.700,40617.450,41683.650,2732.84,,True
+osm_h3_r9_fileorder,default,7.288,7.056,7.770,7.193,7.490,1.00,0.246,True
+osm_h3_r9_fileorder,re-priced,25.590,25.250,28.480,25.480,25.890,3.51,0.451,True
+osm_h3_r9_fileorder,encoded,45929.900,44413.600,46599.800,45788.400,46023.700,6302.34,,True

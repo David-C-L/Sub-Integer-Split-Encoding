@@ -1,0 +1,157 @@
+ok 2s comp_F1_stocks_usa_shipped.csv
+ok 2s comp_F2_food_prices_shipped.csv
+ok 2s comp_F3_gov10_shipped.csv
+ok 2s comp_F4_medicare_total_drug_cost_shipped.csv
+ok 1s comp_F5_city_temp_shipped.csv
+ok 2s comp_F6_air_pressure_shipped.csv
+ok 1s comp_F7_dew_point_temp_shipped.csv
+ok 2s comp_F8_poi_lat_shipped.csv
+ok 2s comp_F9_nyc29_shipped.csv
+ok 2s comp_F10_medicare_calc_shipped.csv
+ok 1s comp_C0_uniform_control_shipped.csv
+waiting for lock Sat Oct 17 01:18:01 UTC 2026
+lock held Sat Oct 17 01:18:01 UTC 2026 load 2.66 1.72 1.52
+ok 1s enc_F1_stocks_usa_shipped_r1.csv
+ok 2s bulk_F1_stocks_usa_shipped_r1.csv
+ok 6s point_F1_stocks_usa_shipped_r1.csv
+ok 1s range_hot_F1_stocks_usa_shipped_r1.csv
+ok 1s enc_F1_stocks_usa_shipped_r2.csv
+ok 1s bulk_F1_stocks_usa_shipped_r2.csv
+ok 6s point_F1_stocks_usa_shipped_r2.csv
+ok 1s range_hot_F1_stocks_usa_shipped_r2.csv
+ok 1s enc_F1_stocks_usa_shipped_r3.csv
+ok 1s bulk_F1_stocks_usa_shipped_r3.csv
+ok 6s point_F1_stocks_usa_shipped_r3.csv
+ok 1s range_hot_F1_stocks_usa_shipped_r3.csv
+COL F1_stocks_usa done Sat Oct 17 01:18:29 UTC 2026
+ok 3s enc_F2_food_prices_shipped_r1.csv
+ok 2s bulk_F2_food_prices_shipped_r1.csv
+ok 15s point_F2_food_prices_shipped_r1.csv
+ok 4s range_hot_F2_food_prices_shipped_r1.csv
+ok 2s enc_F2_food_prices_shipped_r2.csv
+ok 2s bulk_F2_food_prices_shipped_r2.csv
+ok 16s point_F2_food_prices_shipped_r2.csv
+ok 2s range_hot_F2_food_prices_shipped_r2.csv
+ok 2s enc_F2_food_prices_shipped_r3.csv
+ok 2s bulk_F2_food_prices_shipped_r3.csv
+ok 15s point_F2_food_prices_shipped_r3.csv
+ok 2s range_hot_F2_food_prices_shipped_r3.csv
+COL F2_food_prices done Sat Oct 17 01:19:36 UTC 2026
+ok 3s enc_F3_gov10_shipped_r1.csv
+ok 1s bulk_F3_gov10_shipped_r1.csv
+ok 9s point_F3_gov10_shipped_r1.csv
+ok 2s range_hot_F3_gov10_shipped_r1.csv
+ok 2s enc_F3_gov10_shipped_r2.csv
+ok 2s bulk_F3_gov10_shipped_r2.csv
+ok 8s point_F3_gov10_shipped_r2.csv
+ok 2s range_hot_F3_gov10_shipped_r2.csv
+ok 2s enc_F3_gov10_shipped_r3.csv
+ok 2s bulk_F3_gov10_shipped_r3.csv
+ok 9s point_F3_gov10_shipped_r3.csv
+ok 2s range_hot_F3_gov10_shipped_r3.csv
+COL F3_gov10 done Sat Oct 17 01:20:20 UTC 2026
+ok 1s enc_F4_medicare_total_drug_cost_shipped_r1.csv
+ok 2s bulk_F4_medicare_total_drug_cost_shipped_r1.csv
+ok 10s point_F4_medicare_total_drug_cost_shipped_r1.csv
+ok 1s range_hot_F4_medicare_total_drug_cost_shipped_r1.csv
+ok 2s enc_F4_medicare_total_drug_cost_shipped_r2.csv
+ok 2s bulk_F4_medicare_total_drug_cost_shipped_r2.csv
+ok 10s point_F4_medicare_total_drug_cost_shipped_r2.csv
+ok 2s range_hot_F4_medicare_total_drug_cost_shipped_r2.csv
+ok 1s enc_F4_medicare_total_drug_cost_shipped_r3.csv
+ok 2s bulk_F4_medicare_total_drug_cost_shipped_r3.csv
+ok 10s point_F4_medicare_total_drug_cost_shipped_r3.csv
+ok 2s range_hot_F4_medicare_total_drug_cost_shipped_r3.csv
+COL F4_medicare_total_drug_cost done Sat Oct 17 01:21:05 UTC 2026
+ok 1s enc_F5_city_temp_shipped_r1.csv
+ok 2s bulk_F5_city_temp_shipped_r1.csv
+ok 11s point_F5_city_temp_shipped_r1.csv
+ok 1s range_hot_F5_city_temp_shipped_r1.csv
+ok 1s enc_F5_city_temp_shipped_r2.csv
+ok 2s bulk_F5_city_temp_shipped_r2.csv
+ok 11s point_F5_city_temp_shipped_r2.csv
+ok 1s range_hot_F5_city_temp_shipped_r2.csv
+ok 1s enc_F5_city_temp_shipped_r3.csv
+ok 2s bulk_F5_city_temp_shipped_r3.csv
+ok 11s point_F5_city_temp_shipped_r3.csv
+ok 1s range_hot_F5_city_temp_shipped_r3.csv
+COL F5_city_temp done Sat Oct 17 01:21:50 UTC 2026
+ok 2s enc_F6_air_pressure_shipped_r1.csv
+ok 1s bulk_F6_air_pressure_shipped_r1.csv
+ok 10s point_F6_air_pressure_shipped_r1.csv
+ok 1s range_hot_F6_air_pressure_shipped_r1.csv
+ok 2s enc_F6_air_pressure_shipped_r2.csv
+ok 2s bulk_F6_air_pressure_shipped_r2.csv
+ok 9s point_F6_air_pressure_shipped_r2.csv
+ok 2s range_hot_F6_air_pressure_shipped_r2.csv
+ok 2s enc_F6_air_pressure_shipped_r3.csv
+ok 1s bulk_F6_air_pressure_shipped_r3.csv
+ok 9s point_F6_air_pressure_shipped_r3.csv
+ok 2s range_hot_F6_air_pressure_shipped_r3.csv
+COL F6_air_pressure done Sat Oct 17 01:22:33 UTC 2026
+ok 2s enc_F7_dew_point_temp_shipped_r1.csv
+ok 1s bulk_F7_dew_point_temp_shipped_r1.csv
+ok 10s point_F7_dew_point_temp_shipped_r1.csv
+ok 1s range_hot_F7_dew_point_temp_shipped_r1.csv
+ok 2s enc_F7_dew_point_temp_shipped_r2.csv
+ok 1s bulk_F7_dew_point_temp_shipped_r2.csv
+ok 11s point_F7_dew_point_temp_shipped_r2.csv
+ok 1s range_hot_F7_dew_point_temp_shipped_r2.csv
+ok 2s enc_F7_dew_point_temp_shipped_r3.csv
+ok 2s bulk_F7_dew_point_temp_shipped_r3.csv
+ok 10s point_F7_dew_point_temp_shipped_r3.csv
+ok 1s range_hot_F7_dew_point_temp_shipped_r3.csv
+COL F7_dew_point_temp done Sat Oct 17 01:23:17 UTC 2026
+ok 1s enc_F8_poi_lat_shipped_r1.csv
+ok 2s bulk_F8_poi_lat_shipped_r1.csv
+ok 9s point_F8_poi_lat_shipped_r1.csv
+ok 1s range_hot_F8_poi_lat_shipped_r1.csv
+ok 2s enc_F8_poi_lat_shipped_r2.csv
+ok 1s bulk_F8_poi_lat_shipped_r2.csv
+ok 9s point_F8_poi_lat_shipped_r2.csv
+ok 1s range_hot_F8_poi_lat_shipped_r2.csv
+ok 2s enc_F8_poi_lat_shipped_r3.csv
+ok 1s bulk_F8_poi_lat_shipped_r3.csv
+ok 9s point_F8_poi_lat_shipped_r3.csv
+ok 2s range_hot_F8_poi_lat_shipped_r3.csv
+COL F8_poi_lat done Sat Oct 17 01:23:57 UTC 2026
+ok 4s enc_F9_nyc29_shipped_r1.csv
+ok 2s bulk_F9_nyc29_shipped_r1.csv
+ok 22s point_F9_nyc29_shipped_r1.csv
+ok 3s range_hot_F9_nyc29_shipped_r1.csv
+ok 1s enc_F9_nyc29_shipped_r2.csv
+ok 2s bulk_F9_nyc29_shipped_r2.csv
+ok 23s point_F9_nyc29_shipped_r2.csv
+ok 2s range_hot_F9_nyc29_shipped_r2.csv
+ok 2s enc_F9_nyc29_shipped_r3.csv
+ok 2s bulk_F9_nyc29_shipped_r3.csv
+ok 23s point_F9_nyc29_shipped_r3.csv
+ok 2s range_hot_F9_nyc29_shipped_r3.csv
+COL F9_nyc29 done Sat Oct 17 01:25:25 UTC 2026
+ok 2s enc_F10_medicare_calc_shipped_r1.csv
+ok 1s bulk_F10_medicare_calc_shipped_r1.csv
+ok 4s point_F10_medicare_calc_shipped_r1.csv
+ok 1s range_hot_F10_medicare_calc_shipped_r1.csv
+ok 1s enc_F10_medicare_calc_shipped_r2.csv
+ok 1s bulk_F10_medicare_calc_shipped_r2.csv
+ok 4s point_F10_medicare_calc_shipped_r2.csv
+ok 1s range_hot_F10_medicare_calc_shipped_r2.csv
+ok 1s enc_F10_medicare_calc_shipped_r3.csv
+ok 1s bulk_F10_medicare_calc_shipped_r3.csv
+ok 5s point_F10_medicare_calc_shipped_r3.csv
+ok 1s range_hot_F10_medicare_calc_shipped_r3.csv
+COL F10_medicare_calc done Sat Oct 17 01:25:49 UTC 2026
+ok 2s enc_C0_uniform_control_shipped_r1.csv
+ok 1s bulk_C0_uniform_control_shipped_r1.csv
+ok 6s point_C0_uniform_control_shipped_r1.csv
+ok 1s range_hot_C0_uniform_control_shipped_r1.csv
+ok 2s enc_C0_uniform_control_shipped_r2.csv
+ok 1s bulk_C0_uniform_control_shipped_r2.csv
+ok 6s point_C0_uniform_control_shipped_r2.csv
+ok 1s range_hot_C0_uniform_control_shipped_r2.csv
+ok 2s enc_C0_uniform_control_shipped_r3.csv
+ok 1s bulk_C0_uniform_control_shipped_r3.csv
+ok 6s point_C0_uniform_control_shipped_r3.csv
+ok 2s range_hot_C0_uniform_control_shipped_r3.csv
+COL C0_uniform_control done Sat Oct 17 01:26:20 UTC 2026
+DONE Sat Oct 17 01:26:20 UTC 2026

@@ -1,0 +1,17 @@
+[20:44:56] waiting for lock
+ok comp_snowflake_524288.csv
+ok comp_osm_h3_r9_fileorder_524288.csv
+ok oracle_snowflake_524288.csv
+ok oracle_osm_h3_r9_fileorder_524288.csv
+ok comp_snowflake_131072.csv
+ok comp_snowflake_2000000.csv
+ok comp_osm_h3_r9_fileorder_131072.csv
+ok comp_osm_h3_r9_fileorder_2097152.csv
+DONE Sat Oct 17 21:02:45 UTC 2026
+ok rf_off comp_snowflake_131072.csv
+ok rf_off comp_snowflake_524288.csv
+ok rf_off comp_snowflake_2000000.csv
+ok rf_off comp_osm_h3_r9_fileorder_131072.csv
+ok rf_off comp_osm_h3_r9_fileorder_524288.csv
+ok rf_off comp_osm_h3_r9_fileorder_2097152.csv
+DONE rf_off Sat Oct 17 21:04:36 UTC 2026

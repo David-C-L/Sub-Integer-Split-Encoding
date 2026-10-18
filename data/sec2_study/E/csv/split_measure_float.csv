@@ -1,0 +1,81 @@
+column,class_label,compressor,variant,n_rows,n_streams,compressed_bytes,bits_per_value,gain_pct_vs_whole,ranges
+F2_food_prices,decimal-origin,xz,WHOLE,524288,1,726876.0,11.09124755859375,0.0,"[0,64)"
+F2_food_prices,decimal-origin,xz,SPLIT_IEEE_a,524288,3,828588.0,12.64324951171875,-13.99303319961039,"[[0, 52], [52, 63], [63, 64]]"
+F2_food_prices,decimal-origin,xz,SPLIT_FRONT_b,524288,2,727084.0,11.09442138671875,-0.028615609815154167,"[[0, 63], [63, 64]] (b=1)"
+F2_food_prices,decimal-origin,xz,SPLIT_DATA_c,524288,5,885656.0,13.5140380859375,-21.844165992548938,"[[0, 50], [50, 51], [51, 52], [52, 53], [53, 64]]"
+F2_food_prices,decimal-origin,xz,DECIMAL_INT_d,524288,1,834896.0,12.739501953125,-14.860856597273814,round(x*10^4) as 5B int
+F2_food_prices,decimal-origin,zstd,WHOLE,524288,1,895262.0,13.660614013671875,0.0,"[0,64)"
+F2_food_prices,decimal-origin,zstd,SPLIT_IEEE_a,524288,3,870839.0,13.287948608398438,2.7280282196720065,"[[0, 52], [52, 63], [63, 64]]"
+F2_food_prices,decimal-origin,zstd,SPLIT_FRONT_b,524288,2,895296.0,13.6611328125,-0.003797770931861288,"[[0, 63], [63, 64]] (b=1)"
+F2_food_prices,decimal-origin,zstd,SPLIT_DATA_c,524288,5,924099.0,14.100631713867188,-3.2210682459436457,"[[0, 50], [50, 51], [51, 52], [52, 53], [53, 64]]"
+F2_food_prices,decimal-origin,zstd,DECIMAL_INT_d,524288,1,915405.0,13.967971801757812,-2.2499558788377034,round(x*10^4) as 5B int
+F2_food_prices,decimal-origin,lz4,WHOLE,524288,1,1689135.0,25.774154663085938,0.0,"[0,64)"
+F2_food_prices,decimal-origin,lz4,SPLIT_IEEE_a,524288,3,1783055.0,27.207260131835938,-5.5602423725753125,"[[0, 52], [52, 63], [63, 64]]"
+F2_food_prices,decimal-origin,lz4,SPLIT_FRONT_b,524288,2,1691315.0,25.807418823242188,-0.1290601402492992,"[[0, 63], [63, 64]] (b=1)"
+F2_food_prices,decimal-origin,lz4,SPLIT_DATA_c,524288,5,2161753.0,32.98573303222656,-27.97988319465288,"[[0, 50], [50, 51], [51, 52], [52, 53], [53, 64]]"
+F2_food_prices,decimal-origin,lz4,DECIMAL_INT_d,524288,1,1548752.0,23.632080078125,8.310940214962095,round(x*10^4) as 5B int
+F2_food_prices,decimal-origin,snappy,WHOLE,524288,1,1630599.0,24.880966186523438,0.0,"[0,64)"
+F2_food_prices,decimal-origin,snappy,SPLIT_IEEE_a,524288,3,1690533.0,25.795486450195312,-3.675581795401567,"[[0, 52], [52, 63], [63, 64]]"
+F2_food_prices,decimal-origin,snappy,SPLIT_FRONT_b,524288,2,1655194.0,25.256256103515625,-1.5083414131861972,"[[0, 63], [63, 64]] (b=1)"
+F2_food_prices,decimal-origin,snappy,SPLIT_DATA_c,524288,5,1912928.0,29.18896484375,-17.31443475679796,"[[0, 50], [50, 51], [51, 52], [52, 53], [53, 64]]"
+F2_food_prices,decimal-origin,snappy,DECIMAL_INT_d,524288,1,1506097.0,22.981216430664062,7.635353633848665,round(x*10^4) as 5B int
+F4_medicare_total_drug_cost,decimal-origin,xz,WHOLE,524288,1,1560428.0,23.81024169921875,0.0,"[0,64)"
+F4_medicare_total_drug_cost,decimal-origin,xz,SPLIT_IEEE_a,524288,3,1766016.0,26.947265625,-13.1751032409057,"[[0, 52], [52, 63], [63, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,xz,SPLIT_FRONT_b,524288,2,1560816.0,23.816162109375,-0.02486497294332068,"[[0, 57], [57, 64]] (b=7)"
+F4_medicare_total_drug_cost,decimal-origin,xz,SPLIT_DATA_c,524288,4,1811424.0,27.64013671875,-16.08507409505597,"[[0, 54], [54, 55], [55, 56], [56, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,xz,DECIMAL_INT_d,524288,1,1427640.0,21.7840576171875,8.509716564942439,round(x*10^2) as 4B int
+F4_medicare_total_drug_cost,decimal-origin,zstd,WHOLE,524288,1,1850010.0,28.228912353515625,0.0,"[0,64)"
+F4_medicare_total_drug_cost,decimal-origin,zstd,SPLIT_IEEE_a,524288,3,2004376.0,30.5843505859375,-8.344063005064838,"[[0, 52], [52, 63], [63, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,zstd,SPLIT_FRONT_b,524288,2,1849768.0,28.2252197265625,0.013081010372916903,"[[0, 57], [57, 64]] (b=7)"
+F4_medicare_total_drug_cost,decimal-origin,zstd,SPLIT_DATA_c,524288,4,1974291.0,30.125289916992188,-6.717855579159032,"[[0, 54], [54, 55], [55, 56], [56, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,zstd,DECIMAL_INT_d,524288,1,1622538.0,24.757965087890625,12.295717320446917,round(x*10^2) as 4B int
+F4_medicare_total_drug_cost,decimal-origin,lz4,WHOLE,524288,1,2783620.0,42.47467041015625,0.0,"[0,64)"
+F4_medicare_total_drug_cost,decimal-origin,lz4,SPLIT_IEEE_a,524288,3,2962700.0,45.20721435546875,-6.4333493795848575,"[[0, 52], [52, 63], [63, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,lz4,SPLIT_FRONT_b,524288,2,2787388.0,42.53216552734375,-0.13536330389923912,"[[0, 57], [57, 64]] (b=7)"
+F4_medicare_total_drug_cost,decimal-origin,lz4,SPLIT_DATA_c,524288,4,2956554.0,45.113433837890625,-6.212557748543264,"[[0, 54], [54, 55], [55, 56], [56, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,lz4,DECIMAL_INT_d,524288,1,2097299.0,32.00224304199219,24.655700131483464,round(x*10^2) as 4B int
+F4_medicare_total_drug_cost,decimal-origin,snappy,WHOLE,524288,1,2834541.0,43.25166320800781,0.0,"[0,64)"
+F4_medicare_total_drug_cost,decimal-origin,snappy,SPLIT_IEEE_a,524288,3,3132012.0,47.79071044921875,-10.494503342869269,"[[0, 52], [52, 63], [63, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,snappy,SPLIT_FRONT_b,524288,2,2858648.0,43.6195068359375,-0.8504727925967555,"[[0, 57], [57, 64]] (b=7)"
+F4_medicare_total_drug_cost,decimal-origin,snappy,SPLIT_DATA_c,524288,4,3095422.0,47.232391357421875,-9.203641788917501,"[[0, 54], [54, 55], [55, 56], [56, 64]]"
+F4_medicare_total_drug_cost,decimal-origin,snappy,DECIMAL_INT_d,524288,1,2097252.0,32.00152587890625,26.010877951668366,round(x*10^2) as 4B int
+F10_medicare_calc_9030826185528129,high-precision,xz,WHOLE,524288,1,3670908.0,56.01361083984375,0.0,"[0,64)"
+F10_medicare_calc_9030826185528129,high-precision,xz,SPLIT_IEEE_a,524288,3,3629144.0,55.3763427734375,1.1377021706891046,"[[0, 52], [52, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,xz,SPLIT_FRONT_b,524288,2,3671116.0,56.01678466796875,-0.005666173055821611,"[[0, 63], [63, 64]] (b=1)"
+F10_medicare_calc_9030826185528129,high-precision,xz,SPLIT_DATA_c,524288,5,3667340.0,55.95916748046875,0.09719666088063227,"[[0, 52], [52, 53], [53, 54], [54, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,xz,DECIMAL_INT_d,524288,1,3408288.0,52.00634765625,7.154088307307075,round(x*10^15) as 8B int
+F10_medicare_calc_9030826185528129,high-precision,zstd,WHOLE,524288,1,3858679.0,58.87876892089844,0.0,"[0,64)"
+F10_medicare_calc_9030826185528129,high-precision,zstd,SPLIT_IEEE_a,524288,3,3626854.0,55.341400146484375,6.007885081915339,"[[0, 52], [52, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,zstd,SPLIT_FRONT_b,524288,2,3858713.0,58.87928771972656,-0.0008811305630761201,"[[0, 63], [63, 64]] (b=1)"
+F10_medicare_calc_9030826185528129,high-precision,zstd,SPLIT_DATA_c,524288,5,3651683.0,55.72026062011719,5.364426530426605,"[[0, 52], [52, 53], [53, 54], [54, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,zstd,DECIMAL_INT_d,524288,1,3776294.0,57.621673583984375,2.135057101147828,round(x*10^15) as 8B int
+F10_medicare_calc_9030826185528129,high-precision,lz4,WHOLE,524288,1,4192387.0,63.97074890136719,0.0,"[0,64)"
+F10_medicare_calc_9030826185528129,high-precision,lz4,SPLIT_IEEE_a,524288,3,4012975.0,61.23313903808594,4.279471336973423,"[[0, 52], [52, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,lz4,SPLIT_FRONT_b,524288,2,4194567.0,64.00401306152344,-0.05199901631218683,"[[0, 63], [63, 64]] (b=1)"
+F10_medicare_calc_9030826185528129,high-precision,lz4,SPLIT_DATA_c,524288,5,4170208.0,63.63232421875,0.5290303590770604,"[[0, 52], [52, 53], [53, 54], [54, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,lz4,DECIMAL_INT_d,524288,1,4192409.0,63.97108459472656,-0.0005247607150771148,round(x*10^15) as 8B int
+F10_medicare_calc_9030826185528129,high-precision,snappy,WHOLE,524288,1,4194497.0,64.00294494628906,0.0,"[0,64)"
+F10_medicare_calc_9030826185528129,high-precision,snappy,SPLIT_IEEE_a,524288,3,4022610.0,61.380157470703125,4.097916865836357,"[[0, 52], [52, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,snappy,SPLIT_FRONT_b,524288,2,4219092.0,64.37823486328125,-0.5863635139088191,"[[0, 63], [63, 64]] (b=1)"
+F10_medicare_calc_9030826185528129,high-precision,snappy,SPLIT_DATA_c,524288,5,4129488.0,63.010986328125,1.5498640242203057,"[[0, 52], [52, 53], [53, 54], [54, 63], [63, 64]]"
+F10_medicare_calc_9030826185528129,high-precision,snappy,DECIMAL_INT_d,524288,1,4194502.0,64.00302124023438,-0.00011920380441325862,round(x*10^15) as 8B int
+C0_uniform_control,control,xz,WHOLE,524288,1,3926696.0,59.9166259765625,0.0,"[0,64)"
+C0_uniform_control,control,xz,SPLIT_IEEE_a,524288,3,3848008.0,58.7159423828125,2.0039239095667196,"[[0, 52], [52, 63], [63, 64]]"
+C0_uniform_control,control,xz,SPLIT_FRONT_b,524288,1,3926696.0,59.9166259765625,0.0,"[[0, 64]] (b=0)"
+C0_uniform_control,control,xz,SPLIT_DATA_c,524288,4,3798292.0,57.95733642578125,3.2700265057442697,"[[0, 1], [1, 55], [55, 63], [63, 64]]"
+C0_uniform_control,control,xz,DECIMAL_INT_d,524288,1,,,,not meaningful: d=18 never reached 99% round-trip (control/non-decimal)
+C0_uniform_control,control,zstd,WHOLE,524288,1,3981085.0,60.74653625488281,0.0,"[0,64)"
+C0_uniform_control,control,zstd,SPLIT_IEEE_a,524288,3,3845404.0,58.67620849609375,3.408141247926131,"[[0, 52], [52, 63], [63, 64]]"
+C0_uniform_control,control,zstd,SPLIT_FRONT_b,524288,1,3981085.0,60.74653625488281,0.0,"[[0, 64]] (b=0)"
+C0_uniform_control,control,zstd,SPLIT_DATA_c,524288,4,3765825.0,57.46192932128906,5.407068676001643,"[[0, 1], [1, 55], [55, 63], [63, 64]]"
+C0_uniform_control,control,zstd,DECIMAL_INT_d,524288,1,,,,not meaningful: d=18 never reached 99% round-trip (control/non-decimal)
+C0_uniform_control,control,lz4,WHOLE,524288,1,4194579.0,64.00419616699219,0.0,"[0,64)"
+C0_uniform_control,control,lz4,SPLIT_IEEE_a,524288,3,4387822.0,66.95285034179688,-4.606970091634941,"[[0, 52], [52, 63], [63, 64]]"
+C0_uniform_control,control,lz4,SPLIT_FRONT_b,524288,1,4194579.0,64.00419616699219,0.0,"[[0, 64]] (b=0)"
+C0_uniform_control,control,lz4,SPLIT_DATA_c,524288,4,4162471.0,63.51426696777344,0.7654641860363102,"[[0, 1], [1, 55], [55, 63], [63, 64]]"
+C0_uniform_control,control,lz4,DECIMAL_INT_d,524288,1,,,,not meaningful: d=18 never reached 99% round-trip (control/non-decimal)
+C0_uniform_control,control,snappy,WHOLE,524288,1,4194500.0,64.00299072265625,0.0,"[0,64)"
+C0_uniform_control,control,snappy,SPLIT_IEEE_a,524288,3,4317967.0,65.88694763183594,-2.9435451186077004,"[[0, 52], [52, 63], [63, 64]]"
+C0_uniform_control,control,snappy,SPLIT_FRONT_b,524288,1,4194500.0,64.00299072265625,0.0,"[[0, 64]] (b=0)"
+C0_uniform_control,control,snappy,SPLIT_DATA_c,524288,4,4067268.0,62.06158447265625,3.033305519132197,"[[0, 1], [1, 55], [55, 63], [63, 64]]"
+C0_uniform_control,control,snappy,DECIMAL_INT_d,524288,1,,,,not meaningful: d=18 never reached 99% round-trip (control/non-decimal)

@@ -1,0 +1,36 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: bing_quadkey ==
+  --- Auto/view encoding tree ---
+SubIntSplitEncoding sections=3
+  [0..14] storageBytes=2
+    FixedBitWidth<Uint16> rowCount=524288 bit_width=15
+  [15..29] storageBytes=2
+    Dictionary<Uint16> rowCount=524288
+    indices child:
+      FixedBitWidth<Uint32> rowCount=524288 bit_width=10
+    alphabet:
+      entries=703
+  [30..63] storageBytes=8
+    Constant<Uint64> rowCount=524288 value=1
+
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	1639822	
+1	/Section0	0	FixedBitWidth	Uint16	983057	Uncompressed
+1	/Section1	1	Dictionary	Uint16	656725	
+2	/Section1/Alphabet	0	FixedBitWidth	Uint16	1336	Uncompressed
+2	/Section1/Indices	1	FixedBitWidth	Uint32	655379	Uncompressed
+1	/Section2	2	Constant	Uint64	14	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	524288	1639822	1757234	0.9331836283613907	column	0
+1	/Section0	payload	FixedBitWidth	Uint16	524288	983057	983057	1	section	1
+1	/Section1	payload	Dictionary	Uint16	524288	656725	656725	1	section	1
+2	/Section1/Alphabet	payload	FixedBitWidth	Uint16	703	1336	1336	1	section	1
+2	/Section1/Indices	metadata	FixedBitWidth	Uint32	524288	655379	655379	1	section	1
+1	/Section2	payload	Constant	Uint64	524288	14	14	1	section	1
+  Auto/view: 1639822 B, 25.02 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_sis_bing_quadkey_r1_comp.csv.tmp

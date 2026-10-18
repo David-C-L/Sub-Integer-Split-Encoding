@@ -1,0 +1,59 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:41.812827 26029 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: uuidv7_lo ==
+  --- SIS/pinned encoding tree ---
+SubIntSplitEncoding sections=1
+  [0..63] storageBytes=8
+    FOR<Uint64> rowCount=10000000
+    frameSize=128, numFrames=78125
+      bitWidth distribution: 64b:78125 
+
+  --- SIS/pinned encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	80573817	
+1	/Section0	0	FOR	Uint64	80573803	
+2	/Section0/BitWidths	0	Constant	Uint8	7	
+2	/Section0/References	1	Delta	Uint64	573708	
+3	/Section0/References/Deltas	0	BlockBitPacking	Uint64	284967	Uncompressed
+4	/Section0/References/Deltas/Baselines	0	FixedBitWidth	Uint64	262	Uncompressed
+4	/Section0/References/Deltas/BitWidths	1	SimdForBitpack	Uint8	17	
+4	/Section0/References/Deltas/DataOffsets	2	FixedBitWidth	Uint32	112	Uncompressed
+3	/Section0/References/Restatements	1	PFOR	Uint64	278947	
+4	/Section0/References/Restatements/ExceptionPositions	0	FixedBitWidth	Uint32	1341	Uncompressed
+4	/Section0/References/Restatements/ExceptionValues	1	FixedBitWidth	Uint64	4816	Uncompressed
+3	/Section0/References/IsRestatements	2	Trivial	Bool	9780	Uncompressed
+2	/Section0/BitOffsets	2	Delta	Uint64	65	
+3	/Section0/BitOffsets/Deltas	0	Constant	Uint64	14	
+3	/Section0/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+3	/Section0/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section0/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+  --- SIS/pinned node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	80573817	75800804	1.062967841343741	column	0
+1	/Section0	payload	FOR	Uint64	10000000	80573803	80908298	0.9958657516191973	section	1
+2	/Section0/BitWidths	metadata	Constant	Uint8	78125	7	7	1	section	1
+2	/Section0/References	metadata	Delta	Uint64	78125	573708	586006	0.9790138667522176	section	1
+3	/Section0/References/Deltas	payload	BlockBitPacking	Uint64	39159	284967	285105	0.9995159678013363	section	1
+4	/Section0/References/Deltas/Baselines	metadata	FixedBitWidth	Uint64	39	262	262	1	section	1
+4	/Section0/References/Deltas/BitWidths	metadata	SimdForBitpack	Uint8	39	17	17	1	section	1
+4	/Section0/References/Deltas/DataOffsets	metadata	FixedBitWidth	Uint32	39	112	112	1	section	1
+3	/Section0/References/Restatements	payload	PFOR	Uint64	38966	278947	278947	1	section	1
+4	/Section0/References/Restatements/ExceptionPositions	metadata	FixedBitWidth	Uint32	661	1341	1341	1	section	1
+4	/Section0/References/Restatements/ExceptionValues	payload	FixedBitWidth	Uint64	661	4816	4816	1	section	1
+3	/Section0/References/IsRestatements	metadata	Trivial	Bool	78125	9780	9780	1	section	1
+2	/Section0/BitOffsets	metadata	Delta	Uint64	78125	65	136800	0.00047514619883040935	section	1
+3	/Section0/BitOffsets/Deltas	payload	Constant	Uint64	78124	14	14	1	section	1
+3	/Section0/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+3	/Section0/BitOffsets/IsRestatements	metadata	SparseBool	Bool	78125	22	31	0.7096774193548387	section	1
+4	/Section0/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+  --- SIS/pinned section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	FOR	80573803	Delta	78750068	FOR	80908298	FOR	74008789	FixedBitWidth	77578125	Delta=78750068/66937556;FOR=80908298/68772056;FixedBitWidth=77500023/69750016;SimdForBitpack=77500016/69750016;PFOR=77500039/69750032;BlockBitPacking=77695362/69925824;RLE=77500086/77500088;Trivial=80000007/80000008;Varint=89842241/89842240;FrequencyPartition=111184526/94506848;Dictionary=107500052/107500048;MainlyConstant=107500064/107500064
+whole	0	63	0			Delta	78750068	FOR	80908298	FOR	74008789	FixedBitWidth	77578125	Delta=78750068/66937556;FOR=80908298/68772056;FixedBitWidth=77500023/69750016;SimdForBitpack=77500016/69750016;PFOR=77500039/69750032;BlockBitPacking=77695362/69925824;RLE=77500086/77500088;Trivial=80000007/80000008;Varint=89842241/89842240;FrequencyPartition=111184526/94506848;Dictionary=107500052/107500048;MainlyConstant=107500064/107500064
+  SIS/pinned: 80573817 B, 64.46 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/pinned_default_uuidv7_lo.csv.tmp

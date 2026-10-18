@@ -1,0 +1,5 @@
+column,class_label,n,exp_distinct,exp_entropy_bits,exp_entropy_mm_bits,exp_min,exp_max,mant_tz_median,mant_tz_mean,effective_mantissa_width,leading_bits_stable_median,leading_bits_stable_min,n_vectors_1024
+F2_food_prices,decimal-origin,524288,28,3.6463,3.6463,1019,1047,43.0,30.636930465698242,9.0,8.0,1,512
+F4_medicare_total_drug_cost,decimal-origin,524288,20,3.0952,3.0952,1026,1045,1.0,2.5743675231933594,51.0,7.0,7,512
+F10_medicare_calc_9030826185528129,high-precision,524288,15,2.5927,2.5928,1016,1030,0.0,1.0519599914550781,52.0,1.0,1,512
+C0_uniform_control,control,524288,18,2.0705,2.0705,1033,1052,2.0,2.5727615356445312,50.0,0.0,0,512

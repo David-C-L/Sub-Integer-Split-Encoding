@@ -1,0 +1,27 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:34:02.328715 26548 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: uuidv7_hi ==
+  --- SIS/pinned encoding tree ---
+SubIntSplitEncoding sections=1 rowFrame=(slope=0x1 base=0x0)
+  [0..63] storageBytes=8
+    Trivial<Uint64> rowCount=10000000
+
+  --- SIS/pinned encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	8250222	
+1	/Section0	0	Trivial	Uint64	8250191	OpenZL
+  --- SIS/pinned node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	8250222	21347874	0.3864657436145632	column	0
+1	/Section0	payload	Trivial	Uint64	10000000	8250191	80000007	0.10312737847635438	section	1
+  --- SIS/pinned section choices ---
+#frameSlope=1 frameBase=0 frameKind=step keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	Trivial	8250191	Delta	25000082	RLE	22907607	Dictionary	42426757	FOR	44008789	Delta=25000082/21250070;RLE=22907607/22907608;BlockBitPacking=32046194/28841574;FOR=40673924/34572836;SimdForBitpack=48750016/43875012;FixedBitWidth=48750023/43875020;PFOR=48750039/43875036;FrequencyPartition=53208686/45227388;Dictionary=49830966/49830968;Varint=58942813/58942812;MainlyConstant=78749980/78749984;Trivial=80000007/80000008
+whole	0	63	0			Delta	25000082	RLE	22907607	Dictionary	42426757	FOR	44008789	Delta=25000082/21250070;RLE=22907607/22907608;BlockBitPacking=32046194/28841574;FOR=40673924/34572836;SimdForBitpack=48750016/43875012;FixedBitWidth=48750023/43875020;PFOR=48750039/43875036;FrequencyPartition=53208686/45227388;Dictionary=49830966/49830968;Varint=58942813/58942812;MainlyConstant=78749980/78749984;Trivial=80000007/80000008
+  SIS/pinned: 8250222 B, 6.60 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/armA_uuidv7_hi.csv.tmp

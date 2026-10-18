@@ -1,0 +1,37 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 21:02:33.780906  8742 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 2 encoders x 1 datasets, N=2000000
+
+== Dataset: snowflake ==
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=-2 plan_ms=35.6267 encode_ms=249.685 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=-1 plan_ms=25.8391 encode_ms=203.594 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=0 plan_ms=23.7502 encode_ms=184.608 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=1 plan_ms=23.8674 encode_ms=189.094 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=2 plan_ms=23.4448 encode_ms=177.382 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=3 plan_ms=23.416 encode_ms=185.7 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=4 plan_ms=23.528 encode_ms=176.913 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=5 plan_ms=23.5778 encode_ms=186.544 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=6 plan_ms=23.5033 encode_ms=219.292 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=7 plan_ms=23.5555 encode_ms=196.033 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=8 plan_ms=23.6167 encode_ms=176.18 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=9 plan_ms=23.4725 encode_ms=187.063 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [plan-time] dataset=snowflake arm=SIS/realNested rep=10 plan_ms=23.7033 encode_ms=177.709 observer_calls=1 bytes=9647259 plan=0-3;4-11;12-16;17-21;22-50;51-58;59-60;61-63
+  [encode-time] SIS/realNested encode_ms=185.999
+  SIS/realNested: 9647259 B, 38.59 bpe
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=-2 plan_ms=54.65 encode_ms=204.41 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=-1 plan_ms=53.46 encode_ms=216.49 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=0 plan_ms=53.92 encode_ms=196.38 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=1 plan_ms=53.59 encode_ms=195.91 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=2 plan_ms=53.50 encode_ms=197.53 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=3 plan_ms=54.06 encode_ms=197.39 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=4 plan_ms=54.57 encode_ms=196.58 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=5 plan_ms=53.60 encode_ms=235.43 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=6 plan_ms=54.22 encode_ms=216.15 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=7 plan_ms=58.61 encode_ms=205.19 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=8 plan_ms=53.92 encode_ms=222.41 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=9 plan_ms=53.57 encode_ms=195.80 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [plan-time] dataset=snowflake arm=SIS/hybrid rep=10 plan_ms=53.72 encode_ms=212.89 observer_calls=1 bytes=9042868 plan=0-3;4-11;12-16;17-21;22-42;43-49;50-53;54-63
+  [encode-time] SIS/hybrid encode_ms=195.53
+  SIS/hybrid: 9042868 B, 36.17 bpe
+
+Results written to: $RESULTS/plan_time_20261017_2134/out/comp_snowflake_2000000.csv

@@ -1,0 +1,3 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,osm_h3_r9_fileorder,SIS/pinned,SubIntSplit,oracle_dp_selection,full,,shipped,0,10000000,42,7687832,80000000,0.0960979,6.15027,0,1
+bench_compression,Uint64,osm_h3_r9_fileorder,SIS/pinned+view,SubIntSplit,oracle_dp_selection_view,full,,shipped,0,10000000,42,7687832,80000000,0.0960979,6.15027,0,1

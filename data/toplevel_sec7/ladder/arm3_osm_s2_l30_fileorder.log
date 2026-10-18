@@ -1,0 +1,71 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:37.197994 25554 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: osm_s2_l30_fileorder ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=5
+  [0..0] storageBytes=1
+    Constant<Uint8> rowCount=10000000 value=1
+  [1..36] storageBytes=8
+    SimdForBitpack<Uint64> rowCount=10000000 bitWidth=36
+  [37..52] storageBytes=2
+    RLE<Uint16> rowCount=10000000
+  [53..59] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [60..63] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	47624233	
+1	/Section0	0	Constant	Uint8	7	
+1	/Section1	1	SimdForBitpack	Uint64	45000016	
+1	/Section2	2	RLE	Uint16	2403773	
+2	/Section2/Lengths	0	FrequencyPartition	Uint32	762777	
+3	/Section2/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section2/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section2/Values	1	Trivial	Uint16	1640986	OpenZL
+1	/Section3	3	RLE	Uint8	220360	
+2	/Section3/Lengths	0	FrequencyPartition	Uint32	179715	
+3	/Section3/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section3/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section3/Values	1	FrequencyPartition	Uint8	40635	
+3	/Section3/Values/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+3	/Section3/Values/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section4	4	RLE	Uint8	39	
+2	/Section4/Lengths	0	Trivial	Uint32	19	Uncompressed
+2	/Section4/Values	1	Trivial	Uint8	10	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	47624233	52285235	0.9108543358368764	column	0
+1	/Section0	payload	Constant	Uint8	10000000	7	7	1	section	1
+1	/Section1	payload	SimdForBitpack	Uint64	10000000	45000016	45000016	1	section	1
+1	/Section2	payload	RLE	Uint16	10000000	2403773	3989808	0.6024783648736982	section	1
+2	/Section2/Lengths	metadata	FrequencyPartition	Uint32	1500118	762777	989555	0.7708283016103198	section	1
+3	/Section2/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section2/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section2/Values	payload	Trivial	Uint16	1500118	1640986	3000243	0.546951030299879	section	1
+1	/Section3	payload	RLE	Uint8	10000000	220360	342936	0.6425688758252268	section	1
+2	/Section3/Lengths	metadata	FrequencyPartition	Uint32	261314	179715	212223	0.8468215037955358	section	1
+3	/Section3/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section3/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section3/Values	payload	FrequencyPartition	Uint8	261314	40635	105254	0.38606608774963425	section	1
+3	/Section3/Values/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+3	/Section3/Values/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section4	payload	RLE	Uint8	10000000	39	48	0.8125	section	1
+2	/Section4/Lengths	metadata	Trivial	Uint32	3	19	19	1	section	1
+2	/Section4/Values	payload	Trivial	Uint8	3	10	10	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	0	0	Constant	7	Constant	7	SimdForBitpack	9	Constant	34179	FixedBitWidth	43945	Constant=7/7;SimdForBitpack=9/8;RLE=38/38;MainlyConstant=50/50;BlockBitPacking=126999/114299;Delta=1250070/1062559;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;Dictionary=1250037/1250037;FOR=1503994/1278394;FrequencyPartition=2500116/2125098;Trivial=10000007/10000007
+1	1	36	0	SimdForBitpack	45000016	Delta	46250067	SimdForBitpack	45000016	FixedBitWidth	45078125	SimdForBitpack	45078125	Delta=46250067/39312560;SimdForBitpack=45000016/40500012;FixedBitWidth=45000023/40500020;PFOR=45000039/40500036;BlockBitPacking=45195362/40675824;RLE=45000092/45000092;Varint=54962310/54962312;FrequencyPartition=78680355/66878300;FOR=80632564/68537680;Dictionary=74996848/74996848;MainlyConstant=75000059/75000056;Trivial=80000007/80000008
+2	37	52	0	RLE	2403773	RLE	3989808	Trivial	20000007	RLE	5654296	Dictionary	11401367	RLE=3989808/3989808;Trivial=20000007/14000005;FOR=18930701/16091095;BlockBitPacking=19738018/17764216;SimdForBitpack=20000010/18000008;FixedBitWidth=20000017/18000014;PFOR=20000033/18000028;Delta=21250035/18062532;FrequencyPartition=22766900/19351866;Dictionary=20090038/20090038;MainlyConstant=49906037/49906036
+3	53	59	0	RLE	220360	RLE	342936	MainlyConstant	2451296	RLE	654296	BlockBitPacking	2871093	RLE=342936/342936;MainlyConstant=2451296/2451296;FOR=2975938/2529547;BlockBitPacking=3303687/2973318;FrequencyPartition=3889745/3306283;Dictionary=5000046/5000046;Delta=7891975/6708179;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;Trivial=10000007/10000007
+4	60	63	0	RLE	39	RLE	48	MainlyConstant	126	Constant	34179	FixedBitWidth	43945	RLE=48/48;MainlyConstant=126/126;BlockBitPacking=127383/114644;Dictionary=1250038/1250038;FOR=1533339/1303338;FrequencyPartition=2500117/2125099;Delta=3750074/3187563;SimdForBitpack=3750009/3375008;FixedBitWidth=3750016/3375014;PFOR=3750032/3375028;Trivial=10000007/10000007
+whole	0	63	0			BlockBitPacking	69388834	Delta	78750068	BlockBitPacking	69121093	FixedBitWidth	70078125	BlockBitPacking=69388834/62449948;Delta=78750068/66937556;FOR=80925382/68786576;FixedBitWidth=77500023/69750016;SimdForBitpack=77500016/69750016;PFOR=77500039/69750032;RLE=77500086/77500088;Trivial=80000007/80000008;Varint=89999943/89999944;FrequencyPartition=111184417/94506760;Dictionary=107499967/107499968;MainlyConstant=107500053/107500056
+  SIS/realNested: 47624233 B, 38.10 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm3_osm_s2_l30_fileorder.csv.tmp

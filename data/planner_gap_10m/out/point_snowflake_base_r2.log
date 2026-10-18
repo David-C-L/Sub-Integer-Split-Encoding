@@ -1,0 +1,13 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 23:36:11.808045 13926 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_decode_point: 4 encoders x 1 datasets, N=10000000, probes=256, iters=5, cache=hot
+  l1d=32KiB l2=1MiB llc=13.75MiB line=64B
+
+== Dataset: snowflake ==
+  SIS/realNested: 49898003 B, 1.07369e+07 ns/probe
+  SIS/realNested+view: 49898003 B, 1426.27 ns/probe
+  SIS/hybrid: 46785518 B, 6.12337e+07 ns/probe
+  SIS/hybrid+view: 46785518 B, 2069.68 ns/probe
+
+Results written to: $RESULTS/planner_gap_10m_20261018/out/point_snowflake_base_r2.csv

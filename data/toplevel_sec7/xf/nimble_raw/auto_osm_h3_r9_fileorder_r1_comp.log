@@ -1,0 +1,23 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: osm_h3_r9_fileorder ==
+  --- Auto/view encoding tree ---
+RLE<Uint64> rowCount=524288
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	RLE	Uint64	1435484	
+1	/Lengths	0	PFOR	Uint32	193269	
+2	/Lengths/ExceptionPositions	0	Constant	Uint32	10	
+2	/Lengths/ExceptionValues	1	Constant	Uint32	10	
+1	/Values	1	PFOR	Uint64	1242205	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	RLE	Uint64	524288	1435484	1545862	0.9285977661654146	column	0
+1	/Lengths	metadata	PFOR	Uint32	220832	193269	193271	0.999989651836023	column	0
+2	/Lengths/ExceptionPositions	metadata	Constant	Uint32	1	10	10	1	column	0
+2	/Lengths/ExceptionValues	payload	Constant	Uint32	1	10	10	1	column	0
+1	/Values	payload	PFOR	Uint64	220832	1242205	1242219	0.9999887298455425	column	0
+  Auto/view: 1435484 B, 21.90 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_osm_h3_r9_fileorder_r1_comp.csv.tmp

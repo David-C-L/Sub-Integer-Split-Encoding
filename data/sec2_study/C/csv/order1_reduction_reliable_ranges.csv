@@ -1,0 +1,11 @@
+column,lo,hi,width,order0,order1_cond,reduction_frac
+publicbi_drug_cost,18,19,1,0.855,0.8304,0.028771929824561338
+publicbi_drug_cost_ge65,17,18,1,0.9088,0.8925,0.017935739436619857
+publicbi_bene_count,5,6,1,0.9787,0.9633,0.015735158884234157
+publicbi_num_employees,2,3,1,0.4356,0.4226,0.029843893480257178
+publicbi_day_supply_bin,4,5,1,0.9959,0.7409,0.2560498041972086
+instagram,18,23,5,2.4909,0.4483,0.8200248906017905
+hashed_splitmix64,30,31,1,1.0,1.0,0.0
+random_uint64,3,4,1,1.0,1.0,0.0
+uuidv7_lo,62,64,2,0.0,0.0,0.0
+publicbi_npi,30,31,1,0.3905,0.3905,0.0

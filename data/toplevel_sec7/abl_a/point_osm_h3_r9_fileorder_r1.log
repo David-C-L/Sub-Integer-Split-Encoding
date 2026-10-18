@@ -1,0 +1,30 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 16:02:52.789242  1295 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_decode_point: 22 encoders x 1 datasets, N=524288, probes=4096, iters=3, cache=hot
+  l1d=32KiB l2=1MiB llc=13.75MiB line=64B
+
+== Dataset: osm_h3_r9_fileorder ==
+  zstd/block-64: 957046 B, 1594.05 ns/probe
+  openzl/block-64: 1362084 B, 12176.4 ns/probe
+  zstd/block-128: 717249 B, 2678.15 ns/probe
+  openzl/block-128: 1099188 B, 16568.7 ns/probe
+  zstd/block-256: 588471 B, 4485.77 ns/probe
+  openzl/block-256: 924914 B, 20317.4 ns/probe
+  zstd/block-512: 528861 B, 7706.29 ns/probe
+  openzl/block-512: 840035 B, 27411.8 ns/probe
+  zstd/block-1024: 484702 B, 14465.1 ns/probe
+  openzl/block-1024: 712165 B, 45398 ns/probe
+  zstd/block-2048: 458270 B, 26431.3 ns/probe
+  openzl/block-2048: 608613 B, 69745.3 ns/probe
+  zstd/block-4096: 445125 B, 47469.6 ns/probe
+  openzl/block-4096: 473882 B, 91490.8 ns/probe
+  zstd/block-8192: 439526 B, 89540.7 ns/probe
+  openzl/block-8192: 435146 B, 141234 ns/probe
+  zstd/block-16384: 438044 B, 170917 ns/probe
+  openzl/block-16384: 401135 B, 221028 ns/probe
+  zstd/block-32768: 439330 B, 343276 ns/probe
+  openzl/block-32768: 389299 B, 383497 ns/probe
+  zstd/block-65536: 442130 B, 696000 ns/probe
+  openzl/block-65536: 387598 B, 713772 ns/probe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/abl_a/point_osm_h3_r9_fileorder_r1.csv.tmp

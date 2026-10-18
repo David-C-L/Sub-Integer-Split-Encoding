@@ -1,0 +1,1 @@
+evaluation rev-toplevel + eval/arm-a-trivial-sections rev-arm-a (--mlidc_sis_pinned_row_frame) + build/toplevel_sec7.patch (uncommitted: admission estimate and cost-model oracle honour --mlidc_sis_section_candidates); built in wt-evaluation/_build_release (no JCC flag), targets only; bin/SHA256SUMS. compression benchmark sha256 = armA_trivial_sections_20261007_1825/bin_rowframe

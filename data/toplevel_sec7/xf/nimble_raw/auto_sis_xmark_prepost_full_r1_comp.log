@@ -1,0 +1,32 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: xmark_prepost_full ==
+  --- Auto/view encoding tree ---
+SubIntSplitEncoding sections=1 rowFrame=(slope=0x10000001 base=0xfffffffffffffff4)
+  [0..63] storageBytes=8
+    Dictionary<Uint64> rowCount=524288
+    indices child:
+      PFOR<Uint32> rowCount=524288 baseBitWidth=7 numExceptions=31813
+    alphabet:
+      entries=688
+
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	579364	
+1	/Section0	0	Dictionary	Uint64	579333	
+2	/Section0/Alphabet	0	FixedBitWidth	Uint64	5183	Uncompressed
+2	/Section0/Indices	1	PFOR	Uint32	574140	
+3	/Section0/Indices/ExceptionPositions	0	FixedBitWidth	Uint32	75575	Uncompressed
+3	/Section0/Indices/ExceptionValues	1	FixedBitWidth	Uint32	39786	Uncompressed
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	524288	579364	764611	0.7577238621992098	column	0
+1	/Section0	payload	Dictionary	Uint64	524288	579333	660572	0.8770171911615994	section	1
+2	/Section0/Alphabet	payload	FixedBitWidth	Uint64	688	5183	5183	1	section	1
+2	/Section0/Indices	metadata	PFOR	Uint32	524288	574140	574140	1	section	1
+3	/Section0/Indices/ExceptionPositions	metadata	FixedBitWidth	Uint32	31813	75575	75575	1	section	1
+3	/Section0/Indices/ExceptionValues	payload	FixedBitWidth	Uint32	31813	39786	39786	1	section	1
+  Auto/view: 579364 B, 8.84 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_sis_xmark_prepost_full_r1_comp.csv.tmp

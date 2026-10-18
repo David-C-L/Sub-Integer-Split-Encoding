@@ -1,0 +1,106 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: snowflake ==
+  --- Auto/view encoding tree ---
+SubIntSplitEncoding sections=8
+  [0..3] storageBytes=1
+    MainlyConstant<Uint8> rowCount=524288 commonValue=0
+      isCommon child:
+        Trivial<Bool> rowCount=524288
+      otherValues child:
+        FixedBitWidth<Uint8> rowCount=252895 bit_width=4
+  [4..11] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [12..17] storageBytes=1
+    FixedBitWidth<Uint8> rowCount=524288 bit_width=6
+  [18..21] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [22..50] storageBytes=4
+    RLE<Uint32> rowCount=524288
+  [51..58] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [59..60] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [61..63] storageBytes=1
+    Constant<Uint8> rowCount=524288 value=0
+
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	2597454	
+1	/Section0	0	MainlyConstant	Uint8	192029	
+2	/Section0/IsCommon	0	Trivial	Bool	65550	Uncompressed
+2	/Section0/OtherValues	1	FixedBitWidth	Uint8	126464	Uncompressed
+1	/Section1	1	RLE	Uint8	24510	
+2	/Section1/Lengths	0	MainlyConstant	Uint32	5283	
+3	/Section1/Lengths/IsCommon	0	Trivial	Bool	2416	Uncompressed
+3	/Section1/Lengths/OtherValues	1	Dictionary	Uint32	2849	
+4	/Section1/Lengths/OtherValues/Alphabet	0	FixedBitWidth	Uint32	823	Uncompressed
+4	/Section1/Lengths/OtherValues/Indices	1	FixedBitWidth	Uint32	2016	Uncompressed
+2	/Section1/Values	1	Trivial	Uint8	19217	Uncompressed
+1	/Section2	2	FixedBitWidth	Uint8	393232	Uncompressed
+1	/Section3	3	RLE	Uint8	23269	
+2	/Section3/Lengths	0	MainlyConstant	Uint32	11372	
+3	/Section3/Lengths/IsCommon	0	Trivial	Bool	2982	Uncompressed
+3	/Section3/Lengths/OtherValues	1	PFOR	Uint32	8372	
+4	/Section3/Lengths/OtherValues/ExceptionPositions	0	FixedBitWidth	Uint32	581	Uncompressed
+4	/Section3/Lengths/OtherValues/ExceptionValues	1	FixedBitWidth	Uint32	581	Uncompressed
+2	/Section3/Values	1	FixedBitWidth	Uint8	11887	Uncompressed
+1	/Section4	4	RLE	Uint32	1885437	
+2	/Section4/Lengths	0	MainlyConstant	Uint32	9764	
+3	/Section4/Lengths/IsCommon	0	SparseBool	Bool	7667	
+4	/Section4/Lengths/IsCommon/Indices	0	FixedBitWidth	Uint32	7660	Uncompressed
+3	/Section4/Lengths/OtherValues	1	Dictionary	Uint32	2079	
+4	/Section4/Lengths/OtherValues/Alphabet	0	FixedBitWidth	Uint32	40	Uncompressed
+4	/Section4/Lengths/OtherValues/Indices	1	FixedBitWidth	Uint32	2029	Uncompressed
+2	/Section4/Values	1	FixedBitWidth	Uint32	1875663	Uncompressed
+1	/Section5	5	RLE	Uint8	78159	
+2	/Section5/Lengths	0	PFOR	Uint32	37013	
+3	/Section5/Lengths/ExceptionPositions	0	FixedBitWidth	Uint32	569	Uncompressed
+3	/Section5/Lengths/ExceptionValues	1	FixedBitWidth	Uint32	432	Uncompressed
+2	/Section5/Values	1	Trivial	Uint8	41136	Uncompressed
+1	/Section6	6	RLE	Uint8	755	
+2	/Section6/Lengths	0	FixedBitWidth	Uint32	634	Uncompressed
+2	/Section6/Values	1	FixedBitWidth	Uint8	111	Uncompressed
+1	/Section7	7	Constant	Uint8	7	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	524288	2597454	2910314	0.8924995722111085	column	0
+1	/Section0	payload	MainlyConstant	Uint8	524288	192029	192029	1	section	1
+2	/Section0/IsCommon	metadata	Trivial	Bool	524288	65550	65550	1	section	1
+2	/Section0/OtherValues	payload	FixedBitWidth	Uint8	252895	126464	126464	1	section	1
+1	/Section1	payload	RLE	Uint8	524288	24510	24510	1	section	1
+2	/Section1/Lengths	metadata	MainlyConstant	Uint32	19210	5283	5283	1	section	1
+3	/Section1/Lengths/IsCommon	metadata	Trivial	Bool	19210	2416	2416	1	section	1
+3	/Section1/Lengths/OtherValues	payload	Dictionary	Uint32	1775	2849	2849	1	section	1
+4	/Section1/Lengths/OtherValues/Alphabet	payload	FixedBitWidth	Uint32	459	823	823	1	section	1
+4	/Section1/Lengths/OtherValues/Indices	metadata	FixedBitWidth	Uint32	1775	2016	2016	1	section	1
+2	/Section1/Values	payload	Trivial	Uint8	19210	19217	19217	1	section	1
+1	/Section2	payload	FixedBitWidth	Uint8	524288	393232	393232	1	section	1
+1	/Section3	payload	RLE	Uint8	524288	23269	24888	0.9349485695917711	section	1
+2	/Section3/Lengths	metadata	MainlyConstant	Uint32	23742	11372	12991	0.8753752597952429	section	1
+3	/Section3/Lengths/IsCommon	metadata	Trivial	Bool	23742	2982	2982	1	section	1
+3	/Section3/Lengths/OtherValues	payload	PFOR	Uint32	8212	8372	8372	1	section	1
+4	/Section3/Lengths/OtherValues/ExceptionPositions	metadata	FixedBitWidth	Uint32	321	581	581	1	section	1
+4	/Section3/Lengths/OtherValues/ExceptionValues	payload	FixedBitWidth	Uint32	321	581	581	1	section	1
+2	/Section3/Values	payload	FixedBitWidth	Uint8	23742	11887	11887	1	section	1
+1	/Section4	payload	RLE	Uint32	524288	1885437	1885437	1	section	1
+2	/Section4/Lengths	metadata	MainlyConstant	Uint32	517419	9764	9764	1	section	1
+3	/Section4/Lengths/IsCommon	metadata	SparseBool	Bool	517419	7667	7667	1	section	1
+4	/Section4/Lengths/IsCommon/Indices	metadata	FixedBitWidth	Uint32	3217	7660	7660	1	section	1
+3	/Section4/Lengths/OtherValues	payload	Dictionary	Uint32	3216	2079	2079	1	section	1
+4	/Section4/Lengths/OtherValues/Alphabet	payload	FixedBitWidth	Uint32	28	40	40	1	section	1
+4	/Section4/Lengths/OtherValues/Indices	metadata	FixedBitWidth	Uint32	3216	2029	2029	1	section	1
+2	/Section4/Values	payload	FixedBitWidth	Uint32	517419	1875663	1875663	1	section	1
+1	/Section5	payload	RLE	Uint8	524288	78159	73878	1.0579468854056688	section	1
+2	/Section5/Lengths	metadata	PFOR	Uint32	41129	37013	37013	1	section	1
+3	/Section5/Lengths/ExceptionPositions	metadata	FixedBitWidth	Uint32	275	569	569	1	section	1
+3	/Section5/Lengths/ExceptionValues	payload	FixedBitWidth	Uint32	275	432	432	1	section	1
+2	/Section5/Values	payload	Trivial	Uint8	41129	41136	41136	1	section	1
+1	/Section6	payload	RLE	Uint8	524288	755	755	1	section	1
+2	/Section6/Lengths	metadata	FixedBitWidth	Uint32	378	634	634	1	section	1
+2	/Section6/Values	payload	FixedBitWidth	Uint8	378	111	111	1	section	1
+1	/Section7	payload	Constant	Uint8	524288	7	7	1	section	1
+  Auto/view: 2597454 B, 39.63 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_sis_snowflake_r1_comp.csv.tmp

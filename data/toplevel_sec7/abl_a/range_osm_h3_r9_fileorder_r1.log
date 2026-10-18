@@ -1,0 +1,30 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 16:04:25.577054  1373 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_decode_range: 22 encoders x 1 datasets, N=524288, grid=16 (32 cells), iters=3, cache=hot
+  l1d=32KiB l2=1MiB llc=13.75MiB line=64B
+
+== Dataset: osm_h3_r9_fileorder ==
+  zstd/block-64: 957046 B, 32 cells swept
+  openzl/block-64: 1362084 B, 32 cells swept
+  zstd/block-128: 717249 B, 32 cells swept
+  openzl/block-128: 1099188 B, 32 cells swept
+  zstd/block-256: 588471 B, 32 cells swept
+  openzl/block-256: 924914 B, 32 cells swept
+  zstd/block-512: 528861 B, 32 cells swept
+  openzl/block-512: 840035 B, 32 cells swept
+  zstd/block-1024: 484702 B, 32 cells swept
+  openzl/block-1024: 712165 B, 32 cells swept
+  zstd/block-2048: 458270 B, 32 cells swept
+  openzl/block-2048: 608613 B, 32 cells swept
+  zstd/block-4096: 445125 B, 32 cells swept
+  openzl/block-4096: 473882 B, 32 cells swept
+  zstd/block-8192: 439526 B, 32 cells swept
+  openzl/block-8192: 435146 B, 32 cells swept
+  zstd/block-16384: 438044 B, 32 cells swept
+  openzl/block-16384: 401135 B, 32 cells swept
+  zstd/block-32768: 439330 B, 32 cells swept
+  openzl/block-32768: 389299 B, 32 cells swept
+  zstd/block-65536: 442130 B, 32 cells swept
+  openzl/block-65536: 387598 B, 32 cells swept
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/abl_a/range_osm_h3_r9_fileorder_r1.csv.tmp

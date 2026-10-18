@@ -1,0 +1,484 @@
+/*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// Defines the gflags shared across all ML ID compression benchmark drivers.
+// Declared in BenchCommon.h; defined here in exactly one TU.
+
+#include <gflags/gflags.h>
+
+DEFINE_string(mlidc_output_csv, "mlidc_results.csv", "CSV output path");
+DEFINE_string(
+    mlidc_output_manifest,
+    "mlidc_manifest.json",
+    "JSON manifest sidecar path");
+DEFINE_int32(mlidc_rows, 100000, "Number of rows per dataset instance");
+DEFINE_int32(
+    mlidc_chunk_rows,
+    0,
+    "Encode each column as independently encoded chunks of this many rows, as "
+    "a chunking Nimble writer flushes a long stream. 0 encodes the column as "
+    "one block. The writer's maximum chunk is 20 MiB raw "
+    "(kChunkingWriterMaxChunkSize), 2,621,440 rows of a 64-bit type.");
+DEFINE_int32(
+    mlidc_iters,
+    5,
+    "Benchmark iterations per (encoder, dataset) pair");
+DEFINE_int64(mlidc_seed, 42, "Base random seed for dataset generators");
+DEFINE_bool(
+    mlidc_validate,
+    true,
+    "Check every timed cell against the input column: before timing, replay "
+    "exactly the reads the timed loop issues, and after timing, check the "
+    "output of the last timed iteration. A cell that fails is written with "
+    "validated=0 and no timing, and the driver exits non-zero. Pass false only "
+    "for profiling runs; every row then reports validated=0.");
+DEFINE_string(
+    mlidc_file,
+    "",
+    "Text file with one value per line, parsed as --mlidc_dtype, added as a "
+    "real-data dataset alongside the synthetic ones. Empty disables. The int64 "
+    "case is the same format as the --file flag of "
+    "velox/dwio/nimble/tools/encoding_bench, so a column dump feeds both.");
+DEFINE_string(
+    mlidc_substream_compression,
+    "Uncompressed",
+    "Compressor applied to each encoding's streams, including the sub-streams "
+    "of nested encodings such as SubIntSplit. One of Uncompressed, Zstd, Lz4, "
+    "OpenZL. 'Uncompressed' isolates what the selected sub-encoders achieve on "
+    "their own.");
+DEFINE_string(
+    mlidc_outer_compression,
+    "Uncompressed",
+    "Compressor applied once to the whole encoded payload, on top of any "
+    "sub-stream compression. Same names as --mlidc_substream_compression. "
+    "Models shipping an encoded column through a block codec, which costs a "
+    "full decompress before any read.");
+DEFINE_int32(
+    mlidc_block_codec_probes,
+    64,
+    "Point-lookup probes used for encoders where every read decompresses the "
+    "whole payload. Each probe costs one full decompress, so the default 65536 "
+    "probes would take hours. Per-probe cost is constant, so a small sample "
+    "gives the same ns_per_probe.");
+DEFINE_bool(
+    mlidc_allow_delta_block,
+    false,
+    "Whether SubIntSplit may cost and select DeltaBlock. False is what "
+    "production ships (subintsplit::SelectorConfig::allowDeltaBlock); pass "
+    "true to measure the withdrawn configuration on any driver. It is one flag "
+    "rather than a second arm because crossing it with the Huffman arms would "
+    "double every SubIntSplit target for a comparison that is run once.");
+DEFINE_double(
+    mlidc_sis_decode_weight,
+    0.0,
+    "subintsplit::DecodeCostWeighting::weight: how much a SubIntSplit "
+    "section's predicted decode cost counts against its encoded size when the "
+    "split planner chooses boundaries and encodings. 0.0 is what production "
+    "ships and is size-only selection, bit for bit; raise it to price decode "
+    "and see which sections change encoding.");
+DEFINE_int32(
+    mlidc_sis_decode_access_pattern,
+    0,
+    "subintsplit::DecodeCostWeighting::accessPattern: the read shape decode "
+    "is costed for when --mlidc_sis_decode_weight is non-zero. 0 bulk, "
+    "1 point, 2 gather, 3 range.");
+DEFINE_int32(
+    mlidc_sis_decode_read_path,
+    0,
+    "subintsplit::DecodeCostWeighting::readPath: the reader decode is costed "
+    "for when --mlidc_sis_decode_weight is non-zero. 0 cursor, 1 view, both "
+    "with construction amortised; 2 cursor and 3 view paying construction.");
+DEFINE_int32(
+    mlidc_sis_admission,
+    0,
+    "subintsplit::Options::admission: how selection decides whether "
+    "SubIntSplit competes. 0 the size estimate, 1 the bit-flip profile's "
+    "gradient guard, 2 the gradient guard plus the entropy guard.");
+DEFINE_bool(
+    mlidc_sis_admission_forces,
+    false,
+    "subintsplit::Options::admissionForces: whether a bit-flip "
+    "admission selects SubIntSplit outright instead of only letting it "
+    "compete on size. Reproduces the pre-candidacy behaviour for the "
+    "ablation. Inert at --mlidc_sis_admission=0.");
+DEFINE_string(
+    mlidc_sis_openzl_pricing,
+    "off",
+    "subintsplit::SelectorConfig::sectionSizePricer: prices every candidate "
+    "section of the split DP by the bytes OpenZL compresses its narrowed "
+    "sampled values to, instead of by the closed-form cost models (see "
+    "OpenZLSectionPricer.h). off (the default) leaves every plan unchanged; "
+    "nimble prices with Nimble's OpenZLCompressor, the compressor "
+    "--mlidc_substream_compression=OpenZL gives a Trivial section's stream; "
+    "select_numeric prices with OpenZL's select_numeric graph, the openzl/auto "
+    "arm's. Applies to every SIS arm; pair it with SIS/trivial and "
+    "--mlidc_substream_compression=OpenZL for the OpenZL-aware split. "
+    "best_of (SelectorConfig::sectionChoicePricer) prices each section as the "
+    "cheaper of nimble's raw price and the section encoded by section "
+    "selection with OpenZL on its streams, and stores each planned section "
+    "the way that won; pair it with SIS/realNested and "
+    "--mlidc_substream_compression=OpenZL.");
+DEFINE_bool(
+    mlidc_sis_openzl_pricing_amortise_header,
+    true,
+    "With --mlidc_sis_openzl_pricing, charges an OpenZL frame's fixed header "
+    "once per stream rather than scaling it from the sample with the rest of "
+    "the section's bytes.");
+DEFINE_string(
+    mlidc_substream_openzl_graph,
+    "nimble",
+    "With --mlidc_substream_compression=OpenZL, the OpenZL graph every "
+    "stream (and every OpenZL section price) uses: nimble (the default), "
+    "Nimble's OpenZLCompressor graph; select_numeric, OpenZL's standard "
+    "select_numeric graph behind a serial-to-numeric conversion, the graph of "
+    "openzl/auto. Integer streams only; others keep Nimble's graph.");
+DEFINE_int32(
+    mlidc_openzl_level,
+    0,
+    "OpenZL compression level (CParam::CompressionLevel) for the openzl/auto "
+    "and openzl/block-K arms, and for the select_numeric section pricer that "
+    "shares their compressor. 0 (the default) leaves the parameter unset, so "
+    "OpenZL uses ZL_COMPRESSIONLEVEL_DEFAULT and every frame is unchanged.");
+DEFINE_int32(
+    mlidc_substream_openzl_level,
+    0,
+    "With --mlidc_substream_compression=OpenZL, the OpenZL compression level "
+    "of every stream the bench writes and of every OpenZL section price (the "
+    "nimble pricer and best_of's encoded side), so a price and the stored "
+    "frame use the same level. 0 (the default) keeps Nimble's configured "
+    "level (OpenZLCompressionParameters::compressionLevel) and every frame "
+    "unchanged.");
+DEFINE_string(
+    mlidc_sis_openzl_extrapolate,
+    "off",
+    "With --mlidc_sis_openzl_pricing (nimble, select_numeric or best_of), "
+    "how a section's OpenZL size is carried from the planner sample to the "
+    "stream: off (the default) scales it by rows / sample; linear fits "
+    "a + b * n and power fits c * n^alpha (alpha in (0, 1]) through the "
+    "section's size at --mlidc_sis_openzl_extrapolate_n1 rows (every k-th "
+    "block of the planner sample) and at the planner sample "
+    "(--mlidc_sis_planner_samples), and predicts it at the stream's rows. "
+    "Applies to the raw and the encoded price alike.");
+DEFINE_int64(
+    mlidc_sis_openzl_extrapolate_n1,
+    2048,
+    "The smaller sample of --mlidc_sis_openzl_extrapolate, in rows. Needs a "
+    "planner sample at least twice as large; otherwise the price is scaled.");
+DEFINE_string(
+    mlidc_sis_openzl_best_of_raw_graphs,
+    "nimble",
+    "With --mlidc_sis_openzl_pricing=best_of, the OpenZL graphs a section's "
+    "raw option is priced under: nimble (the default) prices it with the "
+    "graph every stream gets; both prices it under Nimble's graph and under "
+    "select_numeric and stores a raw section with the cheaper.");
+DEFINE_string(
+    mlidc_sis_whole_value_raw_fallback,
+    "off",
+    "Extra whole-value candidates for SubIntSplit's whole-value floor: the "
+    "whole value stored Trivial with its stream compressed under nimble, "
+    "select_numeric or both OpenZL graphs (through the section policy's "
+    "compression, so meaningful with --mlidc_substream_compression=OpenZL). "
+    "off, the default, leaves the floor unchanged.");
+DEFINE_string(
+    mlidc_sis_openzl_best_of_encoded_header,
+    "scale",
+    "With --mlidc_sis_openzl_pricing=best_of, how the encoded option's fixed "
+    "bytes are charged: scale (the default) scales the sample's whole "
+    "encoding to the stream; affine fits a + b * rows through the encodings "
+    "of the whole sample and its first half and charges a once per stream.");
+DEFINE_bool(
+    mlidc_sis_row_frame,
+    true,
+    "subintsplit::TuningConfig::rowFrame: whether SubIntSplit may subtract "
+    "a fitted line or step from every value before planning its sections.");
+DEFINE_string(
+    mlidc_sis_upstream_features,
+    "",
+    "Comma-separated overrides of the upstream SubIntSplit switches; empty "
+    "keeps the library defaults. Each name sets its switch on, and the same "
+    "name prefixed with no- sets it off. Names, with their library default: "
+    "delta (Encoding::Options::subIntSplitDeltaPreTransform, off), "
+    "huffmandeep (Encoding::Options::huffmanPriceLengthLimited, on), and the "
+    "subintsplit::TuningConfig switches trim (selector.trimConstantPlanes, "
+    "on), prune (selector.boundaryPruneThreshold at upstream's 0.001; off "
+    "means 0.0), fold (foldConstantSections, on), passthrough (passThrough, "
+    "on) and visitorblock (visitorBlockBuffer, on). Example: "
+    "--mlidc_sis_upstream_features=no-fold,no-passthrough,no-huffmandeep "
+    "reproduces the pre-integration behaviour.");
+DEFINE_bool(
+    mlidc_sis_estimate_compression_guard,
+    true,
+    "subintsplit::Options::estimateCompressionGuard: whether the size "
+    "estimate withholds the row frame's credit when the streams will be "
+    "handed to a substream compressor.");
+DEFINE_bool(
+    mlidc_sis_estimate_bitflip_screen,
+    true,
+    "subintsplit::Options::estimateBitFlipScreen: whether selection "
+    "may rule SubIntSplit out from the bit-flip gradient gate rather than by "
+    "planning a split.");
+DEFINE_double(
+    mlidc_sis_split_penalty,
+    10.0,
+    "subintsplit::SelectorConfig::splitPenalty: extra bits the split DP "
+    "charges per section boundary. The default is the library's. The cost "
+    "model oracle driver applies it to its own selector config too.");
+DEFINE_int64(
+    mlidc_sis_planner_samples,
+    -1,
+    "subintsplit::TuningConfig::sampler.maxSamples: values the split planner "
+    "samples. -1 keeps the library default (2048); 0 samples the whole column. "
+    "SubIntSplitEncoding::estimateSize keeps its own 512-value sample.");
+DEFINE_string(
+    mlidc_sis_pinned_boundaries,
+    "",
+    "Adds an SIS/pinned arm: SIS/realNested with its split plan pinned "
+    "through preserve mode to these inclusive bit ranges, e.g. "
+    "\"0-3;4-11;12-63\" (the oracle driver's plan_boundaries column). Empty "
+    "adds no arm.");
+DEFINE_string(
+    mlidc_sis_pinned_label,
+    "pinned",
+    "The variant column of the SIS/pinned arm, naming the pinned plan.");
+DEFINE_bool(
+    mlidc_sis_pinned_row_frame,
+    false,
+    "Whether the SIS/pinned arm replays its boundaries on the fitted row "
+    "frame's residuals, as a plan captured with a frame (the encoding tree's "
+    "rowFrame=) is replayed. False replays them on the values.");
+DEFINE_bool(
+    mlidc_sis_cost_model_v2,
+    false,
+    "subintsplit::SelectorConfig::costModelV2: prices RLE and Dictionary "
+    "sections with the V2 cost models (nested streams at the widths a section "
+    "writes, distinct counts consistent between sample and full scan). Off, "
+    "the default, leaves every plan as the library builds it. The cost model "
+    "oracle driver applies it to its own selector config and estimates too.");
+DEFINE_string(
+    mlidc_sis_section_candidates,
+    "default",
+    "subintsplit::TuningConfig::sectionCandidates, applied to the split "
+    "planner and to section selection together: default (the writer's list, "
+    "unchanged), addressable (the top-level rule: a section's own encoding "
+    "and every stream a read reaches per row are held to encodings a reader "
+    "positions in without a scan, no Delta, Varint, DeltaBlock or Huffman, "
+    "see subintsplit::isAddressableSectionEncoding and isRowAddressedStream; "
+    "streams sized by runs, distinct values, frames or exceptions may take "
+    "any encoding), addressable_strict (the same encodings withdrawn from "
+    "every stream below a section, which is what addressable selected up to "
+    "revision rev-addr-strict) or unrestricted (the default "
+    "list plus Huffman, with Delta priced by the V2 Delta model). Composes "
+    "with --mlidc_sis_cost_model_v2.");
+DEFINE_double(
+    mlidc_sis_max_size_regression,
+    0.05,
+    "subintsplit::TuningConfig::maxSizeRegression: the most encoded size, "
+    "as a fraction, that decode weighting may give up against what size-only "
+    "selection would have chosen. Inert at --mlidc_sis_decode_weight=0, where "
+    "the two plans are the same plan. Pass something large to reproduce the "
+    "unbounded objective, which pays an uncompressed column for speed.");
+DEFINE_int32(
+    mlidc_sis_decode_cost_model,
+    0,
+    "subintsplit::DecodeCostWeighting::model: 0 prices section decode with "
+    "the original rate tables, 1 with the calibrated ones.");
+DEFINE_double(
+    mlidc_sis_section_read_nanos,
+    0.0,
+    "subintsplit::DecodeCostWeighting::sectionReadNanos: nanoseconds per row "
+    "read charged to every section that is not Constant. 0 charges nothing; "
+    "negative takes the calibrated figure for the pattern and read path.");
+DEFINE_double(
+    mlidc_sis_size_budget,
+    -1.0,
+    "subintsplit::DecodeCostWeighting::sizeBudget: the most estimated size, "
+    "as a fraction of the size-only plan's, the planner may spend on read "
+    "cost. Negative is off. When set, --mlidc_sis_decode_weight is ignored.");
+DEFINE_bool(
+    mlidc_sis_size_budget_strict,
+    false,
+    "subintsplit::TuningConfig::sizeBudgetOnEncodedBytes: holds "
+    "--mlidc_sis_size_budget to encoded bytes by encoding the size-only plan "
+    "and bisecting the budget ladder.");
+DEFINE_bool(
+    mlidc_sis_decode_weight_sections_only,
+    false,
+    "subintsplit::TuningConfig::decodeWeightSectionsOnly: applies the decode "
+    "weight to a section's own encoding choice and not to the streams below "
+    "it.");
+DEFINE_string(
+    mlidc_sis_decode_mix,
+    "",
+    "subintsplit::DecodeCostWeighting::mix: how much each access pattern "
+    "counts in the size budget's read cost, e.g. \"point:0.5,bulk:0.5\". "
+    "Patterns are point, bulk and range; one left out counts for nothing. "
+    "Empty prices --mlidc_sis_decode_access_pattern alone.");
+DEFINE_double(
+    mlidc_sis_max_pattern_slowdown,
+    0.0,
+    "subintsplit::DecodeCostWeighting::maxPatternSlowdown: the most any one "
+    "of point, bulk and range may be predicted slower than the size-only "
+    "plan, as a factor, under --mlidc_sis_size_budget_strict. 0 is no limit.");
+DEFINE_int32(
+    mlidc_sis_max_sections,
+    0,
+    "subintsplit::SelectorConfig::maxSections: most sections a plan may have "
+    "that are not Constant. 0 is unlimited.");
+DEFINE_double(
+    mlidc_sis_section_max_size_regression,
+    -1.0,
+    "subintsplit::TuningConfig::sectionMaxSizeRegression. Negative uses "
+    "--mlidc_sis_max_size_regression.");
+DEFINE_int32(
+    mlidc_sis_min_section_width,
+    1,
+    "subintsplit::SelectorConfig::minSectionWidth.");
+DEFINE_int32(
+    mlidc_sis_max_candidate_boundaries,
+    -1,
+    "subintsplit::SelectorConfig::maxCandidateBoundaries. Negative keeps the "
+    "library default.");
+DEFINE_int32(
+    mlidc_sis_time_planner_reps,
+    0,
+    "bench_compression only: when positive, times choosing the SubIntSplit "
+    "split for each dataset this many times (after two warm-ups) under the "
+    "planner and read-cost flags: sampling, costing the grid and the DP or "
+    "the budget search. Prints one planner_ms line per dataset. On integer "
+    "datasets it also times sample, cost grid and DP with the default cost "
+    "models, the nimble OpenZL section pricer and the best_of pricer, and "
+    "prints one [planner-time] line with the median and plan for each.");
+DEFINE_bool(
+    mlidc_dump_encoding,
+    false,
+    "Print the encoding tree each encoder selected, including the bit ranges "
+    "SubIntSplit split into and the encoding chosen for each section.");
+DEFINE_string(
+    mlidc_datasets,
+    "",
+    "Comma-separated dataset names to run, e.g. twitter-snowflake. Empty runs "
+    "every dataset. Lets a production column be benchmarked without paying for "
+    "the synthetic sweep.");
+DEFINE_string(
+    mlidc_encoders,
+    "",
+    "Comma-separated encoder names to run, matched against the same name "
+    "emitted to the CSV's encoding column, e.g. SIS/key_derived+view. Empty "
+    "runs every encoder. Lets one arm's decode be profiled without the "
+    "encode and decode cost of the other thirty in the same run.");
+DEFINE_string(
+    mlidc_block_sizes,
+    "1024,65536,262144",
+    "Comma-separated block sizes, in elements, of the zstd/block-K and "
+    "openzl/block-K arms. The default is kBlockElementCounts. The lazy block "
+    "arms exist only when the list includes kLazyBlockElementCount (65536).");
+DEFINE_int32(
+    mlidc_block_codec_iters,
+    1,
+    "Iterations used for encoders where every read decompresses the whole "
+    "payload (OpenZL, or any encoding under --mlidc_outer_compression). The "
+    "fine-grained range and gather sweeps run hundreds of cells, and a full "
+    "decompress per cell would otherwise dominate wall-clock time. Timings for "
+    "these entries are correspondingly noisier.");
+DEFINE_string(
+    mlidc_input_order,
+    "shipped",
+    "Order the real-data column is presented in, before any encoding: shipped "
+    "(as the file stores it), shuffled, sorted, mergeirr=k (k monotone runs "
+    "interleaved at irregular rates, with nothing in the data saying which run "
+    "a row came from), or mergekey=s (partitioned by section s, each partition "
+    "ordered, interleaved irregularly -- the multi-writer case a Snowflake id "
+    "actually arrives in). A file's own order is usually the arrival order "
+    "already sorted, which is the input a reordering transform has least to do "
+    "on, so measuring only that understates the layer.");
+DEFINE_string(
+    mlidc_encode_cache_dir,
+    "",
+    "Directory holding cached encoded payloads. Empty disables the cache, "
+    "which is the default: a sweep opts in, nothing is cached behind anyone's "
+    "back. Every driver otherwise re-encodes the same targets, so a sweep pays "
+    "each encode once per driver.");
+DEFINE_string(
+    mlidc_dataset_name,
+    "twitter-snowflake",
+    "Name reported for the --mlidc_file dataset");
+DEFINE_string(
+    mlidc_dtype,
+    "int64",
+    "Element type to benchmark: int32, uint32, int64, uint64, float, double. "
+    "The 8- and 16-bit types are excluded because SubIntSplitEncoding only "
+    "supports 32- and 64-bit types. With --mlidc_file, the column is parsed as "
+    "this type.");
+
+DEFINE_bool(
+    mlidc_sis_withdraw_frequency_partition,
+    false,
+    "Whether SubIntSplit's split planner may cost a bit range as "
+    "FrequencyPartition. False is what production ships. Pass true to measure "
+    "what withdrawing it costs in bytes and buys in decode: FrequencyPartition "
+    "stores a low-cardinality section well and reads it slowly, and a size-only "
+    "objective cannot see the second half of that.");
+
+DEFINE_uint32(
+    mlidc_selection_screen_rows,
+    0,
+    "Sets Encoding::Options::selectionScreenRows on every Nimble target: "
+    "selection prices its costly candidates on this many sampled rows first "
+    "and prices them on the whole stream only where the sample does not rule "
+    "them out. Zero, the default, is production behaviour.");
+
+DEFINE_double(
+    mlidc_selection_screen_margin,
+    1.25,
+    "Sets Encoding::Options::selectionScreenMargin. Only read when "
+    "--mlidc_selection_screen_rows is set.");
+
+DEFINE_uint32(
+    mlidc_sis_section_threads,
+    4,
+    "Threads SubIntSplit encodes its sections on, through "
+    "subintsplit::TuningConfig::sectionExecutor. Four by default; zero "
+    "encodes them on the calling thread. Encode wall time is then not "
+    "comparable with single-threaded codecs: compare the reported CPU time.");
+
+DEFINE_string(
+    mlidc_auto_encodings,
+    "",
+    "Comma-separated encoding names the Auto/view arm selects a stream from, "
+    "as a writer selects, at every nesting level (SubIntSplit may head the "
+    "list but never nests). Names must match toString() exactly. Empty, the "
+    "default, uses the writer's default candidates unrestricted.");
+
+DEFINE_string(
+    mlidc_sis_allowed_encodings,
+    "",
+    "Comma-separated encoding names a SubIntSplit section may use, applied "
+    "to the split planner's cost models and to section selection alike, so "
+    "the planner never shapes a plan around an encoding a section cannot "
+    "take. Names must match toString() exactly. Empty, the default, is "
+    "production behaviour. Used to hold SubIntSplit to another format's codec "
+    "set.");
+
+DEFINE_string(
+    mlidc_sis_withdraw_nested_encodings,
+    "",
+    "Comma-separated encoding names withdrawn from the candidate list a "
+    "SubIntSplit section's encoding is chosen from, e.g. FrequencyPartition. "
+    "Empty, the default, is production behaviour. This is the list that "
+    "decides a section's encoding; subintsplit::TuningConfig::"
+    "allowedEncodings gates only the split planner's cost models, "
+    "so withdrawing an encoding there alone leaves the section encoded as "
+    "before. Matching is by substring, so Delta withdraws DeltaBlock too.");

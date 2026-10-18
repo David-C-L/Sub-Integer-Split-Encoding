@@ -1,0 +1,11 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 23:32:21.521373 13593 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_costmodel_oracle: 1 datasets, N=10000000, kBits=64
+
+== Dataset: osm_h3_r9_fileorder ==
+  writer reproduction ok: 8434775 B over 6 segments (6.74782 bits/elem)
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=10000000 rep=-1 plan_ms=1.31365e+06 encodes=2080 plan=0-17;18-23;24-29;30-44;45-47;48-48;49-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=10000000 rep=0 plan_ms=1.30621e+06 encodes=2080 plan=0-17;18-23;24-29;30-44;45-47;48-48;49-63
+  [plan-time-bytes] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=10000000 bytes=7687832 bits_per_value=6.15027 plan=0-17;18-23;24-29;30-44;45-47;48-48;49-63
+
+Results written to: $RESULTS/planner_gap_10m_20261018/out/oracle_osm_h3_r9_fileorder.csv

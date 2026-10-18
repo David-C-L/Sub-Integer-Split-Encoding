@@ -1,0 +1,2 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,bing_quadkey,SIS/pinned,SubIntSplit,default_split_trivial,full,,shipped,0,9869460,42,29446195,78955680,0.372946,23.8685,0,1

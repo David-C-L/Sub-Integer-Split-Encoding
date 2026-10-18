@@ -1,0 +1,38 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:43.050908 26046 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=17290144
+
+== Dataset: publicbi_npi ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=1
+  [0..63] storageBytes=8
+    FrequencyPartition<Uint64> rowCount=17290144
+    tiers=6, unencoded_rows=0, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 1278 rows
+      tier[1]: 2bit codes, 4 unique values, 2360 rows
+      tier[2]: 4bit codes, 16 unique values, 7836 rows
+      tier[3]: 8bit codes, 256 unique values, 96296 rows
+      tier[4]: 16bit codes, 65280 unique values, 8081534 rows
+      tier[5]: 32bit codes, 574561 unique values, 9100840 rows
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	41736453	
+1	/Section0	0	FrequencyPartition	Uint64	41736439	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	35	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	35	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	17290144	41736453	65243314	0.6397046753327091	column	0
+1	/Section0	payload	FrequencyPartition	Uint64	17290144	41736439	47900796	0.8713099256221128	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	7	35	35	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	7	35	35	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	FrequencyPartition	41736439	FrequencyPartition	47900796	Dictionary	45625859	FixedBitWidth	64973119	SimdForBitpack	64973119	FrequencyPartition=47900796/40715676;Dictionary=45625859/45625860;RLE=45631665/45631664;Delta=66999376/56949472;SimdForBitpack=64838056/58354248;FixedBitWidth=64838063/58354256;PFOR=64838079/58354272;BlockBitPacking=65175784/58658204;FOR=70190655/59662060;Varint=81585386/81585384;MainlyConstant=99653950/99653952;Trivial=138321159/138321152
+whole	0	63	0			FrequencyPartition	47900796	Dictionary	45625859	FixedBitWidth	64973119	SimdForBitpack	64973119	FrequencyPartition=47900796/40715676;Dictionary=45625859/45625860;RLE=45631665/45631664;Delta=66999376/56949472;SimdForBitpack=64838056/58354248;FixedBitWidth=64838063/58354256;PFOR=64838079/58354272;BlockBitPacking=65175784/58658204;FOR=70190655/59662060;Varint=81585386/81585384;MainlyConstant=99653950/99653952;Trivial=138321159/138321152
+  SIS/realNested: 41736453 B, 19.31 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm3_publicbi_npi.csv.tmp

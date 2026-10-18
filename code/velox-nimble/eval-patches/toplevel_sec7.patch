@@ -1,0 +1,296 @@
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h
+index 1d84032..14c038f 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h
+@@ -100,6 +100,7 @@ DECLARE_string(mlidc_sis_section_candidates);
+ DECLARE_int64(mlidc_sis_planner_samples);
+ DECLARE_string(mlidc_sis_pinned_boundaries);
+ DECLARE_string(mlidc_sis_pinned_label);
++DECLARE_bool(mlidc_sis_pinned_row_frame);
+ DECLARE_bool(mlidc_dump_encoding);
+ DECLARE_string(mlidc_encode_cache_dir);
+ DECLARE_bool(mlidc_allow_delta_block);
+@@ -2139,12 +2140,20 @@ std::vector<EncoderEntry<T>> buildDefaultEncoders() {
+                           const Vector<T>& data,
+                           const Encoding::Options& opts,
+                           const subintsplit::TuningConfig& tuning) {
+-        const EncodingLayout::Config config{{
++        std::unordered_map<std::string, std::string> pinned{
+             {std::string(subintsplit::kSplitModeConfigKey),
+              std::string(subintsplit::kSplitModePreserve)},
+             {std::string(subintsplit::kSplitBoundariesConfigKey),
+              FLAGS_mlidc_sis_pinned_boundaries},
+-        }};
++        };
++        // A preserve-mode replay takes the fitted row frame only when the
++        // layout says the captured plan carried one.
++        if (FLAGS_mlidc_sis_pinned_row_frame) {
++          pinned.emplace(
++              std::string(subintsplit::kRowFrameConfigKey),
++              std::string(subintsplit::kRowFramePresent));
++        }
++        const EncodingLayout::Config config{std::move(pinned)};
+         if (view) {
+           auto impl = std::make_unique<
+               NimbleViewBenchTargetImpl<SubIntSplitEncoding<T>>>();
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdAdmissionBenchmark.cpp b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdAdmissionBenchmark.cpp
+index a69e7b3..d025c0b 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdAdmissionBenchmark.cpp
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdAdmissionBenchmark.cpp
+@@ -42,6 +42,7 @@
+ #include <algorithm>
+ #include <array>
+ #include <chrono>
++#include <cmath>
+ #include <cstdint>
+ #include <iostream>
+ #include <limits>
+@@ -106,6 +107,84 @@ std::array<uint64_t, 64> countFlipsBitByBit(std::span<const T> values) {
+   return counts;
+ }
+ 
++// SubIntSplitEncoding<Elem>::estimateSize under a caller's tuning. The library
++// prices the estimate under kDefaultTuningConfig only, so a run under
++// --mlidc_sis_section_candidates would compare a default-priced estimate with
++// an encode under another candidate set. A line-for-line copy of that function
++// at this commit with the tuning as a parameter (the private sampler config and
++// header constants restated); checked against the library under the default
++// tuning on every column before it is used.
++template <typename Elem>
++std::optional<uint64_t> sisEstimateUnderTuning(
++    uint64_t rowCount,
++    std::span<const typename TypeTraits<Elem>::physicalType> values,
++    const Statistics<typename TypeTraits<Elem>::physicalType>& statistics,
++    const Encoding::Options& options,
++    const subintsplit::TuningConfig& tuning) {
++  using physicalType = typename TypeTraits<Elem>::physicalType;
++  constexpr int kBits = static_cast<int>(sizeof(physicalType) * 8);
++  constexpr uint64_t kOuterOverheadBytes{6u + 2u};
++  constexpr uint64_t kPerSectionOverheadBytes{6u + 8u};
++  const subintsplit::SamplerConfig samplerConfig{
++      .maxSamples = 512, .blockSize = 64};
++  const uint64_t fixedBitWidthEstimate =
++      FixedBitWidthEncoding<physicalType>::estimateSize(
++          rowCount, statistics, options);
++  if (values.empty()) {
++    return fixedBitWidthEstimate;
++  }
++  if (options.subIntSplit.substreamCompression &&
++      options.subIntSplit.estimateCompressionGuard) {
++    return std::nullopt;
++  }
++  std::vector<uint64_t> samples;
++  std::vector<size_t> sampleRows;
++  subintsplit::sampleIntoU64WithRows<physicalType>(
++      values, samples, &sampleRows, samplerConfig);
++  if (samples.empty()) {
++    return fixedBitWidthEstimate;
++  }
++  auto selectorConfig =
++      SubIntSplitEncoding<Elem>::plannerSelectorConfig(tuning, rowCount);
++  selectorConfig.decodeWeighting = subintsplit::DecodeCostWeighting{};
++  selectorConfig.sampleBlockSize = samplerConfig.blockSize;
++  const auto planBytes =
++      [&](const std::vector<uint64_t>& planSamples) -> std::optional<uint64_t> {
++    const auto plan = subintsplit::selectSplitsRestricted(
++        planSamples, kBits, rowCount, tuning.allowedEncodings, selectorConfig);
++    if (!std::isfinite(plan.totalSizeBits) || plan.sections.empty()) {
++      return std::nullopt;
++    }
++    return static_cast<uint64_t>(std::ceil(plan.totalSizeBits / 8.0)) +
++        kOuterOverheadBytes + plan.sections.size() * kPerSectionOverheadBytes;
++  };
++  uint64_t estimated = fixedBitWidthEstimate;
++  if (const auto valueBytes = planBytes(samples)) {
++    estimated = std::min(estimated, *valueBytes);
++  }
++  if (tuning.rowFrame) {
++    auto frame = subintsplit::fitRowFrame<physicalType>(values);
++    if (!frame.active()) {
++      frame = subintsplit::fitStepFrame<physicalType>(values);
++    }
++    if (frame.active()) {
++      constexpr uint64_t kWidthMask =
++          kBits >= 64 ? ~uint64_t{0} : (uint64_t{2} << (kBits - 1)) - 1;
++      std::vector<uint64_t> residualSamples(samples.size());
++      for (size_t i = 0; i < samples.size(); ++i) {
++        residualSamples[i] =
++            (samples[i] - (frame.slope * sampleRows[i] + frame.base)) &
++            kWidthMask;
++      }
++      if (const auto residualBytes = planBytes(residualSamples)) {
++        estimated = std::min(
++            estimated, *residualBytes + subintsplit::kRowFrameHeaderSize);
++      }
++    }
++  }
++  return estimated;
++}
++
+ template <typename Elem>
+ int runBenchmark() {
+   using physicalType = typename TypeTraits<Elem>::physicalType;
+@@ -212,10 +291,35 @@ int runBenchmark() {
+       heuristicNanos.push_back(elapsedNanos(start));
+       selected = selection.encodingType;
+       policyEstimate = selection.estimatedSize;
+-      start = Clock::now();
+-      sisEstimate = SubIntSplitEncoding<Elem>::estimateSize(
+-          values.size(), values, statistics, Encoding::Options{});
+-      estimateNanos.push_back(elapsedNanos(start));
++      if (sectionCandidatesFlag() == subintsplit::SectionCandidates::kDefault) {
++        start = Clock::now();
++        sisEstimate = SubIntSplitEncoding<Elem>::estimateSize(
++            values.size(), values, statistics, Encoding::Options{});
++        estimateNanos.push_back(elapsedNanos(start));
++      } else {
++        if (repeat == 0) {
++          // The copy must agree with the library where both price the same
++          // tuning, or the estimate below measures a different function.
++          const auto library = SubIntSplitEncoding<Elem>::estimateSize(
++              values.size(), values, statistics, Encoding::Options{});
++          const auto copy = sisEstimateUnderTuning<Elem>(
++              values.size(),
++              values,
++              statistics,
++              Encoding::Options{},
++              subintsplit::kDefaultTuningConfig);
++          NIMBLE_CHECK(
++              library == copy,
++              "sisEstimateUnderTuning disagrees with estimateSize under the "
++              "default tuning");
++        }
++        subintsplit::TuningConfig tuning = subintsplit::kDefaultTuningConfig;
++        tuning.sectionCandidates = sectionCandidatesFlag();
++        start = Clock::now();
++        sisEstimate = sisEstimateUnderTuning<Elem>(
++            values.size(), values, statistics, Encoding::Options{}, tuning);
++        estimateNanos.push_back(elapsedNanos(start));
++      }
+     }
+     const bool estimateAdmits = sisEstimate.has_value();
+ 
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdBenchmarkFlags.cpp b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdBenchmarkFlags.cpp
+index df16828..03939cc 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdBenchmarkFlags.cpp
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdBenchmarkFlags.cpp
+@@ -168,6 +168,12 @@ DEFINE_string(
+     mlidc_sis_pinned_label,
+     "pinned",
+     "The variant column of the SIS/pinned arm, naming the pinned plan.");
++DEFINE_bool(
++    mlidc_sis_pinned_row_frame,
++    false,
++    "Whether the SIS/pinned arm replays its boundaries on the fitted row "
++    "frame's residuals, as a plan captured with a frame (the encoding tree's "
++    "rowFrame=) is replayed. False replays them on the values.");
+ DEFINE_bool(
+     mlidc_sis_cost_model_v2,
+     false,
+diff --git a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
+index 9f9c021..6857630 100644
+--- a/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
++++ b/velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCostModelOracleBenchmark.cpp
+@@ -147,6 +147,7 @@
+ #include <gflags/gflags.h>
+ 
+ #include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h"
++#include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/DriverSweep.h"
+ #include "velox/dwio/nimble/encodings/benchmarks/ml_id_compression/ElemType.h"
+ 
+ #include "velox/dwio/nimble/encodings/BlockBitPackingEncoding.h"
+@@ -502,6 +503,27 @@ std::vector<size_t> parseSampleSizes(const std::string& spec) {
+ // eight counted as a disagreement whatever the model had estimated. The
+ // reported top-1 accuracy was measuring the gap between the two lists at least
+ // as much as it was measuring the model.
++// The section codecs SubIntSplitEncoding::plannerSelectorConfig screens with
++// isAddressableSectionEncoding under an addressable setting.
++inline std::vector<EncodingType> allEncodingTypesForAddressability() {
++  return {
++      EncodingType::Trivial,
++      EncodingType::FixedBitWidth,
++      EncodingType::Constant,
++      EncodingType::MainlyConstant,
++      EncodingType::RLE,
++      EncodingType::Varint,
++      EncodingType::Dictionary,
++      EncodingType::SimdForBitpack,
++      EncodingType::PFOR,
++      EncodingType::BlockBitPacking,
++      EncodingType::Delta,
++      EncodingType::FOR,
++      EncodingType::FrequencyPartition,
++      EncodingType::Huffman,
++      EncodingType::DeltaBlock};
++}
++
+ inline std::vector<CandidateEncoding> candidateEncodings() {
+   return {
+       {"Trivial", EncodingType::Trivial},
+@@ -843,6 +865,18 @@ std::vector<SectionPlan> writerDerivedPlan(
+   writerCfg.splitPenalty = columnTuning.selector.splitPenalty;
+   writerCfg.costModelV2 = columnTuning.selector.costModelV2;
+   writerCfg.sampleBlockSize = defaultSamplerConfig().blockSize;
++  // The writer's planner under an addressable section-candidate setting
++  // (SubIntSplitEncoding::plannerSelectorConfig): non-addressable section
++  // codecs are not priced.
++  if (isAddressableSetting(columnTuning.sectionCandidates)) {
++    for (const auto type : allEncodingTypesForAddressability()) {
++      if (!isAddressableSectionEncoding(type)) {
++        writerCfg.excludedEncodings.insert(type);
++      }
++    }
++    writerCfg.allowHuffman = false;
++    writerCfg.allowDeltaBlock = false;
++  }
+   return selectSplitsRestricted(
+              writerSample,
+              kBits,
+@@ -965,6 +999,15 @@ int runBenchmark() {
+   columnTuning.selector.allowDeltaBlock = FLAGS_allow_delta_block;
+   columnTuning.selector.splitPenalty = FLAGS_mlidc_sis_split_penalty;
+   columnTuning.selector.costModelV2 = FLAGS_mlidc_sis_cost_model_v2;
++  // --mlidc_sis_section_candidates: the writer, the pinned encodes and every
++  // cell's nested selection run under it, and under an addressable setting the
++  // inventory below drops the non-addressable section codecs.
++  columnTuning.sectionCandidates = sectionCandidatesFlag();
++  const bool addressable = isAddressableSetting(columnTuning.sectionCandidates);
++  if (addressable) {
++    columnTuning.selector.allowHuffman = false;
++    columnTuning.selector.allowDeltaBlock = false;
++  }
+   const facebook::nimble::Encoding::Options sectionOptions =
+       sectionEncodingOptions(columnOptions, columnTuning);
+ 
+@@ -979,6 +1022,9 @@ int runBenchmark() {
+     if (candidate.type == EncodingType::Huffman && !FLAGS_allow_huffman) {
+       continue;
+     }
++    if (addressable && !isAddressableSectionEncoding(candidate.type)) {
++      continue;
++    }
+     allowed.insert(candidate.type);
+   }
+ 
+@@ -1080,6 +1126,10 @@ int runBenchmark() {
+   selectorCfg.splitPenalty = FLAGS_mlidc_sis_split_penalty;
+   selectorCfg.costModelV2 = FLAGS_mlidc_sis_cost_model_v2;
+   selectorCfg.sampleBlockSize = samplerCfg.blockSize;
++  if (addressable) {
++    selectorCfg.allowHuffman = false;
++    selectorCfg.allowDeltaBlock = false;
++  }
+   const MetricFlags requiredFlags = allCostModelRequiredFlags();
+ 
+   for (const auto& ds : datasets) {
+@@ -1456,6 +1506,10 @@ int runBenchmark() {
+                   // candidate list a section is offered. No extra encode -- the
+                   // bytes are the ones just measured, and only the argmin
+                   // changes.
++                  if (addressable &&
++                      allowed.count(candidates[ci].type) == 0) {
++                    continue;
++                  }
+                   const auto readFactor =
+                       sectionReadFactor(candidates[ci].type);
+                   if (!readFactor.has_value() ||

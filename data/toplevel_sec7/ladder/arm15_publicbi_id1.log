@@ -1,0 +1,117 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:18.821622 22613 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 2 encoders x 1 datasets, N=739754
+
+== Dataset: publicbi_id1 ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=2
+  [0..19] storageBytes=4
+    BlockBitPacking<Uint32> rowCount=739754 blockSize=1024 numBlocks=723
+  [20..63] storageBytes=8
+    Constant<Uint64> rowCount=739754 value=0
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	1780892	
+1	/Section0	0	BlockBitPacking	Uint32	1780858	Uncompressed
+2	/Section0/Baselines	0	FixedBitWidth	Uint32	1737	Uncompressed
+2	/Section0/BitWidths	1	SimdForBitpack	Uint8	193	
+2	/Section0/DataOffsets	2	Delta	Uint32	239	
+3	/Section0/DataOffsets/Deltas	0	MainlyConstant	Uint32	192	
+4	/Section0/DataOffsets/Deltas/IsCommon	0	Trivial	Bool	105	Uncompressed
+4	/Section0/DataOffsets/Deltas/OtherValues	1	RLE	Uint32	69	
+5	/Section0/DataOffsets/Deltas/OtherValues/Lengths	0	Varint	Uint32	24	
+5	/Section0/DataOffsets/Deltas/OtherValues/Values	1	FixedBitWidth	Uint32	35	Uncompressed
+3	/Section0/DataOffsets/Restatements	1	Trivial	Uint32	11	Uncompressed
+3	/Section0/DataOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section0/DataOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section1	1	Constant	Uint64	14	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	739754	1780892	1866759	0.9540020966820034	column	0
+1	/Section0	payload	BlockBitPacking	Uint32	739754	1780858	1785217	0.9975582800298227	section	1
+2	/Section0/Baselines	metadata	FixedBitWidth	Uint32	723	1737	1737	1	section	1
+2	/Section0/BitWidths	metadata	SimdForBitpack	Uint8	723	193	193	1	section	1
+2	/Section0/DataOffsets	metadata	Delta	Uint32	723	239	1156	0.20674740484429066	section	1
+3	/Section0/DataOffsets/Deltas	payload	MainlyConstant	Uint32	722	192	216	0.8888888888888888	section	1
+4	/Section0/DataOffsets/Deltas/IsCommon	metadata	Trivial	Bool	722	105	105	1	section	1
+4	/Section0/DataOffsets/Deltas/OtherValues	payload	RLE	Uint32	180	69	77	0.8961038961038961	section	1
+5	/Section0/DataOffsets/Deltas/OtherValues/Lengths	metadata	Varint	Uint32	14	24	24	1	section	1
+5	/Section0/DataOffsets/Deltas/OtherValues/Values	payload	FixedBitWidth	Uint32	14	35	35	1	section	1
+3	/Section0/DataOffsets/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+3	/Section0/DataOffsets/IsRestatements	metadata	SparseBool	Bool	723	22	29	0.7586206896551724	section	1
+4	/Section0/DataOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section1	payload	Constant	Uint64	739754	14	14	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	19	0	BlockBitPacking	1780858	BlockBitPacking	1785217	Delta	1941915	FixedBitWidth	1853719	SimdForBitpack	1853719	BlockBitPacking=1785217/1606695;Delta=1941915/1650627;FixedBitWidth=1849404/1664463;PFOR=1849420/1664478;SimdForBitpack=1849452/1664506;RLE=1849467/1849467;FrequencyPartition=2257965/1919270;Varint=2216313/2216313;FOR=2994208/2545076;Trivial=2959023/2959023;Dictionary=3698818/3698818;MainlyConstant=3698831/3698831
+1	20	63	0	Constant	14	Constant	14	SimdForBitpack	16	Constant	5056	FixedBitWidth	5779	Constant=14/14;SimdForBitpack=16/14;RLE=45/45;MainlyConstant=57/57;BlockBitPacking=14500/13050;Delta=92553/78670;FixedBitWidth=92493/83243;PFOR=92509/83258;FOR=108460/92191;Dictionary=92514/92514;FrequencyPartition=185063/157303;Varint=739768/739768;Trivial=5918039/5918039
+whole	0	63	0			BlockBitPacking	1788109	Delta	1941923	FixedBitWidth	1855164	SimdForBitpack	1855164	BlockBitPacking=1788109/1609298;Delta=1941923/1650634;FixedBitWidth=1849408/1664467;PFOR=1849424/1664481;SimdForBitpack=1849456/1664510;RLE=1849471/1849471;Varint=2216317/2216317;FOR=2994212/2545080;FrequencyPartition=3943520/3351992;Dictionary=3698822/3698822;MainlyConstant=3698839/3698839;Trivial=5918039/5918039
+  SIS/realNested: 1780892 B, 19.26 bpe
+  --- openzl/auto encoding tree ---
+OpenZLGraph codecs=59 frameHeaderBytes=11 storedOutputs=53
+  [0] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=0
+  [1] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=0
+  [2] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=0
+  [3] zl.convert_struct_to_serial standard id=6 outputs=1 outputBytes=0
+  [4] constant standard id=44 outputs=1 outputBytes=1
+  [5] bitpack standard id=28 outputs=1 outputBytes=128
+  [6] bitpack standard id=28 outputs=1 outputBytes=128
+  [7] bitpack standard id=28 outputs=1 outputBytes=128
+  [8] bitpack standard id=28 outputs=1 outputBytes=128
+  [9] bitpack standard id=28 outputs=1 outputBytes=128
+  [10] bitpack standard id=28 outputs=1 outputBytes=128
+  [11] bitpack standard id=28 outputs=1 outputBytes=128
+  [12] bitpack standard id=28 outputs=1 outputBytes=96
+  [13] bitpack standard id=28 outputs=1 outputBytes=96
+  [14] bitpack standard id=28 outputs=1 outputBytes=96
+  [15] bitpack standard id=28 outputs=1 outputBytes=96
+  [16] bitpack standard id=28 outputs=1 outputBytes=96
+  [17] bitpack standard id=28 outputs=1 outputBytes=96
+  [18] bitpack standard id=28 outputs=1 outputBytes=96
+  [19] bitpack standard id=28 outputs=1 outputBytes=128
+  [20] bitpack standard id=28 outputs=1 outputBytes=128
+  [21] bitpack standard id=28 outputs=1 outputBytes=128
+  [22] bitpack standard id=28 outputs=1 outputBytes=128
+  [23] bitpack standard id=28 outputs=1 outputBytes=128
+  [24] bitpack standard id=28 outputs=1 outputBytes=128
+  [25] bitpack standard id=28 outputs=1 outputBytes=128
+  [26] bitpack standard id=28 outputs=1 outputBytes=128
+  [27] bitpack standard id=28 outputs=1 outputBytes=128
+  [28] huffman v2 standard id=50 outputs=2 outputBytes=7636
+  [29] huffman v2 standard id=50 outputs=2 outputBytes=13078
+  [30] huffman v2 standard id=50 outputs=2 outputBytes=12811
+  [31] huffman v2 standard id=50 outputs=2 outputBytes=12559
+  [32] huffman v2 standard id=50 outputs=2 outputBytes=13384
+  [33] huffman v2 standard id=50 outputs=2 outputBytes=13018
+  [34] huffman v2 standard id=50 outputs=2 outputBytes=13369
+  [35] huffman v2 standard id=50 outputs=2 outputBytes=13758
+  [36] huffman v2 standard id=50 outputs=2 outputBytes=14092
+  [37] huffman v2 standard id=50 outputs=2 outputBytes=14168
+  [38] huffman v2 standard id=50 outputs=2 outputBytes=14104
+  [39] huffman v2 standard id=50 outputs=2 outputBytes=14046
+  [40] huffman v2 standard id=50 outputs=2 outputBytes=13471
+  [41] huffman v2 standard id=50 outputs=2 outputBytes=12926
+  [42] huffman v2 standard id=50 outputs=2 outputBytes=12392
+  [43] huffman v2 standard id=50 outputs=2 outputBytes=11724
+  [44] huffman v2 standard id=50 outputs=2 outputBytes=12478
+  [45] huffman v2 standard id=50 outputs=2 outputBytes=11845
+  [46] huffman v2 standard id=50 outputs=2 outputBytes=12555
+  [47] huffman v2 standard id=50 outputs=2 outputBytes=12025
+  [48] huffman v2 standard id=50 outputs=2 outputBytes=11878
+  [49] huffman v2 standard id=50 outputs=2 outputBytes=11915
+  [50] huffman v2 standard id=50 outputs=2 outputBytes=11965
+  [51] splitN standard id=40 outputs=23 outputBytes=739753
+  [52] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=739753
+  [53] delta standard id=1 outputs=1 outputBytes=739753
+  [54] zl.convert_serial_to_num_le standard id=9 outputs=1 outputBytes=739754
+  [55] transpose split standard id=4 outputs=4 outputBytes=2959016
+  [56] field lz standard id=24 outputs=5 outputBytes=2959016
+  [57] zl.convert_num_to_struct_le standard id=8 outputs=1 outputBytes=2959016
+  [58] range pack standard id=35 outputs=1 outputBytes=2959016
+
+  openzl/auto: 1767962 B, 19.12 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm15_publicbi_id1.csv.tmp

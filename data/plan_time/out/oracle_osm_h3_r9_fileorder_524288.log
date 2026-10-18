@@ -1,0 +1,34 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:53:19.644722  8200 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_costmodel_oracle: 1 datasets, N=524288, kBits=64
+
+== Dataset: osm_h3_r9_fileorder ==
+  writer reproduction ok: 454851 B over 5 segments (6.94048 bits/elem)
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=-1 plan_ms=271.869 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=0 plan_ms=268.534 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=1 plan_ms=267.743 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=2 plan_ms=268.366 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=3 plan_ms=369.284 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=4 plan_ms=320.599 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=5 plan_ms=299.655 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=6 plan_ms=273.82 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=7 plan_ms=273.246 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=8 plan_ms=273.062 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=9 plan_ms=271.206 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 rep=10 plan_ms=271.57 encodes=2080 plan=0-17;18-20;21-28;29-63
+  [plan-time-bytes] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=2048 bytes=453001 bits_per_value=6.91225 plan=0-17;18-20;21-28;29-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=-1 plan_ms=45773.6 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=0 plan_ms=46051.1 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=1 plan_ms=45929.9 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=2 plan_ms=45796.8 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=3 plan_ms=45947.4 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=4 plan_ms=44413.6 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=5 plan_ms=46599.8 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=6 plan_ms=46234 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=7 plan_ms=45830.5 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=8 plan_ms=45780 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=9 plan_ms=44620.9 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 rep=10 plan_ms=45996.3 encodes=2080 plan=0-17;18-23;24-29;30-44;45-63
+  [plan-time-bytes] dataset=osm_h3_r9_fileorder arm=SIS/oracle_dp_selection sample_size=524288 bytes=391936 bits_per_value=5.98047 plan=0-17;18-23;24-29;30-44;45-63
+
+Results written to: $RESULTS/plan_time_20261017_2134/out/oracle_osm_h3_r9_fileorder_524288.csv

@@ -1,0 +1,71 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:07:53.920666  2547 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: osm_h3_r9_fileorder ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=6
+  [0..17] storageBytes=4
+    Constant<Uint32> rowCount=10000000 value=262143
+  [18..23] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [24..39] storageBytes=2
+    RLE<Uint16> rowCount=10000000
+  [40..44] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [45..48] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [49..63] storageBytes=2
+    RLE<Uint16> rowCount=10000000
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	8237847	
+1	/Section0	0	Constant	Uint32	10	
+1	/Section1	1	RLE	Uint8	3976237	
+2	/Section1/Lengths	0	Huffman	Uint32	1271460	
+2	/Section1/Values	1	Huffman	Uint8	2704767	
+1	/Section2	2	RLE	Uint16	3844049	
+2	/Section2/Lengths	0	Huffman	Uint32	797520	
+2	/Section2/Values	1	Trivial	Uint16	3046519	Uncompressed
+1	/Section3	3	RLE	Uint8	415225	
+2	/Section3/Lengths	0	Huffman	Uint32	305172	
+2	/Section3/Values	1	Huffman	Uint8	110043	
+1	/Section4	4	RLE	Uint8	2240	
+2	/Section4/Lengths	0	Huffman	Uint32	1951	
+2	/Section4/Values	1	Huffman	Uint8	279	
+1	/Section5	5	RLE	Uint16	42	
+2	/Section5/Lengths	0	Trivial	Uint32	19	Uncompressed
+2	/Section5/Values	1	Trivial	Uint16	13	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	8237847	14843828	0.5549678290532604	column	0
+1	/Section0	payload	Constant	Uint32	10000000	10	10	1	section	1
+1	/Section1	payload	RLE	Uint8	10000000	3976237	4923837	0.807548462713124	section	1
+2	/Section1/Lengths	metadata	Huffman	Uint32	3760065	1271460	1537160	0.8271487678576075	section	1
+2	/Section1/Values	payload	Huffman	Uint8	3760065	2704767	2704768	0.9999996302825233	section	1
+1	/Section2	payload	RLE	Uint16	10000000	3844049	3918066	0.9811087919396968	section	1
+2	/Section2/Lengths	metadata	Huffman	Uint32	1523256	797520	793404	1.0051877731899512	section	1
+2	/Section2/Values	payload	Trivial	Uint16	1523256	3046519	3046519	1	section	1
+1	/Section3	payload	RLE	Uint8	10000000	415225	544247	0.7629348439219693	section	1
+2	/Section3/Lengths	metadata	Huffman	Uint32	423929	305172	292088	1.044794719399633	section	1
+2	/Section3/Values	payload	Huffman	Uint8	423929	110043	110044	0.9999909127258187	section	1
+1	/Section4	payload	RLE	Uint8	10000000	2240	2046	1.0948191593352883	section	1
+2	/Section4/Lengths	metadata	Huffman	Uint32	1957	1951	1952	0.9994877049180327	section	1
+2	/Section4/Values	payload	Huffman	Uint8	1957	279	280	0.9964285714285714	section	1
+1	/Section5	payload	RLE	Uint16	10000000	42	51	0.8235294117647058	section	1
+2	/Section5/Lengths	metadata	Trivial	Uint32	3	19	19	1	section	1
+2	/Section5/Values	payload	Trivial	Uint16	3	13	13	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	17	0	Constant	10	Constant	10	SimdForBitpack	12	Constant	48828	FixedBitWidth	58593	Constant=10/10;SimdForBitpack=12/10;RLE=41/41;MainlyConstant=53/53;BlockBitPacking=156298/140668;Delta=1250076/1062564;FixedBitWidth=1250019/1125017;PFOR=1250035/1125031;Dictionary=1250040/1250040;FOR=1503997/1278397;FrequencyPartition=2500119/2125101;Varint=10000010/10000010;Trivial=40000007/40000008
+1	18	23	0	RLE	3976237	RLE	4923837	SimdForBitpack	7500009	FixedBitWidth	7543945	SimdForBitpack	7543945	RLE=4923837/4923837;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;BlockBitPacking=7626743/6864068;FrequencyPartition=8509379/7232972;Delta=8750054/7437546;Dictionary=7500082/7500082;FOR=10324274/8775633;Trivial=10000007/10000007;MainlyConstant=36721875/36721876
+2	24	39	0	RLE	3844049	RLE	3918066	Trivial	20000007	RLE	6103515	Dictionary	11381835	RLE=3918066/3918066;Trivial=20000007/14000005;FOR=19235613/16350271;BlockBitPacking=19958560/17962704;SimdForBitpack=20000010/18000008;FixedBitWidth=20000017/18000014;PFOR=20000033/18000028;Delta=21250035/18062532;Dictionary=18812678/18812678;FrequencyPartition=22659829/19260854;MainlyConstant=48744871/48744872
+3	40	44	0	RLE	415225	RLE	544247	FOR	2637522	RLE	844726	FrequencyPartition	4414672	RLE=544247/544247;FOR=2637522/2241893;BlockBitPacking=3490727/3141654;FrequencyPartition=3947828/3355654;MainlyConstant=3671050/3671050;Dictionary=5000049/5000049;SimdForBitpack=6250009/5625008;FixedBitWidth=6250016/5625014;PFOR=6250032/5625028;Delta=6886307/5853361;Trivial=10000007/10000007
+4	45	48	0	RLE	2240	RLE	2046	MainlyConstant	49542	RLE	200195	MainlyConstant	2080078	RLE=2046/2046;MainlyConstant=49542/49542;BlockBitPacking=182807/164526;Dictionary=1250038/1250038;FOR=1554289/1321145;FrequencyPartition=2500117/2125099;Delta=5003013/4252561;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Trivial=10000007/10000007
+5	49	63	0	RLE	42	RLE	51	MainlyConstant	128	Constant	39062	FixedBitWidth	48828	RLE=51/51;MainlyConstant=128/128;BlockBitPacking=136894/123204;Delta=1250077/1062565;SimdForBitpack=1250010/1125009;FixedBitWidth=1250017/1125015;PFOR=1250033/1125029;Dictionary=1250040/1250040;FOR=1503995/1278395;FrequencyPartition=2500119/2125101;Trivial=20000007/20000008
+whole	0	63	0			RLE	19024044	FrequencyPartition	34454865	Dictionary	34716796	RLE	36943359	RLE=19024044/19024044;FrequencyPartition=34454865/29286636;Dictionary=33242702/33242702;BlockBitPacking=53450338/48105300;Delta=63750068/54187560;PFOR=61250263/55125236;SimdForBitpack=62500016/56250012;FixedBitWidth=62500023/56250020;MainlyConstant=63236566/63236568;FOR=77060679/65501580;Varint=69984196/69984192;Trivial=80000007/80000008
+  SIS/realNested: 8237847 B, 6.59 bpe
+
+Results written to: $RESULTS/seq_toplevel_20261017_2057/out/unrestricted_osm_h3_r9_fileorder.csv

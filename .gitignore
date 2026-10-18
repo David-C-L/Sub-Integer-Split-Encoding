@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+/out/
+# rebuilt by scripts/derive_all.sh (derived/sec3_plan_breakdown_8sec_addr.csv is shipped)
+derived/toplevel_sec7/
+derived/fig10_openzl_scoreboard_mixed.csv
+derived/budget_sweep_values.csv
+# restored by scripts/unpack_data.sh from the shipped .tar.gz
+data/toplevel_sec7/sweep/
+data/toplevel_sec7/plan_decode/
+data/decode_knob_toplevel/sweep/
+data/alp_floats/runs/
+data/sec1_motivation/pull_524k/
+datasets/columns_524k/*.txt

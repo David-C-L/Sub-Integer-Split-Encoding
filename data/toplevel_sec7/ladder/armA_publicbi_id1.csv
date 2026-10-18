@@ -1,0 +1,2 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,publicbi_id1,SIS/pinned,SubIntSplit,default_split_trivial,full,,shipped,0,739754,42,1768068,5918032,0.298759,19.1206,0,1

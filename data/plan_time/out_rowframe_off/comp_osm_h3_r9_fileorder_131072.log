@@ -1,0 +1,37 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 21:04:30.815905  8993 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 2 encoders x 1 datasets, N=131072
+
+== Dataset: osm_h3_r9_fileorder ==
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=-2 plan_ms=16.0334 encode_ms=34.5951 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=-1 plan_ms=3.34459 encode_ms=19.2693 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=0 plan_ms=3.28519 encode_ms=17.9403 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=1 plan_ms=3.22336 encode_ms=17.5475 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=2 plan_ms=3.40076 encode_ms=18.9078 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=3 plan_ms=3.4353 encode_ms=17.7983 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=4 plan_ms=3.39 encode_ms=18.2716 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=5 plan_ms=3.1149 encode_ms=16.2805 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=6 plan_ms=3.43639 encode_ms=17.5253 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=7 plan_ms=3.23949 encode_ms=17.1452 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=8 plan_ms=3.28898 encode_ms=17.0531 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=9 plan_ms=3.32887 encode_ms=17.1235 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/realNested rep=10 plan_ms=3.1334 encode_ms=17.5209 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-44;45-63
+  [encode-time] SIS/realNested encode_ms=16.5337
+  SIS/realNested: 116112 B, 7.09 bpe
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=-2 plan_ms=15.77 encode_ms=28.79 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=-1 plan_ms=15.94 encode_ms=31.12 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=0 plan_ms=16.12 encode_ms=30.95 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=1 plan_ms=15.85 encode_ms=29.65 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=2 plan_ms=15.75 encode_ms=29.27 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=3 plan_ms=15.89 encode_ms=29.68 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=4 plan_ms=15.86 encode_ms=29.87 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=5 plan_ms=15.89 encode_ms=29.13 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=6 plan_ms=15.92 encode_ms=29.33 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=7 plan_ms=15.89 encode_ms=29.38 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=8 plan_ms=15.85 encode_ms=30.54 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=9 plan_ms=15.68 encode_ms=29.31 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [plan-time] dataset=osm_h3_r9_fileorder arm=SIS/hybrid rep=10 plan_ms=15.90 encode_ms=30.10 observer_calls=1 bytes=116112 plan=0-17;18-23;24-31;32-63
+  [encode-time] SIS/hybrid encode_ms=29.63
+  SIS/hybrid: 116112 B, 7.09 bpe
+
+Results written to: $RESULTS/plan_time_20261017_2134/out_rowframe_off/comp_osm_h3_r9_fileorder_131072.csv

@@ -1,0 +1,11 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 23:32:21.543589 13592 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_costmodel_oracle: 1 datasets, N=10000000, kBits=64
+
+== Dataset: snowflake ==
+  writer reproduction ok: 49898003 B over 8 segments (39.9184 bits/elem)
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=10000000 rep=-1 plan_ms=1.26247e+06 encodes=2080 plan=0-3;4-4;5-11;12-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-55;56-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=10000000 rep=0 plan_ms=1.26608e+06 encodes=2080 plan=0-3;4-4;5-11;12-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-55;56-63
+  [plan-time-bytes] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=10000000 bytes=44782250 bits_per_value=35.8258 plan=0-3;4-4;5-11;12-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-55;56-63
+
+Results written to: $RESULTS/planner_gap_10m_20261018/out/oracle_snowflake.csv

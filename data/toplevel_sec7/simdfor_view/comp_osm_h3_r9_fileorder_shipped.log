@@ -1,0 +1,9 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:41:52.296247 27679 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: osm_h3_r9_fileorder ==
+  SimdForBitpack/view: 2949136 B, 45.00 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/simdfor_view/comp_osm_h3_r9_fileorder_shipped.csv.tmp

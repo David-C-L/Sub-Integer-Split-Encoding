@@ -1,0 +1,137 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:07:53.920632  2544 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: snowflake ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=10
+  [0..0] storageBytes=1
+    SimdForBitpack<Uint8> rowCount=10000000 bitWidth=1
+  [1..3] storageBytes=1
+    Huffman<Uint8> rowCount=10000000
+  [4..11] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [12..15] storageBytes=1
+    Huffman<Uint8> rowCount=10000000
+  [16..19] storageBytes=1
+    FOR<Uint8> rowCount=10000000
+    frameSize=128, numFrames=78125
+      bitWidth distribution: 0b:11232 1b:2550 2b:40986 4b:23357 
+  [20..21] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [22..51] storageBytes=4
+    Delta<Uint32> rowCount=10000000
+      deltas child:
+        RLE<Uint32> rowCount=498312
+      restatements child:
+        FixedBitWidth<Uint32> rowCount=9501688 bit_width=30
+      isRestatements child:
+        Trivial<Bool> rowCount=10000000
+  [52..59] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [60..60] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [61..63] storageBytes=1
+    Constant<Uint8> rowCount=10000000 value=0
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	50958678	
+1	/Section0	0	SimdForBitpack	Uint8	1250009	
+1	/Section1	1	Huffman	Uint8	2233745	
+1	/Section2	2	RLE	Uint8	573342	
+2	/Section2/Lengths	0	Huffman	Uint32	176720	
+2	/Section2/Values	1	Trivial	Uint8	396612	Uncompressed
+1	/Section3	3	Huffman	Uint8	4989915	
+1	/Section4	4	FOR	Uint8	2885987	
+2	/Section4/BitWidths	0	RLE	Uint8	10676	
+3	/Section4/BitWidths/Lengths	0	Huffman	Uint32	7003	
+3	/Section4/BitWidths/Values	1	Huffman	Uint8	3663	
+2	/Section4/References	1	Huffman	Uint8	17331	
+2	/Section4/BitOffsets	2	Delta	Uint64	10755	
+3	/Section4/BitOffsets/Deltas	0	RLE	Uint64	10704	
+4	/Section4/BitOffsets/Deltas/Lengths	0	Huffman	Uint32	7003	
+4	/Section4/BitOffsets/Deltas/Values	1	Huffman	Uint64	3691	
+3	/Section4/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+3	/Section4/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section4/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section5	5	RLE	Uint8	172147	
+2	/Section5/Lengths	0	Huffman	Uint32	133336	
+2	/Section5/Values	1	Huffman	Uint8	38801	
+1	/Section6	6	Delta	Uint32	38153298	
+2	/Section6/Deltas	0	RLE	Uint32	1271921	
+3	/Section6/Deltas/Lengths	0	MainlyConstant	Uint32	2085	
+4	/Section6/Deltas/Lengths/IsCommon	0	SparseBool	Bool	1266	
+5	/Section6/Deltas/Lengths/IsCommon/Indices	0	FixedBitWidth	Uint32	1259	Uncompressed
+4	/Section6/Deltas/Lengths/OtherValues	1	FixedBitWidth	Uint32	801	Uncompressed
+3	/Section6/Deltas/Values	1	FixedBitWidth	Uint32	1269826	Uncompressed
+2	/Section6/Restatements	1	FixedBitWidth	Uint32	35631349	Uncompressed
+2	/Section6/IsRestatements	2	Trivial	Bool	1250014	Uncompressed
+1	/Section7	7	RLE	Uint8	692126	
+2	/Section7/Lengths	0	Huffman	Uint32	318922	
+2	/Section7/Values	1	Trivial	Uint8	373194	Uncompressed
+1	/Section8	8	RLE	Uint8	8034	
+2	/Section8/Lengths	0	PFOR	Uint32	7483	
+3	/Section8/Lengths/ExceptionPositions	0	Varint	Uint32	29	
+3	/Section8/Lengths/ExceptionValues	1	Varint	Uint32	28	
+2	/Section8/Values	1	SimdForBitpack	Uint8	541	
+1	/Section9	9	Constant	Uint8	7	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	50958678	62168075	0.8196920686381234	column	0
+1	/Section0	payload	SimdForBitpack	Uint8	10000000	1250009	1250009	1	section	1
+1	/Section1	payload	Huffman	Uint8	10000000	2233745	2233746	0.9999995523215263	section	1
+1	/Section2	payload	RLE	Uint8	10000000	573342	525455	1.0911343502298008	section	1
+2	/Section2/Lengths	metadata	Huffman	Uint32	396605	176720	128700	1.373115773115773	section	1
+2	/Section2/Values	payload	Trivial	Uint8	396605	396612	396612	1	section	1
+1	/Section3	payload	Huffman	Uint8	10000000	4989915	4989916	0.9999997995958249	section	1
+1	/Section4	payload	FOR	Uint8	10000000	2885987	3329735	0.8667317369099944	section	1
+2	/Section4/BitWidths	metadata	RLE	Uint8	78125	10676	13779	0.7748022352855795	section	1
+3	/Section4/BitWidths/Lengths	metadata	Huffman	Uint32	15317	7003	7929	0.8832135199899105	section	1
+3	/Section4/BitWidths/Values	payload	Huffman	Uint8	15317	3663	3664	0.9997270742358079	section	1
+2	/Section4/References	metadata	Huffman	Uint8	78125	17331	17332	0.9999423032540965	section	1
+2	/Section4/BitOffsets	metadata	Delta	Uint64	78125	10755	97738	0.11003908408193333	section	1
+3	/Section4/BitOffsets/Deltas	payload	RLE	Uint64	78124	10704	13796	0.7758770658161787	section	1
+4	/Section4/BitOffsets/Deltas/Lengths	metadata	Huffman	Uint32	15317	7003	7929	0.8832135199899105	section	1
+4	/Section4/BitOffsets/Deltas/Values	payload	Huffman	Uint64	15317	3691	3692	0.9997291440953413	section	1
+3	/Section4/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+3	/Section4/BitOffsets/IsRestatements	metadata	SparseBool	Bool	78125	22	31	0.7096774193548387	section	1
+4	/Section4/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section5	payload	RLE	Uint8	10000000	172147	126793	1.3577011349206975	section	1
+2	/Section5/Lengths	metadata	Huffman	Uint32	150401	133336	62799	2.123218522587939	section	1
+2	/Section5/Values	payload	Huffman	Uint8	150401	38801	38802	0.9999742281325705	section	1
+1	/Section6	payload	Delta	Uint32	10000000	38153298	38750059	0.9845997395771707	section	1
+2	/Section6/Deltas	payload	RLE	Uint32	498312	1271921	1271921	1	section	1
+3	/Section6/Deltas/Lengths	metadata	MainlyConstant	Uint32	338615	2085	2085	1	section	1
+4	/Section6/Deltas/Lengths/IsCommon	metadata	SparseBool	Bool	338615	1266	1266	1	section	1
+5	/Section6/Deltas/Lengths/IsCommon/Indices	metadata	FixedBitWidth	Uint32	522	1259	1259	1	section	1
+4	/Section6/Deltas/Lengths/OtherValues	payload	FixedBitWidth	Uint32	521	801	801	1	section	1
+3	/Section6/Deltas/Values	payload	FixedBitWidth	Uint32	338615	1269826	1269826	1	section	1
+2	/Section6/Restatements	payload	FixedBitWidth	Uint32	9501688	35631349	35631349	1	section	1
+2	/Section6/IsRestatements	metadata	Trivial	Bool	10000000	1250014	1250014	1	section	1
+1	/Section7	payload	RLE	Uint8	10000000	692126	714965	0.9680557789542146	section	1
+2	/Section7/Lengths	metadata	Huffman	Uint32	373187	318922	305767	1.0430229553875991	section	1
+2	/Section7/Values	payload	Trivial	Uint8	373187	373194	373194	1	section	1
+1	/Section8	payload	RLE	Uint8	10000000	8034	8508	0.9442877291960508	section	1
+2	/Section8/Lengths	metadata	PFOR	Uint32	4231	7483	7500	0.9977333333333334	section	1
+3	/Section8/Lengths/ExceptionPositions	metadata	Varint	Uint32	10	29	29	1	section	1
+3	/Section8/Lengths/ExceptionValues	payload	Varint	Uint32	10	28	28	1	section	1
+2	/Section8/Values	payload	SimdForBitpack	Uint8	4231	541	541	1	section	1
+1	/Section9	payload	Constant	Uint8	10000000	7	7	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	0	0	SimdForBitpack	1250009	SimdForBitpack	1250009	FixedBitWidth	1250016	FixedBitWidth	1293945	SimdForBitpack	1293945	SimdForBitpack=1250009/1125008;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;BlockBitPacking=1376999/1239299;Dictionary=1250038/1250038;FOR=1503994/1278394;MainlyConstant=1672998/1672998;Delta=2500054/2125046;FrequencyPartition=2500117/2125099;RLE=2870162/2870162;Trivial=10000007/10000007
+1	1	3	0	Huffman	2233745	MainlyConstant	2479063	BlockBitPacking	3630215	FixedBitWidth	3793945	SimdForBitpack	3793945	MainlyConstant=2479063/2479063;BlockBitPacking=3630215/3267193;FrequencyPartition=3952136/3359315;SimdForBitpack=3750009/3375008;FixedBitWidth=3750016/3375014;PFOR=3750032/3375028;RLE=3403691/3403691;FOR=4053126/3445157;Dictionary=3750044/3750044;Delta=5000054/4250046;Trivial=10000007/10000007
+2	4	11	0	RLE	573342	RLE	525455	MainlyConstant	1406719	RLE	1796875	MainlyConstant	1860351	RLE=525455/525455;MainlyConstant=1406719/1406719;FOR=2008230/1706995;BlockBitPacking=2264773/2038295;FrequencyPartition=3998359/3398605;Trivial=10000007/7000005;PFOR=9349206/8414285;SimdForBitpack=10000009/9000008;FixedBitWidth=10000016/9000014;Delta=10604140/9013519;Dictionary=10000292/10000292
+3	12	15	0	Huffman	4989915	FOR	5292327	SimdForBitpack	5000009	FixedBitWidth	5043945	SimdForBitpack	5043945	FOR=5292327/4498478;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;BlockBitPacking=5035735/4532161;Dictionary=5000052/5000052;FrequencyPartition=5954177/5061050;Delta=6250053/5312545;RLE=6128032/6128032;Trivial=10000007/10000007;MainlyConstant=31287341/31287340
+4	16	19	0	FOR	2885987	FOR	3329735	BlockBitPacking	3406647	FrequencyPartition	4932861	FixedBitWidth	5043945	FOR=3329735/2830274;BlockBitPacking=3406647/3065982;FrequencyPartition=4429331/3764931;RLE=4042898/4042898;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Dictionary=5000052/5000052;Delta=6250053/5312545;Trivial=10000007/10000007;MainlyConstant=24589527/24589528
+5	20	21	0	RLE	172147	RLE	126793	BlockBitPacking	591511	RLE	786132	BlockBitPacking	2246093	RLE=126793/126793;BlockBitPacking=591511/532359;FOR=1559632/1325687;MainlyConstant=1928765/1928765;SimdForBitpack=2500009/2250008;FixedBitWidth=2500016/2250014;PFOR=2500032/2250028;Delta=2749730/2337270;Dictionary=2500040/2500040;FrequencyPartition=3750162/3187637;Trivial=10000007/10000007
+6	22	51	0	Delta	38153298	Delta	38750059	BlockBitPacking	37425898	FixedBitWidth	37558593	SimdForBitpack	37558593	Delta=38750059/32937552;BlockBitPacking=37425898/33683304;SimdForBitpack=37500012/33750008;FixedBitWidth=37500019/33750016;PFOR=37500035/33750032;FOR=40005716/34004860;FrequencyPartition=40730668/34621068;RLE=37111185/37111184;Trivial=40000007/40000008;Varint=46646920/46646920;Dictionary=66193391/66193392;MainlyConstant=67497495/67497496
+7	52	59	0	RLE	692126	RLE	714965	FOR	3924041	RLE	2324218	FOR	8461914	RLE=714965/714965;FOR=3924041/3335435;BlockBitPacking=7123277/6410949;Trivial=10000007/7000005;FrequencyPartition=10454840/8886614;SimdForBitpack=10000009/9000008;FixedBitWidth=10000016/9000014;PFOR=10000032/9000029;Delta=11105773/9439907;Dictionary=10000292/10000292;MainlyConstant=38682631/38682632
+8	60	60	0	RLE	8034	RLE	8508	BlockBitPacking	532759	RLE	288085	FOR	961914	RLE=8508/8508;BlockBitPacking=532759/479483;Delta=1256424/1067960;SimdForBitpack=1250009/1125008;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;Dictionary=1250038/1250038;FOR=1503994/1278394;MainlyConstant=1861407/1861407;FrequencyPartition=2500117/2125099;Trivial=10000007/10000007
+9	61	63	0	Constant	7	Constant	7	SimdForBitpack	9	Constant	34179	FixedBitWidth	43945	Constant=7/7;SimdForBitpack=9/8;RLE=38/38;MainlyConstant=50/50;BlockBitPacking=126999/114299;Delta=1250070/1062559;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;Dictionary=1250037/1250037;FOR=1503994/1278394;FrequencyPartition=2500116/2125098;Trivial=10000007/10000007
+whole	0	63	0			BlockBitPacking	72073858	Delta	77500068	FOR	75258789	FixedBitWidth	76328125	BlockBitPacking=72073858/64866468;Delta=77500068/65875056;FOR=80106657/68090656;FixedBitWidth=76250023/68625016;SimdForBitpack=76250016/68625016;PFOR=76250039/68625032;RLE=76250086/76250088;Trivial=80000007/80000008;Varint=88619784/88619784;FrequencyPartition=109823670/93350120;Dictionary=106152300/106152304;MainlyConstant=106250053/106250056
+  SIS/realNested: 50958678 B, 40.77 bpe
+
+Results written to: $RESULTS/seq_toplevel_20261017_2057/out/unrestricted_snowflake.csv

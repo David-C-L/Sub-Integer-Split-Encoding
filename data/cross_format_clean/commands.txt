@@ -1,0 +1,15 @@
+2026-09-29T17:06:34+00:00 btr_r1: xf_env XF_STAGES=btr XF_RUNS=1 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:06:34+00:00 fls_r1: xf_env XF_STAGES=fls XF_RUNS=1 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:06:34+00:00 nimble_r1: bash $RESULTS/cross_format_clean_20260929_1705/nimble_rep.sh 1
+2026-09-29T17:06:43+00:00 fls_r2: xf_env XF_STAGES=fls XF_RUNS=2 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:06:43+00:00 nimble_r2: bash $RESULTS/cross_format_clean_20260929_1705/nimble_rep.sh 2
+2026-09-29T17:06:49+00:00 btr_r2: xf_env XF_STAGES=btr XF_RUNS=2 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:06:49+00:00 nimble_r3: bash $RESULTS/cross_format_clean_20260929_1705/nimble_rep.sh 3
+2026-09-29T17:06:55+00:00 btr_r3: xf_env XF_STAGES=btr XF_RUNS=3 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:06:55+00:00 fls_r3: xf_env XF_STAGES=fls XF_RUNS=3 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:18:28+00:00 btr_r1: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=btr XF_RUNS=1 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:22:41+00:00 fls_r1: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=fls XF_RUNS=1 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:40:53+00:00 fls_r2: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=fls XF_RUNS=2 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T17:58:52+00:00 btr_r2: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=btr XF_RUNS=2 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T18:03:09+00:00 btr_r3: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=btr XF_RUNS=3 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh
+2026-09-29T18:07:21+00:00 fls_r3: env XF_TAG=../cross_format_clean_20260929_1705/xf XF_HAVE_TIMING_LOCK=1 XF_SKIP_NIMBLE=1 XF_STAGES=fls XF_RUNS=3 bash $RESULTS/cross_format_clean_20260929_1705/cross_format_shared_fls_fix.sh

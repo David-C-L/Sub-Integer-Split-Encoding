@@ -1,0 +1,12 @@
+column,class_label,n,exp_distinct,exp_entropy_mm_bits,effective_mantissa_width,leading_bits_stable_min,decimal_d99,decimal_d99_reached,order1_reduction_present,split_gain_pass,membership
+F1_stocks_usa,decimal-origin,524288,8,2.13,51.0,9,2,True,True,False,weak-member
+F2_food_prices,decimal-origin,524288,28,3.65,9.0,1,4,True,True,False,weak-member
+F3_gov10,decimal-origin,524288,43,3.89,17.0,0,2,True,True,False,weak-member
+F4_medicare_total_drug_cost,decimal-origin,524288,20,3.1,51.0,7,2,True,True,False,weak-member
+F5_city_temp,sensor,524288,12,0.96,51.0,0,1,True,True,False,weak-member
+F6_air_pressure,sensor,524288,1,0.0,52.0,12,5,True,True,False,weak-member
+F7_dew_point_temp,sensor,524288,16,1.35,51.0,0,3,True,True,True,member
+F10_medicare_calc_9030826185528129,high-precision,524288,15,2.59,52.0,1,15,True,True,True,member
+F8_poi_lat,high-precision,424205,16,1.08,51.0,0,16,True,False,False,non-member
+F9_nyc29,high-precision,524288,1,0.0,51.0,16,13,True,True,False,weak-member
+C0_uniform_control,control,524288,18,2.07,50.0,0,18,False,False,True,weak-member

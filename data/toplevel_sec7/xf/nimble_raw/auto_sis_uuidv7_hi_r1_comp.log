@@ -1,0 +1,64 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: uuidv7_hi ==
+  --- Auto/view encoding tree ---
+SubIntSplitEncoding sections=6 rowFrame=(slope=0x1 base=0x0)
+  [0..10] storageBytes=2
+    RLE<Uint16> rowCount=524288
+  [11..15] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [16..18] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [19..26] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [27..34] storageBytes=1
+    RLE<Uint8> rowCount=524288
+  [35..63] storageBytes=4
+    Constant<Uint32> rowCount=524288 value=3310565
+
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	794105	
+1	/Section0	0	RLE	Uint16	424455	
+2	/Section0/Lengths	0	FixedBitWidth	Uint32	113195	Uncompressed
+2	/Section0/Values	1	FixedBitWidth	Uint16	311250	Uncompressed
+1	/Section1	1	RLE	Uint8	114536	
+2	/Section1/Lengths	0	PFOR	Uint32	67089	
+3	/Section1/Lengths/ExceptionPositions	0	FixedBitWidth	Uint32	453	Uncompressed
+3	/Section1/Lengths/ExceptionValues	1	FixedBitWidth	Uint32	223	Uncompressed
+2	/Section1/Values	1	FixedBitWidth	Uint8	47437	Uncompressed
+1	/Section2	2	RLE	Uint8	197332	
+2	/Section2/Lengths	0	FixedBitWidth	Uint32	112754	Uncompressed
+2	/Section2/Values	1	FixedBitWidth	Uint8	84568	Uncompressed
+1	/Section3	3	RLE	Uint8	57352	
+2	/Section3/Lengths	0	FixedBitWidth	Uint32	24583	Uncompressed
+2	/Section3/Values	1	Trivial	Uint8	32759	Uncompressed
+1	/Section4	4	RLE	Uint8	359	
+2	/Section4/Lengths	0	FixedBitWidth	Uint32	213	Uncompressed
+2	/Section4/Values	1	Trivial	Uint8	136	Uncompressed
+1	/Section5	5	Constant	Uint32	10	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	524288	794105	1119313	0.7094574975900396	column	0
+1	/Section0	payload	RLE	Uint16	524288	424455	407144	1.0425181262649088	section	1
+2	/Section0/Lengths	metadata	FixedBitWidth	Uint32	226351	113195	113195	1	section	1
+2	/Section0/Values	payload	FixedBitWidth	Uint16	226351	311250	311250	1	section	1
+1	/Section1	payload	RLE	Uint8	524288	114536	99241	1.1541197690470673	section	1
+2	/Section1/Lengths	metadata	PFOR	Uint32	75873	67089	67115	0.9996126052298294	section	1
+3	/Section1/Lengths/ExceptionPositions	metadata	FixedBitWidth	Uint32	204	453	453	1	section	1
+3	/Section1/Lengths/ExceptionValues	payload	FixedBitWidth	Uint32	204	223	223	1	section	1
+2	/Section1/Values	payload	FixedBitWidth	Uint8	75873	47437	47437	1	section	1
+1	/Section2	payload	RLE	Uint8	524288	197332	180163	1.0952970365724373	section	1
+2	/Section2/Lengths	metadata	FixedBitWidth	Uint32	225470	112754	112754	1	section	1
+2	/Section2/Values	payload	FixedBitWidth	Uint8	225470	84568	84568	1	section	1
+1	/Section3	payload	RLE	Uint8	524288	57352	56415	1.0166090578746787	section	1
+2	/Section3/Lengths	metadata	FixedBitWidth	Uint32	32752	24583	24583	1	section	1
+2	/Section3/Values	payload	Trivial	Uint8	32752	32759	32759	1	section	1
+1	/Section4	payload	RLE	Uint8	524288	359	359	1	section	1
+2	/Section4/Lengths	metadata	FixedBitWidth	Uint32	129	213	213	1	section	1
+2	/Section4/Values	payload	Trivial	Uint8	129	136	136	1	section	1
+1	/Section5	payload	Constant	Uint32	524288	10	10	1	section	1
+  Auto/view: 794105 B, 12.12 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_sis_uuidv7_hi_r1_comp.csv.tmp

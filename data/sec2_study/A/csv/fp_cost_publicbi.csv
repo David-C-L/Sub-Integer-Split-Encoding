@@ -1,0 +1,7 @@
+column,default_arm,default_bytes,default_bpv,sis_arm,sis_bytes,sis_bpv,size_change_pct,default_encode_ns,sis_encode_ns,encode_slowdown_x
+publicbi_drug_cost,PFOR/view,3672246,56.045,SIS/hybrid,1552193,23.687,-57.74,5272010,81380368,15.44
+publicbi_drug_cost_ge65,SimdForBitpack/view,4128784,63.016,SIS/hybrid,1529400,23.344,-62.95,2085155,80292232,38.51
+publicbi_bene_count,PFOR/view,568090,8.671,SIS/realNested,497318,7.591,-12.46,5776000,80373826,13.92
+publicbi_num_employees,MainlyConstant,194617,2.970,SIS/hybrid,185589,2.833,-4.64,8341096,53052707,6.36
+publicbi_day_supply_bin,SimdForBitpack/view,458768,7.002,SIS/realNested,330620,5.046,-27.93,1117023,25437535,22.77
+tpch_orderkey,NO_DATA,,,NO_DATA,,,,,,

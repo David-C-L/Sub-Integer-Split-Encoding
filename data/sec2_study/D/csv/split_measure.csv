@@ -1,0 +1,629 @@
+column,kind,subtype,compressor,variant,n_rows,n_streams,compressed_bytes,bits_per_value,gain_pct_vs_best_whole,ranges
+h3_r15,structured,T2,xz,WHOLE_u64,524288,1,1504024,22.9495849609375,0.0,"[0,64)"
+h3_r15,structured,T2,xz,WHOLE_narrow,524288,1,1504024,22.9495849609375,0.0,"[0,64)"
+h3_r15,structured,T2,xz,WHOLE_best,524288,1,1504024,22.9495849609375,0.0,u64
+h3_r15,structured,T2,xz,SPLIT_DOC,524288,4,1527556,23.30865478515625,-1.5646026925102259,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r15,structured,T2,xz,SPLIT_DATA,524288,5,1530228,23.34942626953125,-1.7422594320303397,"[[0, 15], [15, 18], [18, 21], [21, 24], [24, 64]]"
+h3_r15,structured,T2,xz,BYTE_PLANE,524288,8,1442040,22.0037841796875,4.121210831742047,8 byte-planes
+h3_r15,structured,T2,xz,BIT_PLANE,524288,64,1711332,26.11285400390625,-13.78355664537268,64 bit-planes
+h3_r15,structured,T2,zstd,WHOLE_u64,524288,1,1641643,25.049484252929688,0.0,"[0,64)"
+h3_r15,structured,T2,zstd,WHOLE_narrow,524288,1,1641643,25.049484252929688,0.0,"[0,64)"
+h3_r15,structured,T2,zstd,WHOLE_best,524288,1,1641643,25.049484252929688,0.0,u64
+h3_r15,structured,T2,zstd,SPLIT_DOC,524288,4,1636131,24.965377807617188,0.3357611855927263,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r15,structured,T2,zstd,SPLIT_DATA,524288,5,1555701,23.738113403320312,5.235121156061337,"[[0, 15], [15, 18], [18, 21], [21, 24], [24, 64]]"
+h3_r15,structured,T2,zstd,BYTE_PLANE,524288,8,1522482,23.231231689453125,7.25864271342795,8 byte-planes
+h3_r15,structured,T2,zstd,BIT_PLANE,524288,64,1694735,25.859603881835938,-3.234077080095977,64 bit-planes
+h3_r15,structured,T2,lz4,WHOLE_u64,524288,1,2939074,44.846710205078125,0.0,"[0,64)"
+h3_r15,structured,T2,lz4,WHOLE_narrow,524288,1,2939074,44.846710205078125,0.0,"[0,64)"
+h3_r15,structured,T2,lz4,WHOLE_best,524288,1,2939074,44.846710205078125,0.0,u64
+h3_r15,structured,T2,lz4,SPLIT_DOC,524288,4,3147907,48.03324890136719,-7.105401225011687,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r15,structured,T2,lz4,SPLIT_DATA,524288,5,2248998,34.316986083984375,23.479367991414986,"[[0, 15], [15, 18], [18, 21], [21, 24], [24, 64]]"
+h3_r15,structured,T2,lz4,BYTE_PLANE,524288,8,1834713,27.995498657226562,37.57513420893792,8 byte-planes
+h3_r15,structured,T2,lz4,BIT_PLANE,524288,64,1988393,30.340469360351562,32.346276412230516,64 bit-planes
+h3_r15,structured,T2,snappy,WHOLE_u64,524288,1,2914318,44.468963623046875,0.0,"[0,64)"
+h3_r15,structured,T2,snappy,WHOLE_narrow,524288,1,2914318,44.468963623046875,0.0,"[0,64)"
+h3_r15,structured,T2,snappy,WHOLE_best,524288,1,2914318,44.468963623046875,0.0,u64
+h3_r15,structured,T2,snappy,SPLIT_DOC,524288,4,3149934,48.064178466796875,-8.084773178493219,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r15,structured,T2,snappy,SPLIT_DATA,524288,5,2223143,33.92247009277344,23.71652647377534,"[[0, 15], [15, 18], [18, 21], [21, 24], [24, 64]]"
+h3_r15,structured,T2,snappy,BYTE_PLANE,524288,8,1878530,28.664093017578125,35.54135135561734,8 byte-planes
+h3_r15,structured,T2,snappy,BIT_PLANE,524288,64,2020886,30.836273193359375,30.656640764666037,64 bit-planes
+h3_r9,structured,T2,xz,WHOLE_u64,524288,1,318624,4.86181640625,0.0,"[0,64)"
+h3_r9,structured,T2,xz,WHOLE_narrow,524288,1,318624,4.86181640625,0.0,"[0,64)"
+h3_r9,structured,T2,xz,WHOLE_best,524288,1,318624,4.86181640625,0.0,u64
+h3_r9,structured,T2,xz,SPLIT_DOC,524288,4,321676,4.90838623046875,-0.9578688359947775,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r9,structured,T2,xz,SPLIT_DATA,524288,3,350716,5.35150146484375,-10.072059857386764,"[[0, 18], [18, 21], [21, 64]]"
+h3_r9,structured,T2,xz,BYTE_PLANE,524288,8,341628,5.21282958984375,-7.21979511901175,8 byte-planes
+h3_r9,structured,T2,xz,BIT_PLANE,524288,64,544320,8.3056640625,-70.83458873154565,64 bit-planes
+h3_r9,structured,T2,zstd,WHOLE_u64,524288,1,408314,6.230377197265625,0.0,"[0,64)"
+h3_r9,structured,T2,zstd,WHOLE_narrow,524288,1,408314,6.230377197265625,0.0,"[0,64)"
+h3_r9,structured,T2,zstd,WHOLE_best,524288,1,408314,6.230377197265625,0.0,u64
+h3_r9,structured,T2,zstd,SPLIT_DOC,524288,4,405733,6.1909942626953125,0.6321115612004486,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r9,structured,T2,zstd,SPLIT_DATA,524288,3,390401,5.9570465087890625,4.387064856948329,"[[0, 18], [18, 21], [21, 64]]"
+h3_r9,structured,T2,zstd,BYTE_PLANE,524288,8,360836,5.50592041015625,11.627815847607478,8 byte-planes
+h3_r9,structured,T2,zstd,BIT_PLANE,524288,64,537087,8.195297241210938,-31.537738113314752,64 bit-planes
+h3_r9,structured,T2,lz4,WHOLE_u64,524288,1,1142588,17.43450927734375,0.0,"[0,64)"
+h3_r9,structured,T2,lz4,WHOLE_narrow,524288,1,1142588,17.43450927734375,0.0,"[0,64)"
+h3_r9,structured,T2,lz4,WHOLE_best,524288,1,1142588,17.43450927734375,0.0,u64
+h3_r9,structured,T2,lz4,SPLIT_DOC,524288,4,1109176,16.9246826171875,2.924238658204007,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r9,structured,T2,lz4,SPLIT_DATA,524288,3,861394,13.143829345703125,24.61027071875427,"[[0, 18], [18, 21], [21, 64]]"
+h3_r9,structured,T2,lz4,BYTE_PLANE,524288,8,681766,10.402923583984375,40.33142305012831,8 byte-planes
+h3_r9,structured,T2,lz4,BIT_PLANE,524288,64,813551,12.413803100585938,28.79751931579887,64 bit-planes
+h3_r9,structured,T2,snappy,WHOLE_u64,524288,1,1069911,16.325546264648438,0.0,"[0,64)"
+h3_r9,structured,T2,snappy,WHOLE_narrow,524288,1,1069911,16.325546264648438,0.0,"[0,64)"
+h3_r9,structured,T2,snappy,WHOLE_best,524288,1,1069911,16.325546264648438,0.0,u64
+h3_r9,structured,T2,snappy,SPLIT_DOC,524288,4,1120252,17.09368896484375,-4.705157718726137,"[[0, 45], [45, 52], [52, 56], [56, 64]]"
+h3_r9,structured,T2,snappy,SPLIT_DATA,524288,3,947652,14.46002197265625,11.427025238547879,"[[0, 18], [18, 21], [21, 64]]"
+h3_r9,structured,T2,snappy,BYTE_PLANE,524288,8,760294,11.601165771484375,28.938575264671545,8 byte-planes
+h3_r9,structured,T2,snappy,BIT_PLANE,524288,64,896516,13.67974853515625,16.20648820322438,64 bit-planes
+hashed_splitmix64,control,control,xz,WHOLE_u64,524288,1,4194576,64.004150390625,0.0,"[0,64)"
+hashed_splitmix64,control,control,xz,WHOLE_narrow,524288,1,4194576,64.004150390625,0.0,"[0,64)"
+hashed_splitmix64,control,control,xz,WHOLE_best,524288,1,4194576,64.004150390625,0.0,u64
+hashed_splitmix64,control,control,xz,SPLIT_DATA,524288,4,4463720,68.1109619140625,-6.416476897784186,"[[0, 30], [30, 31], [31, 61], [61, 64]]"
+hashed_splitmix64,control,control,xz,BYTE_PLANE,524288,8,4194976,64.01025390625,-0.0095361247477695,8 byte-planes
+hashed_splitmix64,control,control,xz,BIT_PLANE,524288,64,4198400,64.0625,-0.09116535258867643,64 bit-planes
+hashed_splitmix64,control,control,zstd,WHOLE_u64,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+hashed_splitmix64,control,control,zstd,WHOLE_narrow,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+hashed_splitmix64,control,control,zstd,WHOLE_best,524288,1,4194410,64.00161743164062,0.0,u64
+hashed_splitmix64,control,control,zstd,SPLIT_DATA,524288,4,4458146,68.02590942382812,-6.287797330256222,"[[0, 30], [30, 31], [31, 61], [61, 64]]"
+hashed_splitmix64,control,control,zstd,BYTE_PLANE,524288,8,4194480,64.002685546875,-0.001668887876960049,8 byte-planes
+hashed_splitmix64,control,control,zstd,BIT_PLANE,524288,64,4195136,64.0126953125,-0.017308751409614225,64 bit-planes
+hashed_splitmix64,control,control,lz4,WHOLE_u64,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+hashed_splitmix64,control,control,lz4,WHOLE_narrow,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+hashed_splitmix64,control,control,lz4,WHOLE_best,524288,1,4194579,64.00419616699219,0.0,u64
+hashed_splitmix64,control,control,lz4,SPLIT_DATA,524288,4,4895391,74.69773864746094,-16.70756469242801,"[[0, 30], [30, 31], [31, 61], [61, 64]]"
+hashed_splitmix64,control,control,lz4,BYTE_PLANE,524288,8,4194712,64.0062255859375,-0.0031707592108767054,8 byte-planes
+hashed_splitmix64,control,control,lz4,BIT_PLANE,524288,64,4195776,64.0224609375,-0.02853683289789035,64 bit-planes
+hashed_splitmix64,control,control,snappy,WHOLE_u64,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+hashed_splitmix64,control,control,snappy,WHOLE_narrow,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+hashed_splitmix64,control,control,snappy,WHOLE_best,524288,1,4194500,64.00299072265625,0.0,u64
+hashed_splitmix64,control,control,snappy,SPLIT_DATA,524288,4,4798739,73.22294616699219,-14.405507211825007,"[[0, 30], [30, 31], [31, 61], [61, 64]]"
+hashed_splitmix64,control,control,snappy,BYTE_PLANE,524288,8,4194520,64.0032958984375,-0.0004768148766241507,8 byte-planes
+hashed_splitmix64,control,control,snappy,BIT_PLANE,524288,64,4194688,64.005859375,-0.004482059840267017,64 bit-planes
+inat_species_id,control,control,xz,WHOLE_u64,524288,1,692940,10.57342529296875,0.0,"[0,64)"
+inat_species_id,control,control,xz,WHOLE_narrow,524288,1,753844,11.50274658203125,-8.789216959621324,"[0,24)"
+inat_species_id,control,control,xz,WHOLE_best,524288,1,692940,10.57342529296875,0.0,u64
+inat_species_id,control,control,xz,SPLIT_DATA,524288,2,772412,11.78607177734375,-11.468814038733512,"[[0, 23], [23, 64]]"
+inat_species_id,control,control,xz,BYTE_PLANE,524288,3,943460,14.39605712890625,-36.15320229745721,3 byte-planes
+inat_species_id,control,control,xz,BIT_PLANE,524288,24,1340248,20.4505615234375,-93.41472566167344,24 bit-planes
+inat_species_id,control,control,zstd,WHOLE_u64,524288,1,832502,12.702972412109375,-8.23704701441987,"[0,64)"
+inat_species_id,control,control,zstd,WHOLE_narrow,524288,1,769147,11.736251831054688,0.0,"[0,24)"
+inat_species_id,control,control,zstd,WHOLE_best,524288,1,769147,11.736251831054688,0.0,narrow
+inat_species_id,control,control,zstd,SPLIT_DATA,524288,2,786075,11.994552612304688,-2.200879675796694,"[[0, 23], [23, 64]]"
+inat_species_id,control,control,zstd,BYTE_PLANE,524288,3,1073392,16.378662109375,-39.55615766556978,3 byte-planes
+inat_species_id,control,control,zstd,BIT_PLANE,524288,24,1315426,20.071807861328125,-71.02400451409159,24 bit-planes
+inat_species_id,control,control,lz4,WHOLE_u64,524288,1,1551659,23.676437377929688,-26.840407548008855,"[0,64)"
+inat_species_id,control,control,lz4,WHOLE_narrow,524288,1,1223316,18.66632080078125,0.0,"[0,24)"
+inat_species_id,control,control,lz4,WHOLE_best,524288,1,1223316,18.66632080078125,0.0,narrow
+inat_species_id,control,control,lz4,SPLIT_DATA,524288,2,1279688,19.5264892578125,-4.608130687410285,"[[0, 23], [23, 64]]"
+inat_species_id,control,control,lz4,BYTE_PLANE,524288,3,1467482,22.391998291015625,-19.95935637235187,3 byte-planes
+inat_species_id,control,control,lz4,BIT_PLANE,524288,24,1537325,23.457717895507812,-25.668674324540834,24 bit-planes
+inat_species_id,control,control,snappy,WHOLE_u64,524288,1,1543839,23.557113647460938,-24.4760415070912,"[0,64)"
+inat_species_id,control,control,snappy,WHOLE_narrow,524288,1,1240270,18.925018310546875,0.0,"[0,24)"
+inat_species_id,control,control,snappy,WHOLE_best,524288,1,1240270,18.925018310546875,0.0,narrow
+inat_species_id,control,control,snappy,SPLIT_DATA,524288,2,1291776,19.7109375,-4.1528054375257,"[[0, 23], [23, 64]]"
+inat_species_id,control,control,snappy,BYTE_PLANE,524288,3,1445743,22.060287475585938,-16.5667959395938,3 byte-planes
+inat_species_id,control,control,snappy,BIT_PLANE,524288,24,1533304,23.3963623046875,-23.626629685471713,24 bit-planes
+instagram,structured,T1,xz,WHOLE_u64,524288,1,3655716,55.78179931640625,0.0,"[0,64)"
+instagram,structured,T1,xz,WHOLE_narrow,524288,1,3655716,55.78179931640625,0.0,"[0,64)"
+instagram,structured,T1,xz,WHOLE_best,524288,1,3655716,55.78179931640625,0.0,u64
+instagram,structured,T1,xz,SPLIT_DOC,524288,3,3426208,52.27978515625,6.27805879887825,"[[0, 10], [10, 23], [23, 64]]"
+instagram,structured,T1,xz,SPLIT_DATA,524288,3,3516748,53.66131591796875,3.8013893858275645,"[[0, 18], [18, 23], [23, 64]]"
+instagram,structured,T1,xz,BYTE_PLANE,524288,8,3162644,48.25811767578125,13.487699810379144,8 byte-planes
+instagram,structured,T1,xz,BIT_PLANE,524288,64,3302576,50.393310546875,9.659940761262636,64 bit-planes
+instagram,structured,T1,zstd,WHOLE_u64,524288,1,3921995,59.84489440917969,0.0,"[0,64)"
+instagram,structured,T1,zstd,WHOLE_narrow,524288,1,3921995,59.84489440917969,0.0,"[0,64)"
+instagram,structured,T1,zstd,WHOLE_best,524288,1,3921995,59.84489440917969,0.0,u64
+instagram,structured,T1,zstd,SPLIT_DOC,524288,3,3962759,60.46690368652344,-1.0393689946060614,"[[0, 10], [10, 23], [23, 64]]"
+instagram,structured,T1,zstd,SPLIT_DATA,524288,3,3793784,57.8885498046875,3.2690250752486936,"[[0, 18], [18, 23], [23, 64]]"
+instagram,structured,T1,zstd,BYTE_PLANE,524288,8,3173721,48.42713928222656,19.078912645222648,8 byte-planes
+instagram,structured,T1,zstd,BIT_PLANE,524288,64,3298381,50.32929992675781,15.900428225941136,64 bit-planes
+instagram,structured,T1,lz4,WHOLE_u64,524288,1,4068666,62.082916259765625,0.0,"[0,64)"
+instagram,structured,T1,lz4,WHOLE_narrow,524288,1,4068666,62.082916259765625,0.0,"[0,64)"
+instagram,structured,T1,lz4,WHOLE_best,524288,1,4068666,62.082916259765625,0.0,u64
+instagram,structured,T1,lz4,SPLIT_DOC,524288,3,4618594,70.47415161132812,-13.516174588919316,"[[0, 10], [10, 23], [23, 64]]"
+instagram,structured,T1,lz4,SPLIT_DATA,524288,3,4168315,63.60343933105469,-2.4491811320958763,"[[0, 18], [18, 23], [23, 64]]"
+instagram,structured,T1,lz4,BYTE_PLANE,524288,8,3667298,55.958526611328125,9.864854967205467,8 byte-planes
+instagram,structured,T1,lz4,BIT_PLANE,524288,64,3443405,52.54219055175781,15.36771511841965,64 bit-planes
+instagram,structured,T1,snappy,WHOLE_u64,524288,1,4190447,63.94114685058594,0.0,"[0,64)"
+instagram,structured,T1,snappy,WHOLE_narrow,524288,1,4190447,63.94114685058594,0.0,"[0,64)"
+instagram,structured,T1,snappy,WHOLE_best,524288,1,4190447,63.94114685058594,0.0,u64
+instagram,structured,T1,snappy,SPLIT_DOC,524288,3,4717556,71.98419189453125,-12.578825122952278,"[[0, 10], [10, 23], [23, 64]]"
+instagram,structured,T1,snappy,SPLIT_DATA,524288,3,4261173,65.02033996582031,-1.6877913024553228,"[[0, 18], [18, 23], [23, 64]]"
+instagram,structured,T1,snappy,BYTE_PLANE,524288,8,3690422,56.311370849609375,11.932497893422827,8 byte-planes
+instagram,structured,T1,snappy,BIT_PLANE,524288,64,3429601,52.33155822753906,18.15667875050084,64 bit-planes
+ipv4_id,control,control,xz,WHOLE_u64,524288,1,1817056,27.72607421875,0.0,"[0,64)"
+ipv4_id,control,control,xz,WHOLE_narrow,524288,1,1855680,28.3154296875,-2.1256361939312822,"[0,32)"
+ipv4_id,control,control,xz,WHOLE_best,524288,1,1817056,27.72607421875,0.0,u64
+ipv4_id,control,control,xz,SPLIT_DATA,524288,2,1855888,28.318603515625,-2.1370832819681946,"[[0, 32], [32, 64]]"
+ipv4_id,control,control,xz,BYTE_PLANE,524288,4,1709888,26.0908203125,5.897891974710741,4 byte-planes
+ipv4_id,control,control,xz,BIT_PLANE,524288,32,2096436,31.98907470703125,-15.375420460349048,32 bit-planes
+ipv4_id,control,control,zstd,WHOLE_u64,524288,1,2261254,34.503997802734375,-20.124711674640437,"[0,64)"
+ipv4_id,control,control,zstd,WHOLE_narrow,524288,1,1882422,28.723480224609375,0.0,"[0,32)"
+ipv4_id,control,control,zstd,WHOLE_best,524288,1,1882422,28.723480224609375,0.0,narrow
+ipv4_id,control,control,zstd,SPLIT_DATA,524288,2,1882456,28.7239990234375,-0.0018061837356341988,"[[0, 32], [32, 64]]"
+ipv4_id,control,control,zstd,BYTE_PLANE,524288,4,1694579,25.857223510742188,9.978793278021612,4 byte-planes
+ipv4_id,control,control,zstd,BIT_PLANE,524288,32,2092704,31.93212890625,-11.170821420489135,32 bit-planes
+ipv4_id,control,control,lz4,WHOLE_u64,524288,1,2966628,45.26715087890625,-41.44993155482361,"[0,64)"
+ipv4_id,control,control,lz4,WHOLE_narrow,524288,1,2097299,32.00224304199219,0.0,"[0,32)"
+ipv4_id,control,control,lz4,WHOLE_best,524288,1,2097299,32.00224304199219,0.0,narrow
+ipv4_id,control,control,lz4,SPLIT_DATA,524288,2,2099479,32.03550720214844,-0.10394321458218403,"[[0, 32], [32, 64]]"
+ipv4_id,control,control,lz4,BYTE_PLANE,524288,4,1898707,28.971969604492188,9.468940766194997,4 byte-planes
+ipv4_id,control,control,lz4,BIT_PLANE,524288,32,2097888,32.01123046875,-0.02808374008665431,32 bit-planes
+ipv4_id,control,control,snappy,WHOLE_u64,524288,1,3072191,46.87791442871094,-46.486497569200075,"[0,64)"
+ipv4_id,control,control,snappy,WHOLE_narrow,524288,1,2097252,32.00152587890625,0.0,"[0,32)"
+ipv4_id,control,control,snappy,WHOLE_best,524288,1,2097252,32.00152587890625,0.0,narrow
+ipv4_id,control,control,snappy,SPLIT_DATA,524288,2,2121847,32.37681579589844,-1.1727250707115788,"[[0, 32], [32, 64]]"
+ipv4_id,control,control,snappy,BYTE_PLANE,524288,4,1885556,28.77130126953125,10.09397058627194,4 byte-planes
+ipv4_id,control,control,snappy,BIT_PLANE,524288,32,2097344,32.0029296875,-0.004386692681661527,32 bit-planes
+morton_2x16,structured,T2,xz,WHOLE_u64,524288,1,289312,4.41455078125,-2.1942776404097493,"[0,64)"
+morton_2x16,structured,T2,xz,WHOLE_narrow,524288,1,283100,4.31976318359375,0.0,"[0,32)"
+morton_2x16,structured,T2,xz,WHOLE_best,524288,1,283100,4.31976318359375,0.0,narrow
+morton_2x16,structured,T2,xz,SPLIT_DOC,524288,1,283100,4.31976318359375,0.0,"[[0, 32]]"
+morton_2x16,structured,T2,xz,SPLIT_DATA,524288,4,369616,5.639892578125,-30.560226068527026,"[[0, 2], [2, 4], [4, 6], [6, 64]]"
+morton_2x16,structured,T2,xz,BYTE_PLANE,524288,4,307320,4.6893310546875,-8.55528081949841,4 byte-planes
+morton_2x16,structured,T2,xz,BIT_PLANE,524288,32,464340,7.08526611328125,-64.01978099611445,32 bit-planes
+morton_2x16,structured,T2,zstd,WHOLE_u64,524288,1,379846,5.795989990234375,0.0,"[0,64)"
+morton_2x16,structured,T2,zstd,WHOLE_narrow,524288,1,380198,5.801361083984375,-0.09266913433338773,"[0,32)"
+morton_2x16,structured,T2,zstd,WHOLE_best,524288,1,379846,5.795989990234375,0.0,u64
+morton_2x16,structured,T2,zstd,SPLIT_DOC,524288,1,380198,5.801361083984375,-0.09266913433338773,"[[0, 32]]"
+morton_2x16,structured,T2,zstd,SPLIT_DATA,524288,4,383751,5.8555755615234375,-1.0280482090110203,"[[0, 2], [2, 4], [4, 6], [6, 64]]"
+morton_2x16,structured,T2,zstd,BYTE_PLANE,524288,4,334688,5.10693359375,11.88850218246342,4 byte-planes
+morton_2x16,structured,T2,zstd,BIT_PLANE,524288,32,460549,7.0274200439453125,-21.246241898032363,32 bit-planes
+morton_2x16,structured,T2,lz4,WHOLE_u64,524288,1,1067956,16.29571533203125,-30.0558240130938,"[0,64)"
+morton_2x16,structured,T2,lz4,WHOLE_narrow,524288,1,821152,12.52978515625,0.0,"[0,32)"
+morton_2x16,structured,T2,lz4,WHOLE_best,524288,1,821152,12.52978515625,0.0,narrow
+morton_2x16,structured,T2,lz4,SPLIT_DOC,524288,1,821152,12.52978515625,0.0,"[[0, 32]]"
+morton_2x16,structured,T2,lz4,SPLIT_DATA,524288,4,918308,14.01226806640625,-11.831670628580335,"[[0, 2], [2, 4], [4, 6], [6, 64]]"
+morton_2x16,structured,T2,lz4,BYTE_PLANE,524288,4,586465,8.948745727539062,28.580214138186356,4 byte-planes
+morton_2x16,structured,T2,lz4,BIT_PLANE,524288,32,715945,10.924453735351562,12.812122481586844,32 bit-planes
+morton_2x16,structured,T2,snappy,WHOLE_u64,524288,1,1001374,15.279754638671875,-9.166804754886144,"[0,64)"
+morton_2x16,structured,T2,snappy,WHOLE_narrow,524288,1,917288,13.9967041015625,0.0,"[0,32)"
+morton_2x16,structured,T2,snappy,WHOLE_best,524288,1,917288,13.9967041015625,0.0,narrow
+morton_2x16,structured,T2,snappy,SPLIT_DOC,524288,1,917288,13.9967041015625,0.0,"[[0, 32]]"
+morton_2x16,structured,T2,snappy,SPLIT_DATA,524288,4,862950,13.167572021484375,5.923766581488039,"[[0, 2], [2, 4], [4, 6], [6, 64]]"
+morton_2x16,structured,T2,snappy,BYTE_PLANE,524288,4,594594,9.072784423828125,35.17913675966545,4 byte-planes
+morton_2x16,structured,T2,snappy,BIT_PLANE,524288,32,707183,10.790756225585938,22.905020015524023,32 bit-planes
+morton_2x32,structured,T2,xz,WHOLE_u64,524288,1,2452776,37.4263916015625,0.0,"[0,64)"
+morton_2x32,structured,T2,xz,WHOLE_narrow,524288,1,2452776,37.4263916015625,0.0,"[0,64)"
+morton_2x32,structured,T2,xz,WHOLE_best,524288,1,2452776,37.4263916015625,0.0,u64
+morton_2x32,structured,T2,xz,SPLIT_DOC,524288,1,2452776,37.4263916015625,0.0,"[[0, 64]]"
+morton_2x32,structured,T2,xz,SPLIT_DATA,524288,5,2589008,39.505126953125,-5.554196551173038,"[[0, 28], [28, 30], [30, 32], [32, 34], [34, 64]]"
+morton_2x32,structured,T2,xz,BYTE_PLANE,524288,8,2377992,36.2852783203125,3.0489535122652867,8 byte-planes
+morton_2x32,structured,T2,xz,BIT_PLANE,524288,64,2549788,38.90667724609375,-3.9551919947031444,64 bit-planes
+morton_2x32,structured,T2,zstd,WHOLE_u64,524288,1,2529095,38.59092712402344,0.0,"[0,64)"
+morton_2x32,structured,T2,zstd,WHOLE_narrow,524288,1,2529095,38.59092712402344,0.0,"[0,64)"
+morton_2x32,structured,T2,zstd,WHOLE_best,524288,1,2529095,38.59092712402344,0.0,u64
+morton_2x32,structured,T2,zstd,SPLIT_DOC,524288,1,2529095,38.59092712402344,0.0,"[[0, 64]]"
+morton_2x32,structured,T2,zstd,SPLIT_DATA,524288,5,2643242,40.332672119140625,-4.513353590909,"[[0, 28], [28, 30], [30, 32], [32, 34], [34, 64]]"
+morton_2x32,structured,T2,zstd,BYTE_PLANE,524288,8,2418926,36.909881591796875,4.3560641257050445,8 byte-planes
+morton_2x32,structured,T2,zstd,BIT_PLANE,524288,64,2543462,38.810150146484375,-0.5680688151295226,64 bit-planes
+morton_2x32,structured,T2,lz4,WHOLE_u64,524288,1,4189822,63.931610107421875,0.0,"[0,64)"
+morton_2x32,structured,T2,lz4,WHOLE_narrow,524288,1,4189822,63.931610107421875,0.0,"[0,64)"
+morton_2x32,structured,T2,lz4,WHOLE_best,524288,1,4189822,63.931610107421875,0.0,u64
+morton_2x32,structured,T2,lz4,SPLIT_DOC,524288,1,4189822,63.931610107421875,0.0,"[[0, 64]]"
+morton_2x32,structured,T2,lz4,SPLIT_DATA,524288,5,3488989,53.23774719238281,16.727035181924197,"[[0, 28], [28, 30], [30, 32], [32, 34], [34, 64]]"
+morton_2x32,structured,T2,lz4,BYTE_PLANE,524288,8,2683821,40.95185852050781,35.94427161822149,8 byte-planes
+morton_2x32,structured,T2,lz4,BIT_PLANE,524288,64,2813763,42.93461608886719,32.842898815271866,64 bit-planes
+morton_2x32,structured,T2,snappy,WHOLE_u64,524288,1,4085947,62.34660339355469,0.0,"[0,64)"
+morton_2x32,structured,T2,snappy,WHOLE_narrow,524288,1,4085947,62.34660339355469,0.0,"[0,64)"
+morton_2x32,structured,T2,snappy,WHOLE_best,524288,1,4085947,62.34660339355469,0.0,u64
+morton_2x32,structured,T2,snappy,SPLIT_DOC,524288,1,4085947,62.34660339355469,0.0,"[[0, 64]]"
+morton_2x32,structured,T2,snappy,SPLIT_DATA,524288,5,3454854,52.716888427734375,15.445452425104877,"[[0, 28], [28, 30], [30, 32], [32, 34], [34, 64]]"
+morton_2x32,structured,T2,snappy,BYTE_PLANE,524288,8,2691854,41.074432373046875,34.11921397903595,8 byte-planes
+morton_2x32,structured,T2,snappy,BIT_PLANE,524288,64,2804527,42.79368591308594,31.36164027580387,64 bit-planes
+publicbi_bene_count,near_miss_measure,T4,xz,WHOLE_u64,524288,1,456392,6.9639892578125,-0.194069039402162,"[0,64)"
+publicbi_bene_count,near_miss_measure,T4,xz,WHOLE_narrow,524288,1,455508,6.95050048828125,0.0,"[0,16)"
+publicbi_bene_count,near_miss_measure,T4,xz,WHOLE_best,524288,1,455508,6.95050048828125,0.0,narrow
+publicbi_bene_count,near_miss_measure,T4,xz,SPLIT_DATA,524288,5,485752,7.4119873046875,-6.639619940813334,"[[0, 5], [5, 6], [6, 7], [7, 8], [8, 64]]"
+publicbi_bene_count,near_miss_measure,T4,xz,BYTE_PLANE,524288,2,434072,6.6234130859375,4.705954670389982,2 byte-planes
+publicbi_bene_count,near_miss_measure,T4,xz,BIT_PLANE,524288,16,464916,7.09405517578125,-2.065386337890882,16 bit-planes
+publicbi_bene_count,near_miss_measure,T4,zstd,WHOLE_u64,524288,1,612491,9.345870971679688,-9.338443604633518,"[0,64)"
+publicbi_bene_count,near_miss_measure,T4,zstd,WHOLE_narrow,524288,1,560179,8.547653198242188,0.0,"[0,16)"
+publicbi_bene_count,near_miss_measure,T4,zstd,WHOLE_best,524288,1,560179,8.547653198242188,0.0,narrow
+publicbi_bene_count,near_miss_measure,T4,zstd,SPLIT_DATA,524288,5,479537,7.3171539306640625,14.395755642392876,"[[0, 5], [5, 6], [6, 7], [7, 8], [8, 64]]"
+publicbi_bene_count,near_miss_measure,T4,zstd,BYTE_PLANE,524288,2,453049,6.9129791259765625,19.124244214795628,2 byte-planes
+publicbi_bene_count,near_miss_measure,T4,zstd,BIT_PLANE,524288,16,462792,7.0616455078125,17.384978730013085,16 bit-planes
+publicbi_bene_count,near_miss_measure,T4,lz4,WHOLE_u64,524288,1,1544125,23.561477661132812,-72.2767361556613,"[0,64)"
+publicbi_bene_count,near_miss_measure,T4,lz4,WHOLE_narrow,524288,1,896305,13.676528930664062,0.0,"[0,16)"
+publicbi_bene_count,near_miss_measure,T4,lz4,WHOLE_best,524288,1,896305,13.676528930664062,0.0,narrow
+publicbi_bene_count,near_miss_measure,T4,lz4,SPLIT_DATA,524288,5,1060269,16.178421020507812,-18.293326490424576,"[[0, 5], [5, 6], [6, 7], [7, 8], [8, 64]]"
+publicbi_bene_count,near_miss_measure,T4,lz4,BYTE_PLANE,524288,2,542285,8.274612426757812,39.49771562135657,2 byte-planes
+publicbi_bene_count,near_miss_measure,T4,lz4,BIT_PLANE,524288,16,500701,7.6400909423828125,44.1372077585197,16 bit-planes
+publicbi_bene_count,near_miss_measure,T4,snappy,WHOLE_u64,524288,1,1141824,17.4228515625,-31.93977904191409,"[0,64)"
+publicbi_bene_count,near_miss_measure,T4,snappy,WHOLE_narrow,524288,1,865413,13.205154418945312,0.0,"[0,16)"
+publicbi_bene_count,near_miss_measure,T4,snappy,WHOLE_best,524288,1,865413,13.205154418945312,0.0,narrow
+publicbi_bene_count,near_miss_measure,T4,snappy,SPLIT_DATA,524288,5,975081,14.878555297851562,-12.672331014209401,"[[0, 5], [5, 6], [6, 7], [7, 8], [8, 64]]"
+publicbi_bene_count,near_miss_measure,T4,snappy,BYTE_PLANE,524288,2,557274,8.503326416015625,35.60600545635437,2 byte-planes
+publicbi_bene_count,near_miss_measure,T4,snappy,BIT_PLANE,524288,16,516588,7.88250732421875,40.307344585764255,16 bit-planes
+publicbi_day_supply_bin,near_miss_measure,T4,xz,WHOLE_u64,524288,1,297488,4.539306640625,-6.304941324452194,"[0,64)"
+publicbi_day_supply_bin,near_miss_measure,T4,xz,WHOLE_narrow,524288,1,279844,4.27008056640625,0.0,"[0,8)"
+publicbi_day_supply_bin,near_miss_measure,T4,xz,WHOLE_best,524288,1,279844,4.27008056640625,0.0,narrow
+publicbi_day_supply_bin,near_miss_measure,T4,xz,SPLIT_DATA,524288,3,301684,4.60333251953125,-7.804348136819085,"[[0, 4], [4, 5], [5, 64]]"
+publicbi_day_supply_bin,near_miss_measure,T4,xz,BYTE_PLANE,524288,1,279844,4.27008056640625,0.0,1 byte-planes
+publicbi_day_supply_bin,near_miss_measure,T4,xz,BIT_PLANE,524288,8,286088,4.3653564453125,-2.2312431211675077,8 bit-planes
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,WHOLE_u64,524288,1,367963,5.6146697998046875,-25.688023254622404,"[0,64)"
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,WHOLE_narrow,524288,1,292759,4.4671478271484375,0.0,"[0,8)"
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,WHOLE_best,524288,1,292759,4.4671478271484375,0.0,narrow
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,SPLIT_DATA,524288,3,297509,4.5396270751953125,-1.6224949531867507,"[[0, 4], [4, 5], [5, 64]]"
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,BYTE_PLANE,524288,1,292759,4.4671478271484375,0.0,1 byte-planes
+publicbi_day_supply_bin,near_miss_measure,T4,zstd,BIT_PLANE,524288,8,285319,4.3536224365234375,2.5413394635177737,8 bit-planes
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,WHOLE_u64,524288,1,1330725,20.305252075195312,-177.2863661936613,"[0,64)"
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,WHOLE_narrow,524288,1,479910,7.322845458984375,0.0,"[0,8)"
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,WHOLE_best,524288,1,479910,7.322845458984375,0.0,narrow
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,SPLIT_DATA,524288,3,643354,9.816802978515625,-34.05721906190744,"[[0, 4], [4, 5], [5, 64]]"
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,BYTE_PLANE,524288,1,479910,7.322845458984375,0.0,1 byte-planes
+publicbi_day_supply_bin,near_miss_measure,T4,lz4,BIT_PLANE,524288,8,307225,4.6878814697265625,35.982788439499075,8 bit-planes
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,WHOLE_u64,524288,1,946713,14.445693969726562,-99.75250188313784,"[0,64)"
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,WHOLE_narrow,524288,1,473943,7.2317962646484375,0.0,"[0,8)"
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,WHOLE_best,524288,1,473943,7.2317962646484375,0.0,narrow
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,SPLIT_DATA,524288,3,612095,9.339828491210938,-29.14949688042655,"[[0, 4], [4, 5], [5, 64]]"
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,BYTE_PLANE,524288,1,473943,7.2317962646484375,0.0,1 byte-planes
+publicbi_day_supply_bin,near_miss_measure,T4,snappy,BIT_PLANE,524288,8,314055,4.7920989990234375,33.735702394591755,8 bit-planes
+publicbi_drug_cost,near_miss_float_cents,T3,xz,WHOLE_u64,524288,1,1437236,21.93048095703125,-0.6721582471771596,"[0,64)"
+publicbi_drug_cost,near_miss_float_cents,T3,xz,WHOLE_narrow,524288,1,1427640,21.7840576171875,0.0,"[0,32)"
+publicbi_drug_cost,near_miss_float_cents,T3,xz,WHOLE_best,524288,1,1427640,21.7840576171875,0.0,narrow
+publicbi_drug_cost,near_miss_float_cents,T3,xz,SPLIT_DOC,524288,1,1427640,21.7840576171875,0.0,"[[0, 30]]"
+publicbi_drug_cost,near_miss_float_cents,T3,xz,SPLIT_DATA,524288,5,1503452,22.94085693359375,-5.310302317110756,"[[0, 18], [18, 19], [19, 20], [20, 21], [21, 64]]"
+publicbi_drug_cost,near_miss_float_cents,T3,xz,BYTE_PLANE,524288,4,1317364,20.10137939453125,7.724356280294751,4 byte-planes
+publicbi_drug_cost,near_miss_float_cents,T3,xz,BIT_PLANE,524288,32,1322292,20.17657470703125,7.379171219635203,32 bit-planes
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,WHOLE_u64,524288,1,1766045,26.947708129882812,-8.84460024973221,"[0,64)"
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,WHOLE_narrow,524288,1,1622538,24.757965087890625,0.0,"[0,32)"
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,WHOLE_best,524288,1,1622538,24.757965087890625,0.0,narrow
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,SPLIT_DOC,524288,1,1622538,24.757965087890625,0.0,"[[0, 30]]"
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,SPLIT_DATA,524288,5,1518749,23.174270629882812,6.396706887604481,"[[0, 18], [18, 19], [19, 20], [20, 21], [21, 64]]"
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,BYTE_PLANE,524288,4,1330022,20.294525146484375,18.02829887497242,4 byte-planes
+publicbi_drug_cost,near_miss_float_cents,T3,zstd,BIT_PLANE,524288,32,1319081,20.127578735351562,18.702612820161992,32 bit-planes
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,WHOLE_u64,524288,1,2455381,37.46614074707031,-17.073483561475975,"[0,64)"
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,WHOLE_narrow,524288,1,2097299,32.00224304199219,0.0,"[0,32)"
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,WHOLE_best,524288,1,2097299,32.00224304199219,0.0,narrow
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,SPLIT_DOC,524288,1,2097299,32.00224304199219,0.0,"[[0, 30]]"
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,SPLIT_DATA,524288,5,2098132,32.01495361328125,-0.03971775126007308,"[[0, 18], [18, 19], [19, 20], [20, 21], [21, 64]]"
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,BYTE_PLANE,524288,4,1494245,22.800369262695312,28.753840058093765,4 byte-planes
+publicbi_drug_cost,near_miss_float_cents,T3,lz4,BIT_PLANE,524288,32,1375656,20.9908447265625,34.40820789024359,32 bit-planes
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,WHOLE_u64,524288,1,2595815,39.60899353027344,-23.772202863556693,"[0,64)"
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,WHOLE_narrow,524288,1,2097252,32.00152587890625,0.0,"[0,32)"
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,WHOLE_best,524288,1,2097252,32.00152587890625,0.0,narrow
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,SPLIT_DOC,524288,1,2097252,32.00152587890625,0.0,"[[0, 30]]"
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,SPLIT_DATA,524288,5,2041684,31.15362548828125,2.649562379723562,"[[0, 18], [18, 19], [19, 20], [20, 21], [21, 64]]"
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,BYTE_PLANE,524288,4,1496413,22.833450317382812,28.648870045182935,4 byte-planes
+publicbi_drug_cost,near_miss_float_cents,T3,snappy,BIT_PLANE,524288,32,1392519,21.248153686523438,33.602685800275786,32 bit-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,WHOLE_u64,524288,1,1387712,21.1748046875,-1.1631806239593632,"[0,64)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,WHOLE_narrow,524288,1,1371756,20.93133544921875,0.0,"[0,32)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,WHOLE_best,524288,1,1371756,20.93133544921875,0.0,narrow
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,SPLIT_DOC,524288,1,1371756,20.93133544921875,0.0,"[[0, 29]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,SPLIT_DATA,524288,5,1450896,22.138916015625,-5.7692475921373765,"[[0, 17], [17, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,BYTE_PLANE,524288,4,1278904,19.5145263671875,6.7688422722408355,4 byte-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,xz,BIT_PLANE,524288,32,1286216,19.6260986328125,6.235802868731756,32 bit-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,WHOLE_u64,524288,1,1495329,22.816909790039062,0.0,"[0,64)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,WHOLE_narrow,524288,1,1555338,23.732574462890625,-4.013096783383456,"[0,32)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,WHOLE_best,524288,1,1495329,22.816909790039062,0.0,u64
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,SPLIT_DOC,524288,1,1555338,23.732574462890625,-4.013096783383456,"[[0, 29]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,SPLIT_DATA,524288,5,1469421,22.421585083007812,1.7325953017697109,"[[0, 17], [17, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,BYTE_PLANE,524288,4,1283042,19.577667236328125,14.196675112968451,4 byte-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,zstd,BIT_PLANE,524288,32,1283041,19.577651977539062,14.196741987883602,32 bit-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,WHOLE_u64,524288,1,2370382,36.169158935546875,-14.617852165831591,"[0,64)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,WHOLE_narrow,524288,1,2068074,31.556304931640625,0.0,"[0,32)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,WHOLE_best,524288,1,2068074,31.556304931640625,0.0,narrow
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,SPLIT_DOC,524288,1,2068074,31.556304931640625,0.0,"[[0, 29]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,SPLIT_DATA,524288,5,2184547,33.33354187011719,-5.631955142804368,"[[0, 17], [17, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,BYTE_PLANE,524288,4,1449029,22.110427856445312,29.933406638253757,4 byte-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,lz4,BIT_PLANE,524288,32,1340166,20.449310302734375,35.19738655386606,32 bit-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,WHOLE_u64,524288,1,2513828,38.35797119140625,-20.93293102983794,"[0,64)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,WHOLE_narrow,524288,1,2078696,31.7183837890625,0.0,"[0,32)"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,WHOLE_best,524288,1,2078696,31.7183837890625,0.0,narrow
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,SPLIT_DOC,524288,1,2078696,31.7183837890625,0.0,"[[0, 29]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,SPLIT_DATA,524288,5,2105629,32.12934875488281,-1.2956680534334988,"[[0, 17], [17, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,BYTE_PLANE,524288,4,1452019,22.156051635742188,30.14760215057902,4 byte-planes
+publicbi_drug_cost_ge65,near_miss_float_cents,T3,snappy,BIT_PLANE,524288,32,1358120,20.7232666015625,34.66480909185374,32 bit-planes
+publicbi_id1,control,control,xz,WHOLE_u64,524288,1,1307852,19.95623779296875,0.0,"[0,64)"
+publicbi_id1,control,control,xz,WHOLE_narrow,524288,1,1349048,20.5848388671875,-3.1498976948462056,"[0,24)"
+publicbi_id1,control,control,xz,WHOLE_best,524288,1,1307852,19.95623779296875,0.0,u64
+publicbi_id1,control,control,xz,SPLIT_DATA,524288,4,1409168,21.502197265625,-7.746748102996364,"[[0, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_id1,control,control,xz,BYTE_PLANE,524288,3,1223636,18.67120361328125,6.439260711456648,3 byte-planes
+publicbi_id1,control,control,xz,BIT_PLANE,524288,24,1254332,19.13958740234375,4.092206151766408,24 bit-planes
+publicbi_id1,control,control,zstd,WHOLE_u64,524288,1,1841148,28.09368896484375,-32.73974143425261,"[0,64)"
+publicbi_id1,control,control,zstd,WHOLE_narrow,524288,1,1387036,21.16448974609375,0.0,"[0,24)"
+publicbi_id1,control,control,zstd,WHOLE_best,524288,1,1387036,21.16448974609375,0.0,narrow
+publicbi_id1,control,control,zstd,SPLIT_DATA,524288,4,1436859,21.924728393554688,-3.592048079501902,"[[0, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_id1,control,control,zstd,BYTE_PLANE,524288,3,1228184,18.7406005859375,11.45262271491151,3 byte-planes
+publicbi_id1,control,control,zstd,BIT_PLANE,524288,24,1253388,19.12518310546875,9.635510541903743,24 bit-planes
+publicbi_id1,control,control,lz4,WHOLE_u64,524288,1,2288503,34.91978454589844,-45.488464880967896,"[0,64)"
+publicbi_id1,control,control,lz4,WHOLE_narrow,524288,1,1572979,24.001754760742188,0.0,"[0,24)"
+publicbi_id1,control,control,lz4,WHOLE_best,524288,1,1572979,24.001754760742188,0.0,narrow
+publicbi_id1,control,control,lz4,SPLIT_DATA,524288,4,1881704,28.7125244140625,-19.626771876801914,"[[0, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_id1,control,control,lz4,BYTE_PLANE,524288,3,1378461,21.033645629882812,12.366217222226107,3 byte-planes
+publicbi_id1,control,control,lz4,BIT_PLANE,524288,24,1271727,19.405014038085938,19.151686068281904,24 bit-planes
+publicbi_id1,control,control,snappy,WHOLE_u64,524288,1,2481637,37.86677551269531,-57.77070820928212,"[0,64)"
+publicbi_id1,control,control,snappy,WHOLE_narrow,524288,1,1572939,24.001144409179688,0.0,"[0,24)"
+publicbi_id1,control,control,snappy,WHOLE_best,524288,1,1572939,24.001144409179688,0.0,narrow
+publicbi_id1,control,control,snappy,SPLIT_DATA,524288,4,1851618,28.253448486328125,-17.717088838155835,"[[0, 18], [18, 19], [19, 20], [20, 64]]"
+publicbi_id1,control,control,snappy,BYTE_PLANE,524288,3,1359433,20.743301391601562,13.573698662185882,3 byte-planes
+publicbi_id1,control,control,snappy,BIT_PLANE,524288,24,1283730,19.588165283203125,18.38653628653114,24 bit-planes
+publicbi_npi,control,control,xz,WHOLE_u64,524288,1,846296,12.9134521484375,0.0,"[0,64)"
+publicbi_npi,control,control,xz,WHOLE_narrow,524288,1,853624,13.0252685546875,-0.8658908939661774,"[0,32)"
+publicbi_npi,control,control,xz,WHOLE_best,524288,1,846296,12.9134521484375,0.0,u64
+publicbi_npi,control,control,xz,SPLIT_DATA,524288,3,886276,13.52349853515625,-4.724115439515252,"[[0, 30], [30, 31], [31, 64]]"
+publicbi_npi,control,control,xz,BYTE_PLANE,524288,4,1792444,27.35052490234375,-111.79870872602493,4 byte-planes
+publicbi_npi,control,control,xz,BIT_PLANE,524288,32,1996368,30.462158203125,-135.894769678694,32 bit-planes
+publicbi_npi,control,control,zstd,WHOLE_u64,524288,1,1060611,16.183639526367188,-9.01485756574383,"[0,64)"
+publicbi_npi,control,control,zstd,WHOLE_narrow,524288,1,972905,14.845352172851562,0.0,"[0,32)"
+publicbi_npi,control,control,zstd,WHOLE_best,524288,1,972905,14.845352172851562,0.0,narrow
+publicbi_npi,control,control,zstd,SPLIT_DATA,524288,3,1006064,15.351318359375,-3.408246437216378,"[[0, 30], [30, 31], [31, 64]]"
+publicbi_npi,control,control,zstd,BYTE_PLANE,524288,4,1796277,27.409011840820312,-84.63025680821869,4 byte-planes
+publicbi_npi,control,control,zstd,BIT_PLANE,524288,32,1993060,30.41168212890625,-104.85658928672379,32 bit-planes
+publicbi_npi,control,control,lz4,WHOLE_u64,524288,1,1928251,29.422775268554688,-9.599508003189793,"[0,64)"
+publicbi_npi,control,control,lz4,WHOLE_narrow,524288,1,1759361,26.845718383789062,0.0,"[0,32)"
+publicbi_npi,control,control,lz4,WHOLE_best,524288,1,1759361,26.845718383789062,0.0,narrow
+publicbi_npi,control,control,lz4,SPLIT_DATA,524288,3,1894470,28.907318115234375,-7.679435886097282,"[[0, 30], [30, 31], [31, 64]]"
+publicbi_npi,control,control,lz4,BYTE_PLANE,524288,4,2071759,31.612533569335938,-17.75633312321917,4 byte-planes
+publicbi_npi,control,control,lz4,BIT_PLANE,524288,32,2016227,30.765182495117188,-14.599959871794363,32 bit-planes
+publicbi_npi,control,control,snappy,WHOLE_u64,524288,1,1952486,29.792572021484375,-4.0091624605468175,"[0,64)"
+publicbi_npi,control,control,snappy,WHOLE_narrow,524288,1,1877225,28.644180297851562,0.0,"[0,32)"
+publicbi_npi,control,control,snappy,WHOLE_best,524288,1,1877225,28.644180297851562,0.0,narrow
+publicbi_npi,control,control,snappy,SPLIT_DATA,524288,3,2003935,30.577621459960938,-6.749856836553956,"[[0, 30], [30, 31], [31, 64]]"
+publicbi_npi,control,control,snappy,BYTE_PLANE,524288,4,2090461,31.897903442382812,-11.359107192797879,4 byte-planes
+publicbi_npi,control,control,snappy,BIT_PLANE,524288,32,2016607,30.770980834960938,-7.42489579032881,32 bit-planes
+publicbi_num_employees,near_miss_measure,T4,xz,WHOLE_u64,524288,1,149668,2.28375244140625,-10.121254929660369,"[0,64)"
+publicbi_num_employees,near_miss_measure,T4,xz,WHOLE_narrow,524288,1,135912,2.0738525390625,0.0,"[0,24)"
+publicbi_num_employees,near_miss_measure,T4,xz,WHOLE_best,524288,1,135912,2.0738525390625,0.0,narrow
+publicbi_num_employees,near_miss_measure,T4,xz,SPLIT_DATA,524288,6,174408,2.6612548828125,-28.324209782800637,"[[0, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 64]]"
+publicbi_num_employees,near_miss_measure,T4,xz,BYTE_PLANE,524288,3,130072,1.9847412109375,4.296897992818883,3 byte-planes
+publicbi_num_employees,near_miss_measure,T4,xz,BIT_PLANE,524288,24,155052,2.36590576171875,-14.08264170934134,24 bit-planes
+publicbi_num_employees,near_miss_measure,T4,zstd,WHOLE_u64,524288,1,171064,2.6102294921875,-6.570643607842159,"[0,64)"
+publicbi_num_employees,near_miss_measure,T4,zstd,WHOLE_narrow,524288,1,160517,2.4492950439453125,0.0,"[0,24)"
+publicbi_num_employees,near_miss_measure,T4,zstd,WHOLE_best,524288,1,160517,2.4492950439453125,0.0,narrow
+publicbi_num_employees,near_miss_measure,T4,zstd,SPLIT_DATA,524288,6,169346,2.584014892578125,-5.500351987639938,"[[0, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 64]]"
+publicbi_num_employees,near_miss_measure,T4,zstd,BYTE_PLANE,524288,3,130602,1.992828369140625,18.63665530753752,3 byte-planes
+publicbi_num_employees,near_miss_measure,T4,zstd,BIT_PLANE,524288,24,151347,2.3093719482421875,5.712790545549693,24 bit-planes
+publicbi_num_employees,near_miss_measure,T4,lz4,WHOLE_u64,524288,1,516104,7.8751220703125,-51.398985009827214,"[0,64)"
+publicbi_num_employees,near_miss_measure,T4,lz4,WHOLE_narrow,524288,1,340890,5.201568603515625,0.0,"[0,24)"
+publicbi_num_employees,near_miss_measure,T4,lz4,WHOLE_best,524288,1,340890,5.201568603515625,0.0,narrow
+publicbi_num_employees,near_miss_measure,T4,lz4,SPLIT_DATA,524288,6,521035,7.9503631591796875,-52.84549268092347,"[[0, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 64]]"
+publicbi_num_employees,near_miss_measure,T4,lz4,BYTE_PLANE,524288,3,232493,3.5475616455078125,31.79823403443926,3 byte-planes
+publicbi_num_employees,near_miss_measure,T4,lz4,BIT_PLANE,524288,24,250577,3.8235015869140625,26.49329695796298,24 bit-planes
+publicbi_num_employees,near_miss_measure,T4,snappy,WHOLE_u64,524288,1,488310,7.451019287109375,-48.08895466441844,"[0,64)"
+publicbi_num_employees,near_miss_measure,T4,snappy,WHOLE_narrow,524288,1,329741,5.0314483642578125,0.0,"[0,24)"
+publicbi_num_employees,near_miss_measure,T4,snappy,WHOLE_best,524288,1,329741,5.0314483642578125,0.0,narrow
+publicbi_num_employees,near_miss_measure,T4,snappy,SPLIT_DATA,524288,6,500053,7.6302032470703125,-51.650234578047616,"[[0, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 64]]"
+publicbi_num_employees,near_miss_measure,T4,snappy,BYTE_PLANE,524288,3,269897,4.1183013916015625,18.148789504489887,3 byte-planes
+publicbi_num_employees,near_miss_measure,T4,snappy,BIT_PLANE,524288,24,280873,4.2857818603515625,14.820116394382257,24 bit-planes
+quadkey,structured,T1,xz,WHOLE_u64,524288,1,1222700,18.65692138671875,-1.189412146370853,"[0,64)"
+quadkey,structured,T1,xz,WHOLE_narrow,524288,1,1208328,18.4376220703125,0.0,"[0,32)"
+quadkey,structured,T1,xz,WHOLE_best,524288,1,1208328,18.4376220703125,0.0,narrow
+quadkey,structured,T1,xz,SPLIT_DOC,524288,2,1208088,18.4339599609375,0.01986215663296721,"[[0, 30], [30, 32]]"
+quadkey,structured,T1,xz,SPLIT_DATA,524288,4,1461596,22.30218505859375,-20.96020285882641,"[[0, 18], [18, 20], [20, 21], [21, 64]]"
+quadkey,structured,T1,xz,BYTE_PLANE,524288,4,1299500,19.82879638671875,-7.545302268920359,4 byte-planes
+quadkey,structured,T1,xz,BIT_PLANE,524288,32,1493576,22.7901611328125,-23.606835230169292,32 bit-planes
+quadkey,structured,T1,zstd,WHOLE_u64,524288,1,1452384,22.16162109375,-0.7229049349496519,"[0,64)"
+quadkey,structured,T1,zstd,WHOLE_narrow,524288,1,1441960,22.0025634765625,0.0,"[0,32)"
+quadkey,structured,T1,zstd,WHOLE_best,524288,1,1441960,22.0025634765625,0.0,narrow
+quadkey,structured,T1,zstd,SPLIT_DOC,524288,2,1441829,22.000564575195312,0.009084856722793975,"[[0, 30], [30, 32]]"
+quadkey,structured,T1,zstd,SPLIT_DATA,524288,4,1535222,23.425628662109375,-6.467724486116119,"[[0, 18], [18, 20], [20, 21], [21, 64]]"
+quadkey,structured,T1,zstd,BYTE_PLANE,524288,4,1320831,20.154281616210938,8.400302366223752,4 byte-planes
+quadkey,structured,T1,zstd,BIT_PLANE,524288,32,1503694,22.944549560546875,-4.2812560681294904,32 bit-planes
+quadkey,structured,T1,lz4,WHOLE_u64,524288,1,2214309,33.78767395019531,-9.239245456523273,"[0,64)"
+quadkey,structured,T1,lz4,WHOLE_narrow,524288,1,2027027,30.929977416992188,0.0,"[0,32)"
+quadkey,structured,T1,lz4,WHOLE_best,524288,1,2027027,30.929977416992188,0.0,narrow
+quadkey,structured,T1,lz4,SPLIT_DOC,524288,2,2029564,30.96868896484375,-0.12515866833544892,"[[0, 30], [30, 32]]"
+quadkey,structured,T1,lz4,SPLIT_DATA,524288,4,2301774,35.122283935546875,-13.554185514055808,"[[0, 18], [18, 20], [20, 21], [21, 64]]"
+quadkey,structured,T1,lz4,BYTE_PLANE,524288,4,1629611,24.865890502929688,19.605856261411418,4 byte-planes
+quadkey,structured,T1,lz4,BIT_PLANE,524288,32,1560171,23.806320190429688,23.03156297375417,32 bit-planes
+quadkey,structured,T1,snappy,WHOLE_u64,524288,1,2240930,34.193878173828125,-7.835107703738207,"[0,64)"
+quadkey,structured,T1,snappy,WHOLE_narrow,524288,1,2078108,31.70941162109375,0.0,"[0,32)"
+quadkey,structured,T1,snappy,WHOLE_best,524288,1,2078108,31.70941162109375,0.0,narrow
+quadkey,structured,T1,snappy,SPLIT_DOC,524288,2,2101618,32.068145751953125,-1.131317525364418,"[[0, 30], [30, 32]]"
+quadkey,structured,T1,snappy,SPLIT_DATA,524288,4,2220544,33.8828125,-6.854119227682102,"[[0, 18], [18, 20], [20, 21], [21, 64]]"
+quadkey,structured,T1,snappy,BYTE_PLANE,524288,4,1596144,24.355224609375,23.192442356220177,4 byte-planes
+quadkey,structured,T1,snappy,BIT_PLANE,524288,32,1581579,24.132980346679688,23.89332027016883,32 bit-planes
+random_uint64,control,control,xz,WHOLE_u64,524288,1,4194576,64.004150390625,0.0,"[0,64)"
+random_uint64,control,control,xz,WHOLE_narrow,524288,1,4194576,64.004150390625,0.0,"[0,64)"
+random_uint64,control,control,xz,WHOLE_best,524288,1,4194576,64.004150390625,0.0,u64
+random_uint64,control,control,xz,SPLIT_DATA,524288,5,4485652,68.44561767578125,-6.939342617704387,"[[0, 3], [3, 4], [4, 5], [5, 49], [49, 64]]"
+random_uint64,control,control,xz,BYTE_PLANE,524288,8,4194976,64.01025390625,-0.0095361247477695,8 byte-planes
+random_uint64,control,control,xz,BIT_PLANE,524288,64,4198400,64.0625,-0.09116535258867643,64 bit-planes
+random_uint64,control,control,zstd,WHOLE_u64,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+random_uint64,control,control,zstd,WHOLE_narrow,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+random_uint64,control,control,zstd,WHOLE_best,524288,1,4194410,64.00161743164062,0.0,u64
+random_uint64,control,control,zstd,SPLIT_DATA,524288,5,4472316,68.24212646484375,-6.625627919063707,"[[0, 3], [3, 4], [4, 5], [5, 49], [49, 64]]"
+random_uint64,control,control,zstd,BYTE_PLANE,524288,8,4194480,64.002685546875,-0.001668887876960049,8 byte-planes
+random_uint64,control,control,zstd,BIT_PLANE,524288,64,4195136,64.0126953125,-0.017308751409614225,64 bit-planes
+random_uint64,control,control,lz4,WHOLE_u64,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+random_uint64,control,control,lz4,WHOLE_narrow,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+random_uint64,control,control,lz4,WHOLE_best,524288,1,4194579,64.00419616699219,0.0,u64
+random_uint64,control,control,lz4,SPLIT_DATA,524288,5,5156840,78.6871337890625,-22.940585932461875,"[[0, 3], [3, 4], [4, 5], [5, 49], [49, 64]]"
+random_uint64,control,control,lz4,BYTE_PLANE,524288,8,4194712,64.0062255859375,-0.0031707592108767054,8 byte-planes
+random_uint64,control,control,lz4,BIT_PLANE,524288,64,4195776,64.0224609375,-0.02853683289789035,64 bit-planes
+random_uint64,control,control,snappy,WHOLE_u64,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+random_uint64,control,control,snappy,WHOLE_narrow,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+random_uint64,control,control,snappy,WHOLE_best,524288,1,4194500,64.00299072265625,0.0,u64
+random_uint64,control,control,snappy,SPLIT_DATA,524288,5,5007873,76.41407775878906,-19.391417332220765,"[[0, 3], [3, 4], [4, 5], [5, 49], [49, 64]]"
+random_uint64,control,control,snappy,BYTE_PLANE,524288,8,4194520,64.0032958984375,-0.0004768148766241507,8 byte-planes
+random_uint64,control,control,snappy,BIT_PLANE,524288,64,4194688,64.005859375,-0.004482059840267017,64 bit-planes
+s2_l16,structured,T2,xz,WHOLE_u64,524288,1,508824,7.7640380859375,0.0,"[0,64)"
+s2_l16,structured,T2,xz,WHOLE_narrow,524288,1,508824,7.7640380859375,0.0,"[0,64)"
+s2_l16,structured,T2,xz,WHOLE_best,524288,1,508824,7.7640380859375,0.0,u64
+s2_l16,structured,T2,xz,SPLIT_DOC,524288,2,509048,7.7674560546875,-0.04402308067229533,"[[0, 61], [61, 64]]"
+s2_l16,structured,T2,xz,SPLIT_DATA,524288,2,481276,7.34368896484375,5.414052796251749,"[[0, 29], [29, 64]]"
+s2_l16,structured,T2,xz,BYTE_PLANE,524288,8,497868,7.59686279296875,2.153200320739588,8 byte-planes
+s2_l16,structured,T2,xz,BIT_PLANE,524288,64,706400,10.77880859375,-38.82992940584564,64 bit-planes
+s2_l16,structured,T2,zstd,WHOLE_u64,524288,1,668740,10.20416259765625,0.0,"[0,64)"
+s2_l16,structured,T2,zstd,WHOLE_narrow,524288,1,668740,10.20416259765625,0.0,"[0,64)"
+s2_l16,structured,T2,zstd,WHOLE_best,524288,1,668740,10.20416259765625,0.0,u64
+s2_l16,structured,T2,zstd,SPLIT_DOC,524288,2,668778,10.204742431640625,-0.005682327960044263,"[[0, 61], [61, 64]]"
+s2_l16,structured,T2,zstd,SPLIT_DATA,524288,2,568016,8.667236328125,15.0617579328289,"[[0, 29], [29, 64]]"
+s2_l16,structured,T2,zstd,BYTE_PLANE,524288,8,521346,7.955108642578125,22.04055387744116,8 byte-planes
+s2_l16,structured,T2,zstd,BIT_PLANE,524288,64,698492,10.65814208984375,-4.448963722822024,64 bit-planes
+s2_l16,structured,T2,lz4,WHOLE_u64,524288,1,1683578,25.689361572265625,0.0,"[0,64)"
+s2_l16,structured,T2,lz4,WHOLE_narrow,524288,1,1683578,25.689361572265625,0.0,"[0,64)"
+s2_l16,structured,T2,lz4,WHOLE_best,524288,1,1683578,25.689361572265625,0.0,u64
+s2_l16,structured,T2,lz4,SPLIT_DOC,524288,2,1685766,25.722747802734375,-0.12996130859395882,"[[0, 61], [61, 64]]"
+s2_l16,structured,T2,lz4,SPLIT_DATA,524288,2,1551291,23.670822143554688,7.8574916041905984,"[[0, 29], [29, 64]]"
+s2_l16,structured,T2,lz4,BYTE_PLANE,524288,8,955884,14.58563232421875,43.22306421205314,8 byte-planes
+s2_l16,structured,T2,lz4,BIT_PLANE,524288,64,972598,14.840667724609375,42.23029761614846,64 bit-planes
+s2_l16,structured,T2,snappy,WHOLE_u64,524288,1,1616014,24.658416748046875,0.0,"[0,64)"
+s2_l16,structured,T2,snappy,WHOLE_narrow,524288,1,1616014,24.658416748046875,0.0,"[0,64)"
+s2_l16,structured,T2,snappy,WHOLE_best,524288,1,1616014,24.658416748046875,0.0,u64
+s2_l16,structured,T2,snappy,SPLIT_DOC,524288,2,1640539,25.032638549804688,-1.5176229908899304,"[[0, 61], [61, 64]]"
+s2_l16,structured,T2,snappy,SPLIT_DATA,524288,2,1537818,23.465240478515625,4.8388194656729455,"[[0, 29], [29, 64]]"
+s2_l16,structured,T2,snappy,BYTE_PLANE,524288,8,988989,15.090774536132812,38.80071583538262,8 byte-planes
+s2_l16,structured,T2,snappy,BIT_PLANE,524288,64,1046546,15.969024658203125,35.23905114683412,64 bit-planes
+s2_l30,structured,T2,xz,WHOLE_u64,524288,1,2416868,36.87847900390625,0.0,"[0,64)"
+s2_l30,structured,T2,xz,WHOLE_narrow,524288,1,2416868,36.87847900390625,0.0,"[0,64)"
+s2_l30,structured,T2,xz,WHOLE_best,524288,1,2416868,36.87847900390625,0.0,u64
+s2_l30,structured,T2,xz,SPLIT_DOC,524288,2,2418148,36.89801025390625,-0.052961105033456524,"[[0, 61], [61, 64]]"
+s2_l30,structured,T2,xz,SPLIT_DATA,524288,2,2380236,36.31951904296875,1.5156806246762338,"[[0, 1], [1, 64]]"
+s2_l30,structured,T2,xz,BYTE_PLANE,524288,8,2318844,35.38275146484375,4.055827624843392,8 byte-planes
+s2_l30,structured,T2,xz,BIT_PLANE,524288,64,2539280,38.746337890625,-5.064902179183969,64 bit-planes
+s2_l30,structured,T2,zstd,WHOLE_u64,524288,1,2532606,38.644500732421875,0.0,"[0,64)"
+s2_l30,structured,T2,zstd,WHOLE_narrow,524288,1,2532606,38.644500732421875,0.0,"[0,64)"
+s2_l30,structured,T2,zstd,WHOLE_best,524288,1,2532606,38.644500732421875,0.0,u64
+s2_l30,structured,T2,zstd,SPLIT_DOC,524288,2,2532763,38.64689636230469,-0.006199148229136312,"[[0, 61], [61, 64]]"
+s2_l30,structured,T2,zstd,SPLIT_DATA,524288,2,2455036,37.46087646484375,3.0628530454401512,"[[0, 1], [1, 64]]"
+s2_l30,structured,T2,zstd,BYTE_PLANE,524288,8,2353983,35.91893005371094,7.05293282887271,8 byte-planes
+s2_l30,structured,T2,zstd,BIT_PLANE,524288,64,2532853,38.64826965332031,-0.009752800080233562,64 bit-planes
+s2_l30,structured,T2,lz4,WHOLE_u64,524288,1,4186490,63.880767822265625,0.0,"[0,64)"
+s2_l30,structured,T2,lz4,WHOLE_narrow,524288,1,4186490,63.880767822265625,0.0,"[0,64)"
+s2_l30,structured,T2,lz4,WHOLE_best,524288,1,4186490,63.880767822265625,0.0,u64
+s2_l30,structured,T2,lz4,SPLIT_DOC,524288,2,4189550,63.927459716796875,-0.07309225628151507,"[[0, 61], [61, 64]]"
+s2_l30,structured,T2,lz4,SPLIT_DATA,524288,2,4185434,63.864654541015625,0.02522399432460128,"[[0, 1], [1, 64]]"
+s2_l30,structured,T2,lz4,BYTE_PLANE,524288,8,2683126,40.941253662109375,35.909891102092686,8 byte-planes
+s2_l30,structured,T2,lz4,BIT_PLANE,524288,64,2800130,42.726593017578125,33.115091640013475,64 bit-planes
+s2_l30,structured,T2,snappy,WHOLE_u64,524288,1,4066334,62.047332763671875,0.0,"[0,64)"
+s2_l30,structured,T2,snappy,WHOLE_narrow,524288,1,4066334,62.047332763671875,0.0,"[0,64)"
+s2_l30,structured,T2,snappy,WHOLE_best,524288,1,4066334,62.047332763671875,0.0,u64
+s2_l30,structured,T2,snappy,SPLIT_DOC,524288,2,4090774,62.420257568359375,-0.6010327730088084,"[[0, 61], [61, 64]]"
+s2_l30,structured,T2,snappy,SPLIT_DATA,524288,2,3958997,60.40950012207031,2.639650358283407,"[[0, 1], [1, 64]]"
+s2_l30,structured,T2,snappy,BYTE_PLANE,524288,8,2692058,41.077545166015625,33.79643679048499,8 byte-planes
+s2_l30,structured,T2,snappy,BIT_PLANE,524288,64,2795566,42.656951904296875,31.250949872784677,64 bit-planes
+snowflake,structured,T1,xz,WHOLE_u64,524288,1,2525472,38.53564453125,0.0,"[0,64)"
+snowflake,structured,T1,xz,WHOLE_narrow,524288,1,2525472,38.53564453125,0.0,"[0,64)"
+snowflake,structured,T1,xz,WHOLE_best,524288,1,2525472,38.53564453125,0.0,u64
+snowflake,structured,T1,xz,SPLIT_DOC,524288,3,2423508,36.97979736328125,4.037423499448816,"[[0, 12], [12, 22], [22, 63]]"
+snowflake,structured,T1,xz,SPLIT_DATA,524288,3,2423508,36.97979736328125,4.037423499448816,"[[0, 12], [12, 22], [22, 64]]"
+snowflake,structured,T1,xz,BYTE_PLANE,524288,8,2251536,34.355712890625,10.846922872239329,8 byte-planes
+snowflake,structured,T1,xz,BIT_PLANE,524288,64,2342792,35.7481689453125,7.233499322106917,64 bit-planes
+snowflake,structured,T1,zstd,WHOLE_u64,524288,1,3086579,47.09745788574219,0.0,"[0,64)"
+snowflake,structured,T1,zstd,WHOLE_narrow,524288,1,3086579,47.09745788574219,0.0,"[0,64)"
+snowflake,structured,T1,zstd,WHOLE_best,524288,1,3086579,47.09745788574219,0.0,u64
+snowflake,structured,T1,zstd,SPLIT_DOC,524288,3,2973221,45.36775207519531,3.672609708029505,"[[0, 12], [12, 22], [22, 63]]"
+snowflake,structured,T1,zstd,SPLIT_DATA,524288,3,2973221,45.36775207519531,3.672609708029505,"[[0, 12], [12, 22], [22, 64]]"
+snowflake,structured,T1,zstd,BYTE_PLANE,524288,8,2310987,35.26286315917969,25.12788430168157,8 byte-planes
+snowflake,structured,T1,zstd,BIT_PLANE,524288,64,2327764,35.51885986328125,24.58433754651995,64 bit-planes
+snowflake,structured,T1,lz4,WHOLE_u64,524288,1,4175162,63.707916259765625,0.0,"[0,64)"
+snowflake,structured,T1,lz4,WHOLE_narrow,524288,1,4175162,63.707916259765625,0.0,"[0,64)"
+snowflake,structured,T1,lz4,WHOLE_best,524288,1,4175162,63.707916259765625,0.0,u64
+snowflake,structured,T1,lz4,SPLIT_DOC,524288,3,3716077,56.70283508300781,10.995621247750387,"[[0, 12], [12, 22], [22, 63]]"
+snowflake,structured,T1,lz4,SPLIT_DATA,524288,3,3716077,56.70283508300781,10.995621247750387,"[[0, 12], [12, 22], [22, 64]]"
+snowflake,structured,T1,lz4,BYTE_PLANE,524288,8,3094470,47.217864990234375,25.883833968598104,8 byte-planes
+snowflake,structured,T1,lz4,BIT_PLANE,524288,64,2552139,38.94255065917969,38.873294018291986,64 bit-planes
+snowflake,structured,T1,snappy,WHOLE_u64,524288,1,4118796,62.84783935546875,0.0,"[0,64)"
+snowflake,structured,T1,snappy,WHOLE_narrow,524288,1,4118796,62.84783935546875,0.0,"[0,64)"
+snowflake,structured,T1,snappy,WHOLE_best,524288,1,4118796,62.84783935546875,0.0,u64
+snowflake,structured,T1,snappy,SPLIT_DOC,524288,3,3652618,55.734527587890625,11.318307583089815,"[[0, 12], [12, 22], [22, 63]]"
+snowflake,structured,T1,snappy,SPLIT_DATA,524288,3,3652618,55.734527587890625,11.318307583089815,"[[0, 12], [12, 22], [22, 64]]"
+snowflake,structured,T1,snappy,BYTE_PLANE,524288,8,3035633,46.32008361816406,26.298049235747534,8 byte-planes
+snowflake,structured,T1,snappy,BIT_PLANE,524288,64,2582460,39.40521240234375,37.300609207156654,64 bit-planes
+tpch_orderkey,control,control,xz,WHOLE_u64,524288,1,86020,1.31256103515625,-1.8856303595963426,"[0,64)"
+tpch_orderkey,control,control,xz,WHOLE_narrow,524288,1,84428,1.28826904296875,0.0,"[0,24)"
+tpch_orderkey,control,control,xz,WHOLE_best,524288,1,84428,1.28826904296875,0.0,narrow
+tpch_orderkey,control,control,xz,SPLIT_DATA,524288,4,133288,2.0338134765625,-57.871796086606345,"[[0, 1], [1, 2], [2, 3], [3, 64]]"
+tpch_orderkey,control,control,xz,BYTE_PLANE,524288,3,79316,1.21026611328125,6.054863315487753,3 byte-planes
+tpch_orderkey,control,control,xz,BIT_PLANE,524288,24,144060,2.19818115234375,-70.63059648457858,24 bit-planes
+tpch_orderkey,control,control,zstd,WHOLE_u64,524288,1,251297,3.8344879150390625,-1.668055701651468,"[0,64)"
+tpch_orderkey,control,control,zstd,WHOLE_narrow,524288,1,247174,3.771575927734375,0.0,"[0,24)"
+tpch_orderkey,control,control,zstd,WHOLE_best,524288,1,247174,3.771575927734375,0.0,narrow
+tpch_orderkey,control,control,zstd,SPLIT_DATA,524288,4,136612,2.08453369140625,44.730432812512646,"[[0, 1], [1, 2], [2, 3], [3, 64]]"
+tpch_orderkey,control,control,zstd,BYTE_PLANE,524288,3,81486,1.243377685546875,67.03294035780462,3 byte-planes
+tpch_orderkey,control,control,zstd,BIT_PLANE,524288,24,141385,2.1573638916015625,42.79940446810749,24 bit-planes
+tpch_orderkey,control,control,lz4,WHOLE_u64,524288,1,892945,13.625259399414062,-69.71462239496717,"[0,64)"
+tpch_orderkey,control,control,lz4,WHOLE_narrow,524288,1,526145,8.028335571289062,0.0,"[0,24)"
+tpch_orderkey,control,control,lz4,WHOLE_best,524288,1,526145,8.028335571289062,0.0,narrow
+tpch_orderkey,control,control,lz4,SPLIT_DATA,524288,4,657634,10.034698486328125,-24.991019585855607,"[[0, 1], [1, 2], [2, 3], [3, 64]]"
+tpch_orderkey,control,control,lz4,BYTE_PLANE,524288,3,243275,3.7120819091796875,53.762746011080594,3 byte-planes
+tpch_orderkey,control,control,lz4,BIT_PLANE,524288,24,266079,4.0600433349609375,49.42857957407178,24 bit-planes
+tpch_orderkey,control,control,snappy,WHOLE_u64,524288,1,816213,12.454421997070312,-24.06093206852578,"[0,64)"
+tpch_orderkey,control,control,snappy,WHOLE_narrow,524288,1,657913,10.038955688476562,0.0,"[0,24)"
+tpch_orderkey,control,control,snappy,WHOLE_best,524288,1,657913,10.038955688476562,0.0,narrow
+tpch_orderkey,control,control,snappy,SPLIT_DATA,524288,4,562808,8.5877685546875,14.45555871369011,"[[0, 1], [1, 2], [2, 3], [3, 64]]"
+tpch_orderkey,control,control,snappy,BYTE_PLANE,524288,3,254469,3.8828887939453125,61.32178570722877,3 byte-planes
+tpch_orderkey,control,control,snappy,BIT_PLANE,524288,24,278227,4.2454071044921875,57.71066995180214,24 bit-planes
+uuidv7_hi,structured,T1,xz,WHOLE_u64,524288,1,778196,11.87432861328125,0.0,"[0,64)"
+uuidv7_hi,structured,T1,xz,WHOLE_narrow,524288,1,778196,11.87432861328125,0.0,"[0,64)"
+uuidv7_hi,structured,T1,xz,WHOLE_best,524288,1,778196,11.87432861328125,0.0,u64
+uuidv7_hi,structured,T1,xz,SPLIT_DOC,524288,3,590336,9.0078125,24.140447907725047,"[[0, 12], [12, 16], [16, 64]]"
+uuidv7_hi,structured,T1,xz,SPLIT_DATA,524288,4,635900,9.70306396484375,18.285367696570017,"[[0, 1], [1, 11], [11, 16], [16, 64]]"
+uuidv7_hi,structured,T1,xz,BYTE_PLANE,524288,8,643048,9.8121337890625,17.36683303435124,8 byte-planes
+uuidv7_hi,structured,T1,xz,BIT_PLANE,524288,64,827736,12.6302490234375,-6.366005479339395,64 bit-planes
+uuidv7_hi,structured,T1,zstd,WHOLE_u64,524288,1,1065171,16.253219604492188,0.0,"[0,64)"
+uuidv7_hi,structured,T1,zstd,WHOLE_narrow,524288,1,1065171,16.253219604492188,0.0,"[0,64)"
+uuidv7_hi,structured,T1,zstd,WHOLE_best,524288,1,1065171,16.253219604492188,0.0,u64
+uuidv7_hi,structured,T1,zstd,SPLIT_DOC,524288,3,785944,11.9925537109375,26.214288597793217,"[[0, 12], [12, 16], [16, 64]]"
+uuidv7_hi,structured,T1,zstd,SPLIT_DATA,524288,4,848236,12.94305419921875,20.36621349999202,"[[0, 1], [1, 11], [11, 16], [16, 64]]"
+uuidv7_hi,structured,T1,zstd,BYTE_PLANE,524288,8,660176,10.073486328125,38.02159465475496,8 byte-planes
+uuidv7_hi,structured,T1,zstd,BIT_PLANE,524288,64,808154,12.331451416015625,24.129177380908793,64 bit-planes
+uuidv7_hi,structured,T1,lz4,WHOLE_u64,524288,1,2553092,38.95709228515625,0.0,"[0,64)"
+uuidv7_hi,structured,T1,lz4,WHOLE_narrow,524288,1,2553092,38.95709228515625,0.0,"[0,64)"
+uuidv7_hi,structured,T1,lz4,WHOLE_best,524288,1,2553092,38.95709228515625,0.0,u64
+uuidv7_hi,structured,T1,lz4,SPLIT_DOC,524288,3,2177557,33.22688293457031,14.709027328431565,"[[0, 12], [12, 16], [16, 64]]"
+uuidv7_hi,structured,T1,lz4,SPLIT_DATA,524288,4,2377042,36.270782470703125,6.895560363668837,"[[0, 1], [1, 11], [11, 16], [16, 64]]"
+uuidv7_hi,structured,T1,lz4,BYTE_PLANE,524288,8,1126474,17.188629150390625,55.87804904797791,8 byte-planes
+uuidv7_hi,structured,T1,lz4,BIT_PLANE,524288,64,1061856,16.20263671875,58.4090193381202,64 bit-planes
+uuidv7_hi,structured,T1,snappy,WHOLE_u64,524288,1,2552151,38.94273376464844,0.0,"[0,64)"
+uuidv7_hi,structured,T1,snappy,WHOLE_narrow,524288,1,2552151,38.94273376464844,0.0,"[0,64)"
+uuidv7_hi,structured,T1,snappy,WHOLE_best,524288,1,2552151,38.94273376464844,0.0,u64
+uuidv7_hi,structured,T1,snappy,SPLIT_DOC,524288,3,2153106,32.853790283203125,15.635634411913715,"[[0, 12], [12, 16], [16, 64]]"
+uuidv7_hi,structured,T1,snappy,SPLIT_DATA,524288,4,2325052,35.47747802734375,8.898337128171493,"[[0, 1], [1, 11], [11, 16], [16, 64]]"
+uuidv7_hi,structured,T1,snappy,BYTE_PLANE,524288,8,1230188,18.77117919921875,51.79799314382261,8 byte-planes
+uuidv7_hi,structured,T1,snappy,BIT_PLANE,524288,64,1151171,17.565475463867188,54.89408737962604,64 bit-planes
+uuidv7_lo,control,control,xz,WHOLE_u64,524288,1,4194572,64.00408935546875,0.0,"[0,64)"
+uuidv7_lo,control,control,xz,WHOLE_narrow,524288,1,4194572,64.00408935546875,0.0,"[0,64)"
+uuidv7_lo,control,control,xz,WHOLE_best,524288,1,4194572,64.00408935546875,0.0,u64
+uuidv7_lo,control,control,xz,SPLIT_DATA,524288,2,4194780,64.00726318359375,-0.004958789597603761,"[[0, 62], [62, 64]]"
+uuidv7_lo,control,control,xz,BYTE_PLANE,524288,8,4072784,62.145751953125,2.9034666707354173,8 byte-planes
+uuidv7_lo,control,control,xz,BIT_PLANE,524288,64,4067480,62.0648193359375,3.029915805474313,64 bit-planes
+uuidv7_lo,control,control,zstd,WHOLE_u64,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+uuidv7_lo,control,control,zstd,WHOLE_narrow,524288,1,4194410,64.00161743164062,0.0,"[0,64)"
+uuidv7_lo,control,control,zstd,WHOLE_best,524288,1,4194410,64.00161743164062,0.0,u64
+uuidv7_lo,control,control,zstd,SPLIT_DATA,524288,2,4194444,64.00213623046875,-0.0008106026830948811,"[[0, 62], [62, 64]]"
+uuidv7_lo,control,control,zstd,BYTE_PLANE,524288,8,4063804,62.00872802734375,3.11381100083206,8 byte-planes
+uuidv7_lo,control,control,zstd,BIT_PLANE,524288,64,4064082,62.012969970703125,3.10718313183499,64 bit-planes
+uuidv7_lo,control,control,lz4,WHOLE_u64,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+uuidv7_lo,control,control,lz4,WHOLE_narrow,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+uuidv7_lo,control,control,lz4,WHOLE_best,524288,1,4194579,64.00419616699219,0.0,u64
+uuidv7_lo,control,control,lz4,SPLIT_DATA,524288,2,4196759,64.03746032714844,-0.051971842704595615,"[[0, 62], [62, 64]]"
+uuidv7_lo,control,control,lz4,BYTE_PLANE,524288,8,4194712,64.0062255859375,-0.0031707592108767054,8 byte-planes
+uuidv7_lo,control,control,lz4,BIT_PLANE,524288,64,4065238,62.030609130859375,3.083527572135368,64 bit-planes
+uuidv7_lo,control,control,snappy,WHOLE_u64,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+uuidv7_lo,control,control,snappy,WHOLE_narrow,524288,1,4194500,64.00299072265625,0.0,"[0,64)"
+uuidv7_lo,control,control,snappy,WHOLE_best,524288,1,4194500,64.00299072265625,0.0,u64
+uuidv7_lo,control,control,snappy,SPLIT_DATA,524288,2,4219095,64.37828063964844,-0.5863630945285493,"[[0, 62], [62, 64]]"
+uuidv7_lo,control,control,snappy,BYTE_PLANE,524288,8,4194520,64.0032958984375,-0.0004768148766241507,8 byte-planes
+uuidv7_lo,control,control,snappy,BIT_PLANE,524288,64,4069758,62.099578857421875,2.9739420669924903,64 bit-planes
+xmark,structured,T1,xz,WHOLE_u64,524288,1,662148,10.10357666015625,0.0,"[0,64)"
+xmark,structured,T1,xz,WHOLE_narrow,524288,1,662148,10.10357666015625,0.0,"[0,64)"
+xmark,structured,T1,xz,WHOLE_best,524288,1,662148,10.10357666015625,0.0,u64
+xmark,structured,T1,xz,SPLIT_DOC,524288,3,523980,7.99530029296875,20.86663404556081,"[[0, 28], [28, 56], [56, 64]]"
+xmark,structured,T1,xz,SPLIT_DATA,524288,5,483684,7.38043212890625,26.952282571268054,"[[0, 28], [28, 29], [29, 56], [56, 57], [57, 64]]"
+xmark,structured,T1,xz,BYTE_PLANE,524288,8,192036,2.93023681640625,70.99802461081208,8 byte-planes
+xmark,structured,T1,xz,BIT_PLANE,524288,64,397432,6.0643310546875,39.97837341500692,64 bit-planes
+xmark,structured,T1,zstd,WHOLE_u64,524288,1,1890972,28.85394287109375,0.0,"[0,64)"
+xmark,structured,T1,zstd,WHOLE_narrow,524288,1,1890972,28.85394287109375,0.0,"[0,64)"
+xmark,structured,T1,zstd,WHOLE_best,524288,1,1890972,28.85394287109375,0.0,u64
+xmark,structured,T1,zstd,SPLIT_DOC,524288,3,1848003,28.198287963867188,2.2723234400086305,"[[0, 28], [28, 56], [56, 64]]"
+xmark,structured,T1,zstd,SPLIT_DATA,524288,5,924460,14.10614013671875,51.11191493052251,"[[0, 28], [28, 29], [29, 56], [56, 57], [57, 64]]"
+xmark,structured,T1,zstd,BYTE_PLANE,524288,8,209911,3.2029876708984375,88.89930681152339,8 byte-planes
+xmark,structured,T1,zstd,BIT_PLANE,524288,64,408631,6.2352142333984375,78.39042566468461,64 bit-planes
+xmark,structured,T1,lz4,WHOLE_u64,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+xmark,structured,T1,lz4,WHOLE_narrow,524288,1,4194579,64.00419616699219,0.0,"[0,64)"
+xmark,structured,T1,lz4,WHOLE_best,524288,1,4194579,64.00419616699219,0.0,u64
+xmark,structured,T1,lz4,SPLIT_DOC,524288,3,3832892,58.48529052734375,8.62272471206288,"[[0, 28], [28, 56], [56, 64]]"
+xmark,structured,T1,lz4,SPLIT_DATA,524288,5,3482903,53.14488220214844,16.966565655337522,"[[0, 28], [28, 29], [29, 56], [56, 57], [57, 64]]"
+xmark,structured,T1,lz4,BYTE_PLANE,524288,8,534474,8.155426025390625,87.25798226711191,8 byte-planes
+xmark,structured,T1,lz4,BIT_PLANE,524288,64,633095,9.660263061523438,84.90682855180461,64 bit-planes
+xmark,structured,T1,snappy,WHOLE_u64,524288,1,3909454,59.653533935546875,0.0,"[0,64)"
+xmark,structured,T1,snappy,WHOLE_narrow,524288,1,3909454,59.653533935546875,0.0,"[0,64)"
+xmark,structured,T1,snappy,WHOLE_best,524288,1,3909454,59.653533935546875,0.0,u64
+xmark,structured,T1,snappy,SPLIT_DOC,524288,3,3807174,58.092864990234375,2.6162221118345426,"[[0, 28], [28, 56], [56, 64]]"
+xmark,structured,T1,snappy,SPLIT_DATA,524288,5,3713698,56.666534423828125,5.007246536217077,"[[0, 28], [28, 29], [29, 56], [56, 57], [57, 64]]"
+xmark,structured,T1,snappy,BYTE_PLANE,524288,8,654684,9.98968505859375,83.2538252144673,8 byte-planes
+xmark,structured,T1,snappy,BIT_PLANE,524288,64,785849,11.991104125976562,79.89875312511671,64 bit-planes

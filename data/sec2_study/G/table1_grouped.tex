@@ -1,0 +1,30 @@
+% Grouped Table 1 (task 2, G2). Member: combined Cond.1 (order-1 reduction>0 on
+% the data-chosen reliable range) AND Cond.2 (order-0 relative deficit>=20%% on the
+% most-skewed reliable range, width>=2, distinct>=4) -- G/csv/second_condition.csv.
+% Ranges: Order-1 red./Split gain/xz bpv from the draft's per-column Table 1 cells
+% (same provenance), re-aggregated per group, min..max over the columns with a value.
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \caption{The study corpus grouped by sub-type (24 integer columns, 524{,}288 rows each). Member: count passing both membership conditions (\autoref{subsection:definition}) over the group size. Ranges are min..max over the columns in the group with a measured value.}
+  \label{tab:class_study_grouped}
+  \begin{tabular}{lcccc}
+    \toprule
+    Group & Member & \shortstack{Order-1\\red.\,\%} & \shortstack{Split\\gain\,\%} & \shortstack{xz\\bits/val} \\
+    \midrule
+    T1 (time-ordered IDs) & 1/2 & +82.0 & +1.9..+16.3 & +38.5..+55.8 \\
+    T2 (UUID halves) & 0/1 & -- & +15.7 & +11.9 \\
+    T3 (spatial cells) & 0/5 & -- & -0.1..+46.8 & +4.9..+36.9 \\
+    T4 (packed composite) & 1/1 & -- & +58.2 & +10.1 \\
+    Near-misses & 4/7 & +1.6..+25.6 & -6.0..+15.4 & +2.1..+37.4 \\
+    Controls & 0/8 & 0.0 & -10.2..-0.0 & +1.3..+64.0 \\
+    Floats\textsuperscript{*} & 1/4\,(+2 weak) & 0.0..+79.0 & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \\[2pt]
+  {\footnotesize\textsuperscript{*}Floats use E's own criteria (file-vs-shuffled order-1
+  reduction + split gain under both xz and zstd on the IEEE exponent range), not this
+  pipeline's order-0 deficit, which does not discriminate for floats (the control's exponent
+  range is non-uniform too, an artifact of any bounded-magnitude double). See
+  \texttt{E/README\_E.md}.}
+\end{table}

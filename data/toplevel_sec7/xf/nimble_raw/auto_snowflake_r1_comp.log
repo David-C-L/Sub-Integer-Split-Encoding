@@ -1,0 +1,15 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: snowflake ==
+  --- Auto/view encoding tree ---
+PFOR<Uint64> rowCount=524288 baseBitWidth=61 numExceptions=0
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	PFOR	Uint64	3997721	
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	PFOR	Uint64	524288	3997721	3997735	0.9999964980170021	column	0
+  Auto/view: 3997721 B, 61.00 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_snowflake_r1_comp.csv.tmp

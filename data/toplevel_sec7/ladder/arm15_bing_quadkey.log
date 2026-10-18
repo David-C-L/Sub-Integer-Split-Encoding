@@ -1,0 +1,877 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:18.821650 22604 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 2 encoders x 1 datasets, N=9869460
+
+== Dataset: bing_quadkey ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=3
+  [0..16] storageBytes=4
+    FixedBitWidth<Uint32> rowCount=9869460 bit_width=17
+  [17..29] storageBytes=2
+    BlockBitPacking<Uint16> rowCount=9869460 blockSize=1024 numBlocks=9639
+  [30..63] storageBytes=8
+    Constant<Uint64> rowCount=9869460 value=1
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	32637361	
+1	/Section0	0	FixedBitWidth	Uint32	20972622	Uncompressed
+1	/Section1	1	BlockBitPacking	Uint16	11664699	Uncompressed
+2	/Section1/Baselines	0	RLE	Uint16	7916	
+3	/Section1/Baselines/Lengths	0	MainlyConstant	Uint32	1525	
+4	/Section1/Baselines/Lengths/IsCommon	0	Trivial	Bool	609	Uncompressed
+4	/Section1/Baselines/Lengths/OtherValues	1	FrequencyPartition	Uint32	898	
+5	/Section1/Baselines/Lengths/OtherValues/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+5	/Section1/Baselines/Lengths/OtherValues/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+3	/Section1/Baselines/Values	1	FrequencyPartition	Uint16	6381	
+4	/Section1/Baselines/Values/PartitionOffsets	0	Trivial	Uint32	27	Uncompressed
+4	/Section1/Baselines/Values/PartitionSizes	1	Varint	Uint32	18	
+2	/Section1/BitWidths	1	RLE	Uint8	3522	
+3	/Section1/BitWidths/Lengths	0	MainlyConstant	Uint32	1487	
+4	/Section1/BitWidths/Lengths/IsCommon	0	Trivial	Bool	548	Uncompressed
+4	/Section1/BitWidths/Lengths/OtherValues	1	FrequencyPartition	Uint32	921	
+5	/Section1/BitWidths/Lengths/OtherValues/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+5	/Section1/BitWidths/Lengths/OtherValues/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+3	/Section1/BitWidths/Values	1	FrequencyPartition	Uint8	2025	
+4	/Section1/BitWidths/Values/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+4	/Section1/BitWidths/Values/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+2	/Section1/DataOffsets	2	Delta	Uint32	3596	
+3	/Section1/DataOffsets/Deltas	0	RLE	Uint32	3549	
+4	/Section1/DataOffsets/Deltas/Lengths	0	MainlyConstant	Uint32	1487	
+5	/Section1/DataOffsets/Deltas/Lengths/IsCommon	0	Trivial	Bool	548	Uncompressed
+5	/Section1/DataOffsets/Deltas/Lengths/OtherValues	1	FrequencyPartition	Uint32	921	
+6	/Section1/DataOffsets/Deltas/Lengths/OtherValues/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+6	/Section1/DataOffsets/Deltas/Lengths/OtherValues/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+4	/Section1/DataOffsets/Deltas/Values	1	FrequencyPartition	Uint32	2052	
+5	/Section1/DataOffsets/Deltas/Values/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+5	/Section1/DataOffsets/Deltas/Values/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+3	/Section1/DataOffsets/Restatements	1	Trivial	Uint32	11	Uncompressed
+3	/Section1/DataOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section1/DataOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section2	2	Constant	Uint64	14	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	9869460	32637361	32017967	1.0193452007743027	column	0
+1	/Section0	payload	FixedBitWidth	Uint32	9869460	20972622	20972622	1	section	1
+1	/Section1	payload	BlockBitPacking	Uint16	9869460	11664699	11717161	0.9955226355599278	section	1
+2	/Section1/Baselines	metadata	RLE	Uint16	9639	7916	8844	0.8950701040253279	section	1
+3	/Section1/Baselines/Lengths	metadata	MainlyConstant	Uint32	4760	1525	1775	0.8591549295774648	section	1
+4	/Section1/Baselines/Lengths/IsCommon	metadata	Trivial	Bool	4760	609	609	1	section	1
+4	/Section1/Baselines/Lengths/OtherValues	payload	FrequencyPartition	Uint32	1806	898	1043	0.8609779482262704	section	1
+5	/Section1/Baselines/Lengths/OtherValues/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+5	/Section1/Baselines/Lengths/OtherValues/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+3	/Section1/Baselines/Values	payload	FrequencyPartition	Uint16	4760	6381	7061	0.9036963602889109	section	1
+4	/Section1/Baselines/Values/PartitionOffsets	metadata	Trivial	Uint32	5	27	27	1	section	1
+4	/Section1/Baselines/Values/PartitionSizes	metadata	Varint	Uint32	5	18	18	1	section	1
+2	/Section1/BitWidths	metadata	RLE	Uint8	9639	3522	3891	0.905165767154973	section	1
+3	/Section1/BitWidths/Lengths	metadata	MainlyConstant	Uint32	4271	1487	1729	0.8600347021399652	section	1
+4	/Section1/BitWidths/Lengths/IsCommon	metadata	Trivial	Bool	4271	548	548	1	section	1
+4	/Section1/BitWidths/Lengths/OtherValues	payload	FrequencyPartition	Uint32	1829	921	1065	0.8647887323943662	section	1
+5	/Section1/BitWidths/Lengths/OtherValues/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+5	/Section1/BitWidths/Lengths/OtherValues/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+3	/Section1/BitWidths/Values	payload	FrequencyPartition	Uint8	4271	2025	2222	0.9113411341134113	section	1
+4	/Section1/BitWidths/Values/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+4	/Section1/BitWidths/Values/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section1/DataOffsets	metadata	Delta	Uint32	9639	3596	13327	0.26982816837998047	section	1
+3	/Section1/DataOffsets/Deltas	payload	RLE	Uint32	9638	3549	3941	0.9005328596802842	section	1
+4	/Section1/DataOffsets/Deltas/Lengths	metadata	MainlyConstant	Uint32	4271	1487	1729	0.8600347021399652	section	1
+5	/Section1/DataOffsets/Deltas/Lengths/IsCommon	metadata	Trivial	Bool	4271	548	548	1	section	1
+5	/Section1/DataOffsets/Deltas/Lengths/OtherValues	payload	FrequencyPartition	Uint32	1829	921	1065	0.8647887323943662	section	1
+6	/Section1/DataOffsets/Deltas/Lengths/OtherValues/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+6	/Section1/DataOffsets/Deltas/Lengths/OtherValues/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+4	/Section1/DataOffsets/Deltas/Values	payload	FrequencyPartition	Uint32	4271	2052	2255	0.9099778270509978	section	1
+5	/Section1/DataOffsets/Deltas/Values/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+5	/Section1/DataOffsets/Deltas/Values/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+3	/Section1/DataOffsets/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+3	/Section1/DataOffsets/IsRestatements	metadata	SparseBool	Bool	9639	22	30	0.7333333333333333	section	1
+4	/Section1/DataOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section2	payload	Constant	Uint64	9869460	14	14	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	16	0	FixedBitWidth	20972622	FixedBitWidth	20972622	PFOR	20972638	FixedBitWidth	21030431	SimdForBitpack	21030431	FixedBitWidth=20972622/18875360;PFOR=20972638/18875374;SimdForBitpack=20972640/18875376;Delta=22206345/18875392;BlockBitPacking=21125205/19012684;FrequencyPartition=23966906/20371870;RLE=21024595/21024596;Dictionary=21251179/21251180;Varint=28330571/28330572;FOR=39885531/33902704;Trivial=39477847/39477848;MainlyConstant=50571701/50571700
+1	17	29	0	BlockBitPacking	11664699	BlockBitPacking	11717161	FOR	13005158	Dictionary	11551316	FixedBitWidth	16086063	BlockBitPacking=11717161/10545445;FOR=13005158/11054385;FrequencyPartition=16004016/13603414;RLE=14106465/14106465;FixedBitWidth=16037890/14434101;SimdForBitpack=16037902/14434111;PFOR=16037906/14434115;Delta=17271612/14680871;Dictionary=14807917/14807917;Trivial=19738927/19738928;MainlyConstant=44103748/44103748
+2	30	63	0	Constant	14	Constant	14	SimdForBitpack	16	Constant	67467	FixedBitWidth	77105	Constant=14/14;SimdForBitpack=16/14;RLE=45/45;MainlyConstant=57/57;BlockBitPacking=192822/173539;Delta=1233767/1048702;FixedBitWidth=1233706/1110335;PFOR=1233722/1110349;Dictionary=1233727/1233727;FOR=1484373/1261717;FrequencyPartition=2467489/2097365;Varint=9869474/9869474;Trivial=78955687/78955688
+whole	0	63	0			BlockBitPacking	32741325	Delta	38244226	FixedBitWidth	37087580	SimdForBitpack	37087580	BlockBitPacking=32741325/29467190;Delta=38244226/32507592;FixedBitWidth=37010498/33309446;PFOR=37010514/33309460;SimdForBitpack=37010536/33309482;FOR=40079440/34067524;RLE=36959604/36959604;Varint=46920543/46920544;FrequencyPartition=55258150/46969432;Dictionary=52715239/52715240;MainlyConstant=66607286/66607288;Trivial=78955687/78955688
+  SIS/realNested: 32637361 B, 26.46 bpe
+  --- openzl/auto encoding tree ---
+OpenZLGraph codecs=774 frameHeaderBytes=11 storedOutputs=480
+  [0] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=18
+  [1] fse ncount standard id=52 outputs=1 outputBytes=25
+  [2] fse v2 standard id=49 outputs=2 outputBytes=38598
+  [3] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=75641
+  [4] fse ncount standard id=52 outputs=1 outputBytes=22
+  [5] fse ncount standard id=52 outputs=1 outputBytes=29
+  [6] fse ncount standard id=52 outputs=1 outputBytes=30
+  [7] fse ncount standard id=52 outputs=1 outputBytes=30
+  [8] fse ncount standard id=52 outputs=1 outputBytes=30
+  [9] fse ncount standard id=52 outputs=1 outputBytes=29
+  [10] fse ncount standard id=52 outputs=1 outputBytes=30
+  [11] fse ncount standard id=52 outputs=1 outputBytes=30
+  [12] fse ncount standard id=52 outputs=1 outputBytes=29
+  [13] fse ncount standard id=52 outputs=1 outputBytes=29
+  [14] fse ncount standard id=52 outputs=1 outputBytes=30
+  [15] fse ncount standard id=52 outputs=1 outputBytes=30
+  [16] fse ncount standard id=52 outputs=1 outputBytes=30
+  [17] fse ncount standard id=52 outputs=1 outputBytes=30
+  [18] fse ncount standard id=52 outputs=1 outputBytes=29
+  [19] fse ncount standard id=52 outputs=1 outputBytes=30
+  [20] fse ncount standard id=52 outputs=1 outputBytes=30
+  [21] fse ncount standard id=52 outputs=1 outputBytes=29
+  [22] fse ncount standard id=52 outputs=1 outputBytes=29
+  [23] fse ncount standard id=52 outputs=1 outputBytes=28
+  [24] fse ncount standard id=52 outputs=1 outputBytes=30
+  [25] fse ncount standard id=52 outputs=1 outputBytes=30
+  [26] fse ncount standard id=52 outputs=1 outputBytes=30
+  [27] fse ncount standard id=52 outputs=1 outputBytes=30
+  [28] fse ncount standard id=52 outputs=1 outputBytes=29
+  [29] fse ncount standard id=52 outputs=1 outputBytes=29
+  [30] fse ncount standard id=52 outputs=1 outputBytes=28
+  [31] fse ncount standard id=52 outputs=1 outputBytes=30
+  [32] fse ncount standard id=52 outputs=1 outputBytes=30
+  [33] fse ncount standard id=52 outputs=1 outputBytes=29
+  [34] fse ncount standard id=52 outputs=1 outputBytes=29
+  [35] fse ncount standard id=52 outputs=1 outputBytes=28
+  [36] fse ncount standard id=52 outputs=1 outputBytes=29
+  [37] fse ncount standard id=52 outputs=1 outputBytes=29
+  [38] fse ncount standard id=52 outputs=1 outputBytes=29
+  [39] fse ncount standard id=52 outputs=1 outputBytes=29
+  [40] fse ncount standard id=52 outputs=1 outputBytes=30
+  [41] fse ncount standard id=52 outputs=1 outputBytes=29
+  [42] fse ncount standard id=52 outputs=1 outputBytes=30
+  [43] fse ncount standard id=52 outputs=1 outputBytes=30
+  [44] fse ncount standard id=52 outputs=1 outputBytes=29
+  [45] fse ncount standard id=52 outputs=1 outputBytes=29
+  [46] fse ncount standard id=52 outputs=1 outputBytes=29
+  [47] fse ncount standard id=52 outputs=1 outputBytes=29
+  [48] fse ncount standard id=52 outputs=1 outputBytes=29
+  [49] fse ncount standard id=52 outputs=1 outputBytes=29
+  [50] fse ncount standard id=52 outputs=1 outputBytes=29
+  [51] fse ncount standard id=52 outputs=1 outputBytes=29
+  [52] fse ncount standard id=52 outputs=1 outputBytes=29
+  [53] fse ncount standard id=52 outputs=1 outputBytes=29
+  [54] fse ncount standard id=52 outputs=1 outputBytes=29
+  [55] fse ncount standard id=52 outputs=1 outputBytes=29
+  [56] fse ncount standard id=52 outputs=1 outputBytes=29
+  [57] fse ncount standard id=52 outputs=1 outputBytes=29
+  [58] fse ncount standard id=52 outputs=1 outputBytes=29
+  [59] fse ncount standard id=52 outputs=1 outputBytes=29
+  [60] fse ncount standard id=52 outputs=1 outputBytes=29
+  [61] fse ncount standard id=52 outputs=1 outputBytes=29
+  [62] fse ncount standard id=52 outputs=1 outputBytes=28
+  [63] fse ncount standard id=52 outputs=1 outputBytes=28
+  [64] fse ncount standard id=52 outputs=1 outputBytes=28
+  [65] fse ncount standard id=52 outputs=1 outputBytes=28
+  [66] fse ncount standard id=52 outputs=1 outputBytes=28
+  [67] fse ncount standard id=52 outputs=1 outputBytes=28
+  [68] fse ncount standard id=52 outputs=1 outputBytes=28
+  [69] fse ncount standard id=52 outputs=1 outputBytes=28
+  [70] fse ncount standard id=52 outputs=1 outputBytes=28
+  [71] fse ncount standard id=52 outputs=1 outputBytes=28
+  [72] fse ncount standard id=52 outputs=1 outputBytes=27
+  [73] fse ncount standard id=52 outputs=1 outputBytes=27
+  [74] fse ncount standard id=52 outputs=1 outputBytes=28
+  [75] fse ncount standard id=52 outputs=1 outputBytes=26
+  [76] fse ncount standard id=52 outputs=1 outputBytes=27
+  [77] fse ncount standard id=52 outputs=1 outputBytes=26
+  [78] fse ncount standard id=52 outputs=1 outputBytes=27
+  [79] fse ncount standard id=52 outputs=1 outputBytes=27
+  [80] fse ncount standard id=52 outputs=1 outputBytes=26
+  [81] fse ncount standard id=52 outputs=1 outputBytes=26
+  [82] fse ncount standard id=52 outputs=1 outputBytes=25
+  [83] fse ncount standard id=52 outputs=1 outputBytes=25
+  [84] fse ncount standard id=52 outputs=1 outputBytes=26
+  [85] fse ncount standard id=52 outputs=1 outputBytes=26
+  [86] fse ncount standard id=52 outputs=1 outputBytes=26
+  [87] fse ncount standard id=52 outputs=1 outputBytes=26
+  [88] fse ncount standard id=52 outputs=1 outputBytes=25
+  [89] fse ncount standard id=52 outputs=1 outputBytes=25
+  [90] fse ncount standard id=52 outputs=1 outputBytes=25
+  [91] fse ncount standard id=52 outputs=1 outputBytes=26
+  [92] fse ncount standard id=52 outputs=1 outputBytes=25
+  [93] fse ncount standard id=52 outputs=1 outputBytes=25
+  [94] fse ncount standard id=52 outputs=1 outputBytes=25
+  [95] fse ncount standard id=52 outputs=1 outputBytes=23
+  [96] fse ncount standard id=52 outputs=1 outputBytes=23
+  [97] fse ncount standard id=52 outputs=1 outputBytes=22
+  [98] fse v2 standard id=49 outputs=2 outputBytes=1408
+  [99] fse v2 standard id=49 outputs=2 outputBytes=15286
+  [100] fse v2 standard id=49 outputs=2 outputBytes=15755
+  [101] fse v2 standard id=49 outputs=2 outputBytes=13659
+  [102] fse v2 standard id=49 outputs=2 outputBytes=13509
+  [103] fse v2 standard id=49 outputs=2 outputBytes=16488
+  [104] fse v2 standard id=49 outputs=2 outputBytes=13972
+  [105] fse v2 standard id=49 outputs=2 outputBytes=12641
+  [106] fse v2 standard id=49 outputs=2 outputBytes=15823
+  [107] fse v2 standard id=49 outputs=2 outputBytes=13768
+  [108] fse v2 standard id=49 outputs=2 outputBytes=14564
+  [109] fse v2 standard id=49 outputs=2 outputBytes=13555
+  [110] fse v2 standard id=49 outputs=2 outputBytes=15839
+  [111] fse v2 standard id=49 outputs=2 outputBytes=13941
+  [112] fse v2 standard id=49 outputs=2 outputBytes=14596
+  [113] fse v2 standard id=49 outputs=2 outputBytes=13826
+  [114] fse v2 standard id=49 outputs=2 outputBytes=14497
+  [115] fse v2 standard id=49 outputs=2 outputBytes=15331
+  [116] fse v2 standard id=49 outputs=2 outputBytes=15690
+  [117] fse v2 standard id=49 outputs=2 outputBytes=14131
+  [118] fse v2 standard id=49 outputs=2 outputBytes=14173
+  [119] fse v2 standard id=49 outputs=2 outputBytes=13345
+  [120] fse v2 standard id=49 outputs=2 outputBytes=14138
+  [121] fse v2 standard id=49 outputs=2 outputBytes=13204
+  [122] fse v2 standard id=49 outputs=2 outputBytes=15170
+  [123] fse v2 standard id=49 outputs=2 outputBytes=14628
+  [124] fse v2 standard id=49 outputs=2 outputBytes=13980
+  [125] fse v2 standard id=49 outputs=2 outputBytes=16102
+  [126] fse v2 standard id=49 outputs=2 outputBytes=13984
+  [127] fse v2 standard id=49 outputs=2 outputBytes=14402
+  [128] fse v2 standard id=49 outputs=2 outputBytes=14538
+  [129] fse v2 standard id=49 outputs=2 outputBytes=16608
+  [130] fse v2 standard id=49 outputs=2 outputBytes=14785
+  [131] fse v2 standard id=49 outputs=2 outputBytes=15353
+  [132] fse v2 standard id=49 outputs=2 outputBytes=14423
+  [133] fse v2 standard id=49 outputs=2 outputBytes=14913
+  [134] fse v2 standard id=49 outputs=2 outputBytes=15680
+  [135] fse v2 standard id=49 outputs=2 outputBytes=14223
+  [136] fse v2 standard id=49 outputs=2 outputBytes=15119
+  [137] fse v2 standard id=49 outputs=2 outputBytes=14588
+  [138] fse v2 standard id=49 outputs=2 outputBytes=15185
+  [139] fse v2 standard id=49 outputs=2 outputBytes=13960
+  [140] fse v2 standard id=49 outputs=2 outputBytes=15166
+  [141] fse v2 standard id=49 outputs=2 outputBytes=14242
+  [142] fse v2 standard id=49 outputs=2 outputBytes=15160
+  [143] fse v2 standard id=49 outputs=2 outputBytes=14079
+  [144] fse v2 standard id=49 outputs=2 outputBytes=15027
+  [145] fse v2 standard id=49 outputs=2 outputBytes=15442
+  [146] fse v2 standard id=49 outputs=2 outputBytes=14844
+  [147] fse v2 standard id=49 outputs=2 outputBytes=14798
+  [148] fse v2 standard id=49 outputs=2 outputBytes=15049
+  [149] fse v2 standard id=49 outputs=2 outputBytes=14906
+  [150] fse v2 standard id=49 outputs=2 outputBytes=14403
+  [151] fse v2 standard id=49 outputs=2 outputBytes=14001
+  [152] fse v2 standard id=49 outputs=2 outputBytes=14753
+  [153] fse v2 standard id=49 outputs=2 outputBytes=14158
+  [154] fse v2 standard id=49 outputs=2 outputBytes=13965
+  [155] fse v2 standard id=49 outputs=2 outputBytes=13394
+  [156] fse v2 standard id=49 outputs=2 outputBytes=14215
+  [157] fse v2 standard id=49 outputs=2 outputBytes=13981
+  [158] fse v2 standard id=49 outputs=2 outputBytes=13989
+  [159] fse v2 standard id=49 outputs=2 outputBytes=13603
+  [160] fse v2 standard id=49 outputs=2 outputBytes=13973
+  [161] fse v2 standard id=49 outputs=2 outputBytes=13616
+  [162] fse v2 standard id=49 outputs=2 outputBytes=13626
+  [163] fse v2 standard id=49 outputs=2 outputBytes=13421
+  [164] fse v2 standard id=49 outputs=2 outputBytes=13794
+  [165] fse v2 standard id=49 outputs=2 outputBytes=14543
+  [166] fse v2 standard id=49 outputs=2 outputBytes=14770
+  [167] fse v2 standard id=49 outputs=2 outputBytes=15359
+  [168] fse v2 standard id=49 outputs=2 outputBytes=15104
+  [169] fse v2 standard id=49 outputs=2 outputBytes=15089
+  [170] fse v2 standard id=49 outputs=2 outputBytes=16141
+  [171] fse v2 standard id=49 outputs=2 outputBytes=16265
+  [172] fse v2 standard id=49 outputs=2 outputBytes=15416
+  [173] fse v2 standard id=49 outputs=2 outputBytes=15390
+  [174] fse v2 standard id=49 outputs=2 outputBytes=15442
+  [175] fse v2 standard id=49 outputs=2 outputBytes=15351
+  [176] fse v2 standard id=49 outputs=2 outputBytes=14684
+  [177] fse v2 standard id=49 outputs=2 outputBytes=16340
+  [178] fse v2 standard id=49 outputs=2 outputBytes=14970
+  [179] fse v2 standard id=49 outputs=2 outputBytes=15864
+  [180] fse v2 standard id=49 outputs=2 outputBytes=14502
+  [181] fse v2 standard id=49 outputs=2 outputBytes=15738
+  [182] fse v2 standard id=49 outputs=2 outputBytes=15994
+  [183] fse v2 standard id=49 outputs=2 outputBytes=16278
+  [184] fse v2 standard id=49 outputs=2 outputBytes=15575
+  [185] fse v2 standard id=49 outputs=2 outputBytes=15083
+  [186] fse v2 standard id=49 outputs=2 outputBytes=14455
+  [187] fse v2 standard id=49 outputs=2 outputBytes=14732
+  [188] fse v2 standard id=49 outputs=2 outputBytes=15160
+  [189] fse v2 standard id=49 outputs=2 outputBytes=15763
+  [190] fse v2 standard id=49 outputs=2 outputBytes=15550
+  [191] fse v2 standard id=49 outputs=2 outputBytes=15445
+  [192] splitN standard id=40 outputs=94 outputBytes=3050201
+  [193] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=3050201
+  [194] bitpack standard id=28 outputs=1 outputBytes=47
+  [195] bitpack standard id=28 outputs=1 outputBytes=19
+  [196] huffman v2 standard id=50 outputs=2 outputBytes=3950
+  [197] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=13484
+  [198] bitpack standard id=28 outputs=1 outputBytes=32
+  [199] bitpack standard id=28 outputs=1 outputBytes=16
+  [200] huffman v2 standard id=50 outputs=2 outputBytes=9831
+  [201] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [202] bitpack standard id=28 outputs=1 outputBytes=31
+  [203] bitpack standard id=28 outputs=1 outputBytes=16
+  [204] huffman v2 standard id=50 outputs=2 outputBytes=9849
+  [205] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [206] bitpack standard id=28 outputs=1 outputBytes=32
+  [207] bitpack standard id=28 outputs=1 outputBytes=16
+  [208] huffman v2 standard id=50 outputs=2 outputBytes=10882
+  [209] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [210] bitpack standard id=28 outputs=1 outputBytes=31
+  [211] bitpack standard id=28 outputs=1 outputBytes=16
+  [212] huffman v2 standard id=50 outputs=2 outputBytes=8925
+  [213] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [214] bitpack standard id=28 outputs=1 outputBytes=43
+  [215] bitpack standard id=28 outputs=1 outputBytes=19
+  [216] huffman v2 standard id=50 outputs=2 outputBytes=8333
+  [217] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [218] bitpack standard id=28 outputs=1 outputBytes=31
+  [219] bitpack standard id=28 outputs=1 outputBytes=16
+  [220] huffman v2 standard id=50 outputs=2 outputBytes=8990
+  [221] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [222] bitpack standard id=28 outputs=1 outputBytes=35
+  [223] bitpack standard id=28 outputs=1 outputBytes=18
+  [224] huffman v2 standard id=50 outputs=2 outputBytes=9802
+  [225] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [226] bitpack standard id=28 outputs=1 outputBytes=34
+  [227] bitpack standard id=28 outputs=1 outputBytes=17
+  [228] huffman v2 standard id=50 outputs=2 outputBytes=9344
+  [229] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [230] bitpack standard id=28 outputs=1 outputBytes=31
+  [231] bitpack standard id=28 outputs=1 outputBytes=16
+  [232] huffman v2 standard id=50 outputs=2 outputBytes=9707
+  [233] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [234] bitpack standard id=28 outputs=1 outputBytes=52
+  [235] bitpack standard id=28 outputs=1 outputBytes=23
+  [236] huffman v2 standard id=50 outputs=2 outputBytes=10161
+  [237] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [238] bitpack standard id=28 outputs=1 outputBytes=39
+  [239] bitpack standard id=28 outputs=1 outputBytes=17
+  [240] huffman v2 standard id=50 outputs=2 outputBytes=11321
+  [241] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [242] bitpack standard id=28 outputs=1 outputBytes=78
+  [243] bitpack standard id=28 outputs=1 outputBytes=31
+  [244] huffman v2 standard id=50 outputs=2 outputBytes=11878
+  [245] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [246] bitpack standard id=28 outputs=1 outputBytes=32
+  [247] bitpack standard id=28 outputs=1 outputBytes=16
+  [248] huffman v2 standard id=50 outputs=2 outputBytes=7847
+  [249] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [250] bitpack standard id=28 outputs=1 outputBytes=31
+  [251] bitpack standard id=28 outputs=1 outputBytes=16
+  [252] huffman v2 standard id=50 outputs=2 outputBytes=10950
+  [253] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [254] bitpack standard id=28 outputs=1 outputBytes=45
+  [255] bitpack standard id=28 outputs=1 outputBytes=18
+  [256] huffman v2 standard id=50 outputs=2 outputBytes=10815
+  [257] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [258] bitpack standard id=28 outputs=1 outputBytes=40
+  [259] bitpack standard id=28 outputs=1 outputBytes=18
+  [260] huffman v2 standard id=50 outputs=2 outputBytes=10178
+  [261] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [262] bitpack standard id=28 outputs=1 outputBytes=48
+  [263] bitpack standard id=28 outputs=1 outputBytes=21
+  [264] huffman v2 standard id=50 outputs=2 outputBytes=7674
+  [265] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [266] bitpack standard id=28 outputs=1 outputBytes=30
+  [267] bitpack standard id=28 outputs=1 outputBytes=15
+  [268] huffman v2 standard id=50 outputs=2 outputBytes=8056
+  [269] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [270] bitpack standard id=28 outputs=1 outputBytes=50
+  [271] bitpack standard id=28 outputs=1 outputBytes=20
+  [272] huffman v2 standard id=50 outputs=2 outputBytes=9967
+  [273] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [274] bitpack standard id=28 outputs=1 outputBytes=44
+  [275] bitpack standard id=28 outputs=1 outputBytes=20
+  [276] huffman v2 standard id=50 outputs=2 outputBytes=11913
+  [277] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [278] bitpack standard id=28 outputs=1 outputBytes=29
+  [279] bitpack standard id=28 outputs=1 outputBytes=17
+  [280] huffman v2 standard id=50 outputs=2 outputBytes=11365
+  [281] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [282] bitpack standard id=28 outputs=1 outputBytes=30
+  [283] bitpack standard id=28 outputs=1 outputBytes=15
+  [284] huffman v2 standard id=50 outputs=2 outputBytes=10024
+  [285] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [286] bitpack standard id=28 outputs=1 outputBytes=44
+  [287] bitpack standard id=28 outputs=1 outputBytes=20
+  [288] huffman v2 standard id=50 outputs=2 outputBytes=12917
+  [289] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [290] bitpack standard id=28 outputs=1 outputBytes=44
+  [291] bitpack standard id=28 outputs=1 outputBytes=20
+  [292] huffman v2 standard id=50 outputs=2 outputBytes=11378
+  [293] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [294] bitpack standard id=28 outputs=1 outputBytes=35
+  [295] bitpack standard id=28 outputs=1 outputBytes=16
+  [296] huffman v2 standard id=50 outputs=2 outputBytes=8281
+  [297] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [298] bitpack standard id=28 outputs=1 outputBytes=26
+  [299] bitpack standard id=28 outputs=1 outputBytes=15
+  [300] huffman v2 standard id=50 outputs=2 outputBytes=10280
+  [301] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [302] bitpack standard id=28 outputs=1 outputBytes=40
+  [303] bitpack standard id=28 outputs=1 outputBytes=18
+  [304] huffman v2 standard id=50 outputs=2 outputBytes=11145
+  [305] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [306] bitpack standard id=28 outputs=1 outputBytes=28
+  [307] bitpack standard id=28 outputs=1 outputBytes=14
+  [308] huffman v2 standard id=50 outputs=2 outputBytes=11474
+  [309] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [310] bitpack standard id=28 outputs=1 outputBytes=42
+  [311] bitpack standard id=28 outputs=1 outputBytes=19
+  [312] huffman v2 standard id=50 outputs=2 outputBytes=10813
+  [313] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [314] bitpack standard id=28 outputs=1 outputBytes=32
+  [315] bitpack standard id=28 outputs=1 outputBytes=16
+  [316] huffman v2 standard id=50 outputs=2 outputBytes=10405
+  [317] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [318] bitpack standard id=28 outputs=1 outputBytes=44
+  [319] bitpack standard id=28 outputs=1 outputBytes=20
+  [320] huffman v2 standard id=50 outputs=2 outputBytes=8919
+  [321] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [322] bitpack standard id=28 outputs=1 outputBytes=45
+  [323] bitpack standard id=28 outputs=1 outputBytes=20
+  [324] huffman v2 standard id=50 outputs=2 outputBytes=10472
+  [325] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [326] bitpack standard id=28 outputs=1 outputBytes=43
+  [327] bitpack standard id=28 outputs=1 outputBytes=22
+  [328] huffman v2 standard id=50 outputs=2 outputBytes=10843
+  [329] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [330] bitpack standard id=28 outputs=1 outputBytes=47
+  [331] bitpack standard id=28 outputs=1 outputBytes=19
+  [332] huffman v2 standard id=50 outputs=2 outputBytes=8940
+  [333] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [334] bitpack standard id=28 outputs=1 outputBytes=32
+  [335] bitpack standard id=28 outputs=1 outputBytes=18
+  [336] huffman v2 standard id=50 outputs=2 outputBytes=10483
+  [337] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [338] bitpack standard id=28 outputs=1 outputBytes=45
+  [339] bitpack standard id=28 outputs=1 outputBytes=20
+  [340] huffman v2 standard id=50 outputs=2 outputBytes=10436
+  [341] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [342] bitpack standard id=28 outputs=1 outputBytes=35
+  [343] bitpack standard id=28 outputs=1 outputBytes=18
+  [344] huffman v2 standard id=50 outputs=2 outputBytes=11974
+  [345] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [346] bitpack standard id=28 outputs=1 outputBytes=43
+  [347] bitpack standard id=28 outputs=1 outputBytes=19
+  [348] huffman v2 standard id=50 outputs=2 outputBytes=9036
+  [349] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [350] bitpack standard id=28 outputs=1 outputBytes=27
+  [351] bitpack standard id=28 outputs=1 outputBytes=14
+  [352] huffman v2 standard id=50 outputs=2 outputBytes=9828
+  [353] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [354] bitpack standard id=28 outputs=1 outputBytes=55
+  [355] bitpack standard id=28 outputs=1 outputBytes=22
+  [356] huffman v2 standard id=50 outputs=2 outputBytes=8623
+  [357] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [358] bitpack standard id=28 outputs=1 outputBytes=35
+  [359] bitpack standard id=28 outputs=1 outputBytes=18
+  [360] huffman v2 standard id=50 outputs=2 outputBytes=9528
+  [361] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [362] bitpack standard id=28 outputs=1 outputBytes=36
+  [363] bitpack standard id=28 outputs=1 outputBytes=18
+  [364] huffman v2 standard id=50 outputs=2 outputBytes=10734
+  [365] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [366] bitpack standard id=28 outputs=1 outputBytes=25
+  [367] bitpack standard id=28 outputs=1 outputBytes=14
+  [368] huffman v2 standard id=50 outputs=2 outputBytes=10107
+  [369] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [370] bitpack standard id=28 outputs=1 outputBytes=34
+  [371] bitpack standard id=28 outputs=1 outputBytes=17
+  [372] huffman v2 standard id=50 outputs=2 outputBytes=9310
+  [373] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [374] bitpack standard id=28 outputs=1 outputBytes=38
+  [375] bitpack standard id=28 outputs=1 outputBytes=19
+  [376] huffman v2 standard id=50 outputs=2 outputBytes=12569
+  [377] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [378] bitpack standard id=28 outputs=1 outputBytes=42
+  [379] bitpack standard id=28 outputs=1 outputBytes=19
+  [380] huffman v2 standard id=50 outputs=2 outputBytes=10339
+  [381] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [382] bitpack standard id=28 outputs=1 outputBytes=38
+  [383] bitpack standard id=28 outputs=1 outputBytes=19
+  [384] huffman v2 standard id=50 outputs=2 outputBytes=10773
+  [385] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [386] bitpack standard id=28 outputs=1 outputBytes=39
+  [387] bitpack standard id=28 outputs=1 outputBytes=17
+  [388] huffman v2 standard id=50 outputs=2 outputBytes=9801
+  [389] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [390] bitpack standard id=28 outputs=1 outputBytes=40
+  [391] bitpack standard id=28 outputs=1 outputBytes=20
+  [392] huffman v2 standard id=50 outputs=2 outputBytes=10697
+  [393] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [394] bitpack standard id=28 outputs=1 outputBytes=52
+  [395] bitpack standard id=28 outputs=1 outputBytes=23
+  [396] huffman v2 standard id=50 outputs=2 outputBytes=10647
+  [397] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [398] bitpack standard id=28 outputs=1 outputBytes=48
+  [399] bitpack standard id=28 outputs=1 outputBytes=21
+  [400] huffman v2 standard id=50 outputs=2 outputBytes=11454
+  [401] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [402] bitpack standard id=28 outputs=1 outputBytes=36
+  [403] bitpack standard id=28 outputs=1 outputBytes=18
+  [404] huffman v2 standard id=50 outputs=2 outputBytes=11067
+  [405] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [406] bitpack standard id=28 outputs=1 outputBytes=40
+  [407] bitpack standard id=28 outputs=1 outputBytes=20
+  [408] huffman v2 standard id=50 outputs=2 outputBytes=10472
+  [409] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [410] bitpack standard id=28 outputs=1 outputBytes=43
+  [411] bitpack standard id=28 outputs=1 outputBytes=19
+  [412] huffman v2 standard id=50 outputs=2 outputBytes=11402
+  [413] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [414] bitpack standard id=28 outputs=1 outputBytes=37
+  [415] bitpack standard id=28 outputs=1 outputBytes=19
+  [416] huffman v2 standard id=50 outputs=2 outputBytes=11437
+  [417] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [418] bitpack standard id=28 outputs=1 outputBytes=41
+  [419] bitpack standard id=28 outputs=1 outputBytes=21
+  [420] huffman v2 standard id=50 outputs=2 outputBytes=11130
+  [421] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [422] bitpack standard id=28 outputs=1 outputBytes=36
+  [423] bitpack standard id=28 outputs=1 outputBytes=21
+  [424] huffman v2 standard id=50 outputs=2 outputBytes=12646
+  [425] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [426] bitpack standard id=28 outputs=1 outputBytes=40
+  [427] bitpack standard id=28 outputs=1 outputBytes=20
+  [428] huffman v2 standard id=50 outputs=2 outputBytes=11040
+  [429] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [430] bitpack standard id=28 outputs=1 outputBytes=44
+  [431] bitpack standard id=28 outputs=1 outputBytes=22
+  [432] huffman v2 standard id=50 outputs=2 outputBytes=12017
+  [433] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [434] bitpack standard id=28 outputs=1 outputBytes=38
+  [435] bitpack standard id=28 outputs=1 outputBytes=22
+  [436] huffman v2 standard id=50 outputs=2 outputBytes=12392
+  [437] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [438] bitpack standard id=28 outputs=1 outputBytes=36
+  [439] bitpack standard id=28 outputs=1 outputBytes=21
+  [440] huffman v2 standard id=50 outputs=2 outputBytes=12532
+  [441] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [442] bitpack standard id=28 outputs=1 outputBytes=45
+  [443] bitpack standard id=28 outputs=1 outputBytes=23
+  [444] huffman v2 standard id=50 outputs=2 outputBytes=12376
+  [445] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [446] bitpack standard id=28 outputs=1 outputBytes=41
+  [447] bitpack standard id=28 outputs=1 outputBytes=18
+  [448] huffman v2 standard id=50 outputs=2 outputBytes=12216
+  [449] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [450] bitpack standard id=28 outputs=1 outputBytes=37
+  [451] bitpack standard id=28 outputs=1 outputBytes=19
+  [452] huffman v2 standard id=50 outputs=2 outputBytes=11351
+  [453] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [454] bitpack standard id=28 outputs=1 outputBytes=44
+  [455] bitpack standard id=28 outputs=1 outputBytes=22
+  [456] huffman v2 standard id=50 outputs=2 outputBytes=11075
+  [457] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [458] bitpack standard id=28 outputs=1 outputBytes=36
+  [459] bitpack standard id=28 outputs=1 outputBytes=18
+  [460] huffman v2 standard id=50 outputs=2 outputBytes=8617
+  [461] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [462] bitpack standard id=28 outputs=1 outputBytes=47
+  [463] bitpack standard id=28 outputs=1 outputBytes=21
+  [464] huffman v2 standard id=50 outputs=2 outputBytes=9021
+  [465] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [466] bitpack standard id=28 outputs=1 outputBytes=67
+  [467] bitpack standard id=28 outputs=1 outputBytes=27
+  [468] huffman v2 standard id=50 outputs=2 outputBytes=9220
+  [469] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [470] bitpack standard id=28 outputs=1 outputBytes=34
+  [471] bitpack standard id=28 outputs=1 outputBytes=17
+  [472] huffman v2 standard id=50 outputs=2 outputBytes=8777
+  [473] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [474] bitpack standard id=28 outputs=1 outputBytes=78
+  [475] bitpack standard id=28 outputs=1 outputBytes=31
+  [476] huffman v2 standard id=50 outputs=2 outputBytes=11764
+  [477] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [478] bitpack standard id=28 outputs=1 outputBytes=39
+  [479] bitpack standard id=28 outputs=1 outputBytes=20
+  [480] huffman v2 standard id=50 outputs=2 outputBytes=12126
+  [481] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [482] bitpack standard id=28 outputs=1 outputBytes=83
+  [483] bitpack standard id=28 outputs=1 outputBytes=33
+  [484] huffman v2 standard id=50 outputs=2 outputBytes=10756
+  [485] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [486] bitpack standard id=28 outputs=1 outputBytes=87
+  [487] bitpack standard id=28 outputs=1 outputBytes=35
+  [488] huffman v2 standard id=50 outputs=2 outputBytes=12513
+  [489] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [490] bitpack standard id=28 outputs=1 outputBytes=47
+  [491] bitpack standard id=28 outputs=1 outputBytes=21
+  [492] huffman v2 standard id=50 outputs=2 outputBytes=9945
+  [493] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [494] bitpack standard id=28 outputs=1 outputBytes=58
+  [495] bitpack standard id=28 outputs=1 outputBytes=26
+  [496] huffman v2 standard id=50 outputs=2 outputBytes=9403
+  [497] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [498] bitpack standard id=28 outputs=1 outputBytes=52
+  [499] bitpack standard id=28 outputs=1 outputBytes=23
+  [500] huffman v2 standard id=50 outputs=2 outputBytes=8423
+  [501] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [502] bitpack standard id=28 outputs=1 outputBytes=37
+  [503] bitpack standard id=28 outputs=1 outputBytes=19
+  [504] huffman v2 standard id=50 outputs=2 outputBytes=8783
+  [505] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [506] bitpack standard id=28 outputs=1 outputBytes=79
+  [507] bitpack standard id=28 outputs=1 outputBytes=32
+  [508] huffman v2 standard id=50 outputs=2 outputBytes=10417
+  [509] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [510] bitpack standard id=28 outputs=1 outputBytes=90
+  [511] bitpack standard id=28 outputs=1 outputBytes=36
+  [512] huffman v2 standard id=50 outputs=2 outputBytes=11751
+  [513] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [514] bitpack standard id=28 outputs=1 outputBytes=49
+  [515] bitpack standard id=28 outputs=1 outputBytes=20
+  [516] huffman v2 standard id=50 outputs=2 outputBytes=7391
+  [517] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [518] bitpack standard id=28 outputs=1 outputBytes=48
+  [519] bitpack standard id=28 outputs=1 outputBytes=21
+  [520] huffman v2 standard id=50 outputs=2 outputBytes=6908
+  [521] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [522] bitpack standard id=28 outputs=1 outputBytes=35
+  [523] bitpack standard id=28 outputs=1 outputBytes=18
+  [524] huffman v2 standard id=50 outputs=2 outputBytes=8167
+  [525] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [526] bitpack standard id=28 outputs=1 outputBytes=45
+  [527] bitpack standard id=28 outputs=1 outputBytes=20
+  [528] huffman v2 standard id=50 outputs=2 outputBytes=8717
+  [529] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [530] bitpack standard id=28 outputs=1 outputBytes=40
+  [531] bitpack standard id=28 outputs=1 outputBytes=18
+  [532] huffman v2 standard id=50 outputs=2 outputBytes=8423
+  [533] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [534] bitpack standard id=28 outputs=1 outputBytes=100
+  [535] bitpack standard id=28 outputs=1 outputBytes=40
+  [536] huffman v2 standard id=50 outputs=2 outputBytes=9321
+  [537] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [538] bitpack standard id=28 outputs=1 outputBytes=35
+  [539] bitpack standard id=28 outputs=1 outputBytes=18
+  [540] huffman v2 standard id=50 outputs=2 outputBytes=7498
+  [541] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [542] bitpack standard id=28 outputs=1 outputBytes=42
+  [543] bitpack standard id=28 outputs=1 outputBytes=21
+  [544] huffman v2 standard id=50 outputs=2 outputBytes=8199
+  [545] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [546] bitpack standard id=28 outputs=1 outputBytes=34
+  [547] bitpack standard id=28 outputs=1 outputBytes=17
+  [548] huffman v2 standard id=50 outputs=2 outputBytes=8307
+  [549] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [550] bitpack standard id=28 outputs=1 outputBytes=44
+  [551] bitpack standard id=28 outputs=1 outputBytes=20
+  [552] huffman v2 standard id=50 outputs=2 outputBytes=9685
+  [553] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [554] bitpack standard id=28 outputs=1 outputBytes=70
+  [555] bitpack standard id=28 outputs=1 outputBytes=28
+  [556] huffman v2 standard id=50 outputs=2 outputBytes=9803
+  [557] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [558] bitpack standard id=28 outputs=1 outputBytes=54
+  [559] bitpack standard id=28 outputs=1 outputBytes=22
+  [560] huffman v2 standard id=50 outputs=2 outputBytes=8777
+  [561] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [562] bitpack standard id=28 outputs=1 outputBytes=50
+  [563] bitpack standard id=28 outputs=1 outputBytes=22
+  [564] huffman v2 standard id=50 outputs=2 outputBytes=7074
+  [565] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [566] bitpack standard id=28 outputs=1 outputBytes=97
+  [567] bitpack standard id=28 outputs=1 outputBytes=39
+  [568] huffman v2 standard id=50 outputs=2 outputBytes=10307
+  [569] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=32768
+  [570] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [571] tokenize standard id=36 outputs=2 outputBytes=13558
+  [572] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=64
+  [573] tokenize standard id=36 outputs=2 outputBytes=32832
+  [574] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [575] tokenize standard id=36 outputs=2 outputBytes=32830
+  [576] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=64
+  [577] tokenize standard id=36 outputs=2 outputBytes=32832
+  [578] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [579] tokenize standard id=36 outputs=2 outputBytes=32830
+  [580] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=76
+  [581] tokenize standard id=36 outputs=2 outputBytes=32844
+  [582] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [583] tokenize standard id=36 outputs=2 outputBytes=32830
+  [584] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [585] tokenize standard id=36 outputs=2 outputBytes=32838
+  [586] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [587] tokenize standard id=36 outputs=2 outputBytes=32836
+  [588] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [589] tokenize standard id=36 outputs=2 outputBytes=32830
+  [590] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=92
+  [591] tokenize standard id=36 outputs=2 outputBytes=32860
+  [592] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [593] tokenize standard id=36 outputs=2 outputBytes=32836
+  [594] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=124
+  [595] tokenize standard id=36 outputs=2 outputBytes=32892
+  [596] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=64
+  [597] tokenize standard id=36 outputs=2 outputBytes=32832
+  [598] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [599] tokenize standard id=36 outputs=2 outputBytes=32830
+  [600] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [601] tokenize standard id=36 outputs=2 outputBytes=32840
+  [602] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [603] tokenize standard id=36 outputs=2 outputBytes=32838
+  [604] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=84
+  [605] tokenize standard id=36 outputs=2 outputBytes=32852
+  [606] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=60
+  [607] tokenize standard id=36 outputs=2 outputBytes=32828
+  [608] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [609] tokenize standard id=36 outputs=2 outputBytes=32848
+  [610] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [611] tokenize standard id=36 outputs=2 outputBytes=32846
+  [612] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=66
+  [613] tokenize standard id=36 outputs=2 outputBytes=32834
+  [614] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=60
+  [615] tokenize standard id=36 outputs=2 outputBytes=32828
+  [616] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [617] tokenize standard id=36 outputs=2 outputBytes=32846
+  [618] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [619] tokenize standard id=36 outputs=2 outputBytes=32846
+  [620] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=62
+  [621] tokenize standard id=36 outputs=2 outputBytes=32830
+  [622] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=58
+  [623] tokenize standard id=36 outputs=2 outputBytes=32826
+  [624] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [625] tokenize standard id=36 outputs=2 outputBytes=32838
+  [626] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=56
+  [627] tokenize standard id=36 outputs=2 outputBytes=32824
+  [628] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [629] tokenize standard id=36 outputs=2 outputBytes=32842
+  [630] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=64
+  [631] tokenize standard id=36 outputs=2 outputBytes=32832
+  [632] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [633] tokenize standard id=36 outputs=2 outputBytes=32846
+  [634] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [635] tokenize standard id=36 outputs=2 outputBytes=32848
+  [636] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=86
+  [637] tokenize standard id=36 outputs=2 outputBytes=32854
+  [638] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [639] tokenize standard id=36 outputs=2 outputBytes=32842
+  [640] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [641] tokenize standard id=36 outputs=2 outputBytes=32840
+  [642] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [643] tokenize standard id=36 outputs=2 outputBytes=32848
+  [644] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [645] tokenize standard id=36 outputs=2 outputBytes=32838
+  [646] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=76
+  [647] tokenize standard id=36 outputs=2 outputBytes=32844
+  [648] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=54
+  [649] tokenize standard id=36 outputs=2 outputBytes=32822
+  [650] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=88
+  [651] tokenize standard id=36 outputs=2 outputBytes=32856
+  [652] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [653] tokenize standard id=36 outputs=2 outputBytes=32838
+  [654] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [655] tokenize standard id=36 outputs=2 outputBytes=32840
+  [656] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=56
+  [657] tokenize standard id=36 outputs=2 outputBytes=32824
+  [658] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [659] tokenize standard id=36 outputs=2 outputBytes=32836
+  [660] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=76
+  [661] tokenize standard id=36 outputs=2 outputBytes=32844
+  [662] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [663] tokenize standard id=36 outputs=2 outputBytes=32842
+  [664] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=76
+  [665] tokenize standard id=36 outputs=2 outputBytes=32844
+  [666] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [667] tokenize standard id=36 outputs=2 outputBytes=32836
+  [668] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [669] tokenize standard id=36 outputs=2 outputBytes=32848
+  [670] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=92
+  [671] tokenize standard id=36 outputs=2 outputBytes=32860
+  [672] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=84
+  [673] tokenize standard id=36 outputs=2 outputBytes=32852
+  [674] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [675] tokenize standard id=36 outputs=2 outputBytes=32840
+  [676] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [677] tokenize standard id=36 outputs=2 outputBytes=32848
+  [678] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=76
+  [679] tokenize standard id=36 outputs=2 outputBytes=32844
+  [680] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [681] tokenize standard id=36 outputs=2 outputBytes=32842
+  [682] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=82
+  [683] tokenize standard id=36 outputs=2 outputBytes=32850
+  [684] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=82
+  [685] tokenize standard id=36 outputs=2 outputBytes=32850
+  [686] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [687] tokenize standard id=36 outputs=2 outputBytes=32848
+  [688] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=88
+  [689] tokenize standard id=36 outputs=2 outputBytes=32856
+  [690] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=86
+  [691] tokenize standard id=36 outputs=2 outputBytes=32854
+  [692] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=82
+  [693] tokenize standard id=36 outputs=2 outputBytes=32850
+  [694] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=90
+  [695] tokenize standard id=36 outputs=2 outputBytes=32858
+  [696] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [697] tokenize standard id=36 outputs=2 outputBytes=32840
+  [698] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [699] tokenize standard id=36 outputs=2 outputBytes=32842
+  [700] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=88
+  [701] tokenize standard id=36 outputs=2 outputBytes=32856
+  [702] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=72
+  [703] tokenize standard id=36 outputs=2 outputBytes=32840
+  [704] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=82
+  [705] tokenize standard id=36 outputs=2 outputBytes=32850
+  [706] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=106
+  [707] tokenize standard id=36 outputs=2 outputBytes=32874
+  [708] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [709] tokenize standard id=36 outputs=2 outputBytes=32836
+  [710] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=124
+  [711] tokenize standard id=36 outputs=2 outputBytes=32892
+  [712] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [713] tokenize standard id=36 outputs=2 outputBytes=32846
+  [714] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=132
+  [715] tokenize standard id=36 outputs=2 outputBytes=32900
+  [716] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=138
+  [717] tokenize standard id=36 outputs=2 outputBytes=32906
+  [718] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=82
+  [719] tokenize standard id=36 outputs=2 outputBytes=32850
+  [720] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=102
+  [721] tokenize standard id=36 outputs=2 outputBytes=32870
+  [722] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=92
+  [723] tokenize standard id=36 outputs=2 outputBytes=32860
+  [724] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=74
+  [725] tokenize standard id=36 outputs=2 outputBytes=32842
+  [726] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=126
+  [727] tokenize standard id=36 outputs=2 outputBytes=32894
+  [728] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=144
+  [729] tokenize standard id=36 outputs=2 outputBytes=32912
+  [730] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [731] tokenize standard id=36 outputs=2 outputBytes=32846
+  [732] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=84
+  [733] tokenize standard id=36 outputs=2 outputBytes=32852
+  [734] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [735] tokenize standard id=36 outputs=2 outputBytes=32838
+  [736] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=80
+  [737] tokenize standard id=36 outputs=2 outputBytes=32848
+  [738] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [739] tokenize standard id=36 outputs=2 outputBytes=32838
+  [740] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=160
+  [741] tokenize standard id=36 outputs=2 outputBytes=32928
+  [742] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=70
+  [743] tokenize standard id=36 outputs=2 outputBytes=32838
+  [744] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=84
+  [745] tokenize standard id=36 outputs=2 outputBytes=32852
+  [746] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=68
+  [747] tokenize standard id=36 outputs=2 outputBytes=32836
+  [748] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=78
+  [749] tokenize standard id=36 outputs=2 outputBytes=32846
+  [750] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=112
+  [751] tokenize standard id=36 outputs=2 outputBytes=32880
+  [752] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=86
+  [753] tokenize standard id=36 outputs=2 outputBytes=32854
+  [754] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=88
+  [755] tokenize standard id=36 outputs=2 outputBytes=32856
+  [756] zl.convert_struct_to_num_le standard id=7 outputs=1 outputBytes=154
+  [757] tokenize standard id=36 outputs=2 outputBytes=32922
+  [758] splitN struct standard id=47 outputs=94 outputBytes=6121816
+  [759] zstd standard id=22 outputs=1 outputBytes=844400
+  [760] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=6732793
+  [761] delta standard id=1 outputs=1 outputBytes=6732793
+  [762] zl.convert_serial_to_num_le standard id=9 outputs=1 outputBytes=6732794
+  [763] zstd standard id=22 outputs=1 outputBytes=5583097
+  [764] zl.convert_num_to_serial_le standard id=10 outputs=1 outputBytes=6732793
+  [765] delta standard id=1 outputs=1 outputBytes=6732793
+  [766] zl.convert_serial_to_num_le standard id=9 outputs=1 outputBytes=6732794
+  [767] transpose split standard id=4 outputs=4 outputBytes=26931176
+  [768] quantize lengths standard id=26 outputs=2 outputBytes=21
+  [769] quantize lengths standard id=26 outputs=2 outputBytes=90398
+  [770] quantize offsets standard id=25 outputs=2 outputBytes=8786988
+  [771] field lz standard id=24 outputs=5 outputBytes=45556432
+  [772] zl.convert_num_to_struct_le standard id=8 outputs=1 outputBytes=39477840
+  [773] range pack standard id=35 outputs=1 outputBytes=39477840
+
+  openzl/auto: 28008812 B, 22.70 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm15_bing_quadkey.csv.tmp

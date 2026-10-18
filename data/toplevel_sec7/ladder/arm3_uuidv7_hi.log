@@ -1,0 +1,47 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:39.548049 25585 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: uuidv7_hi ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=1 rowFrame=(slope=0x1 base=0x0)
+  [0..63] storageBytes=8
+    RLE<Uint64> rowCount=10000000
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	9180526	
+1	/Section0	0	RLE	Uint64	9180495	
+2	/Section0/Lengths	0	FrequencyPartition	Uint32	1516853	
+3	/Section0/Lengths/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+3	/Section0/Lengths/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+2	/Section0/Values	1	Delta	Uint64	7663632	
+3	/Section0/Values/Deltas	0	FrequencyPartition	Uint64	7663581	
+4	/Section0/Values/Deltas/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+4	/Section0/Values/Deltas/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+3	/Section0/Values/Restatements	1	Trivial	Uint64	15	Uncompressed
+3	/Section0/Values/IsRestatements	2	SparseBool	Bool	22	
+4	/Section0/Values/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	9180526	21347874	0.43004404091948456	column	0
+1	/Section0	payload	RLE	Uint64	10000000	9180495	22907607	0.40076185172899115	section	1
+2	/Section0/Lengths	metadata	FrequencyPartition	Uint32	4324290	1516853	1826660	0.8303970087482071	section	1
+3	/Section0/Lengths/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+3	/Section0/Lengths/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section0/Values	payload	Delta	Uint64	4324290	7663632	10810807	0.7088862098823889	section	1
+3	/Section0/Values/Deltas	payload	FrequencyPartition	Uint64	4324289	7663581	8838737	0.8670448051571169	section	1
+4	/Section0/Values/Deltas/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+4	/Section0/Values/Deltas/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section0/Values/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+3	/Section0/Values/IsRestatements	metadata	SparseBool	Bool	4324290	22	32	0.6875	section	1
+4	/Section0/Values/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=1 frameBase=0 frameKind=step keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	RLE	9180495	Delta	25000082	RLE	22907607	Dictionary	42426757	FOR	44008789	Delta=25000082/21250070;RLE=22907607/22907608;BlockBitPacking=32046194/28841574;FOR=40673924/34572836;SimdForBitpack=48750016/43875012;FixedBitWidth=48750023/43875020;PFOR=48750039/43875036;FrequencyPartition=53208686/45227388;Dictionary=49830966/49830968;Varint=58942813/58942812;MainlyConstant=78749980/78749984;Trivial=80000007/80000008
+whole	0	63	0			Delta	25000082	RLE	22907607	Dictionary	42426757	FOR	44008789	Delta=25000082/21250070;RLE=22907607/22907608;BlockBitPacking=32046194/28841574;FOR=40673924/34572836;SimdForBitpack=48750016/43875012;FixedBitWidth=48750023/43875020;PFOR=48750039/43875036;FrequencyPartition=53208686/45227388;Dictionary=49830966/49830968;Varint=58942813/58942812;MainlyConstant=78749980/78749984;Trivial=80000007/80000008
+  SIS/realNested: 9180526 B, 7.34 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm3_uuidv7_hi.csv.tmp

@@ -1,0 +1,7 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 15:51:38.941494 38753 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_decode_gather: 7 encoders x 1 datasets, N=524288, selectivity_steps=6, run_length_steps=7, iters=2, cache=hot
+  l1d=32KiB l2=1MiB llc=13.75MiB line=64B
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/gather4/gather_hot_osm_h3_r9_fileorder_shipped_r2.csv.tmp

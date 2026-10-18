@@ -1,0 +1,34 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:45:02.561053  7590 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_costmodel_oracle: 1 datasets, N=524288, kBits=64
+
+== Dataset: snowflake ==
+  writer reproduction ok: 2578739 B over 8 segments (39.3484 bits/elem)
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=-1 plan_ms=148.78 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=0 plan_ms=149.816 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=1 plan_ms=149.549 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=2 plan_ms=147.486 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=3 plan_ms=147.319 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=4 plan_ms=147.657 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=5 plan_ms=147.243 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=6 plan_ms=147.334 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=7 plan_ms=147.616 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=8 plan_ms=147.877 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=9 plan_ms=147.866 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 rep=10 plan_ms=148.093 encodes=2080 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time-bytes] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=2048 bytes=2392540 bits_per_value=36.5073 plan=0-0;1-3;4-11;12-16;17-21;22-43;44-50;51-54;55-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=-1 plan_ms=42037.3 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=0 plan_ms=42331.7 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=1 plan_ms=41646.3 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=2 plan_ms=41156.8 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=3 plan_ms=42229.9 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=4 plan_ms=40424.8 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=5 plan_ms=41721 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=6 plan_ms=41480.6 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=7 plan_ms=39777.5 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=8 plan_ms=40937.8 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=9 plan_ms=40799.8 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 rep=10 plan_ms=40435.1 encodes=2080 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+  [plan-time-bytes] dataset=snowflake arm=SIS/oracle_dp_selection sample_size=524288 bytes=2340289 bits_per_value=35.71 plan=0-14;15-16;17-21;22-27;28-31;32-35;36-39;40-43;44-49;50-52;53-56;57-63
+
+Results written to: $RESULTS/plan_time_20261017_2134/out/oracle_snowflake_524288.csv

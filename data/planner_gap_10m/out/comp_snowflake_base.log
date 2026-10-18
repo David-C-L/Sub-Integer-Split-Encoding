@@ -1,0 +1,676 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 23:32:21.543879 13594 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 4 encoders x 1 datasets, N=10000000
+
+== Dataset: snowflake ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=8
+  [0..3] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=0, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 6722621 rows
+      tier[1]: 2bit codes, 4 unique values, 2208756 rows
+      tier[2]: 4bit codes, 10 unique values, 1068623 rows
+  [4..11] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [12..17] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=3359126, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 1054172 rows
+      tier[1]: 2bit codes, 4 unique values, 1642392 rows
+      tier[2]: 4bit codes, 16 unique values, 3944310 rows
+  [18..21] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [22..51] storageBytes=4
+    BlockBitPacking<Uint32> rowCount=10000000 blockSize=1024 numBlocks=9766
+  [52..59] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [60..60] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [61..63] storageBytes=1
+    Constant<Uint8> rowCount=10000000 value=0
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	49898003	
+1	/Section0	0	FrequencyPartition	Uint8	3586816	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section1	1	RLE	Uint8	502203	
+2	/Section1/Lengths	0	MainlyConstant	Uint32	105581	
+3	/Section1/Lengths/IsCommon	0	Trivial	Bool	49590	Uncompressed
+3	/Section1/Lengths/OtherValues	1	FrequencyPartition	Uint32	55973	
+4	/Section1/Lengths/OtherValues/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+4	/Section1/Lengths/OtherValues/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section1/Values	1	Trivial	Uint8	396612	Uncompressed
+1	/Section2	2	FrequencyPartition	Uint8	7370904	
+2	/Section2/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section2/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section3	3	RLE	Uint8	376559	
+2	/Section3/Lengths	0	FrequencyPartition	Uint32	182739	
+3	/Section3/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section3/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section3/Values	1	FOR	Uint8	193810	
+3	/Section3/Values/BitWidths	0	MainlyConstant	Uint8	540	
+4	/Section3/Values/BitWidths/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+3	/Section3/Values/References	1	MainlyConstant	Uint8	544	
+4	/Section3/Values/References/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/References/OtherValues	1	SimdForBitpack	Uint8	93	
+3	/Section3/Values/BitOffsets	2	Delta	Uint64	634	
+4	/Section3/Values/BitOffsets/Deltas	0	MainlyConstant	Uint64	583	
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	0	Trivial	Bool	436	Uncompressed
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	1	Dictionary	Uint64	125	
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	0	Trivial	Uint64	23	Uncompressed
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	92	
+4	/Section3/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section3/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section4	4	BlockBitPacking	Uint32	37373063	Uncompressed
+2	/Section4/Baselines	0	PFOR	Uint32	34343	
+3	/Section4/Baselines/ExceptionPositions	0	FixedBitWidth	Uint32	54	Uncompressed
+3	/Section4/Baselines/ExceptionValues	1	Trivial	Uint32	87	Uncompressed
+2	/Section4/BitWidths	1	MainlyConstant	Uint8	317	
+3	/Section4/BitWidths/IsCommon	0	SparseBool	Bool	213	
+4	/Section4/BitWidths/IsCommon/Indices	0	Delta	Uint32	206	
+5	/Section4/BitWidths/IsCommon/Indices/Deltas	0	Varint	Uint32	152	
+5	/Section4/BitWidths/IsCommon/Indices/Restatements	1	Trivial	Uint32	11	Uncompressed
+5	/Section4/BitWidths/IsCommon/Indices/IsRestatements	2	Trivial	Bool	29	Uncompressed
+3	/Section4/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+2	/Section4/DataOffsets	2	Delta	Uint32	421	
+3	/Section4/DataOffsets/Deltas	0	MainlyConstant	Uint32	374	
+4	/Section4/DataOffsets/Deltas/IsCommon	0	SparseBool	Bool	235	
+5	/Section4/DataOffsets/Deltas/IsCommon/Indices	0	FixedBitWidth	Uint32	228	Uncompressed
+4	/Section4/DataOffsets/Deltas/OtherValues	1	Dictionary	Uint32	121	
+5	/Section4/DataOffsets/Deltas/OtherValues/Alphabet	0	Varint	Uint32	35	
+5	/Section4/DataOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	76	
+3	/Section4/DataOffsets/Restatements	1	Trivial	Uint32	11	Uncompressed
+3	/Section4/DataOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section4/DataOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section5	5	RLE	Uint8	680361	
+2	/Section5/Lengths	0	FrequencyPartition	Uint32	307157	
+3	/Section5/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section5/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section5/Values	1	Trivial	Uint8	373194	Uncompressed
+1	/Section6	6	RLE	Uint8	8034	
+2	/Section6/Lengths	0	PFOR	Uint32	7483	
+3	/Section6/Lengths/ExceptionPositions	0	Varint	Uint32	29	
+3	/Section6/Lengths/ExceptionValues	1	Varint	Uint32	28	
+2	/Section6/Values	1	SimdForBitpack	Uint8	541	
+1	/Section7	7	Constant	Uint8	7	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	49898003	62168075	0.8026306589033037	column	0
+1	/Section0	payload	FrequencyPartition	Uint8	10000000	3586816	4427044	0.8102056360858396	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section1	payload	RLE	Uint8	10000000	502203	525455	0.9557488272068969	section	1
+2	/Section1/Lengths	metadata	MainlyConstant	Uint32	396605	105581	128833	0.8195182911210637	section	1
+3	/Section1/Lengths/IsCommon	metadata	Trivial	Bool	396605	49590	49590	1	section	1
+3	/Section1/Lengths/OtherValues	payload	FrequencyPartition	Uint32	49705	55973	61937	0.9037086071330546	section	1
+4	/Section1/Lengths/OtherValues/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+4	/Section1/Lengths/OtherValues/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section1/Values	payload	Trivial	Uint8	396605	396612	396612	1	section	1
+1	/Section2	payload	FrequencyPartition	Uint8	10000000	7370904	7534111	0.9783375901947821	section	1
+2	/Section2/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section2/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section3	payload	RLE	Uint8	10000000	376559	478971	0.7861832971098459	section	1
+2	/Section3/Lengths	metadata	FrequencyPartition	Uint32	431534	182739	263178	0.6943551512664432	section	1
+3	/Section3/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section3/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section3/Values	payload	FOR	Uint8	431534	193810	203117	0.9541791184391262	section	1
+3	/Section3/Values/BitWidths	metadata	MainlyConstant	Uint8	3372	540	546	0.989010989010989	section	1
+4	/Section3/Values/BitWidths/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	631	89	89	1	section	1
+3	/Section3/Values/References	metadata	MainlyConstant	Uint8	3372	544	472	1.152542372881356	section	1
+4	/Section3/Values/References/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/References/OtherValues	payload	SimdForBitpack	Uint8	223	93	93	1	section	1
+3	/Section3/Values/BitOffsets	metadata	Delta	Uint64	3372	634	4295	0.14761350407450524	section	1
+4	/Section3/Values/BitOffsets/Deltas	payload	MainlyConstant	Uint64	3371	583	589	0.9898132427843803	section	1
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	metadata	Trivial	Bool	3371	436	436	1	section	1
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	payload	Dictionary	Uint64	630	125	131	0.9541984732824428	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	payload	Trivial	Uint64	2	23	23	1	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	630	92	92	1	section	1
+4	/Section3/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section3/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	3372	22	29	0.7586206896551724	section	1
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section4	payload	BlockBitPacking	Uint32	10000000	37373063	37425898	0.9985882770267797	section	1
+2	/Section4/Baselines	metadata	PFOR	Uint32	9766	34343	34343	1	section	1
+3	/Section4/Baselines/ExceptionPositions	metadata	FixedBitWidth	Uint32	20	54	54	1	section	1
+3	/Section4/Baselines/ExceptionValues	payload	Trivial	Uint32	20	87	87	1	section	1
+2	/Section4/BitWidths	metadata	MainlyConstant	Uint8	9766	317	340	0.9323529411764706	section	1
+3	/Section4/BitWidths/IsCommon	metadata	SparseBool	Bool	9766	213	235	0.9063829787234042	section	1
+4	/Section4/BitWidths/IsCommon/Indices	metadata	Delta	Uint32	119	206	229	0.8995633187772926	section	1
+5	/Section4/BitWidths/IsCommon/Indices/Deltas	payload	Varint	Uint32	118	152	152	1	section	1
+5	/Section4/BitWidths/IsCommon/Indices/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+5	/Section4/BitWidths/IsCommon/Indices/IsRestatements	metadata	Trivial	Bool	119	29	29	1	section	1
+3	/Section4/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	118	89	89	1	section	1
+2	/Section4/DataOffsets	metadata	Delta	Uint32	9766	421	14722	0.028596658062763212	section	1
+3	/Section4/DataOffsets/Deltas	payload	MainlyConstant	Uint32	9765	374	380	0.9842105263157894	section	1
+4	/Section4/DataOffsets/Deltas/IsCommon	metadata	SparseBool	Bool	9765	235	235	1	section	1
+5	/Section4/DataOffsets/Deltas/IsCommon/Indices	metadata	FixedBitWidth	Uint32	119	228	228	1	section	1
+4	/Section4/DataOffsets/Deltas/OtherValues	payload	Dictionary	Uint32	118	121	127	0.952755905511811	section	1
+5	/Section4/DataOffsets/Deltas/OtherValues/Alphabet	payload	Varint	Uint32	13	35	35	1	section	1
+5	/Section4/DataOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	118	76	76	1	section	1
+3	/Section4/DataOffsets/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+3	/Section4/DataOffsets/IsRestatements	metadata	SparseBool	Bool	9766	22	30	0.7333333333333333	section	1
+4	/Section4/DataOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section5	payload	RLE	Uint8	10000000	680361	714965	0.9516004279929787	section	1
+2	/Section5/Lengths	metadata	FrequencyPartition	Uint32	373187	307157	341761	0.8987479554425462	section	1
+3	/Section5/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section5/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section5/Values	payload	Trivial	Uint8	373187	373194	373194	1	section	1
+1	/Section6	payload	RLE	Uint8	10000000	8034	8508	0.9442877291960508	section	1
+2	/Section6/Lengths	metadata	PFOR	Uint32	4231	7483	7500	0.9977333333333334	section	1
+3	/Section6/Lengths/ExceptionPositions	metadata	Varint	Uint32	10	29	29	1	section	1
+3	/Section6/Lengths/ExceptionValues	payload	Varint	Uint32	10	28	28	1	section	1
+2	/Section6/Values	payload	SimdForBitpack	Uint8	4231	541	541	1	section	1
+1	/Section7	payload	Constant	Uint8	10000000	7	7	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	3	0	FrequencyPartition	3586816	FrequencyPartition	4427044	FOR	4848812	FrequencyPartition	4901123	FixedBitWidth	5043945	FrequencyPartition=4427044/3762987;FOR=4848812/4121490;BlockBitPacking=4880215/4392193;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Dictionary=5000052/5000052;RLE=5242485/5242485;Delta=6250054/5312546;Trivial=10000007/10000007;MainlyConstant=18608118/18608118
+1	4	11	0	RLE	502203	RLE	525455	MainlyConstant	1406719	RLE	1796875	MainlyConstant	1860351	RLE=525455/525455;MainlyConstant=1406719/1406719;FOR=2008230/1706995;BlockBitPacking=2264773/2038295;FrequencyPartition=3998359/3398605;Trivial=10000007/7000005;PFOR=9349206/8414285;SimdForBitpack=10000009/9000008;FixedBitWidth=10000016/9000014;Delta=10604140/9013519;Dictionary=10000292/10000292
+2	12	17	0	FrequencyPartition	7370904	FrequencyPartition	7534111	BlockBitPacking	7391351	FixedBitWidth	7543945	SimdForBitpack	7543945	FrequencyPartition=7534111/6403994;BlockBitPacking=7391351/6652215;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;Delta=8750054/7437546;Dictionary=7500093/7500093;FOR=9620258/8177219;RLE=8402364/8402364;Trivial=10000007/10000007;MainlyConstant=35298030/35298032
+3	18	21	0	RLE	376559	RLE	478971	BlockBitPacking	1759895	RLE	2895507	FrequencyPartition	4522705	RLE=478971/478971;BlockBitPacking=1759895/1583905;FOR=1895137/1610866;MainlyConstant=2670222/2670222;FrequencyPartition=3902700/3317295;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Delta=5729663/4870213;Dictionary=5000052/5000052;Trivial=10000007/10000007
+4	22	51	0	BlockBitPacking	37373063	Delta	38750059	BlockBitPacking	37425898	FixedBitWidth	37558593	SimdForBitpack	37558593	Delta=38750059/32937552;BlockBitPacking=37425898/33683304;SimdForBitpack=37500012/33750008;FixedBitWidth=37500019/33750016;PFOR=37500035/33750032;FOR=40005716/34004860;FrequencyPartition=40730668/34621068;RLE=37111185/37111184;Trivial=40000007/40000008;Varint=46646920/46646920;Dictionary=66193391/66193392;MainlyConstant=67497495/67497496
+5	52	59	0	RLE	680361	RLE	714965	FOR	3924041	RLE	2324218	FOR	8461914	RLE=714965/714965;FOR=3924041/3335435;BlockBitPacking=7123277/6410949;Trivial=10000007/7000005;FrequencyPartition=10454840/8886614;SimdForBitpack=10000009/9000008;FixedBitWidth=10000016/9000014;PFOR=10000032/9000029;Delta=11105773/9439907;Dictionary=10000292/10000292;MainlyConstant=38682631/38682632
+6	60	60	0	RLE	8034	RLE	8508	BlockBitPacking	532759	RLE	288085	FOR	961914	RLE=8508/8508;BlockBitPacking=532759/479483;Delta=1256424/1067960;SimdForBitpack=1250009/1125008;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;Dictionary=1250038/1250038;FOR=1503994/1278394;MainlyConstant=1861407/1861407;FrequencyPartition=2500117/2125099;Trivial=10000007/10000007
+7	61	63	0	Constant	7	Constant	7	SimdForBitpack	9	Constant	34179	FixedBitWidth	43945	Constant=7/7;SimdForBitpack=9/8;RLE=38/38;MainlyConstant=50/50;BlockBitPacking=126999/114299;Delta=1250070/1062559;FixedBitWidth=1250016/1125014;PFOR=1250032/1125028;Dictionary=1250037/1250037;FOR=1503994/1278394;FrequencyPartition=2500116/2125098;Trivial=10000007/10000007
+whole	0	63	0			BlockBitPacking	72073858	Delta	77500068	FOR	75258789	FixedBitWidth	76328125	BlockBitPacking=72073858/64866468;Delta=77500068/65875056;FOR=80106657/68090656;FixedBitWidth=76250023/68625016;SimdForBitpack=76250016/68625016;PFOR=76250039/68625032;RLE=76250086/76250088;Trivial=80000007/80000008;Varint=88619784/88619784;FrequencyPartition=109823670/93350120;Dictionary=106152300/106152304;MainlyConstant=106250053/106250056
+  SIS/realNested: 49898003 B, 39.92 bpe
+  --- SIS/realNested+view encoding tree ---
+SubIntSplitEncoding sections=8
+  [0..3] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=0, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 6722621 rows
+      tier[1]: 2bit codes, 4 unique values, 2208756 rows
+      tier[2]: 4bit codes, 10 unique values, 1068623 rows
+  [4..11] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [12..17] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=3359126, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 1054172 rows
+      tier[1]: 2bit codes, 4 unique values, 1642392 rows
+      tier[2]: 4bit codes, 16 unique values, 3944310 rows
+  [18..21] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [22..51] storageBytes=4
+    BlockBitPacking<Uint32> rowCount=10000000 blockSize=1024 numBlocks=9766
+  [52..59] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [60..60] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [61..63] storageBytes=1
+    Constant<Uint8> rowCount=10000000 value=0
+
+  --- SIS/realNested+view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	49898003	
+1	/Section0	0	FrequencyPartition	Uint8	3586816	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section1	1	RLE	Uint8	502203	
+2	/Section1/Lengths	0	MainlyConstant	Uint32	105581	
+3	/Section1/Lengths/IsCommon	0	Trivial	Bool	49590	Uncompressed
+3	/Section1/Lengths/OtherValues	1	FrequencyPartition	Uint32	55973	
+4	/Section1/Lengths/OtherValues/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+4	/Section1/Lengths/OtherValues/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section1/Values	1	Trivial	Uint8	396612	Uncompressed
+1	/Section2	2	FrequencyPartition	Uint8	7370904	
+2	/Section2/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section2/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section3	3	RLE	Uint8	376559	
+2	/Section3/Lengths	0	FrequencyPartition	Uint32	182739	
+3	/Section3/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section3/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section3/Values	1	FOR	Uint8	193810	
+3	/Section3/Values/BitWidths	0	MainlyConstant	Uint8	540	
+4	/Section3/Values/BitWidths/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+3	/Section3/Values/References	1	MainlyConstant	Uint8	544	
+4	/Section3/Values/References/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/References/OtherValues	1	SimdForBitpack	Uint8	93	
+3	/Section3/Values/BitOffsets	2	Delta	Uint64	634	
+4	/Section3/Values/BitOffsets/Deltas	0	MainlyConstant	Uint64	583	
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	0	Trivial	Bool	436	Uncompressed
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	1	Dictionary	Uint64	125	
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	0	Trivial	Uint64	23	Uncompressed
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	92	
+4	/Section3/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section3/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section4	4	BlockBitPacking	Uint32	37373063	Uncompressed
+2	/Section4/Baselines	0	PFOR	Uint32	34343	
+3	/Section4/Baselines/ExceptionPositions	0	FixedBitWidth	Uint32	54	Uncompressed
+3	/Section4/Baselines/ExceptionValues	1	Trivial	Uint32	87	Uncompressed
+2	/Section4/BitWidths	1	MainlyConstant	Uint8	317	
+3	/Section4/BitWidths/IsCommon	0	SparseBool	Bool	213	
+4	/Section4/BitWidths/IsCommon/Indices	0	Delta	Uint32	206	
+5	/Section4/BitWidths/IsCommon/Indices/Deltas	0	Varint	Uint32	152	
+5	/Section4/BitWidths/IsCommon/Indices/Restatements	1	Trivial	Uint32	11	Uncompressed
+5	/Section4/BitWidths/IsCommon/Indices/IsRestatements	2	Trivial	Bool	29	Uncompressed
+3	/Section4/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+2	/Section4/DataOffsets	2	Delta	Uint32	421	
+3	/Section4/DataOffsets/Deltas	0	MainlyConstant	Uint32	374	
+4	/Section4/DataOffsets/Deltas/IsCommon	0	SparseBool	Bool	235	
+5	/Section4/DataOffsets/Deltas/IsCommon/Indices	0	FixedBitWidth	Uint32	228	Uncompressed
+4	/Section4/DataOffsets/Deltas/OtherValues	1	Dictionary	Uint32	121	
+5	/Section4/DataOffsets/Deltas/OtherValues/Alphabet	0	Varint	Uint32	35	
+5	/Section4/DataOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	76	
+3	/Section4/DataOffsets/Restatements	1	Trivial	Uint32	11	Uncompressed
+3	/Section4/DataOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section4/DataOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section5	5	RLE	Uint8	680361	
+2	/Section5/Lengths	0	FrequencyPartition	Uint32	307157	
+3	/Section5/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section5/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section5/Values	1	Trivial	Uint8	373194	Uncompressed
+1	/Section6	6	RLE	Uint8	8034	
+2	/Section6/Lengths	0	PFOR	Uint32	7483	
+3	/Section6/Lengths/ExceptionPositions	0	Varint	Uint32	29	
+3	/Section6/Lengths/ExceptionValues	1	Varint	Uint32	28	
+2	/Section6/Values	1	SimdForBitpack	Uint8	541	
+1	/Section7	7	Constant	Uint8	7	
+  --- SIS/realNested+view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	49898003	62168075	0.8026306589033037	column	0
+1	/Section0	payload	FrequencyPartition	Uint8	10000000	3586816	4427044	0.8102056360858396	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section1	payload	RLE	Uint8	10000000	502203	525455	0.9557488272068969	section	1
+2	/Section1/Lengths	metadata	MainlyConstant	Uint32	396605	105581	128833	0.8195182911210637	section	1
+3	/Section1/Lengths/IsCommon	metadata	Trivial	Bool	396605	49590	49590	1	section	1
+3	/Section1/Lengths/OtherValues	payload	FrequencyPartition	Uint32	49705	55973	61937	0.9037086071330546	section	1
+4	/Section1/Lengths/OtherValues/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+4	/Section1/Lengths/OtherValues/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section1/Values	payload	Trivial	Uint8	396605	396612	396612	1	section	1
+1	/Section2	payload	FrequencyPartition	Uint8	10000000	7370904	7534111	0.9783375901947821	section	1
+2	/Section2/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section2/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section3	payload	RLE	Uint8	10000000	376559	478971	0.7861832971098459	section	1
+2	/Section3/Lengths	metadata	FrequencyPartition	Uint32	431534	182739	263178	0.6943551512664432	section	1
+3	/Section3/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section3/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section3/Values	payload	FOR	Uint8	431534	193810	203117	0.9541791184391262	section	1
+3	/Section3/Values/BitWidths	metadata	MainlyConstant	Uint8	3372	540	546	0.989010989010989	section	1
+4	/Section3/Values/BitWidths/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	631	89	89	1	section	1
+3	/Section3/Values/References	metadata	MainlyConstant	Uint8	3372	544	472	1.152542372881356	section	1
+4	/Section3/Values/References/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/References/OtherValues	payload	SimdForBitpack	Uint8	223	93	93	1	section	1
+3	/Section3/Values/BitOffsets	metadata	Delta	Uint64	3372	634	4295	0.14761350407450524	section	1
+4	/Section3/Values/BitOffsets/Deltas	payload	MainlyConstant	Uint64	3371	583	589	0.9898132427843803	section	1
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	metadata	Trivial	Bool	3371	436	436	1	section	1
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	payload	Dictionary	Uint64	630	125	131	0.9541984732824428	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	payload	Trivial	Uint64	2	23	23	1	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	630	92	92	1	section	1
+4	/Section3/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section3/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	3372	22	29	0.7586206896551724	section	1
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section4	payload	BlockBitPacking	Uint32	10000000	37373063	37425898	0.9985882770267797	section	1
+2	/Section4/Baselines	metadata	PFOR	Uint32	9766	34343	34343	1	section	1
+3	/Section4/Baselines/ExceptionPositions	metadata	FixedBitWidth	Uint32	20	54	54	1	section	1
+3	/Section4/Baselines/ExceptionValues	payload	Trivial	Uint32	20	87	87	1	section	1
+2	/Section4/BitWidths	metadata	MainlyConstant	Uint8	9766	317	340	0.9323529411764706	section	1
+3	/Section4/BitWidths/IsCommon	metadata	SparseBool	Bool	9766	213	235	0.9063829787234042	section	1
+4	/Section4/BitWidths/IsCommon/Indices	metadata	Delta	Uint32	119	206	229	0.8995633187772926	section	1
+5	/Section4/BitWidths/IsCommon/Indices/Deltas	payload	Varint	Uint32	118	152	152	1	section	1
+5	/Section4/BitWidths/IsCommon/Indices/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+5	/Section4/BitWidths/IsCommon/Indices/IsRestatements	metadata	Trivial	Bool	119	29	29	1	section	1
+3	/Section4/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	118	89	89	1	section	1
+2	/Section4/DataOffsets	metadata	Delta	Uint32	9766	421	14722	0.028596658062763212	section	1
+3	/Section4/DataOffsets/Deltas	payload	MainlyConstant	Uint32	9765	374	380	0.9842105263157894	section	1
+4	/Section4/DataOffsets/Deltas/IsCommon	metadata	SparseBool	Bool	9765	235	235	1	section	1
+5	/Section4/DataOffsets/Deltas/IsCommon/Indices	metadata	FixedBitWidth	Uint32	119	228	228	1	section	1
+4	/Section4/DataOffsets/Deltas/OtherValues	payload	Dictionary	Uint32	118	121	127	0.952755905511811	section	1
+5	/Section4/DataOffsets/Deltas/OtherValues/Alphabet	payload	Varint	Uint32	13	35	35	1	section	1
+5	/Section4/DataOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	118	76	76	1	section	1
+3	/Section4/DataOffsets/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+3	/Section4/DataOffsets/IsRestatements	metadata	SparseBool	Bool	9766	22	30	0.7333333333333333	section	1
+4	/Section4/DataOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section5	payload	RLE	Uint8	10000000	680361	714965	0.9516004279929787	section	1
+2	/Section5/Lengths	metadata	FrequencyPartition	Uint32	373187	307157	341761	0.8987479554425462	section	1
+3	/Section5/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section5/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section5/Values	payload	Trivial	Uint8	373187	373194	373194	1	section	1
+1	/Section6	payload	RLE	Uint8	10000000	8034	8508	0.9442877291960508	section	1
+2	/Section6/Lengths	metadata	PFOR	Uint32	4231	7483	7500	0.9977333333333334	section	1
+3	/Section6/Lengths/ExceptionPositions	metadata	Varint	Uint32	10	29	29	1	section	1
+3	/Section6/Lengths/ExceptionValues	payload	Varint	Uint32	10	28	28	1	section	1
+2	/Section6/Values	payload	SimdForBitpack	Uint8	4231	541	541	1	section	1
+1	/Section7	payload	Constant	Uint8	10000000	7	7	1	section	1
+  SIS/realNested+view: 49898003 B, 39.92 bpe
+  --- SIS/hybrid encoding tree ---
+SubIntSplitEncoding sections=8
+  [0..5] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=216145, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 6674941 rows
+      tier[1]: 2bit codes, 4 unique values, 2134791 rows
+      tier[2]: 4bit codes, 16 unique values, 974123 rows
+  [6..11] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [12..17] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=3359126, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 1054172 rows
+      tier[1]: 2bit codes, 4 unique values, 1642392 rows
+      tier[2]: 4bit codes, 16 unique values, 3944310 rows
+  [18..21] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [22..43] storageBytes=4
+    SimdForBitpack<Uint32> rowCount=10000000 bitWidth=22
+  [44..50] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [51..54] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [55..63] storageBytes=2
+    RLE<Uint16> rowCount=10000000
+
+  --- SIS/hybrid encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	46785518	
+1	/Section0	0	FrequencyPartition	Uint8	4151714	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section1	1	RLE	Uint8	237953	
+2	/Section1/Lengths	0	MainlyConstant	Uint32	15190	
+3	/Section1/Lengths/IsCommon	0	SparseBool	Bool	7696	
+4	/Section1/Lengths/IsCommon/Indices	0	Delta	Uint32	7689	
+5	/Section1/Lengths/IsCommon/Indices/Deltas	0	FrequencyPartition	Uint32	6796	
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionOffsets	0	Varint	Uint32	21	
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionSizes	1	Varint	Uint32	20	
+5	/Section1/Lengths/IsCommon/Indices/Restatements	1	Trivial	Uint32	11	Uncompressed
+5	/Section1/Lengths/IsCommon/Indices/IsRestatements	2	Trivial	Bool	868	Uncompressed
+3	/Section1/Lengths/OtherValues	1	FrequencyPartition	Uint32	7476	
+4	/Section1/Lengths/OtherValues/PartitionOffsets	0	Varint	Uint32	21	
+4	/Section1/Lengths/OtherValues/PartitionSizes	1	Varint	Uint32	19	
+2	/Section1/Values	1	SimdForBitpack	Uint8	222753	
+1	/Section2	2	FrequencyPartition	Uint8	7370904	
+2	/Section2/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section2/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section3	3	RLE	Uint8	376559	
+2	/Section3/Lengths	0	FrequencyPartition	Uint32	182739	
+3	/Section3/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section3/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section3/Values	1	FOR	Uint8	193810	
+3	/Section3/Values/BitWidths	0	MainlyConstant	Uint8	540	
+4	/Section3/Values/BitWidths/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+3	/Section3/Values/References	1	MainlyConstant	Uint8	544	
+4	/Section3/Values/References/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/References/OtherValues	1	SimdForBitpack	Uint8	93	
+3	/Section3/Values/BitOffsets	2	Delta	Uint64	634	
+4	/Section3/Values/BitOffsets/Deltas	0	MainlyConstant	Uint64	583	
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	0	Trivial	Bool	436	Uncompressed
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	1	Dictionary	Uint64	125	
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	0	Trivial	Uint64	23	Uncompressed
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	92	
+4	/Section3/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section3/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section4	4	SimdForBitpack	Uint32	27500012	
+1	/Section5	5	RLE	Uint8	6236625	
+2	/Section5/Lengths	0	FrequencyPartition	Uint32	1629939	
+3	/Section5/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section5/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section5/Values	1	FixedBitWidth	Uint8	4606676	Uncompressed
+1	/Section6	6	RLE	Uint8	792809	
+2	/Section6/Lengths	0	FrequencyPartition	Uint32	463634	
+3	/Section6/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section6/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section6/Values	1	FOR	Uint8	329165	
+3	/Section6/Values/BitWidths	0	Constant	Uint8	7	
+3	/Section6/Values/References	1	Constant	Uint8	7	
+3	/Section6/Values/BitOffsets	2	Delta	Uint64	65	
+4	/Section6/Values/BitOffsets/Deltas	0	Constant	Uint64	14	
+4	/Section6/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section6/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section6/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section7	7	RLE	Uint16	118886	
+2	/Section7/Lengths	0	FrequencyPartition	Uint32	72029	
+3	/Section7/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section7/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section7/Values	1	FixedBitWidth	Uint16	46847	Uncompressed
+  --- SIS/hybrid node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	46785518	62168075	0.75256501025647	column	0
+1	/Section0	payload	FrequencyPartition	Uint8	10000000	4151714	4517478	0.9190335846682596	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section1	payload	RLE	Uint8	10000000	237953	251604	0.9457441058170777	section	1
+2	/Section1/Lengths	metadata	MainlyConstant	Uint32	296985	15190	28839	0.5267172925552204	section	1
+3	/Section1/Lengths/IsCommon	metadata	SparseBool	Bool	296985	7696	16243	0.47380410022779046	section	1
+4	/Section1/Lengths/IsCommon/Indices	metadata	Delta	Uint32	6828	7689	8608	0.8932388475836431	section	1
+5	/Section1/Lengths/IsCommon/Indices/Deltas	payload	FrequencyPartition	Uint32	6827	6796	7667	0.8863962436415808	section	1
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionOffsets	metadata	Varint	Uint32	6	21	21	1	section	1
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionSizes	metadata	Varint	Uint32	6	20	20	1	section	1
+5	/Section1/Lengths/IsCommon/Indices/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+5	/Section1/Lengths/IsCommon/Indices/IsRestatements	metadata	Trivial	Bool	6828	868	868	1	section	1
+3	/Section1/Lengths/OtherValues	payload	FrequencyPartition	Uint32	6827	7476	8840	0.8457013574660633	section	1
+4	/Section1/Lengths/OtherValues/PartitionOffsets	metadata	Varint	Uint32	6	21	21	1	section	1
+4	/Section1/Lengths/OtherValues/PartitionSizes	metadata	Varint	Uint32	6	19	19	1	section	1
+2	/Section1/Values	payload	SimdForBitpack	Uint8	296985	222753	222753	1	section	1
+1	/Section2	payload	FrequencyPartition	Uint8	10000000	7370904	7534111	0.9783375901947821	section	1
+2	/Section2/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section2/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section3	payload	RLE	Uint8	10000000	376559	478971	0.7861832971098459	section	1
+2	/Section3/Lengths	metadata	FrequencyPartition	Uint32	431534	182739	263178	0.6943551512664432	section	1
+3	/Section3/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section3/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section3/Values	payload	FOR	Uint8	431534	193810	203117	0.9541791184391262	section	1
+3	/Section3/Values/BitWidths	metadata	MainlyConstant	Uint8	3372	540	546	0.989010989010989	section	1
+4	/Section3/Values/BitWidths/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	631	89	89	1	section	1
+3	/Section3/Values/References	metadata	MainlyConstant	Uint8	3372	544	472	1.152542372881356	section	1
+4	/Section3/Values/References/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/References/OtherValues	payload	SimdForBitpack	Uint8	223	93	93	1	section	1
+3	/Section3/Values/BitOffsets	metadata	Delta	Uint64	3372	634	4295	0.14761350407450524	section	1
+4	/Section3/Values/BitOffsets/Deltas	payload	MainlyConstant	Uint64	3371	583	589	0.9898132427843803	section	1
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	metadata	Trivial	Bool	3371	436	436	1	section	1
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	payload	Dictionary	Uint64	630	125	131	0.9541984732824428	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	payload	Trivial	Uint64	2	23	23	1	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	630	92	92	1	section	1
+4	/Section3/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section3/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	3372	22	29	0.7586206896551724	section	1
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section4	payload	SimdForBitpack	Uint32	10000000	27500012	27500012	1	section	1
+1	/Section5	payload	RLE	Uint8	10000000	6236625	7199652	0.866239784922938	section	1
+2	/Section5/Lengths	metadata	FrequencyPartition	Uint32	5264754	1629939	2781108	0.5860754059173539	section	1
+3	/Section5/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section5/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section5/Values	payload	FixedBitWidth	Uint8	5264754	4606676	4606676	1	section	1
+1	/Section6	payload	RLE	Uint8	10000000	792809	856165	0.9260002452798234	section	1
+2	/Section6/Lengths	metadata	FrequencyPartition	Uint32	658134	463634	527072	0.8796407321959808	section	1
+3	/Section6/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section6/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section6/Values	payload	FOR	Uint8	658134	329165	345224	0.9534823766597919	section	1
+3	/Section6/Values/BitWidths	metadata	Constant	Uint8	5142	7	7	1	section	1
+3	/Section6/Values/References	metadata	Constant	Uint8	5142	7	7	1	section	1
+3	/Section6/Values/BitOffsets	metadata	Delta	Uint64	5142	65	6509	0.009986172991242895	section	1
+4	/Section6/Values/BitOffsets/Deltas	payload	Constant	Uint64	5141	14	14	1	section	1
+4	/Section6/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section6/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	5142	22	30	0.7333333333333333	section	1
+5	/Section6/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section7	payload	RLE	Uint16	10000000	118886	126713	0.9382304893736239	section	1
+2	/Section7/Lengths	metadata	FrequencyPartition	Uint32	62439	72029	79856	0.9019860749348828	section	1
+3	/Section7/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section7/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section7/Values	payload	FixedBitWidth	Uint16	62439	46847	46847	1	section	1
+  --- SIS/hybrid section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	5	0	FrequencyPartition	4151714	FrequencyPartition	4517478	FOR	6392268	FrequencyPartition	6359252	BlockBitPacking	7246093	FrequencyPartition=4517478/3839856;FOR=6392268/5433428;BlockBitPacking=6133543/5520188;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;RLE=6883680/6883680;Delta=8750053/7437545;Dictionary=7500093/7500093;Trivial=10000007/10000007;MainlyConstant=20032144/20032144
+1	6	11	0	RLE	237953	RLE	251604	BlockBitPacking	983063	RLE	1738281	MainlyConstant	1831054	RLE=251604/251604;BlockBitPacking=983063/884756;MainlyConstant=1110259/1110259;FOR=1872123/1591304;FrequencyPartition=3903269/3317778;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;Delta=7953874/6760793;Dictionary=7500093/7500093;Trivial=10000007/10000007
+2	12	17	0	FrequencyPartition	7370904	FrequencyPartition	7534111	BlockBitPacking	7391351	FixedBitWidth	7543945	SimdForBitpack	7543945	FrequencyPartition=7534111/6403994;BlockBitPacking=7391351/6652215;SimdForBitpack=7500009/6750008;FixedBitWidth=7500016/6750014;PFOR=7500032/6750028;Delta=8750054/7437546;Dictionary=7500093/7500093;FOR=9620258/8177219;RLE=8402364/8402364;Trivial=10000007/10000007;MainlyConstant=35298030/35298032
+3	18	21	0	RLE	376559	RLE	478971	BlockBitPacking	1759895	RLE	2895507	FrequencyPartition	4522705	RLE=478971/478971;BlockBitPacking=1759895/1583905;FOR=1895137/1610866;MainlyConstant=2670222/2670222;FrequencyPartition=3902700/3317295;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Delta=5729663/4870213;Dictionary=5000052/5000052;Trivial=10000007/10000007
+4	22	43	0	SimdForBitpack	27500012	Delta	28750060	SimdForBitpack	27500012	FixedBitWidth	27558593	SimdForBitpack	27558593	Delta=28750060/24437552;SimdForBitpack=27500012/24750010;FixedBitWidth=27500019/24750018;PFOR=27500035/24750032;BlockBitPacking=27524074/24771666;FrequencyPartition=30845745/26218884;RLE=27271571/27271572;FOR=39927847/33938672;Varint=34514185/34514184;Dictionary=37888237/37888236;Trivial=40000007/40000008;MainlyConstant=57497870/57497872
+5	44	50	0	RLE	6236625	RLE	7199652	SimdForBitpack	8750009	FixedBitWidth	8793945	SimdForBitpack	8793945	RLE=7199652/7199652;SimdForBitpack=8750009/7875008;FixedBitWidth=8750016/7875014;PFOR=8750032/7875028;BlockBitPacking=8794439/7914995;Delta=10000053/8500045;FOR=10090504/8576929;FrequencyPartition=10256154/8717731;Dictionary=8750157/8750157;Trivial=10000007/10000007;MainlyConstant=37296932/37296932
+6	51	54	0	RLE	792809	RLE	856165	FOR	4050967	RLE	3906250	FixedBitWidth	5043945	RLE=856165/856165;FOR=4050967/3443322;BlockBitPacking=4958807/4462926;SimdForBitpack=5000009/4500008;FixedBitWidth=5000016/4500014;PFOR=5000032/4500028;Dictionary=5000052/5000052;Delta=6250054/5312546;FrequencyPartition=6270992/5330343;Trivial=10000007/10000007;MainlyConstant=31748221/31748220
+7	55	63	0	RLE	118886	RLE	126713	FOR	2076290	RLE	810546	FOR	6040039	RLE=126713/126713;FOR=2076290/1764846;BlockBitPacking=3960974/3564876;Delta=7676928/6525389;SimdForBitpack=7500010/6750009;FixedBitWidth=7500017/6750015;PFOR=7500033/6750029;FrequencyPartition=7982982/6785535;Dictionary=7500079/7500079;Trivial=20000007/20000008;MainlyConstant=33195284/33195284
+whole	0	63	0			BlockBitPacking	72073858	Delta	77500068	FOR	75258789	FixedBitWidth	76328125	BlockBitPacking=72073858/64866468;Delta=77500068/65875056;FOR=80106657/68090656;FixedBitWidth=76250023/68625016;SimdForBitpack=76250016/68625016;PFOR=76250039/68625032;RLE=76250086/76250088;Trivial=80000007/80000008;Varint=88619784/88619784;FrequencyPartition=109823670/93350120;Dictionary=106152300/106152304;MainlyConstant=106250053/106250056
+  SIS/hybrid: 46785518 B, 37.43 bpe
+  --- SIS/hybrid+view encoding tree ---
+SubIntSplitEncoding sections=8
+  [0..5] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=216145, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 6674941 rows
+      tier[1]: 2bit codes, 4 unique values, 2134791 rows
+      tier[2]: 4bit codes, 16 unique values, 974123 rows
+  [6..11] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [12..17] storageBytes=1
+    FrequencyPartition<Uint8> rowCount=10000000
+    tiers=3, unencoded_rows=3359126, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 1054172 rows
+      tier[1]: 2bit codes, 4 unique values, 1642392 rows
+      tier[2]: 4bit codes, 16 unique values, 3944310 rows
+  [18..21] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [22..43] storageBytes=4
+    SimdForBitpack<Uint32> rowCount=10000000 bitWidth=22
+  [44..50] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [51..54] storageBytes=1
+    RLE<Uint8> rowCount=10000000
+  [55..63] storageBytes=2
+    RLE<Uint16> rowCount=10000000
+
+  --- SIS/hybrid+view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	46785518	
+1	/Section0	0	FrequencyPartition	Uint8	4151714	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section1	1	RLE	Uint8	237953	
+2	/Section1/Lengths	0	MainlyConstant	Uint32	15190	
+3	/Section1/Lengths/IsCommon	0	SparseBool	Bool	7696	
+4	/Section1/Lengths/IsCommon/Indices	0	Delta	Uint32	7689	
+5	/Section1/Lengths/IsCommon/Indices/Deltas	0	FrequencyPartition	Uint32	6796	
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionOffsets	0	Varint	Uint32	21	
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionSizes	1	Varint	Uint32	20	
+5	/Section1/Lengths/IsCommon/Indices/Restatements	1	Trivial	Uint32	11	Uncompressed
+5	/Section1/Lengths/IsCommon/Indices/IsRestatements	2	Trivial	Bool	868	Uncompressed
+3	/Section1/Lengths/OtherValues	1	FrequencyPartition	Uint32	7476	
+4	/Section1/Lengths/OtherValues/PartitionOffsets	0	Varint	Uint32	21	
+4	/Section1/Lengths/OtherValues/PartitionSizes	1	Varint	Uint32	19	
+2	/Section1/Values	1	SimdForBitpack	Uint8	222753	
+1	/Section2	2	FrequencyPartition	Uint8	7370904	
+2	/Section2/PartitionOffsets	0	Trivial	Uint32	23	Uncompressed
+2	/Section2/PartitionSizes	1	Trivial	Uint32	23	Uncompressed
+1	/Section3	3	RLE	Uint8	376559	
+2	/Section3/Lengths	0	FrequencyPartition	Uint32	182739	
+3	/Section3/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section3/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section3/Values	1	FOR	Uint8	193810	
+3	/Section3/Values/BitWidths	0	MainlyConstant	Uint8	540	
+4	/Section3/Values/BitWidths/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/BitWidths/OtherValues	1	SimdForBitpack	Uint8	89	
+3	/Section3/Values/References	1	MainlyConstant	Uint8	544	
+4	/Section3/Values/References/IsCommon	0	Trivial	Bool	436	Uncompressed
+4	/Section3/Values/References/OtherValues	1	SimdForBitpack	Uint8	93	
+3	/Section3/Values/BitOffsets	2	Delta	Uint64	634	
+4	/Section3/Values/BitOffsets/Deltas	0	MainlyConstant	Uint64	583	
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	0	Trivial	Bool	436	Uncompressed
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	1	Dictionary	Uint64	125	
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	0	Trivial	Uint64	23	Uncompressed
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	1	SimdForBitpack	Uint32	92	
+4	/Section3/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section3/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section4	4	SimdForBitpack	Uint32	27500012	
+1	/Section5	5	RLE	Uint8	6236625	
+2	/Section5/Lengths	0	FrequencyPartition	Uint32	1629939	
+3	/Section5/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section5/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section5/Values	1	FixedBitWidth	Uint8	4606676	Uncompressed
+1	/Section6	6	RLE	Uint8	792809	
+2	/Section6/Lengths	0	FrequencyPartition	Uint32	463634	
+3	/Section6/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section6/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section6/Values	1	FOR	Uint8	329165	
+3	/Section6/Values/BitWidths	0	Constant	Uint8	7	
+3	/Section6/Values/References	1	Constant	Uint8	7	
+3	/Section6/Values/BitOffsets	2	Delta	Uint64	65	
+4	/Section6/Values/BitOffsets/Deltas	0	Constant	Uint64	14	
+4	/Section6/Values/BitOffsets/Restatements	1	Trivial	Uint64	15	Uncompressed
+4	/Section6/Values/BitOffsets/IsRestatements	2	SparseBool	Bool	22	
+5	/Section6/Values/BitOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section7	7	RLE	Uint16	118886	
+2	/Section7/Lengths	0	FrequencyPartition	Uint32	72029	
+3	/Section7/Lengths/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+3	/Section7/Lengths/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+2	/Section7/Values	1	FixedBitWidth	Uint16	46847	Uncompressed
+  --- SIS/hybrid+view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	46785518	62168075	0.75256501025647	column	0
+1	/Section0	payload	FrequencyPartition	Uint8	10000000	4151714	4517478	0.9190335846682596	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section1	payload	RLE	Uint8	10000000	237953	251604	0.9457441058170777	section	1
+2	/Section1/Lengths	metadata	MainlyConstant	Uint32	296985	15190	28839	0.5267172925552204	section	1
+3	/Section1/Lengths/IsCommon	metadata	SparseBool	Bool	296985	7696	16243	0.47380410022779046	section	1
+4	/Section1/Lengths/IsCommon/Indices	metadata	Delta	Uint32	6828	7689	8608	0.8932388475836431	section	1
+5	/Section1/Lengths/IsCommon/Indices/Deltas	payload	FrequencyPartition	Uint32	6827	6796	7667	0.8863962436415808	section	1
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionOffsets	metadata	Varint	Uint32	6	21	21	1	section	1
+6	/Section1/Lengths/IsCommon/Indices/Deltas/PartitionSizes	metadata	Varint	Uint32	6	20	20	1	section	1
+5	/Section1/Lengths/IsCommon/Indices/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+5	/Section1/Lengths/IsCommon/Indices/IsRestatements	metadata	Trivial	Bool	6828	868	868	1	section	1
+3	/Section1/Lengths/OtherValues	payload	FrequencyPartition	Uint32	6827	7476	8840	0.8457013574660633	section	1
+4	/Section1/Lengths/OtherValues/PartitionOffsets	metadata	Varint	Uint32	6	21	21	1	section	1
+4	/Section1/Lengths/OtherValues/PartitionSizes	metadata	Varint	Uint32	6	19	19	1	section	1
+2	/Section1/Values	payload	SimdForBitpack	Uint8	296985	222753	222753	1	section	1
+1	/Section2	payload	FrequencyPartition	Uint8	10000000	7370904	7534111	0.9783375901947821	section	1
+2	/Section2/PartitionOffsets	metadata	Trivial	Uint32	4	23	23	1	section	1
+2	/Section2/PartitionSizes	metadata	Trivial	Uint32	4	23	23	1	section	1
+1	/Section3	payload	RLE	Uint8	10000000	376559	478971	0.7861832971098459	section	1
+2	/Section3/Lengths	metadata	FrequencyPartition	Uint32	431534	182739	263178	0.6943551512664432	section	1
+3	/Section3/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section3/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section3/Values	payload	FOR	Uint8	431534	193810	203117	0.9541791184391262	section	1
+3	/Section3/Values/BitWidths	metadata	MainlyConstant	Uint8	3372	540	546	0.989010989010989	section	1
+4	/Section3/Values/BitWidths/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/BitWidths/OtherValues	payload	SimdForBitpack	Uint8	631	89	89	1	section	1
+3	/Section3/Values/References	metadata	MainlyConstant	Uint8	3372	544	472	1.152542372881356	section	1
+4	/Section3/Values/References/IsCommon	metadata	Trivial	Bool	3372	436	436	1	section	1
+4	/Section3/Values/References/OtherValues	payload	SimdForBitpack	Uint8	223	93	93	1	section	1
+3	/Section3/Values/BitOffsets	metadata	Delta	Uint64	3372	634	4295	0.14761350407450524	section	1
+4	/Section3/Values/BitOffsets/Deltas	payload	MainlyConstant	Uint64	3371	583	589	0.9898132427843803	section	1
+5	/Section3/Values/BitOffsets/Deltas/IsCommon	metadata	Trivial	Bool	3371	436	436	1	section	1
+5	/Section3/Values/BitOffsets/Deltas/OtherValues	payload	Dictionary	Uint64	630	125	131	0.9541984732824428	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Alphabet	payload	Trivial	Uint64	2	23	23	1	section	1
+6	/Section3/Values/BitOffsets/Deltas/OtherValues/Indices	metadata	SimdForBitpack	Uint32	630	92	92	1	section	1
+4	/Section3/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section3/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	3372	22	29	0.7586206896551724	section	1
+5	/Section3/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section4	payload	SimdForBitpack	Uint32	10000000	27500012	27500012	1	section	1
+1	/Section5	payload	RLE	Uint8	10000000	6236625	7199652	0.866239784922938	section	1
+2	/Section5/Lengths	metadata	FrequencyPartition	Uint32	5264754	1629939	2781108	0.5860754059173539	section	1
+3	/Section5/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section5/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section5/Values	payload	FixedBitWidth	Uint8	5264754	4606676	4606676	1	section	1
+1	/Section6	payload	RLE	Uint8	10000000	792809	856165	0.9260002452798234	section	1
+2	/Section6/Lengths	metadata	FrequencyPartition	Uint32	658134	463634	527072	0.8796407321959808	section	1
+3	/Section6/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section6/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section6/Values	payload	FOR	Uint8	658134	329165	345224	0.9534823766597919	section	1
+3	/Section6/Values/BitWidths	metadata	Constant	Uint8	5142	7	7	1	section	1
+3	/Section6/Values/References	metadata	Constant	Uint8	5142	7	7	1	section	1
+3	/Section6/Values/BitOffsets	metadata	Delta	Uint64	5142	65	6509	0.009986172991242895	section	1
+4	/Section6/Values/BitOffsets/Deltas	payload	Constant	Uint64	5141	14	14	1	section	1
+4	/Section6/Values/BitOffsets/Restatements	payload	Trivial	Uint64	1	15	15	1	section	1
+4	/Section6/Values/BitOffsets/IsRestatements	metadata	SparseBool	Bool	5142	22	30	0.7333333333333333	section	1
+5	/Section6/Values/BitOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section7	payload	RLE	Uint16	10000000	118886	126713	0.9382304893736239	section	1
+2	/Section7/Lengths	metadata	FrequencyPartition	Uint32	62439	72029	79856	0.9019860749348828	section	1
+3	/Section7/Lengths/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+3	/Section7/Lengths/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section7/Values	payload	FixedBitWidth	Uint16	62439	46847	46847	1	section	1
+  SIS/hybrid+view: 46785518 B, 37.43 bpe
+
+Results written to: $RESULTS/planner_gap_10m_20261018/out/comp_snowflake_base.csv

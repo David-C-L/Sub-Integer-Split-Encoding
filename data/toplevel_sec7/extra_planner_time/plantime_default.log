@@ -1,0 +1,12 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 16:11:22.065109  1843 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-openzl-dp/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/MlIdCompressionBenchmark.cpp is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: snowflake ==
+  [planner-time] snowflake pricer=default reps=11 median_ms=11.6118 min_ms=11.4061 plan=0-3;4-11;12-17;18-21;22-51;52-59;60-60;61-63
+  [planner-time] snowflake pricer=openzl_nimble reps=11 median_ms=582.925 min_ms=577.372 plan=0-3;4-11;12-16;17-21;22-29;30-60;61-63
+  [openzl-pricer] SIS/trivial calls=1712 pricer_ms=574.401 encode_ms=2729.53
+  SIS/trivial: 42033698 B, 33.63 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/extra_planner_time/plantime_default.csv

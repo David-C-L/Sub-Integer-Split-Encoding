@@ -1,0 +1,37 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:33:38.387998 25565 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=10000000
+
+== Dataset: xmark_prepost_full ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=1 rowFrame=(slope=0x10000001 base=0xfffffffffffffff4)
+  [0..63] storageBytes=8
+    FrequencyPartition<Uint64> rowCount=10000000
+    tiers=5, unencoded_rows=0, index=TierTagArray
+      tier[0]: 1bit codes, 2 unique values, 3316492 rows
+      tier[1]: 2bit codes, 4 unique values, 3205604 rows
+      tier[2]: 4bit codes, 16 unique values, 2235347 rows
+      tier[3]: 8bit codes, 256 unique values, 1155276 rows
+      tier[4]: 16bit codes, 529 unique values, 87281 rows
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	2858951	
+1	/Section0	0	FrequencyPartition	Uint64	2858920	
+2	/Section0/PartitionOffsets	0	Trivial	Uint32	31	Uncompressed
+2	/Section0/PartitionSizes	1	Trivial	Uint32	31	Uncompressed
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	10000000	2858951	15117297	0.189117869418058	column	0
+1	/Section0	payload	FrequencyPartition	Uint64	10000000	2858920	7354394	0.3887363119245447	section	1
+2	/Section0/PartitionOffsets	metadata	Trivial	Uint32	6	31	31	1	section	1
+2	/Section0/PartitionSizes	metadata	Trivial	Uint32	6	31	31	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=268435457 frameBase=18446744073709551604 frameKind=line keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	63	0	FrequencyPartition	2858920	FrequencyPartition	7354394	Dictionary	12506105	Dictionary	27133789	FrequencyPartition	29154663	FrequencyPartition=7354394/6251235;Dictionary=12506105/12506105;RLE=12541895/12541895;MainlyConstant=35458603/35458604;Delta=73173565/62197536;BlockBitPacking=74891234/67402104;FixedBitWidth=75000023/67500016;SimdForBitpack=75000016/67500016;PFOR=75000039/67500032;FOR=80879001/68747152;Trivial=80000007/80000008;Varint=90000005/90000008
+whole	0	63	0			FrequencyPartition	7354394	Dictionary	12506105	Dictionary	27133789	FrequencyPartition	29154663	FrequencyPartition=7354394/6251235;Dictionary=12506105/12506105;RLE=12541895/12541895;MainlyConstant=35458603/35458604;Delta=73173565/62197536;BlockBitPacking=74891234/67402104;FixedBitWidth=75000023/67500016;SimdForBitpack=75000016/67500016;PFOR=75000039/67500032;FOR=80879001/68747152;Trivial=80000007/80000008;Varint=90000005/90000008
+  SIS/realNested: 2858951 B, 2.29 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/ladder/arm3_xmark_prepost_full.csv.tmp

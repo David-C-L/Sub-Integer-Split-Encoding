@@ -1,0 +1,2 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,snowflake,SIS/trivial,SubIntSplit,trivial_sections,trivial,,shipped,0,10000000,42,42033698,80000000,0.525421,33.627,0,1

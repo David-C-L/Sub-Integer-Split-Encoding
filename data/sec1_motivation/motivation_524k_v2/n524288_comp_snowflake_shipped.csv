@@ -1,0 +1,13 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped
+bench_compression,Uint64,snowflake,zstd/auto,Zstd,auto,,,shipped,0,524288,42,3549011,4194304,0.84615,54.1536,0
+bench_compression,Uint64,snowflake,zstd/block-64,Zstd,block-64,,,shipped,0,524288,42,4017152,4194304,0.957764,61.2969,0
+bench_compression,Uint64,snowflake,zstd/block-256,Zstd,block-256,,,shipped,0,524288,42,3452446,4194304,0.823127,52.6801,0
+bench_compression,Uint64,snowflake,zstd/block-1024,Zstd,block-1024,,,shipped,0,524288,42,3302943,4194304,0.787483,50.3989,0
+bench_compression,Uint64,snowflake,zstd/block-65536,Zstd,block-65536,,,shipped,0,524288,42,3615197,4194304,0.86193,55.1635,0
+bench_compression,Uint64,snowflake,zstd/block-262144,Zstd,block-262144,,,shipped,0,524288,42,3557867,4194304,0.848262,54.2887,0
+bench_compression,Uint64,snowflake,openzl/auto,OpenZL,select_numeric,,,shipped,1,524288,42,2299913,4194304,0.548342,35.0939,0
+bench_compression,Uint64,snowflake,openzl/block-64,OpenZL,block-64,,,shipped,0,524288,42,4275825,4194304,1.01944,65.2439,0
+bench_compression,Uint64,snowflake,openzl/block-256,OpenZL,block-256,,,shipped,0,524288,42,2770007,4194304,0.660421,42.267,0
+bench_compression,Uint64,snowflake,openzl/block-1024,OpenZL,block-1024,,,shipped,0,524288,42,2491263,4194304,0.593963,38.0137,0
+bench_compression,Uint64,snowflake,openzl/block-65536,OpenZL,block-65536,,,shipped,0,524288,42,2302807,4194304,0.549032,35.138,0
+bench_compression,Uint64,snowflake,openzl/block-262144,OpenZL,block-262144,,,shipped,0,524288,42,2300807,4194304,0.548555,35.1075,0

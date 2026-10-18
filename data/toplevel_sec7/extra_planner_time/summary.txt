@@ -1,0 +1,4 @@
+  [planner-time] snowflake pricer=default reps=11 median_ms=11.3303 min_ms=11.2975 plan=0-3;4-11;12-17;18-21;22-51;52-59;60-60;61-63
+  [planner-time] snowflake pricer=openzl_nimble reps=11 median_ms=579.915 min_ms=576.897 plan=0-3;4-11;12-16;17-21;22-29;30-60;61-63
+  [planner-time] snowflake pricer=default reps=11 median_ms=11.6118 min_ms=11.4061 plan=0-3;4-11;12-17;18-21;22-51;52-59;60-60;61-63
+  [planner-time] snowflake pricer=openzl_nimble reps=11 median_ms=582.925 min_ms=577.372 plan=0-3;4-11;12-16;17-21;22-29;30-60;61-63

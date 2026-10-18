@@ -1,0 +1,5 @@
+# snowflake_first16.txt: the first 16 values, in file order, of the Snowflake column (Fig. 3 draws the first 8).
+xz -dc datasets/columns_524k/snowflake.txt.xz | head -16 > data/sec3_pipeline/snowflake_first16.txt
+# The section widths, encodings and bits per value of Fig. 3 (derived/sec3_plan_breakdown_8sec_addr.csv) were read by
+# hand from the SIS/realNested tree in data/addr_toplevel_snowflake/comp_snowflake_toplevel.csv.log
+# (command: data/addr_toplevel_snowflake/commands.txt).

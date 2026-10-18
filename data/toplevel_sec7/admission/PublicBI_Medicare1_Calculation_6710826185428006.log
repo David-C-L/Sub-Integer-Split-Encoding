@@ -1,0 +1,14 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 15:49:39.013116 38330 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+PublicBI_Medicare1_Calculation_6710826185428006: estimate_admits=1 policy=RLE heuristic_ns=2975154
+  Trivial: 4194311 B, 17 ms
+  FixedBitWidth: 524311 B, 1 ms
+  Dictionary: 4514 B, 4 ms
+  RLE: 4492 B, 0 ms
+  MainlyConstant: 2457 B, 2 ms
+  PFOR/view: 65561 B, 3 ms
+  SimdForBitpack/view: 65552 B, 1 ms
+  FPE/fpe_pertier: 70106 B, 10 ms
+  SIS/realNested: 2540 B, 17 ms
+  SIS/hybrid: 2540 B, 7 ms

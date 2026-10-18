@@ -1,0 +1,14 @@
+snowflake: 10,000,000 rows used of 10,000,000, 9,987,180 distinct (0.9987) in 27s
+xmark_prepost_full: 10,000,000 rows used of 32,298,988, 10,000,000 distinct (1.0000) in 35s
+osm_h3_r9_fileorder: 10,000,000 rows used of 10,000,000, 1,118,824 distinct (0.1119) in 19s
+osm_s2_l30_fileorder: 10,000,000 rows used of 10,000,000, 9,999,989 distinct (1.0000) in 20s
+bing_quadkey: 9,869,460 rows used of 9,869,460, 6,490,797 distinct (0.6577) in 18s
+uuidv7_hi: 10,000,000 rows used of 10,000,000, 10,000,000 distinct (1.0000) in 19s
+publicbi_npi: 17,290,144 rows used of 17,290,144, 640,119 distinct (0.0370) in 31s
+publicbi_id1: 739,754 rows used of 739,754, 739,754 distinct (1.0000) in 1s
+uuidv7_lo: 10,000,000 rows used of 10,000,000, 10,000,000 distinct (1.0000) in 20s
+F1_stocks_usa: 524,288 rows used of 524,288, 8,519 distinct (0.0162) in 1s
+F5_city_temp: 524,288 rows used of 524,288, 1,334 distinct (0.0025) in 1s
+F6_air_pressure: 524,288 rows used of 524,288, 32,239 distinct (0.0615) in 1s
+F8_poi_lat: 424,205 rows used of 424,205, 177,826 distinct (0.4192) in 1s
+F10_medicare_calc: 524,288 rows used of 524,288, 521,478 distinct (0.9946) in 1s

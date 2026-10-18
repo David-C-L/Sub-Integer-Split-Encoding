@@ -1,0 +1,26 @@
+{\setlength{\tabcolsep}{4pt}%
+\begin{tabular}{@{}llcrr@{}}
+\toprule
+Column & Source & Layout & Rows (M) & Distinct \\
+\midrule
+\multicolumn{5}{l}{\textit{\SFV{} columns}} \\
+Snowflake & Tweets~\cite{tacchi2023cultural}          & \cite{twitter2010snowflake} & 10.0 & 1.00 \\
+XMark     & XMark~\cite{schmidt2002xmark}             & ours                        & 10.0 & 1.00 \\
+H3        & OSM GB~\cite{osm_geofabrik_2026_gb}       & \cite{uberh3}               & 10.0 & 0.11 \\
+S2        & OSM GB~\cite{osm_geofabrik_2026_gb}       & \cite{s2geometry2017}       & 10.0 & 1.00 \\
+Bing      & HRSL~\cite{hrsl_labels,tiecke2017mapping} & \cite{microsoft_bing_tiles} & 9.87 & 0.66 \\
+UUIDv7-hi & generated                                 & \cite{davis2024rfc}         & 10.0 & 1.00 \\
+\midrule
+\multicolumn{5}{l}{\textit{Controls}} \\
+NPI       & Public BI~\cite{publicbi,vogelsgesang2018get} & --                      & 17.3 & 0.04 \\
+Id1       & Public BI~\cite{publicbi,vogelsgesang2018get} & --                      & 0.74 & 1.00 \\
+UUIDv7-lo & generated                                 & --                          & 10.0 & 1.00 \\
+\midrule
+\multicolumn{5}{l}{\textit{Float columns}} \\
+Stocks    & INFORE~\cite{infore2020financial,afroozeh2023alp} & \cite{ieee19}               & 0.52 & 0.02 \\
+Temp      & Kaggle~\cite{citytemp_kaggle,afroozeh2023alp} & \cite{ieee19}               & 0.52 & $<$0.01 \\
+Press.    & NEON~\cite{neon_barometric,afroozeh2023alp} & \cite{ieee19}               & 0.52 & 0.06 \\
+POI-lat   & Kaggle~\cite{poi_kaggle,afroozeh2023alp} & \cite{ieee19}               & 0.42 & 0.42 \\
+Calc.     & Public BI~\cite{publicbi,vogelsgesang2018get} & \cite{ieee19}           & 0.52 & 0.99 \\
+\bottomrule
+\end{tabular}}

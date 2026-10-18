@@ -1,0 +1,10 @@
+column,arm,section,bits,encoding,x1,x2,x3,bytes,bits_per_elem
+snowflake,SIS/realNested,0,0-3,FrequencyPartition,,,,178196,2.719
+snowflake,SIS/realNested,1,4-11,RLE,,,,23881,0.364
+snowflake,SIS/realNested,2,12-17,FrequencyPartition,,,,384990,5.874
+snowflake,SIS/realNested,3,18-21,RLE,,,,21522,0.328
+snowflake,SIS/realNested,4,22-50,SimdForBitpack,,,,1900556,29.000
+snowflake,SIS/realNested,5,51-58,RLE,,,,68782,1.050
+snowflake,SIS/realNested,6,59-60,RLE,,,,749,0.011
+snowflake,SIS/realNested,7,61-63,Constant,,,,7,0.000
+snowflake,SIS/realNested,whole,0-63,,,,,2578739,39.3484

@@ -1,0 +1,15 @@
+  [encode-cache] DISABLED: $HOSTDATA/project/wt-evaluation/./velox/dwio/nimble/encodings/benchmarks/ml_id_compression/BenchCommon.h is newer than this binary. Rebuild before measuring.
+bench_compression: 1 encoders x 1 datasets, N=524288
+
+== Dataset: osm_s2_l30_fileorder ==
+  --- Auto/view encoding tree ---
+FixedBitWidth<Uint64> rowCount=524288 bit_width=56
+  --- Auto/view encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	FixedBitWidth	Uint64	3670039	Uncompressed
+  --- Auto/view node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	FixedBitWidth	Uint64	524288	3670039	3670032	1.0000019073403175	column	0
+  Auto/view: 3670039 B, 56.00 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/xf/nimble_raw/auto_osm_s2_l30_fileorder_r1_comp.csv.tmp

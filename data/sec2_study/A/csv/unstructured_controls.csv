@@ -1,0 +1,3 @@
+column,rows,distinct,min,max,order0_entropy_bits_sample,bit1_prob_min,bit1_prob_max,bitflip_prob_min,bitflip_prob_max,zstd_whole_bpv,zstd_block64_bpv,openzl_best_bpv,nimble_best_nonsis_arm,nimble_best_nonsis_bpv
+hashed_splitmix64,524288,524288,19202915755489,18446714476301033557,19.000,0.4985,0.5013,0.4986,0.5018,64.000,64.625,64.001,Trivial,64.000
+random_uint64,524288,524288,34158425126263,18446728909132614168,19.000,0.4983,0.5018,0.4986,0.5023,64.000,64.625,64.001,Trivial,64.000

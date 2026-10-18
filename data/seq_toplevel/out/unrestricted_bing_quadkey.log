@@ -1,0 +1,54 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1017 20:07:53.921628  2551 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 1 encoders x 1 datasets, N=9869460
+
+== Dataset: bing_quadkey ==
+  --- SIS/realNested encoding tree ---
+SubIntSplitEncoding sections=3
+  [0..16] storageBytes=4
+    FixedBitWidth<Uint32> rowCount=9869460 bit_width=17
+  [17..29] storageBytes=2
+    BlockBitPacking<Uint16> rowCount=9869460 blockSize=1024 numBlocks=9639
+  [30..63] storageBytes=8
+    Constant<Uint64> rowCount=9869460 value=1
+
+  --- SIS/realNested encoding nodes ---
+#depth	path	index	encoding	dataType	bytes	compression
+0	/	0	SubIntSplit	Uint64	32638704	
+1	/Section0	0	FixedBitWidth	Uint32	20972622	Uncompressed
+1	/Section1	1	BlockBitPacking	Uint16	11666042	Uncompressed
+2	/Section1/Baselines	0	RLE	Uint16	8351	
+3	/Section1/Baselines/Lengths	0	Huffman	Uint32	1304	
+3	/Section1/Baselines/Values	1	Huffman	Uint16	7037	
+2	/Section1/BitWidths	1	Huffman	Uint8	3970	
+2	/Section1/DataOffsets	2	Delta	Uint32	4056	
+3	/Section1/DataOffsets/Deltas	0	Huffman	Uint32	4009	
+3	/Section1/DataOffsets/Restatements	1	Trivial	Uint32	11	Uncompressed
+3	/Section1/DataOffsets/IsRestatements	2	SparseBool	Bool	22	
+4	/Section1/DataOffsets/IsRestatements/Indices	0	Trivial	Uint32	15	Uncompressed
+1	/Section2	2	Constant	Uint64	14	
+  --- SIS/realNested node estimates ---
+#depth	path	kind	encoding	dataType	rows	actual	estimate	ratio	pricedWith	exactBits
+0	/	root	SubIntSplit	Uint64	9869460	32638704	32017967	1.0193871459733843	column	0
+1	/Section0	payload	FixedBitWidth	Uint32	9869460	20972622	20972622	1	section	1
+1	/Section1	payload	BlockBitPacking	Uint16	9869460	11666042	11717161	0.9956372537682123	section	1
+2	/Section1/Baselines	metadata	RLE	Uint16	9639	8351	8844	0.9442559927634554	section	1
+3	/Section1/Baselines/Lengths	metadata	Huffman	Uint32	4760	1304	1305	0.9992337164750957	section	1
+3	/Section1/Baselines/Values	payload	Huffman	Uint16	4760	7037	7038	0.9998579141801648	section	1
+2	/Section1/BitWidths	metadata	Huffman	Uint8	9639	3970	3971	0.9997481742634097	section	1
+2	/Section1/DataOffsets	metadata	Delta	Uint32	9639	4056	13327	0.30434456366774215	section	1
+3	/Section1/DataOffsets/Deltas	payload	Huffman	Uint32	9638	4009	4010	0.9997506234413965	section	1
+3	/Section1/DataOffsets/Restatements	payload	Trivial	Uint32	1	11	11	1	section	1
+3	/Section1/DataOffsets/IsRestatements	metadata	SparseBool	Bool	9639	22	30	0.7333333333333333	section	1
+4	/Section1/DataOffsets/IsRestatements/Indices	metadata	Trivial	Uint32	2	15	15	1	section	1
+1	/Section2	payload	Constant	Uint64	9869460	14	14	1	section	1
+  --- SIS/realNested section choices ---
+#frameSlope=0 frameBase=0 frameKind=none keySection=-1
+#section	bitStart	bitEnd	transform	encoding	actual	selPick	selPickEstimate	selRunnerUp	selRunnerUpEstimate	plannerPick	plannerPickBytes	plannerRunnerUp	plannerRunnerUpBytes	all
+0	0	16	0	FixedBitWidth	20972622	FixedBitWidth	20972622	PFOR	20972638	FixedBitWidth	21030431	SimdForBitpack	21030431	FixedBitWidth=20972622/18875360;PFOR=20972638/18875374;SimdForBitpack=20972640/18875376;Delta=22206345/18875392;BlockBitPacking=21125205/19012684;FrequencyPartition=23966906/20371870;RLE=21024595/21024596;Dictionary=21251179/21251180;Varint=28330571/28330572;FOR=39885531/33902704;Trivial=39477847/39477848;MainlyConstant=50571701/50571700
+1	17	29	0	BlockBitPacking	11666042	BlockBitPacking	11717161	FOR	13005158	Dictionary	11551316	FixedBitWidth	16086063	BlockBitPacking=11717161/10545445;FOR=13005158/11054385;FrequencyPartition=16004016/13603414;RLE=14106465/14106465;FixedBitWidth=16037890/14434101;SimdForBitpack=16037902/14434111;PFOR=16037906/14434115;Delta=17271612/14680871;Dictionary=14807917/14807917;Trivial=19738927/19738928;MainlyConstant=44103748/44103748
+2	30	63	0	Constant	14	Constant	14	SimdForBitpack	16	Constant	67467	FixedBitWidth	77105	Constant=14/14;SimdForBitpack=16/14;RLE=45/45;MainlyConstant=57/57;BlockBitPacking=192822/173539;Delta=1233767/1048702;FixedBitWidth=1233706/1110335;PFOR=1233722/1110349;Dictionary=1233727/1233727;FOR=1484373/1261717;FrequencyPartition=2467489/2097365;Varint=9869474/9869474;Trivial=78955687/78955688
+whole	0	63	0			BlockBitPacking	32741325	Delta	38244226	FixedBitWidth	37087580	SimdForBitpack	37087580	BlockBitPacking=32741325/29467190;Delta=38244226/32507592;FixedBitWidth=37010498/33309446;PFOR=37010514/33309460;SimdForBitpack=37010536/33309482;FOR=40079440/34067524;RLE=36959604/36959604;Varint=46920543/46920544;FrequencyPartition=55258150/46969432;Dictionary=52715239/52715240;MainlyConstant=66607286/66607288;Trivial=78955687/78955688
+  SIS/realNested: 32638704 B, 26.46 bpe
+
+Results written to: $RESULTS/seq_toplevel_20261017_2057/out/unrestricted_bing_quadkey.csv

@@ -1,0 +1,25 @@
+[23:32:21] waiting for lock
+ok comp_snowflake_base.csv
+ok plantime_snowflake.csv
+ok point_snowflake_base_r1.csv
+ok point_snowflake_base_r2.csv
+ok point_snowflake_base_r3.csv
+ok comp_osm_h3_r9_fileorder_base.csv
+ok plantime_osm_h3_r9_fileorder.csv
+ok point_osm_h3_r9_fileorder_base_r1.csv
+ok point_osm_h3_r9_fileorder_base_r2.csv
+ok point_osm_h3_r9_fileorder_base_r3.csv
+base done 23:54:10
+ok oracle_snowflake.csv
+ok comp_snowflake_oracle_dp_selection.csv
+ok oracle_osm_h3_r9_fileorder.csv
+DONE Sun Oct 18 00:16:05 UTC 2026
+ok comp_osm_h3_r9_fileorder_oracle_dp_selection.csv
+ok point_osm_h3_r9_fileorder_oracle_dp_selection_r1.csv
+ok point_snowflake_oracle_dp_selection_r1.csv
+ok point_osm_h3_r9_fileorder_oracle_dp_selection_r2.csv
+ok point_snowflake_oracle_dp_selection_r2.csv
+ok point_osm_h3_r9_fileorder_oracle_dp_selection_r3.csv
+pinned done osm_h3_r9_fileorder 00:23:14
+ok point_snowflake_oracle_dp_selection_r3.csv
+pinned done snowflake 00:25:32

@@ -1,0 +1,30 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 14:41:53.142561 27748 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_compression: 23 encoders x 1 datasets, N=524288
+
+== Dataset: snowflake ==
+  openzl/auto: 2299913 B, 35.09 bpe
+  zstd/block-64: 4017152 B, 61.30 bpe
+  openzl/block-64: 4275825 B, 65.24 bpe
+  zstd/block-128: 3671179 B, 56.02 bpe
+  openzl/block-128: 4115567 B, 62.80 bpe
+  zstd/block-256: 3452446 B, 52.68 bpe
+  openzl/block-256: 2770007 B, 42.27 bpe
+  zstd/block-512: 3357702 B, 51.23 bpe
+  openzl/block-512: 2714267 B, 41.42 bpe
+  zstd/block-1024: 3302943 B, 50.40 bpe
+  openzl/block-1024: 2491263 B, 38.01 bpe
+  zstd/block-2048: 3285018 B, 50.13 bpe
+  openzl/block-2048: 2382783 B, 36.36 bpe
+  zstd/block-4096: 3626911 B, 55.34 bpe
+  openzl/block-4096: 2314744 B, 35.32 bpe
+  zstd/block-8192: 3661989 B, 55.88 bpe
+  openzl/block-8192: 2267727 B, 34.60 bpe
+  zstd/block-16384: 3685627 B, 56.24 bpe
+  openzl/block-16384: 2266922 B, 34.59 bpe
+  zstd/block-32768: 3277182 B, 50.01 bpe
+  openzl/block-32768: 2287425 B, 34.90 bpe
+  zstd/block-65536: 3615197 B, 55.16 bpe
+  openzl/block-65536: 2302807 B, 35.14 bpe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/abl_a/comp_snowflake.csv.tmp

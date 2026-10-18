@@ -1,0 +1,7 @@
+dataset,arm,sections,bits_per_value,point_ns_per_probe,point_reps,plan_ms_median,plan_ms_min,plan_ms_max,plan_reps,validated_all
+snowflake,SIS/realNested+view,8,39.9184,1401.3,3,81.218,80.234,109.724,5,True
+snowflake,SIS/hybrid+view,8,37.4284,2165.5,3,112.63,108.83,116.76,5,True
+snowflake,SIS/oracle_dp_selection+view,15,35.8258,3387.8,3,1266080.0,1266080.0,1266080.0,1,True
+osm_h3_r9_fileorder,SIS/realNested+view,6,6.7478,1315.7,3,106.958,103.853,119.621,5,True
+osm_h3_r9_fileorder,SIS/hybrid+view,5,6.6523,1040.4,3,138.17,136.27,143.01,5,True
+osm_h3_r9_fileorder,SIS/oracle_dp_selection+view,7,6.1503,1334.5,3,1306210.0,1306210.0,1306210.0,1,True

@@ -1,0 +1,165 @@
+// ────────────────────────────────────────────────────────
+// |                      FastLanes                       |
+// ────────────────────────────────────────────────────────
+// src/include/fls/connection.hpp
+// ────────────────────────────────────────────────────────
+#ifndef FLS_CONNECTION_HPP
+#define FLS_CONNECTION_HPP
+
+#include "fls/api/api.hpp"
+#include "fls/common/alias.hpp" // for up, idx_t
+#include "fls/common/status.hpp"
+#include "fls/footer/rowgroup_descriptor.hpp" // for Footer
+#include "fls/footer/table_descriptor.hpp"
+#include "fls/reader/column_view.hpp" //
+#include "fls/reader/rowgroup_reader.hpp"
+#include "fls/reader/rowgroup_view.hpp" //
+#include "fls/reader/segment.hpp"
+#include "fls/reader/table_reader.hpp"
+#include "fls/std/filesystem.hpp" // for path
+#include "fls/std/vector.hpp"     // for vector
+#include "fls/table/rowgroup.hpp" // for Rowgroup
+#include "fls/table/table.hpp"    // for Reader
+
+namespace fastlanes {
+/*--------------------------------------------------------------------------------------------------------------------*/
+class Dir;
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------*\
+ * Config
+\*--------------------------------------------------------------------------------------------------------------------*/
+class FLS_API Config {
+public:
+	Config();
+
+public:
+	bool                  is_forced_schema_pool;
+	vector<OperatorToken> forced_schema_pool;
+	// Encodings the wizard must not consider. Expected to hold one or two entries, so a vector with a linear scan is
+	// cheaper than a hash set.
+	vector<OperatorToken> disabled_operator_tokens;
+	bool                  is_forced_schema;
+	vector<OperatorToken> forced_schema;
+	n_t                   sample_size;
+	n_t                   n_vector_per_rowgroup;
+	//
+	fls_bool inline_footer;
+	//
+	bool enable_verbose;
+};
+
+/*--------------------------------------------------------------------------------------------------------------------*\
+ * FLS
+\*--------------------------------------------------------------------------------------------------------------------*/
+class FLS_API Connection {
+public:
+	friend class column;
+	friend class equal;
+	friend class RowgroupEncoder;
+	friend class Wizard;
+	friend class Encoder;
+	friend class CsvReader;
+	friend class Rowgroup;
+
+public:
+	Connection();
+	explicit Connection(const Config& config);
+
+	Connection(const Connection&)            = delete;
+	Connection& operator=(const Connection&) = delete;
+	Connection(Connection&&)                 = default;
+	Connection& operator=(Connection&&)      = default;
+
+public:
+	/// READ CSV
+	Connection& read_csv(const path& dir_path);
+	/// READ CSV
+	Connection& read_json(const path& dir_path);
+	///! read a fls file return a reader
+	up<TableReader> read_fls(const path& file_path);
+	///!
+	Connection& spell();
+	///!
+	Connection& to_fls(const path& dir_path);
+	//
+	Status verify_fls(const path& file_path);
+
+	/**
+	 *
+	 */
+	Connection& reset();
+	///!
+	Connection& project(const vector<idx_t>& idxs);
+	///!
+	[[nodiscard]] bool is_forced_schema_pool() const;
+	///!
+	[[nodiscard]] bool is_forced_schema() const;
+	//
+	[[nodiscard]] const vector<OperatorToken>& get_forced_schema_pool() const;
+	//
+	Connection& force_schema_pool(const vector<OperatorToken>& operator_token);
+	// API:
+	// Removes an encoding from the candidate pool the wizard evaluates, so two runs can be compared that differ only
+	// in whether that encoding was available. Idempotent: disabling the same token twice is a no-op.
+	//
+	// Note that a physical type may be narrowed by Rowgroup::Cast(), so an encoding that exists for several widths
+	// has to be disabled for each of them (for example EXP_SUBINTSPLIT_I64 *and* EXP_SUBINTSPLIT_I32).
+	//
+	// The filter applies to expression-pool candidates only. A column claimed earlier by constant_check,
+	// equality_check or map_1t1_check never reaches the expression search and therefore ignores the disabled set.
+	// The forced-schema-pool path is likewise unaffected: an explicitly forced list is always honoured verbatim.
+	Connection& disable_encoding(OperatorToken operator_token);
+	// Clears the disabled set, restoring the full candidate pool.
+	Connection& enable_all_encodings();
+	//
+	[[nodiscard]] bool is_encoding_disabled(OperatorToken operator_token) const;
+	//
+	[[nodiscard]] const vector<OperatorToken>& get_disabled_encodings() const;
+	// API:
+	// If the specified sample size exceeds the row group size, it is capped at the row group size.
+	// A sample size of 0 is reserved for forcing fastlanes to use the entire row group as the sample size.
+	//
+	// Sets the sample size.
+	// @param n_vecs The desired sample size in terms of vector count. Use 0 to default to the row group size.
+	// @return Reference to the current Connection object.
+	Connection& set_sample_size(n_t n_vecs);
+	// API:
+	// Enables verbose mode. When verbose is enabled, the table descriptor
+	// is emitted in JSON format to the same file path as the “fastlanes”
+	// artifact, but with a “.json” extension.
+	Connection& enable_verbose();
+	//
+	[[nodiscard]] n_t get_sample_size() const;
+	//
+	Connection& force_schema(const vector<OperatorToken>& operator_token);
+	//
+	[[nodiscard]] const vector<OperatorToken>& get_forced_schema() const;
+	//
+	Connection& set_n_vectors_per_rowgroup(n_t n_vector_per_rowgroup);
+	///!
+	[[nodiscard]] Table& get_table() const;
+	//
+	[[nodiscard]] fls_bool is_footer_inlined() const;
+	//
+	Connection& inline_footer();
+	//
+	string_view get_version() const;
+
+private:
+	void prepare_table() const;
+	void write_footer(const path& dir_path) const;
+
+private:
+	up<Config>           m_config;
+	up<Table>            m_table;
+	up<TableDescriptorT> m_table_descriptor;
+};
+
+constexpr static auto const* FASTLANES_FILE_NAME {"data.fls"};
+constexpr static auto const* SCHEMA_FILE_NAME {"schema.json"};
+
+FLS_API up<Connection> connect();
+
+} // namespace fastlanes
+
+#endif

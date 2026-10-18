@@ -1,0 +1,2 @@
+driver,dtype,dataset,encoding,family,variant,inventory,transform,input_order,is_sequential,N,seed,payload_bytes,raw_bytes,compression_ratio,bits_per_elem,skipped,validated
+bench_compression,Uint64,xmark_prepost_full,Auto/view,Baseline,auto_view,,,shipped,0,524288,1,3932185,4194304,0.937506,60.0004,0,1

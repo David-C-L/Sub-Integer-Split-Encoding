@@ -1,0 +1,30 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1014 16:01:08.785055  1158 ResultWriter.h:231] Manifest written to mlidc_manifest.json
+bench_decode_point: 22 encoders x 1 datasets, N=524288, probes=4096, iters=3, cache=hot
+  l1d=32KiB l2=1MiB llc=13.75MiB line=64B
+
+== Dataset: snowflake ==
+  zstd/block-64: 4017152 B, 2064.93 ns/probe
+  openzl/block-64: 4275825 B, 5839 ns/probe
+  zstd/block-128: 3671179 B, 4864.8 ns/probe
+  openzl/block-128: 4115567 B, 6333.46 ns/probe
+  zstd/block-256: 3452446 B, 7146.4 ns/probe
+  openzl/block-256: 2770007 B, 24126.1 ns/probe
+  zstd/block-512: 3357702 B, 10970.9 ns/probe
+  openzl/block-512: 2714267 B, 31594.1 ns/probe
+  zstd/block-1024: 3302943 B, 18948.7 ns/probe
+  openzl/block-1024: 2491263 B, 46769.7 ns/probe
+  zstd/block-2048: 3285018 B, 34818.3 ns/probe
+  openzl/block-2048: 2382783 B, 66055.3 ns/probe
+  zstd/block-4096: 3626911 B, 41035.7 ns/probe
+  openzl/block-4096: 2314744 B, 89358.9 ns/probe
+  zstd/block-8192: 3661989 B, 80500.4 ns/probe
+  openzl/block-8192: 2267727 B, 132170 ns/probe
+  zstd/block-16384: 3685627 B, 150508 ns/probe
+  openzl/block-16384: 2266922 B, 216132 ns/probe
+  zstd/block-32768: 3277182 B, 500056 ns/probe
+  openzl/block-32768: 2287425 B, 390714 ns/probe
+  zstd/block-65536: 3615197 B, 702113 ns/probe
+  openzl/block-65536: 2302807 B, 757853 ns/probe
+
+Results written to: $RESULTS/toplevel_sec7_20261014_1526/abl_a/point_snowflake_r1.csv.tmp
