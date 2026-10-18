@@ -27,7 +27,7 @@ it first). Which code state produced each folder: `code/README.md`, "Code states
 and `commands.txt` inside the data folder; the other experiments' drivers are in `scripts/run/<experiment>/`.
 
 Placeholders in run scripts and logs: `$RESULTS` (result directory on the benchmark host), `$HOSTDATA` (its data
-volume), `$PROJECT` (the project checkout), `<ssh-key>`, `<fork-url>` (the private development forks of BtrBlocks
+volume), `$PROJECT` (the project checkout; `$HOSTDATA/project` is the same checkout, holding `Datasets/`), `<ssh-key>`, `<fork-url>` (the private development forks of BtrBlocks
 and FastLanes, whose shipped state is `code/btrblocks` and `code/fastlanes`), `benchmark-host`. Revision labels
 (`rev-*`) replace the hashes of private commits; `code/README.md` lists them.
 

@@ -24,12 +24,15 @@ git apply /path/to/code/velox-nimble/sis.patch          # or: cp -r /path/to/cod
 cmake -S . -B _build_release -G Ninja -DCMAKE_BUILD_TYPE=Release \
   -DVELOX_ENABLE_NIMBLE=ON -DNIMBLE_BUILD_TESTING=ON -DNIMBLE_ENABLE_EXPERIMENTAL_ENCODINGS=ON \
   -DVELOX_BUILD_MINIMAL_WITH_DWIO=ON -DVELOX_ENABLE_PARQUET=ON -DVELOX_MONO_LIBRARY=ON \
-  -DVELOX_DEPENDENCY_SOURCE=SYSTEM -Dopenzl_SOURCE=BUNDLED
+  -DVELOX_DEPENDENCY_SOURCE=SYSTEM -Dopenzl_SOURCE=BUNDLED -Dfaiss_SOURCE=BUNDLED
 ninja -C _build_release nimble_encodings_tests \
   nimble_ml_id_compression_benchmark nimble_ml_id_encode_benchmark nimble_ml_id_decode_bulk_benchmark \
   nimble_ml_id_decode_point_benchmark nimble_ml_id_decode_range_benchmark nimble_ml_id_decode_gather_benchmark \
   nimble_ml_id_admission_benchmark nimble_ml_id_cost_model_oracle_benchmark
 ```
+- Tested environment: the `ghcr.io/facebookincubator/velox-dev:ubuntu-22.04` image (GCC 11.4.0, CMake 4.3.2), whose
+  Folly is new enough; the build of the targets above takes about 45 minutes at `-j8`. faiss is bundled because the
+  image's system faiss fails to configure (`OpenMP::OpenMP_CXX` not found).
 - Compiler: GCC 11.4.0; Release gives `-O3 -DNDEBUG`. The complete CMake cache options of the benchmark build
   are in `velox-nimble/cmake_options.txt`; the flags above are the ones that select what is built.
 - Dependencies: Velox's own setup scripts (`scripts/setup-*.sh`) for the base revision. Folly must be new enough
@@ -107,7 +110,8 @@ Public upstream hashes (`235512ebf`, `c950c3c`, `f0edc10`) are given as is.
 ```
 git clone https://github.com/maxi-k/btrblocks.git && cd btrblocks && git checkout c950c3c
 git apply /path/to/code/btrblocks/sis.patch
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release        # Makefiles: the vendored ExternalProjects lack BUILD_BYPRODUCTS
+# CMake >= 4.0: set the policy minimum in the environment so the vendored ExternalProjects inherit it
+CMAKE_POLICY_VERSION_MINIMUM=3.5 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release   # Makefiles: the vendored ExternalProjects lack BUILD_BYPRODUCTS
 cmake --build build -j10 --target subintsplit_bench
 ```
 Design notes: `src/docs/subintsplit.md`, `src/docs/subintsplit-porting.md`.
@@ -122,8 +126,10 @@ FASTLANES_DATA_DIR=/tmp/fls_data_stub cmake -S . -B build -DCMAKE_BUILD_TYPE=Rel
   -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DFLS_BUILD_BENCHMARKING=ON -DFLS_BUILD_TESTING=ON
 cmake --build build -j10 --target bench_subintsplit
 ```
-The generated test inputs `data/generated/**/generated.csv` (four files of 65,536 rows) are not shipped;
-`src/data/generated/subintsplit/generate.py` writes them (see its `README.MD`). Its IPv4 prefix pool
+The generated test inputs `data/generated/**/generated.csv` (65,536 rows each) are not shipped;
+`src/data/generated/subintsplit/generate.py` writes them (see its `README.MD`). Smoke test:
+`python3 src/data/generated/subintsplit/generate.py --out-dir DIR --rows 65536` (without the prefix pool it writes
+snowflake and tpch, then stops at ipv4), then `FLS_SUBINTSPLIT_DATA_DIR=DIR build/benchmark/bench_subintsplit/bench_subintsplit`. Its IPv4 prefix pool
 `ipv4_prefixes.csv` is not shipped either; `generate.py --rebuild-prefixes --dbip <dbip-city-ipv4.csv>` rebuilds it
 from the DB-IP Lite database (CC BY 4.0, "IP Geolocation by DB-IP"). The cross-format run prepares its
 inputs with `scripts/run/cross_format_clean/make_xf_datasets.py` and drives both formats with
